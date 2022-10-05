@@ -53,11 +53,10 @@ const StoreOwner = (props) => {
     } = props;
 
     useEffect(() => {
-        props.countrylist();
         props.cartPrice(props?.loginuserid);
         props.getprofileuser(props?.loginuserid);
         props.getuseraddress(props?.loginuserid);
-    }, [props?.getprofileuserlist,props?.getuseraddresslist])
+    }, [])
 
     //Reference
     const emailRef = useRef();
@@ -143,7 +142,7 @@ const StoreOwner = (props) => {
         } else {
             let request = {
                 "userId":props?.loginuserid,
-                "orderNumber":uuid(),
+                "orderNumber":props?.loginuserid+''+props?.totalcartprice,
                 "orderStatus":"accepted",
                 "orderAmount":props?.totalcartprice,
                 "paymentMethod":"cash",
@@ -185,7 +184,7 @@ const StoreOwner = (props) => {
                         value={First}
                          autoCompleteType="off"
                          placeholder="First name"
-                         placeholderTextColor="#000000"
+                         placeholderTextColor="#b3b3b3"
                         />
                     </View>
                      <View style={tw`mx-4`}>
@@ -195,7 +194,7 @@ const StoreOwner = (props) => {
                         value={Lastname}
                          autoCompleteType="off"
                          placeholder="Last name"
-                         placeholderTextColor="#000000"
+                         placeholderTextColor="#b3b3b3"
                         />
                     </View>
                      <View style={tw`mx-4`}>
@@ -205,7 +204,7 @@ const StoreOwner = (props) => {
                         value={Email}
                          autoCompleteType="off"
                          placeholder="Email address"
-                         placeholderTextColor="#000000"
+                         placeholderTextColor="#b3b3b3"
                         />
                     </View>
 
@@ -218,7 +217,7 @@ const StoreOwner = (props) => {
                          autoCompleteType="off"
                          keyboardType={'numeric'}
                          maxLength = {10}
-                         placeholderTextColor="#000000"
+                         placeholderTextColor="#b3b3b3"
                         />
                     </View>
                 </View>
@@ -232,7 +231,7 @@ const StoreOwner = (props) => {
                         onChangeText={onChangeStreet}
                         value={Street}
                          placeholder="Street address"
-                         placeholderTextColor="#000000"
+                         placeholderTextColor="#b3b3b3"
                         />
                     </View>
                      <View style={tw`mx-4`}>
@@ -241,7 +240,7 @@ const StoreOwner = (props) => {
                         onChangeText={onChangeZip}
                         value={Zip}
                          placeholder="Zip Code"
-                         placeholderTextColor="#000000"
+                         placeholderTextColor="#b3b3b3"
                         />
                     </View>
                      <View style={tw`mx-4`}>
@@ -250,7 +249,7 @@ const StoreOwner = (props) => {
                         onChangeText={onChangeCity}
                         value={City}
                         placeholder="City"
-                        placeholderTextColor="#000000"
+                        placeholderTextColor="#b3b3b3"
                         />
                     </View>
 

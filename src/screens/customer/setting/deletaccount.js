@@ -233,7 +233,7 @@ const deletaccount = (props) => {
           <View style={tw.style('border-gray-100 rounded-md bg-gray-200 h-40 self-center mt-4 w-12/12')}>
             <TextInput
               placeholder="Add more details about your reason (optional)"
-              placeholderTextColor="#1a1a1a"
+              placeholderTextColor="#b3b3b3"
               paddingLeft={15}
             />
           </View>
@@ -251,7 +251,7 @@ const deletaccount = (props) => {
         <View style={tw.style('mx-4')}>
           <View style={tw.style('border-gray-200 rounded-md bg-gray-200 h-14  w-72 mt-3')}>
             <TextInput
-              placeholderTextColor="#1a1a1a"
+              placeholderTextColor="#b3b3b3"
               paddingLeft={15}
             />
           </View>

@@ -210,7 +210,7 @@ const renderItem2 = ({ item ,index }) => {
                     <TextInput 
                       style={tw.style('w-11/12 sm:text-sm bg-zinc-200 rounded-lg text-gray-700 border-gray-300 pl-3')}
                       placeholder="Search for anything"
-                      placeholderTextColor="#848484"
+                      placeholderTextColor="#b3b3b3"
                       paddingLeft={35}
                       value={First}
                       onChangeText={(text) => {setFirst(text);}}

@@ -14,8 +14,9 @@ const Reactdim = require('react-native');
 import { useValidation } from 'react-native-form-validator';
 import * as Progress from 'react-native-progress';
 import CheckBox from '@react-native-community/checkbox';
-import Sortorder from '../../../components/pickers/Sortorder';
+import Largesortorder from '../../../components/pickers/Largesortorder';
 import { CameraIcon } from "react-native-heroicons/solid";
+import Loader from '../../../components/modals/Loader';
 
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
@@ -82,9 +83,9 @@ const Accountproduct = (props) => {
     const [Inventory, onChangeInventory] = React.useState("");
     const [Price, onChangePrice] = React.useState("");
     const [counter, setcounter] = useState(0);
-    const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
+    const [selectedValue, setSelectedValue] = useState("");
     const [selectedValue1, setSelectedValue1] = useState("6295110f3defd98ec12b7f80");
-    const [selectedValue2, setSelectedValue2] = useState("New Stock");
+    const [selectedValue2, setSelectedValue2] = useState("");
     const [Productoption, onChangeProductoption] = React.useState("");
     const [ProductSize, onChangeProductSize] = React.useState("");
     const [ProductColor, onChangeProductColor] = React.useState("");
@@ -92,6 +93,10 @@ const Accountproduct = (props) => {
     const [ProductCode, onChangeProductCode] = React.useState("");
     const [SelectedDiscount, setSelectedDiscount] = React.useState("");
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const [managedata, setmanagedata] = React.useState(true);
+
+    const [loginLoader, setloginLoader] = React.useState(false);
+
 
     const [check, setCheck] = useState(false)
     const [checked, setChecked] = React.useState('first');
@@ -149,6 +154,10 @@ const Accountproduct = (props) => {
          setisLogin(getislogin);
     }
 
+    const getbackbuttonhit = async () => {
+        props.getbrandName(props?.loginuserid);
+       setTimeout(function(){ props.navigation.navigate("Dashproduct")},500); 
+    }
      const selectPhoto = async () => {
          ImagePicker.openPicker({
             width: 400,
@@ -175,8 +184,23 @@ const Accountproduct = (props) => {
 
 
 
+    const removeImage = async (Id) => {
+        if(Id==1){
+            setBillImgPath1('');
+            setcounter(counter-1);
+        }
+        if(Id==2){
+            setBillImgPath2('');
+            setcounter(counter-1);
+        }
+        if(Id==3){
+            setBillImgPath3('');
+            setcounter(counter-1);
+        }
+    }
+
     const selectPhoto1 = async () => {
-        if(counter<5){
+        if(counter<3){
         ImagePicker.openPicker({
             width: 400,
             cropping: true,
@@ -193,49 +217,81 @@ const Accountproduct = (props) => {
                     'name': fileName
                 }
                // setFieldValue("couponImage", file);
-                if(counter==0){
+                if(billImgPath1==''){
                     setBillImgPath(file);
                     setBillImgPath1(file);
-                }
-                if(counter==1){ setBillImgPath2(file); }
-                if(counter==2){ setBillImgPath3(file); }
-                if(counter==3){ setBillImgPath4(file); }
-                if(counter==4){ setBillImgPath5(file); }
+                }else if(billImgPath2==''){ setBillImgPath2(file); }
+                else if(billImgPath3==''){ setBillImgPath3(file); }
+
                 setcounter(counter+1);
 
-                const formData1 = new FormData();
-                formData1.append("productAllImage", file);
-                formData1.append("uploadId", uploadId);
-                props.uploadpic(formData1, props.navigation, "user");
+                // const formData1 = new FormData();
+                // formData1.append("productAllImage", file);
+                // formData1.append("uploadId", props?.loginuserid);
+                // props.uploadpic(formData1, props.navigation, "user");
             }
         }).catch((error) => {
             
         });
        }else {
-        alert('You can add upto 5 images')
+        alert('You can add upto 3 images')
        }
     } 
 
      const handleSendRequestSubmit1 = async () => {
         Keyboard.dismiss();
-        if (billImgPath !== "" && Name !== "") {
-            const formData = new FormData();
-            formData.append("productName", Name);
-            formData.append("categoryId", selectedValue);
-            formData.append("userId", props?.loginuserid);
-            formData.append("brandId", brandId);
-            formData.append("productImage", billImgPath);
-            formData.append("productDescription", Product);
-            formData.append("productPrice", Price);
-            formData.append("productWeight", ProductSize);
-            formData.append("productSize", ProductSize);
-            formData.append("productColor", ProductColor);
-            formData.append("productInventory", SelectedQuantity);
-            formData.append("productCode", ProductCode);
-            formData.append("productCaption", Productoption);
-            //formData.append("uploadId", uploadId);
-            props.createproduct(formData, props.navigation, "vendor",true);
-            //setTimeout(function(){ props.getAllproduct(props?.loginuserid);},100);
+        if(billImgPath==""){
+            alert('Atleast 1 product image is required')
+        }else if(Name==""){
+            alert('Name is required')
+        }else if(Product==""){
+            alert('Product description is required')
+        }else if(selectedValue==''){
+            alert('Category is required')
+        }else if(selectedValue2==''){
+            alert('Product condition is required')
+        }else if(Price==""){
+            alert('Product price is required')
+        }else{
+            setloginLoader(true)
+            if(billImgPath1!=""){
+                const formData1 = new FormData();
+                formData1.append("productAllImage", billImgPath1);
+                formData1.append("uploadId", props?.loginuserid);
+                props.uploadpic(formData1, props.navigation, "user");
+            }
+            if(billImgPath2!=""){
+                const formData2 = new FormData();
+                formData2.append("productAllImage", billImgPath2);
+                formData2.append("uploadId", props?.loginuserid);
+                props.uploadpic(formData2, props.navigation, "user");
+            }
+            if(billImgPath3!=""){
+                const formData3 = new FormData();
+                formData3.append("productAllImage", billImgPath3);
+                formData3.append("uploadId", props?.loginuserid);
+                props.uploadpic(formData3, props.navigation, "user");
+            }
+
+            setTimeout(function(){
+                const formData = new FormData();
+                formData.append("productName", Name);
+                formData.append("categoryId", selectedValue);
+                formData.append("userId", props?.loginuserid);
+                formData.append("brandId", brandId);
+                formData.append("productImage", billImgPath);
+                formData.append("productDescription", Product);
+                formData.append("productPrice", Price);
+                formData.append("productWeight", Weight);
+                formData.append("productSize", ProductSize);
+                formData.append("productColor", ProductColor);
+                formData.append("productInventory", SelectedQuantity);
+                formData.append("productCode", ProductCode);
+                formData.append("productCaption", Productoption);
+                formData.append("uploadId", props?.loginuserid);
+                props.createproduct(formData, props.navigation, "vendor",true);
+                setloginLoader(false)
+            },2000);
         }
     }
 
@@ -325,36 +381,51 @@ const renderItem6 = ({ item }) => {
                   <View style={tw`flex flex-row`}>
                    <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg items-center`}>
                     { billImgPath1 !== "" &&
-                         <Image source={{ uri: billImgPath1.uri }} style={{height:64, width:64,borderRadius:5}} />
+                        <View>
+                            <Image source={{ uri: billImgPath1.uri }} style={{height:64, width:64,borderRadius:5}} />
+                            <TouchableOpacity style={{ position: 'absolute', right:-10, top: -10 }} onPress={() => removeImage(1)}>
+                                <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
+                            </TouchableOpacity>
+                        </View>
                     }
                     </View>
                     <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg ml-3`}>
                       { billImgPath2 !== "" &&
-                        <Image source={{ uri: billImgPath2.uri }} style={{height:64, width:64,borderRadius:5}} />
+                        <View>
+                            <Image source={{ uri: billImgPath2.uri }} style={{height:64, width:64,borderRadius:5}} />
+                            <TouchableOpacity style={{ position: 'absolute', right:-10, top: -10 }} onPress={() => removeImage(2)}>
+                                <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
+                            </TouchableOpacity>
+                        </View>
                     }
                     </View>
                   </View>
                     <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg mt-3`}>
                       { billImgPath3 !== "" &&
-                       <Image source={{ uri: billImgPath3.uri }} style={{height:64, width:64,borderRadius:5}} />
+                       <View>
+                            <Image source={{ uri: billImgPath3.uri }} style={{height:64, width:64,borderRadius:5}} />
+                            <TouchableOpacity style={{ position: 'absolute', right:-10, top: -10 }} onPress={() => removeImage(3)}>
+                                <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
+                            </TouchableOpacity>
+                        </View>
                     }
                     </View>
 
                   </View>
-                   {isFieldInError('billImgPath') &&
-                    <Text style={tw`text-base text-gray-900 my-1 mx-3`}>must be required field</Text>
-                }
+                   
               </View>
 
+                <Loader isVisible={loginLoader} />
+
                  <View style={tw`mt-8`}>
-                      <Text style={tw`text-3xl text-gray-900 mx-3 mb-3`}>Product Info</Text>
+                      <Text style={tw`text-2xl text-gray-900 mx-3 mb-3`}>Product Info</Text>
                      <View style={tw`justify-center`}>
                        <TextInput
                         placeholder='Name of Product'
                         value={Name}
                         onChangeText={onChangeName}
 
-                        placeholderTextColor='#4D4D4D'
+                        placeholderTextColor='#b3b3b3'
                         style={tw`h-14 bg-zinc-200 mx-3 text-gray-500 px-4 rounded-md items-center`} />
 
                            {isFieldInError('Name') &&
@@ -365,41 +436,24 @@ const renderItem6 = ({ item }) => {
                       <TextInput
                       onChangeText={onChangeProduct}
                       value={Product}
-
-                      placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D'
+                      multiline={managedata}
+                      placeholder='Provide more details about your product (500 characters max)' 
+                      placeholderTextColor='#b3b3b3'
                       style={tw`h-36 bg-zinc-200 mx-3 text-gray-600 px-5 mt-5 rounded-md text-start`} />
                  </View>
 
                  <View style={tw`mx-3 mt-5`}>
-                    <Sortorder text="Choose a Category" options={categoryOption} onSelect={(checked) => updateorderStatus(checked)}  />
+                    <Largesortorder text="Choose a Category" options={categoryOption} onSelect={(checked) => updateorderStatus(checked)}  />
                  </View>
 
                  <View style={tw`mx-3 mt-5`}>
-                    <Sortorder text="Product Condition" options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
+                    <Largesortorder text="Product Condition" options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
                 </View>
 
 
-                <Text style={tw`text-3xl text-gray-900 mt-10 mx-3`} >Product Specifics (Optional)</Text>
-                <View style={tw`flex flex-row mx-3 mt-4`}>
-                <TextInput
-                placeholder='Height (ft)'
-                placeholderTextColor='#4D4D4D'
-                keyboardType={'numeric'}
-                style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 text-gray-900`} />
+                
 
-                <TextInput
-                placeholder='Length (ft)'
-                placeholderTextColor='#4D4D4D'
-                keyboardType={'numeric'}
-                style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 ml-2 text-gray-900`} />
-
-                </View>
-
-                <TouchableOpacity>
-                    <Text style={tw`text-base text-gray-700 mx-3 mt-2`} >+ Add another option</Text>
-                </TouchableOpacity>
-
-                <Text style={tw`text-3xl text-gray-900 mt-10 mx-3`} >Pricing</Text>
+                <Text style={tw`text-2xl text-gray-900 mt-10 mx-3`} >Pricing</Text>
 
                 <View style={tw`flex flex-row mx-3 mt-5 justify-between`}>
                   <View style={tw`w-6/12 mr-1`}>
@@ -410,7 +464,7 @@ const renderItem6 = ({ item }) => {
                       onChangeText={onChangePrice}
                       keyboardType={'numeric'}
 
-                      placeholderTextColor='#4D4D4D'
+                      placeholderTextColor='#b3b3b3'
                       style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full text-gray-900`} />
 
                   </View>
@@ -422,20 +476,37 @@ const renderItem6 = ({ item }) => {
                       onChangeText={setSelectedDiscount}
                       keyboardType={'numeric'}
 
-                      placeholderTextColor='#4D4D4D'
+                      placeholderTextColor='#b3b3b3'
                       style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full text-gray-900`} />
                   </View>
 
                 </View>
 
+                <Text style={tw`text-2xl text-gray-900 mt-10 mx-3`} >Product Specifics (Optional)</Text>
+                <View style={tw`flex flex-row mx-3 mt-4`}>
+                <TextInput
+                    placeholder='Height (ft)'
+                    placeholderTextColor='#b3b3b3'
+                    keyboardType={'numeric'}
+                    value={ProductSize}
+                    onChangeText={onChangeProductSize}
+                    style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 text-gray-900`}
+                />
 
-                <View style={tw`flex-row mx-3 mt-2`} >
-                    <Text style={tw`text-base text-gray-700`} >You earn</Text>
-                    <Text style={tw`text-base text-gray-700 font-bold`} > $0</Text>
+                <TextInput
+                    placeholder='Length (ft)'
+                    placeholderTextColor='#b3b3b3'
+                    keyboardType={'numeric'}
+                    value={Weight}
+                    onChangeText={onChangeWeight}
+                    style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 ml-2 text-gray-900`} 
+                />
+
                 </View>
 
-                <View style={tw`mt-10 mb-5`}>
-                  <Text style={tw`text-3xl text-gray-900 mt-10 mx-3`} >Product Tags</Text>
+
+                <View style={tw`mt-1 mb-1`}>
+                  <Text style={tw`text-2xl text-gray-900 mt-10 mx-3`} >Product Tags</Text>
                   <Text style={tw`text-gray-700 text-small mx-3`} >Automatic Labels</Text>
                 </View>
 
@@ -443,7 +514,7 @@ const renderItem6 = ({ item }) => {
                   <Text style={tw`items-center px-3 py-1 rounded-md text-sm font-medium bg-blue-700 text-white`} >New Stock</Text>
                 </View>
 
-                <Text style={tw`text-lg mt-15 mx-3 text-gray-600`} >Optional Labels</Text>
+                <Text style={tw`text-lg mt-10 mx-3 text-gray-600`} >Optional Labels</Text>
 
                 <View style={tw`flex-row mt-5 mx-3`}>
                     <TouchableOpacity>
@@ -459,7 +530,7 @@ const renderItem6 = ({ item }) => {
                     </TouchableOpacity>
                 </View>
 
-                <Text style={tw`text-3xl text-gray-900 mt-15 mx-4`} >Shipping</Text>
+                <Text style={tw`text-2xl text-gray-900 mt-10 mx-4`} >Shipping</Text>
 
 
               <View style={tw`mx-4`}>
@@ -507,7 +578,7 @@ const renderItem6 = ({ item }) => {
                   style={tw.style('mb-20 mx-4 items-center px-2 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-black hover:bg-black focus:outline-none focus:ring-2')}
                 >
                 <TouchableOpacity style={tw.style('w-10/11 items-center')}
-                    onPress={() => props.navigation.navigate("Dashproduct")}>
+                    onPress={() => getbackbuttonhit()}>
                     <Text style={tw.style('text-lg text-white')}>Back</Text>
                   </TouchableOpacity>
                 </View>

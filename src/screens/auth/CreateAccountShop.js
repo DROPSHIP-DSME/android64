@@ -165,7 +165,7 @@ const CreateAccountShop = (props) => {
                      onChangeText={onChangeText1}
                      value={email}
                      onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#000000"
+                     placeholderTextColor="#b3b3b3"
                     />
                 </View>
 
@@ -176,14 +176,14 @@ const CreateAccountShop = (props) => {
                      onChangeText={onChangeText6}
                      value={username}
                      onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#000000"
+                     placeholderTextColor="#b3b3b3"
                     />
                 </View>
 
                 <View style={tw.style('mt-5')}>
                     <TextInput
                       style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
-                      placeholderTextColor="#000000"
+                      placeholderTextColor="#b3b3b3"
                       onChangeText={onChangeText2}
                       value={password}
                       placeholder="Password"
@@ -204,7 +204,7 @@ const CreateAccountShop = (props) => {
                 <View style={tw.style('mt-5')}>
                      <TextInput
                       style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
-                      placeholderTextColor="#000000"
+                      placeholderTextColor="#b3b3b3"
                       onChangeText={onChangeText3}
                       value={confirmPassword}
                       placeholder="Confirm Password"

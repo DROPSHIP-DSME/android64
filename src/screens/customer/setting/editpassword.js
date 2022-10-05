@@ -142,7 +142,7 @@ const editpassword = (props) => {
                     <TextInput
                         style={tw.style(' pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                         placeholder="Old Password"
-                        placeholderTextColor="#1a1a1a"
+                        placeholderTextColor="#b3b3b3"
                         paddingLeft={15}
                         onChangeText={onChangeText1}
                         value={oldpassword}
@@ -165,7 +165,7 @@ const editpassword = (props) => {
                     <TextInput
                         style={tw.style(' pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                         placeholder="New Password"
-                        placeholderTextColor="#1a1a1a"
+                        placeholderTextColor="#b3b3b3"
                         paddingLeft={15}
                         onChangeText={onChangeText2}
                         value={password}
@@ -187,7 +187,7 @@ const editpassword = (props) => {
                     <TextInput
                         style={tw.style(' pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                         placeholder="Confirm New Password"
-                        placeholderTextColor="#1a1a1a"
+                        placeholderTextColor="#b3b3b3"
                         paddingLeft={15}
                         onChangeText={onChangeText3}
                         value={confirmPassword}

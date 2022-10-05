@@ -120,7 +120,7 @@ const ForgetPassword = (props) => {
            style={tw.style('w-11/12 rounded-lg text-sm text-gray-700 bg-zinc-200 border-gray-300 pl-3 h-14')}
            placeholder="Email address"
            autoCompleteType='email'
-           placeholderTextColor="#999999"
+           placeholderTextColor="#b3b3b3"
           onChangeText={onChangeText1}
           value={email}
           onSubmitEditing={() => handleRegistrationSubmit()}

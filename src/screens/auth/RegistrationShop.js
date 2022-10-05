@@ -181,7 +181,7 @@ const RegistrationShop = (props) => {
                       style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
                       placeholder="Email address"
                       autoCompleteType='email'
-                      placeholderTextColor="#000000"
+                      placeholderTextColor="#b3b3b3"
                       onChangeText={onChangeText1}
                       value={email}
                       onSubmitEditing={() => handleRegistrationSubmit()}
@@ -193,7 +193,7 @@ const RegistrationShop = (props) => {
                   <TextInput
                       style={tw.style('w-11/12 sm:text-sm bg-zinc-200 rounded-lg text-gray-700 border-gray-300 pl-3')}
                       placeholder="Password"
-                      placeholderTextColor="#000000"
+                      placeholderTextColor="#b3b3b3"
                       onChangeText={onChangeText2}
                       value={password}
                       secureTextEntry={passwordsecure}

@@ -149,9 +149,9 @@ const Account = (props) => {
       return (
         <View>
           {index == 0 &&
-            <View style={tw`pb-2 px-2`}>
-              <View style={tw`flex flex-row justify-between`}>
-                <TouchableOpacity style={tw`flex-row items-center`} onPress={() => props.navigation.navigate("Accountbrandlist")}>
+            <View style={tw`pb-2`}>
+              <View style={tw`flex flex-row`}>
+                <TouchableOpacity style={tw`flex-row items-center`} onPress={() => props.navigation.navigate("Accountbrand")}>
                   <View>
                     <Image source={{ uri: item.brandImage }} style={styles.produtbrandimage2} />
                   </View>
@@ -159,11 +159,11 @@ const Account = (props) => {
                     <Text style={styles.droptxttt}>{item.brandName} - Store</Text>
 
                     <View style={tw`flex-row items-center`}>
-                      <View style={tw.style('flex-row items-center mr-3')}>
+                      <View style={tw.style('flex-row items-center mr-1')}>
                         <ShoppingBagIcon color="red" fill="#b80000" size={20} />
                         <Text style={styles.optext}>0 products</Text>
                       </View>
-                      <View style={tw.style('flex-row items-center ml-3')}>
+                      <View style={tw.style('flex-row items-center ml-1')}>
                         <TagIcon color="red" fill="#b80000" size={20} />
                         <Text style={styles.optext}>0 sales</Text>
                       </View>

@@ -18,7 +18,7 @@ import Footer3 from '../../../screens/common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import tw from 'twrnc';
-import Sortorder from '../../../components/pickers/Sortorder';
+import Largesortorder from '../../../components/pickers/Largesortorder';
 import Sortfilter from '../../../components/pickers/Sortfilter';
 import { ChevrondoubleupIcon } from "react-native-heroicons/solid";
 import { Rating, AirbnbRating } from 'react-native-ratings';
@@ -76,6 +76,8 @@ const shop = (props) => {
 
     const [selectedCat, setselectedCat] = useState('Most popular');
 
+    const [showmsgdata, setshowmsgdata] = React.useState(false);
+
     const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
         props.getfilterproduct(selectedCat,itemValue);
@@ -113,6 +115,7 @@ const shop = (props) => {
         setselectedIndex(index);
         setselectedCat(val);
         props.getfilterproduct(val,'no');
+        setshowmsgdata(true)
     }
 
     const renderItem1 = ({ item, index }) => {
@@ -135,17 +138,20 @@ const shop = (props) => {
         return (
             <View style={tw.style(tw`w-1/3 mb-6`)}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { productId: item._id }) }} style={tw.style('rounded-lg mt-5 mx-2')} >
-                    <View style={tw.style('p-0.5')}>
+                    <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:10}}>
                         <Image source={{ uri: item.productImage }} style={tw.style('rounded-lg w-fit h-40')} />                        
                         <View style={tw.style('absolute right-3 top-3')}>
-                            <VideoCameraIcon color="red" fill="white" size={36} />
+                           
                         </View>
                     </View>
-                    <View style={tw.style('mx-2')}>
-                        <Text style={styles.boldproduct}>{item.productName}</Text>
+                    <View style={tw.style('mx-2 top-2')}>
+                        <View style={{ flexDirection:'row', justifyContent:'space-between'}}>
+                            <Text style={styles.boldproduct}>{item.productName}</Text>
+                            <Image source={ImageIcons.Iconlock} style={tw.style('w-6 h-6')} />
+                        </View>
                         <View style={tw.style('flex flex-row',{justifyContent:'space-between',marginBottom:10})}>
                             <Text style={styles.salestext}>${item.productPrice}</Text>
-                            <Image source={ImageIcons.Iconlock} style={tw.style('w-6 h-6')} />
+                            
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -167,14 +173,15 @@ const shop = (props) => {
                     <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Shop</Text>
                 </View>
 
-                <View style={tw.style('flex flex-row mx-5 mt-4')}>
+                <View style={tw.style('flex flex-row mx-5 mt-0')}>
 
-                    <Sortorder text="Sort Order" options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
-
+                    <View style={{ width:'60%'}}>
+                        <Largesortorder text="Sort Order" options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
+                    </View>
                     <Sortfilter text="Filter" />
 
                 </View>
-                <View style={tw.style('border-b-2 mt-5 border-gray-300 mb-3 mx-5')}>
+                <View style={tw.style('mt-5 border-gray-300 mb-3 mx-5')}>
                          <FlatList
                             data={categoryOption}
                             renderItem={renderItem1}
@@ -184,6 +191,7 @@ const shop = (props) => {
                     </View>
 
                 <View style={tw.style('mx-2')}>
+                    {props?.getlistproduct?.length>0 ?
                     <FlatList
                         data={props?.getlistproduct || []}
                         renderItem={renderItem}
@@ -191,6 +199,13 @@ const shop = (props) => {
                         showsHorizontalScrollIndicator={false}
                         numColumns={3}
                     />
+                    :
+                    <View>
+                       {showmsgdata==true &&
+                        <Text style={{ justifyContent:'center',textAlign:'center',marginTop:100}}>No Item added in this category</Text>
+                       }
+                    </View>
+                    }
                 </View>
             </ScrollView>
 

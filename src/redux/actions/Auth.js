@@ -322,6 +322,28 @@ export const getpostrating = (productId,userId,ratingcount) => {
     }
 };
 
+export const deleteproductItem = (productId,navigation) => {
+  //alert(productId)
+    let request = {
+      productId:productId
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected; 
+        if (isInternetConnected) {
+            try {
+                //dispatch({ type: GET_ALL_RATING, payload: [] });
+                let response = await Utilise.apiCalling('POST', `${Api.deleteproductItem}`,  request);
+                //if (response?.status) {
+                   alert('Product deleted successfully')
+                   navigation.navigate("Accountbrand")
+                // } else {
+                // }
+            } catch (error) {
+                dispatch({ type: GET_ALL_RATING, payload: [] });
+            }
+        };
+    }
+};
 
 //managefavorite
 export const managefavorite = (productId,userId) => {
@@ -571,12 +593,13 @@ export const createproduct = (signupRequest, navigation, role,islogin) => {
 
 //createproduct
 export const uploadpic = (signupRequest, navigation, role,islogin) => {
-    
+   
   return async (dispatch, getState) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.uploadproductpic, signupRequest);
+        console.log('uploadproductpic',response)
         if (response?.status) {
           
         }
@@ -1725,6 +1748,7 @@ export const getAllproductdetails = (productId) => {
           try {
             dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: [] });
             let response = await Utilise.apiCalling('POST', `${Api.getlistproductdetails}`,  request);
+            //console.log('responsedata',response.data)
             if (response?.status) {
                 dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: response.data });
             }
@@ -1744,9 +1768,9 @@ export const getAllproduct = (userId) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
           try {
-            if(userId!=1){
-              dispatch({ type: GET_ALL_PRODUCT, payload: [] });
-            }
+            // if(userId!=1){
+            //   dispatch({ type: GET_ALL_PRODUCT, payload: [] });
+            // }
             let response = await Utilise.apiCalling('POST', `${Api.getlistproduct}`,  request);
             if (response?.status) {
                 dispatch({ type: GET_ALL_PRODUCT, payload: response.data });
@@ -1767,7 +1791,7 @@ export const getfilterproduct = (categoryId,sortorder) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
           try {
-            dispatch({ type: GET_ALL_PRODUCT, payload: [] });
+           // dispatch({ type: GET_ALL_PRODUCT, payload: [] });
             let response = await Utilise.apiCalling('POST', `${Api.getlistfilterproduct}`,  request);
             if (response?.status) {
                 dispatch({ type: GET_ALL_PRODUCT, payload: response.data });
@@ -1816,7 +1840,7 @@ export const selectAllproduct = (responsedata) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
-                dispatch({ type: GET_ALL_PRODUCT, payload: [] });
+                //dispatch({ type: GET_ALL_PRODUCT, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.getsearchproduct}`,  request);
                 if (response?.status) {
                     dispatch({ type: GET_ALL_PRODUCT, payload: response.data });

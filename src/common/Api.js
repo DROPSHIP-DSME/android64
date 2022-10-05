@@ -59,7 +59,7 @@ const api = {
   getlistproduct: `/shops/getAllProducts`,
   getlistfilterproduct: `/shops/getlistfilterproduct`,
   getsearchproduct: `/shops/getsearchproduct`,
-  getlistproductdetails: `/shops/getnewProductDetails`,
+  getlistproductdetails: `/shops/getnewProductDetails`, 
   getsupportlist:`/shops/supportlist`,
   getprofileuser:`/shops/getUserProfile `,
   getuseraddress:`/shops/getuserAddress`,
@@ -122,6 +122,7 @@ const api = {
   editUser:`/users/editUser`,
   deleteUser:`/users/deleteUser`,
   getlivestreamrecap:`/shops/livestreamrecap`,
+  deleteproductItem: `/shops/deleteproductItem`,
 };
 
 export default api; 

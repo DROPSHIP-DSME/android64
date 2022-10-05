@@ -224,7 +224,7 @@ const editprofile = (props) => {
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                          placeholder="First Name"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(name) =>onChangeName(name)}
                          style={{color:'#333333'}}
                          paddingLeft={15}
@@ -236,7 +236,7 @@ const editprofile = (props) => {
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                  placeholder="Last Name"
-                 placeholderTextColor="#1a1a1a"
+                 placeholderTextColor="#b3b3b3"
                  onChangeText={(lastname) =>onChangelastname(lastname)}
                  style={{color:'#333333'}}
                  paddingLeft={15}
@@ -246,7 +246,7 @@ const editprofile = (props) => {
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                  placeholder="Email Address"
-                 placeholderTextColor="#1a1a1a"
+                 placeholderTextColor="#b3b3b3"
                  onChangeText={(Email) =>onChangeEmail(Email)}
                  style={{color:'#333333'}}
                  paddingLeft={15}
@@ -261,7 +261,7 @@ const editprofile = (props) => {
                     <View style={tw.style('h-14 ml-2 w-[45%] bg-gray-200 rounded-md')}>
                         <TextInput
                          placeholder="Phone Number"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(number) =>onChangeNumber(number)}
                          paddingLeft={15}
                          style={{color:'#333333'}}

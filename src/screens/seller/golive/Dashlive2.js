@@ -478,7 +478,7 @@ return (
             <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
              <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")} style={tw.style('w-2/4')}>
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")} style={tw.style('w-1.5/4')}>
                     <View
                       type="button"
                       style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
@@ -486,7 +486,7 @@ return (
                         <Text style={tw`text-base sm:text-sm font-medium text-gray-700`}>Go Live Now</Text>
                     </View>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")} style={tw.style('w-2/4')}>
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")} style={tw.style('w-2.5/4')}>
                     <View
                       type="button"
                       style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
@@ -503,7 +503,7 @@ return (
                       <TextInput
                         style={tw.style('h-18 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500')}
                         placeholder="Stream Title"
-                        placeholderTextColor="#4d4d4d"
+                        placeholderTextColor="#b3b3b3"
                         paddingLeft={15}
                         multiline
                         value={Name}
@@ -593,16 +593,14 @@ return (
                       <TextInput
                         style={tw.style('h-18 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white')}
                         placeholder=""
-                        placeholderTextColor="#4d4d4d"
+                        placeholderTextColor="#b3b3b3"
                         value={livedetailId}
                         paddingLeft={15}
                         multiline
                         onChangeText={(text) => {}}
                       />
                       <View style={tw.style('absolute flex flex-end mt-6 right-5 top-8')}>
-                        <TouchableOpacity onPress={() =>  openshare() } >
-                            <DocumentDuplicateIcon color="red" fill="gray" size={24} />
-                        </TouchableOpacity>
+                        
                       </View>
                 </View>
 

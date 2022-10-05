@@ -29,6 +29,7 @@ import Medbutton from '../../../components/dropshipbutton/Medbutton';
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
 import { HeartIcon } from "react-native-heroicons/solid";
 import AwesomeAlert from '../../../components/modals/AlertModal';
+import Loader from '../../../components/modals/Loader';
 
 
 const NameStore = (props) => {
@@ -73,6 +74,9 @@ const NameStore = (props) => {
   const [twostarrating, settwostarrating] = React.useState(0);
   const [onestarrating, setonestarrating] = React.useState(0);
   const [avgrating, setavgrating] = React.useState(0);
+  const [loginLoader, setloginLoader] = React.useState(false);
+
+  const [showlargeImage, setshowlargeImage] = React.useState('');
 
   useEffect(() => {
     props.getAllproductdetails(productId);
@@ -80,6 +84,7 @@ const NameStore = (props) => {
     props.shopsellcount(shopId);
     props.getfavoriteproductlist(props?.loginuserid);
     
+    console.log('props?.getlistproductdetails',props?.getlistproductdetails)
 
     if(props?.getfavproduct && props?.getfavproduct?.length){
       if(props?.getfavproduct.indexOf(productId) > -1) {
@@ -129,6 +134,14 @@ const NameStore = (props) => {
     //props.increcartlist(cartId, Incval);
   };
 
+  
+  const newProductData = (productId) => {
+    setloginLoader(true)
+    setshowlargeImage('');
+    props.getAllproductdetails(productId);
+    setTimeout(function(){ setloginLoader(false) },2000);
+  }
+
   const ratingCompleted = (ratingdata) => {
     
     if (ratingdata != "" && ratingdata != undefined) {
@@ -172,15 +185,27 @@ const NameStore = (props) => {
 
 
   ];
+  
+  const renderItem5 = ({ item, index }) => {
+      return (
+        <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:10,marginRight:10}}>
+          <TouchableOpacity onPress={() =>  setshowlargeImage(item.Image)}>
+          <View style={tw.style('justify-center items-center')}>
+            <Image source={{ uri: item.Image }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
+          </View>
+          </TouchableOpacity>
+        </View>
+      )
+  }
 
   const renderItem1 = ({ item, index }) => {
     return (
+
       <View style={tw.style('flex flex-row mt-[3%] mx-[3%] rounded-md')}>
-        <TouchableOpacity>
-          <View style={tw.style('p-0.5')}>
-            <Image source={{uri: item.productImage}} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
+        <TouchableOpacity onPress={() => newProductData(item._id) }>
+         <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:10}}>
+            <Image source={{uri: item.productImage}} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} />
           </View>
-          
 
           <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
             <View style={tw.style('pl-2')}>
@@ -243,6 +268,7 @@ const NameStore = (props) => {
     );
   }
 
+  
 
   return (
     <KeyboardAvoidingView
@@ -257,43 +283,29 @@ const NameStore = (props) => {
         
       <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
         <View>
-          <View style={tw`mx-4 mt-4 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
-            <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
-            <View style={tw.style('absolute')}>
-              <PlayIcon color="red" fill="gray" size={96} />
-            </View>
+          <View>
+          <View style={tw`mb-3 bg-gray-200 h-70 justify-center items-center`}>
+            {showlargeImage!=''?
+              <Image source={{ uri: showlargeImage }} style={tw.style('w-full h-full rounded-[0px]')} />
+            :
+              <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full h-full rounded-[10px]')} />
+            }
+           </View>
           </View>
 
-          {props?.getlistproductdetails?.ProductImages?.length > 0 ?
-            <View style={tw`mx-4 mt-10 justify-center items-center`}>
-              <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full bg-gray-200 h-64 rounded-lb', { width: deviceWidth / 1.1 })} />
-              <View style={tw.style('absolute m-[40%]')}>
-                <Image source={ImageIcons.playicon} style={tw.style('absolute m-[40%]')} />
-              </View>
-            </View>
-            :
+          
             <View style={tw.style('flex flex-row mx-4 mt-2')}>
-              <View style={tw.style('mr-1 justify-center items-center')}>
-                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
-                <View style={tw.style('absolute')}>
-                  <CameraIcon color="red" fill="black" size={28} />
-                </View>
-              </View>
-              <View style={tw.style('mr-1 justify-center items-center')}>
-                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
-                <View style={tw.style('absolute')}>
-                  <CameraIcon color="red" fill="black" size={28} />
-                </View>
-              </View>
-              <View style={tw.style('mr-1 justify-center items-center')}>
-                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
-                <View style={tw.style('absolute')}>
-                  <CameraIcon color="red" fill="black" size={28} />
-                </View>
-              </View>
+
+               <FlatList
+                  data={props?.getlistproductdetails?.ProductImages || []}
+                  renderItem={renderItem5}
+                  keyExtractor={item => item.id}
+                  showsHorizontalScrollIndicator={false}
+                  horizontal={true}
+                />
 
             </View>
-          }
+          
         </View>
 
         <View style={tw.style('flex flex-row mx-5 justify-between mt-2 items-center')}>
@@ -308,7 +320,7 @@ const NameStore = (props) => {
           </TouchableOpacity>
         </View>
 
-
+        <Loader isVisible={loginLoader} />
 
         <View style={tw.style('flex flex-row mt-3 mx-3')}>
           <View style={tw.style('mt-3')}>

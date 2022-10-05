@@ -180,7 +180,7 @@ const clothing = (props) => {
             onChangeText={onChangeFirst}
             value={First}
             placeholder="Send a message"
-            placeholderTextColor="#999999"
+            placeholderTextColor="#b3b3b3"
             />
 
             </View>

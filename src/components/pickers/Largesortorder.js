@@ -5,7 +5,7 @@ import { CustomPicker } from 'react-native-custom-picker';
 import { ChevronDownIcon } from "react-native-heroicons/solid";
 
 
-
+ 
 const Largesortorder = ({text, options, onSelect}) => {
 
   const [showvisible, setshowvisible] = React.useState(false);
@@ -17,8 +17,9 @@ const Largesortorder = ({text, options, onSelect}) => {
           <CustomPicker
             placeholder={text}
             options={options}
-            onValueChange={value => {
-              onSelect(value)
+            getLabel={item => item.label}
+            onValueChange={item => {
+              onSelect(item.value)
             }}
             style={{width: '200%'}}
             fieldTemplateProps={{

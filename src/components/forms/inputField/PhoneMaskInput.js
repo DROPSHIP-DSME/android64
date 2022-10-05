@@ -41,7 +41,7 @@ const PhoneMaskInput = ({ id, theme, onCountryChange, onChangePhone, defaultValu
                     onChangeText={(formatted, extracted) => onChangePhone(extracted)}
                     mask={"([000]) [000] [00] [00]"}
                     placeholder="(000) 000 00 00"
-                    placeholderTextColor={'#C7C7CD'}
+                    placeholderTextColor={'#b3b3b3'}
                     keyboardType="numeric"
                 />
             </View>

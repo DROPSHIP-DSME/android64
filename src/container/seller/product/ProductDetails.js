@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { ProductDetails } from '../../../screens/seller/product';
-import { getAllproductdetails } from '../../../redux/actions/Auth'
+import { getAllproductdetails,deleteproductItem } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    getAllproductdetails
+    getAllproductdetails,
+    deleteproductItem
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

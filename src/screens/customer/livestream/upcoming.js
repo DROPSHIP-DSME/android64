@@ -213,7 +213,7 @@ const upcoming = (props) => {
                           <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')} />
                       </View>
                       <View style={tw.style('pl-2')}>
-                          <Text style={tw.style('text-gray-500 text-base')}>{item.products[0]?.productName} g</Text>
+                          <Text style={tw.style('text-gray-500 text-base')}>{item.products[0]?.productName}</Text>
                       </View>
                   </View>
               </TouchableOpacity>

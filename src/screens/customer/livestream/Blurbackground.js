@@ -562,7 +562,7 @@ const Blurbackground = (props) => {
                                 style={{ color: Colors.white, ...styles.input,paddingLeft:5 }}
                                 onChangeText={text => setcomment(text)}
                                 
-                                placeholderTextColor={Colors.white}
+                                placeholderTextColor="#b3b3b3"
                                 placeholder="Send a message"
                                 ></TextInput>
                         </View>
@@ -616,10 +616,10 @@ const Blurbackground = (props) => {
                 <Provider>
                     <Portal>
                         <Modal visible={showsidebar} onDismiss={hidesidebar}
-                        contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:'4%' }}>
+                        contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:0 }}>
                             <View>
                                 <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
-                                <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',padding:'1%',paddingHorizontal:'3%'}}>
+                                <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',paddingHorizontal:0}}>
                                     <Sortorder options={options1} onSelect={(checked) => updateorderStatus(checked)} />
                                 </View>
                                 <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>

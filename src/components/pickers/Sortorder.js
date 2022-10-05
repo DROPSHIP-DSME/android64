@@ -9,7 +9,7 @@ import { ChevronDownIcon } from "react-native-heroicons/solid";
 const Sortorder = ({text, options, onSelect}) => {
 
   const [showvisible, setshowvisible] = React.useState(false);
-  const [visible1, setVisible1] = React.useState(true);
+  const [visible1, setVisible1] = React.useState(false);
   const [selectedValue, setSelectedValue] = useState("");
 
     return (
@@ -18,6 +18,7 @@ const Sortorder = ({text, options, onSelect}) => {
             placeholder={text}
             options={options}
             getLabel={item => item.label}
+            enabled={visible1}
             onValueChange={item => {
               onSelect(item.value)
             }}

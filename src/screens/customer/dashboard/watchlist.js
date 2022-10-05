@@ -133,28 +133,23 @@ const watchlist = (props) => {
         },*/
         {
             image: 'https://drp-s3-1.s3.us-east-2.amazonaws.com/GlowBruleeVideo.mp4',
-            desc:
-                'Glow Brulee',
+            desc: 'Glow Brulee',
         },
         {
             image: 'https://drp-s3-1.s3.us-east-2.amazonaws.com/Ikevideo.mp4',
-            desc:
-                'IKE NARTEY ESSENTIALS',
+            desc:'IKE NARTEY ESSENTIALS',
         },
         {
             image: 'https://drp-s3-1.s3.us-east-2.amazonaws.com/SolrayzVideo.mp4',
-            desc:
-                'Solrayz Jewelry',
+            desc: 'Solrayz Jewelry',
         },
         {
             image: 'https://drp-s3-1.s3.us-east-2.amazonaws.com/TerraMoonVideo.mp4',
-            desc:
-                'Terra Moon',
+            desc: 'Terra Moon',
         },
         {
             image: 'https://drp-s3-1.s3.us-east-2.amazonaws.com/Video.mp4',
-            desc:
-                'The Ruby Unicorn',
+            desc: 'The Ruby Unicorn',
         },
     ];
 
@@ -353,15 +348,14 @@ const watchlist = (props) => {
         return (
             <View style={tw.style('ml-2 mr-2')}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
-                    <View>
+                    <View style={{borderWidth:1,borderColor:'#e6e6e6'}}>
                         <Image source={{ uri: item.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
                         <Text style={styles.beautyproduct}></Text>
-                        <Text style={styles.uplivetext}>{item.productName}</Text>
                     </View>
 
                     <View style={tw.style('flex flex-row mt-2')}>
-                        <View>
-                            <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')} />
+                        <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:20}}>
+                            <Image source={{ uri: item.productImage }} style={tw.style('h-6 w-6 rounded-full')} />
                         </View>
                         <View style={tw.style('pl-2 pt-1')}>
                             <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
@@ -684,8 +678,7 @@ const watchlist = (props) => {
                                 <Text style={tw.style('text-sm text-white')}>New Products Released</Text>
                             </View>
                             <View style={tw.style('absolute bottom-3 left-3 w-36 py-2 px-2 rounded-full text-white bg-red-700 items-center')}>
-                                <TouchableOpacity style={tw.style('items-center')}
-                                    onPress={() => props.navigation.navigate('upcoming')}>
+                                <TouchableOpacity style={tw.style('items-center')}>
                                     <Text style={tw.style('text-xs text-white')}>Check out store</Text>
                                 </TouchableOpacity>
                             </View>

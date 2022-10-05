@@ -102,7 +102,7 @@ const Supportchat = (props) => {
                     placeholder="Type here..."
                     onChangeText={onChangeText3}
                     value={text1}
-                    placeholderTextColor="#999999"
+                    placeholderTextColor="#b3b3b3"
                 />
             </View>
             <Supportchat onPress={() => handleSendRequestSubmit()} />

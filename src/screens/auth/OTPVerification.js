@@ -103,7 +103,7 @@ const OTPVerification = (props) => {
                             <TextInput style = {{borderWidth:1,borderRadius:4,color:'#000000'}}
                               underlineColorAndroid = "transparent"
                               placeholder = "Email address"
-                              placeholderTextColor="#999999"
+                              placeholderTextColor="#b3b3b3"
                               autoCapitalize = "none"
                               />
                      </View>
@@ -112,7 +112,7 @@ const OTPVerification = (props) => {
                             <TextInput style = {{borderWidth:1,borderRadius:4}}
                               underlineColorAndroid = "transparent"
                               placeholder = "Password"
-                              placeholderTextColor="#999999"
+                              placeholderTextColor="#b3b3b3"
                               autoCapitalize = "none"
                               />
                      </View>

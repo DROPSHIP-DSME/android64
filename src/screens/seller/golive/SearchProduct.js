@@ -158,7 +158,7 @@ const renderItem2 = ({ item ,index }) => {
                             value={First}
                             onSubmitEditing={() => handleRegistrationSubmit()}
                             placeholder="Search "
-                            placeholderTextColor="#999999"
+                            placeholderTextColor="#b3b3b3"
                         />
                         <TouchableOpacity onPress={() => handleRegistrationSubmit() } style={{position:'absolute',right:15,top:15.37,}}>
                           <Image source={ImageIcons.searchIcon}  style={styles.searchimg} />

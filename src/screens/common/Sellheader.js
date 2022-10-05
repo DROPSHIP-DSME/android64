@@ -144,7 +144,7 @@ const Sellheader = (props) => {
                         <View style={{marginVertical:'10%'}}>
                             <TextInput style={{height:50,width:deviceWidth/1.1,backgroundColor:'#ffffff',borderRadius:10,alignSelf:'center'}}
                               placeholder="Search"
-                              placeholderTextColor="#848484"
+                              placeholderTextColor="#b3b3b3"
                               paddingLeft={35}
                             />
 

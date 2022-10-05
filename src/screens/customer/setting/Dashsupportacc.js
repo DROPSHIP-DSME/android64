@@ -228,36 +228,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
 
-              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4')}>
-                <View style={tw.style('px-2 py-5')}>
-                      <View style={tw`flex flex-row justify-between items-center mx-4`}>
-                        <Text style={tw`text-gray-700 text-lg`}>Chat with customer support</Text>
-                        <Closebutton onPress={() => sethelppopup(false)} />
-                    </View>
-                    <ScrollView  style={{backgroundColor:'#ffffff', height:200,flex:1}} >
-                    <View style={{marginVertical:'2%'}}>
-                        <FlatList
-                            data={props?.getchatsupportlist1 || []}
-                            renderItem={renderItem6}
-                            keyExtractor={item => item.id}
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={false}
-                        />
-                     </View>
-                   </ScrollView>
-                    <View style={tw`flex flex-row items-center justify-between my-2 mx-3`}>
-                      <View style={tw`w-86`}>
-                          <TextInput  style={tw`h-12 bg-zinc-200 rounded-lg p-3`}
-                          placeholder="Type here..."
-                          onChangeText={onChangeText3}
-                          value={text3}
-                          placeholderTextColor="#999999"
-                          />
-                      </View>
-                        <Sendbutton onPress={() => handleSendRequestSubmit()} />
-                    </View>
-                </View>
-              </View>
+              
 
 
 

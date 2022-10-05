@@ -62,29 +62,29 @@ const Footer3 = (props) => {
         <View>
             {showpop==true &&
                 <View style={{flex:1,position:'absolute',zIndex:8003,bottom:50,left:60, borderRadius:10, backgroundColor:'#ffffff'}}>
-                    <View onPress={() => { navigation.navigate('shop'); }}  style={tw.style('inline-block items-center mx-3 mt-4 md:px-2 md:mx-2')}>
-                        <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
-                            <Text onPress={() => { navigation.navigate('shop'); }} style={tw.style('text-sm text-right font-bold text-gray-700')}>Shop Products</Text>
+                    <View onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('shop'); }}  style={tw.style('inline-block items-center mx-3 mt-4 md:px-2 md:mx-2')}>
+                        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('shop'); }}>
+                            <Text onPress={() => { setshowaccountpop(false); setshowpop(false);navigation.navigate('shop'); }} style={tw.style('text-sm text-right font-bold text-gray-700')}>Shop Products</Text>
                         </TouchableOpacity>
                     </View>
-                    <View onPress={() => { navigation.navigate('upcoming'); }}  style={tw.style('inline-block items-center px-2 mt-3 mx-3 md:px-2 md:mx-2')}>
-                        <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
-                            <Text onPress={() => { navigation.navigate('upcoming'); }} style={tw.style('text-sm text-right font-bold text-gray-700',{marginBottom:10})}>View Livestreams</Text>
+                    <View onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('upcoming'); }}  style={tw.style('inline-block items-center px-2 mt-3 mx-3 md:px-2 md:mx-2')}>
+                        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('upcoming'); }}>
+                            <Text onPress={() => { setshowaccountpop(false); setshowpop(false);navigation.navigate('upcoming'); }} style={tw.style('text-sm text-right font-bold text-gray-700',{marginBottom:10})}>View Livestreams</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             }
-
+ 
             {showaccountpop==true &&
                 <View style={{flex:1,position:'absolute',width:150,zIndex:8003,bottom:50,right:20, borderRadius:10, backgroundColor:'#ffffff'}}>
-                    <View onPress={() => { navigation.navigate('Account'); }}  style={tw.style('inline-block items-center mx-3 mt-4 md:px-2 md:mx-2')}>
-                        <TouchableOpacity onPress={() => { navigation.navigate('Account'); }}>
-                            <Text onPress={() => { navigation.navigate('Account'); }} style={tw.style('text-sm text-right font-bold text-gray-700')}>My Account</Text>
+                    <View onPress={() => {setshowaccountpop(false); setshowpop(false); navigation.navigate('Account'); }}  style={tw.style('inline-block items-center mx-3 mt-4 md:px-2 md:mx-2')}>
+                        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false);navigation.navigate('Account'); }}>
+                            <Text onPress={() => {setshowaccountpop(false); setshowpop(false); navigation.navigate('Account'); }} style={tw.style('text-sm text-right font-bold text-gray-700')}>My Account</Text>
                         </TouchableOpacity>
                     </View>
-                    <View onPress={() => { navigation.navigate('Overview'); }}  style={tw.style('inline-block items-center px-2 mt-3 mx-3 md:px-2 md:mx-2')}>
-                        <TouchableOpacity onPress={() => { navigation.navigate('Overview'); }}>
-                            <Text onPress={() => { navigation.navigate('Overview'); }} style={tw.style('text-sm text-right font-bold text-gray-700',{marginBottom:10})}>My Store</Text>
+                    <View onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('Overview'); }}  style={tw.style('inline-block items-center px-2 mt-3 mx-3 md:px-2 md:mx-2')}>
+                        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false);navigation.navigate('Overview'); }}>
+                            <Text onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('Overview'); }} style={tw.style('text-sm text-right font-bold text-gray-700',{marginBottom:10})}>My Store</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -94,7 +94,7 @@ const Footer3 = (props) => {
         <View style={tw.style('max-w-fit  bg-white flex h-15 px-6 py-2 md:py-4 md:px-6 sm:mx-1 md:mx-2')}>
           <View style={tw.style('flex-row justify-between')}>
 
-          <TouchableOpacity onPress={() => { navigation.navigate('watchlist'); }}>
+          <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('watchlist'); }}>
             {onSelection==1 ?
               <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
@@ -132,7 +132,7 @@ const Footer3 = (props) => {
         */}
 
         
-        <TouchableOpacity onPress={() => { setshowpop(s=>!s) }}>
+        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(s=>!s); setTimeout(function(){ setshowpop(false); },10000) }}>
          {onSelection==2 ?
            <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                <Text>
@@ -151,7 +151,7 @@ const Footer3 = (props) => {
         </TouchableOpacity>
 
 
-        <TouchableOpacity onPress={() => navigation.navigate("Dashlive")} >
+        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Dashlive")}} >
             {onSelection==3 ?
               <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
@@ -171,7 +171,7 @@ const Footer3 = (props) => {
         </TouchableOpacity>
 
 
-        <TouchableOpacity onPress={() => { setshowaccountpop(s=>!s) }}>
+        <TouchableOpacity onPress={() => { setshowpop(false); setshowaccountpop(s=>!s); setTimeout(function(){ setshowaccountpop(false); },10000) }}>
          {onSelection==5 ?
            <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                <Text>

@@ -338,7 +338,7 @@ const renderItem1 = ({ item ,index }) => {
                     onChangeText={onChangeBrand}
                     value={Brand}
                     placeholder="Please describe your Brand"
-                    placeholderTextColor="#4d4d4d" 
+                    placeholderTextColor="#b3b3b3" 
                     />
              </View>
 

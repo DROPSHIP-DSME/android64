@@ -157,7 +157,7 @@ const deviceWidth = Dimensions.get('window').width;
               </View>
             </View>
 
-              <Text style={tw`text-2xl text-gray-700 font-smibold text-center my-2`}>My Brands</Text>
+              
 
         </View>
       );
@@ -186,17 +186,8 @@ const deviceWidth = Dimensions.get('window').width;
               />
             </View>
 
-              <TouchableOpacity onPress={()=>props.navigation.navigate("CreateStore")} style={{backgroundColor:'#b80000',marginBottom:'20%',width:deviceWidth/1.1,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'8%'}}>
-                <Text style={styles.totalincometodaycompaign}>ADD A NEW BRAND</Text>
-              </TouchableOpacity>
-
-
-
-               </ScrollView>
-
-             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
-
-             <Footer3 onSelection="5"/>
+            </ScrollView>
+            <Footer3 onSelection="5"/>
         </View>
     )
 }

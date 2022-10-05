@@ -176,7 +176,7 @@ const editviewaddress = (props) => {
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
                          placeholder="First Name"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(firstname) =>setfirstname(firstname)}
                          style={{color:'#333333',marginTop:5}}
                          paddingLeft={15}
@@ -187,7 +187,7 @@ const editviewaddress = (props) => {
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
                          placeholder="Last Name"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(lastname) =>setlastname(lastname)}
                          style={{color:'#333333',marginTop:5}}
                          paddingLeft={15}
@@ -198,7 +198,7 @@ const editviewaddress = (props) => {
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
                          placeholder="Address Line 1"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(address1) =>setaddress1(address1)}
                          style={{color:'#333333',marginTop:5}}
                          paddingLeft={15}
@@ -210,7 +210,7 @@ const editviewaddress = (props) => {
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
                          placeholder="Address Line 2"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(address2) =>setaddress2(address2)}
                          style={{color:'#333333',marginTop:5}}
                          paddingLeft={15}
@@ -222,7 +222,7 @@ const editviewaddress = (props) => {
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
                          placeholder="City"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(city) =>setcity(city)}
                          style={{color:'#333333',marginTop:5}}
                          paddingLeft={15}
@@ -242,7 +242,7 @@ const editviewaddress = (props) => {
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
                          placeholder="Zipcode"
-                         placeholderTextColor="#1a1a1a"
+                         placeholderTextColor="#b3b3b3"
                          onChangeText={(zipcode) =>setzipcode(zipcode)}
                          style={{color:'#333333',marginTop:5}}
                          paddingLeft={15}

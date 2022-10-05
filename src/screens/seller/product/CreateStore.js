@@ -78,7 +78,7 @@ const CreateStore = (props) => {
     const [Country, onChangeCountry] = React.useState("Country");
     const [UserID, setUserID] = useState("");
     const [visible, setVisible] = React.useState(false);
-
+    const [managedata, setmanagedata] = React.useState(true);
     const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
 
     const selectcolor = async (color) => {
@@ -136,8 +136,13 @@ const CreateStore = (props) => {
     // Vendor request submission
     const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
-
-        if  (Brand !== ""&& AboutBrand !== "" && billImgPath !== "" ) {
+        if(billImgPath == "") {
+            alert('Brand Image is required')
+        }else if(Brand == "" ) { 
+            alert('Brand name is required')
+        }else if(AboutBrand == "") {
+            alert('Enter your brand details')
+        }else {
             const formData = new FormData();
             formData.append("brandName", Brand);
             formData.append("aboutBrand", AboutBrand);
@@ -229,7 +234,7 @@ const renderItem6 = ({ item }) => {
                           onChangeText={onChangeBrand}
                           value={Brand}
                           placeholder="Brand name"
-                          placeholderTextColor="#848484"
+                          placeholderTextColor="#b3b3b3"
                         />
                     </View>
 
@@ -239,16 +244,11 @@ const renderItem6 = ({ item }) => {
                           onChangeText={(text) =>onChangeAboutBrand(text)}
                           value={AboutBrand}
                           placeholder="Tell us about your brand in fewer then 150 characters"
-                          placeholderTextColor="#848484"
+                          placeholderTextColor="#b3b3b3"
                           numberOfLines={10}
-                          multiline={true}
+                          multiline={managedata}
                         />
                     </View>
-
-
-                  <View style={tw`my-2`}>
-                        <Largesortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-                  </View>
 
 
 
@@ -259,7 +259,7 @@ const renderItem6 = ({ item }) => {
 
                </ScrollView>
 
-               <Help onPress={(text1) => helpbuttonsubmit(text1)} />
+               
 
 
                 </View>

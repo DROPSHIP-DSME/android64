@@ -148,7 +148,7 @@ const deviceWidth = Dimensions.get('window').width;
                      placeholder="US$"
                      onChangeText={onChangeText1}
                      onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#999999"
+                     placeholderTextColor="#b3b3b3"
                     />
                     </Text>
                  </View>
@@ -157,7 +157,7 @@ const deviceWidth = Dimensions.get('window').width;
                 <TextInput
                   style={tw.style('pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                   placeholder="Description (optional)"
-                  placeholderTextColor="#4d4d4d"
+                  placeholderTextColor="#b3b3b3"
                   paddingLeft={3}
                   width={330}
                   multiline

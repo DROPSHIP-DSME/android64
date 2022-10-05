@@ -50,7 +50,7 @@ const Verification = (props) => {
             setshowalertmsg('Mobile Number is required')
         }else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/.test(phonenumber)) {
             setshowotherAlert(true)
-            setshowalertmsg('Invalid Number')
+            setshowalertmsg('Invalid Phone Number')
         }else{
             setShow('true');
             setHide(true);
@@ -89,7 +89,7 @@ const Verification = (props) => {
                 <TextInput
                 style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                 placeholder="Mobile Number"
-                placeholderTextColor="#999999"
+                placeholderTextColor="#b3b3b3"
                 onChangeText={onChangeText1}
                 value={phonenumber}
                 onSubmitEditing={() => handleRegistrationSubmit()}
@@ -111,7 +111,7 @@ const Verification = (props) => {
                 <TextInput
                 style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                 placeholder="Enter Code"
-                placeholderTextColor="#999999"
+                placeholderTextColor="#b3b3b3"
                 onChangeText={setCode}
                 value={code}
                 onSubmitEditing={() => handleRegistrationSubmit1() }

@@ -223,26 +223,11 @@ const Accountbrandlist = (props) => {
                     </View>
                   </TouchableOpacity>
 
-                 <View style={tw`flex-end absolute right-2 top-2`}>
-                    <View style={tw.style('bg-zinc-200 rounded-md p-1 w-11 h-auto')}>
-                        <TouchableOpacity onPress={() => openpopup() }>
-                            <View style={tw.style('my-2 items-center h-auto')}>
-                              <DotsVerticalIcon color="black" fill="#000000" size={20} />
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={tw.style('bg-zinc-200 rounded-md p-1 mt-2 w-11 h-auto')}>
-                        <TouchableOpacity onPress={() => openpopup() }>
-                            <View style={tw.style('my-2 items-center h-auto')}>
-                              <ShareIcon color="black" fill="#000000" size={20} />
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                  </View>
+                 
 
-                  <Text style={tw`text-3xl text-center text-red-700 font-bold mt-3`}>{props?.getBranddetails?.brandName}-text</Text>
+                  <Text style={tw`text-3xl text-center text-red-700 font-bold mt-3`}>{props?.getBranddetails?.brandName}</Text>
 
-                  <Text style={tw`text-lg text-center text-gray-600 mt-1`}>{props?.getlistbranddetails?.aboutBrand}-text</Text>
+                  <Text style={tw`text-lg text-center text-gray-600 mt-1`}>{props?.getBranddetails?.aboutBrand}</Text>
 
                  <View style={tw`flex flex-row justify-around mt-3`}>
                     <View>
@@ -263,22 +248,6 @@ const Accountbrandlist = (props) => {
                   <View style={tw`mt-6 mb-10 mx-2`}>
                       <Medbutton text="Follow" />
                    </View>
-              </View>
-
-
-
-
-              <View style={tw.style('flex flex-row justify-around mx-4 pt-5')}>
-                  <Text style={tw`text-base font-bold text-gray-900`}>Store</Text>
-
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-                      <Text style={tw`text-base font-bold text-gray-400`}>Livestreams</Text>
-                  </TouchableOpacity>
-              </View>
-
-              <View style={tw.style('flex flex-row mx-4 my-2')}>
-                  <View style={tw.style('border-b-2 border-gray-500 w-[35%]')}></View>
-                  <View style={tw.style('border-b-2 border-gray-500 w-[65%]')}></View>
               </View>
 
               <View style={tw`flex flex-row mx-3`}>
@@ -303,47 +272,14 @@ const Accountbrandlist = (props) => {
                         />
                     </View>
                </View>
-
-
-
                 <View>
-
-
-        { openpopup  &&
-                    <Provider>
-                    <Portal>
-                    <Modal visible={visible} style={{backgroundColor:'rgba(0, 0, 0, 0.8)',marginHorizontal:-20,marginVertical:-5}} onDismiss={closepopup} contentContainerStyle={containerStyle}>
-          <View style={{ marginTop:150,position: 'absolute', textAlign: 'center',justifyContent: 'center',alignItems: 'center',top: 10,left: 0,right: 0 }}>
-            <View style={{ width: 250, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
-
-
-              <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Language</Text>
-              <View style={styles.pickerViewshorttodaymodallist}>
-                       <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-                </View>
-
-                <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'6%',alignSelf:'center'}}></View>
-                <TouchableOpacity onPress={()=>closepopup()}>
-                <Text style={{marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',marginBottom:'5%'}}>Report store</Text>
-                </TouchableOpacity>
-
-
-
-
-
-            </View>
-          </View>
-       </Modal>
-                    </Portal>
-                    </Provider>
-                }
          </View>
 
 
 
                </ScrollView>
 
-               <Help onPress={(text1) => helpbuttonsubmit(text1)} />
+               
 
             <Footer3 onSelection="5"  />
         </View>

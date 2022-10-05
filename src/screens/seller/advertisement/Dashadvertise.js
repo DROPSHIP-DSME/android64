@@ -25,7 +25,7 @@ import Modal from 'react-native-modal';
 import tw from 'twrnc'
 import Medbutton from '../../../components/dropshipbutton/Medbutton';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
-import Sortorder from '../../../components/pickers/Sortorder';
+import Largesortorder from '../../../components/pickers/Largesortorder';
 import Comingsoon from '../../../components/baseassests/Comingsoon';
 
 const options = [
@@ -131,7 +131,7 @@ const deviceWidth = Dimensions.get('window').width;
     return (
          <View style={{flex:1}}>
              <View style={tw`py-6 bg-white h-[93%]`}>
-              <View style={tw`items-center mt-25 mx-4`}>
+              <View style={tw`items-center mt-0 mx-4`}>
                 <Comingsoon />
                 <View style={tw`items-center mt-10`}>
                   <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
@@ -142,7 +142,7 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
               </View>
              </View>
-      {/* <ScrollView onScroll={({nativeEvent}) => {
+       {/*<ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
@@ -168,10 +168,10 @@ const deviceWidth = Dimensions.get('window').width;
               <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
                 <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
                   <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
-                    <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                    <Text style={tw.style('mt-3 mx-2 mb-0 font-sm font-sm text-gray-700')}>
                       Type of advertisment
                     </Text>
-                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                      <Largesortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     </View>
                 </View>
@@ -180,10 +180,10 @@ const deviceWidth = Dimensions.get('window').width;
             <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
               <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
                   <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
-                    <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                    <Text style={tw.style('mt-3 mx-2 mb-0 font-sm font-sm text-gray-700')}>
                       Country
                     </Text>
-                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                        <Largesortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       </View>
                   </View>
@@ -193,10 +193,10 @@ const deviceWidth = Dimensions.get('window').width;
               <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
                 <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
                     <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
-                      <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                      <Text style={tw.style('mt-3 mx-2 mb-0 font-sm font-sm text-gray-700')}>
                         Advertisment Location
                       </Text>
-                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                        <Largesortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       </View>
                   </View>
@@ -205,10 +205,10 @@ const deviceWidth = Dimensions.get('window').width;
                 <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
                   <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
                       <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
-                        <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                        <Text style={tw.style('mt-3 mx-2 mb-0 font-sm font-sm text-gray-700')}>
                           What are you advertising
                         </Text>
-                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                        <Largesortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       </View>
                   </View>
@@ -250,9 +250,7 @@ const deviceWidth = Dimensions.get('window').width;
                </ScrollView>*/}
 
                  <Footer3 />
-
           </View>
-
     )
 }
 

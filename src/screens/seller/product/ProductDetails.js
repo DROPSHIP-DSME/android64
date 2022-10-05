@@ -40,13 +40,27 @@ const ProductDetails = (props) => {
         props.getAllproductdetails(productId);
     }, [])
 
-    const openpopup = () => {
-        setVisible(true)
-
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
+    
+    const deleteproduct = () => {
+         return Alert.alert(
+            "Are your sure?",
+            "Are you sure you want to remove this product?",
+            [
+              // The "Yes" button
+              {
+                text: "Yes",
+                onPress: () => {
+                  props.deleteproductItem(productId,props.navigation);
+                },
+              },
+              // The "No" button
+              // Does nothing but dismiss the dialog when tapped
+              {
+                text: "No",
+              },
+            ]
+          );
+    }
 
     return (
         <KeyboardAvoidingView
@@ -91,9 +105,9 @@ const ProductDetails = (props) => {
                  </View>
 
                   <View style={tw`items-center`}>
-                   <Editbutton onPress={() => openpopup()} />
+                   
                    <View style={tw`mt-3`}>
-                    <Deletebutton />
+                    <Deletebutton onPress={() => deleteproduct()} />
                    </View>
                   </View>
                </View>

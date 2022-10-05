@@ -162,7 +162,7 @@ const deviceWidth = Dimensions.get('window').width;
                    <TextInput
                   style={styles.inputedittoday}
                   placeholder="Type here..."
-                  placeholderTextColor="#4d4d4d"
+                  placeholderTextColor="#b3b3b3"
                   paddingLeft={15}
                   width={230}
                   multiline
