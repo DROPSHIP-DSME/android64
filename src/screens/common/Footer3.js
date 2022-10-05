@@ -7,6 +7,7 @@ import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
 import ImageIcons from '../../common/ImageIcons';
 import tw from 'twrnc';
+import BottomSheet from 'react-native-easy-bottomsheet';
 import { HomeIcon } from "react-native-heroicons/solid";
 import { VideoCameraIcon } from "react-native-heroicons/solid";
 import { CashIcon } from "react-native-heroicons/solid";
@@ -42,6 +43,8 @@ const Footer3 = (props) => {
     const [IsLogin, setIsLogin] = React.useState('');
     const [showpop, setshowpop] = React.useState(false);
     const [showaccountpop,setshowaccountpop]= React.useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modalAcctVisible, setAcctModalVisible] = useState(false);
 
     useEffect(() => {
        getBrandUserId();
@@ -50,6 +53,90 @@ const Footer3 = (props) => {
     const getBrandUserId = async () => {
         var getIsLogin = await AsyncStorage.getItem('userLogin');
         setIsLogin(getIsLogin);
+    }
+
+    const Showshoplinks = () => {
+        return (
+            <View>
+                <TouchableOpacity onPress={() => { setModalVisible(true) }}>
+                    <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
+                        <Text>
+                            <ShoppingBagIcon color="#ff0000" fill="gray" size={24} />
+                        </Text>
+                            <Text style={tw.style('text-sm font-normal text-gray-700')}>Shop</Text>
+                    </View>
+                </TouchableOpacity>
+
+                
+                <BottomSheet
+                    //bottomSheetTitle={'Shopping'}
+                    // bottomSheetIconColor="red"
+                    bottomSheetStyle={{
+                        backgroundColor: 'white',
+                        maxHeight: '70%',
+                        minHeight: '30%',
+                    }}
+                    // bottomSheetTitleStyle={{color: 'red'}}
+                    setBottomSheetVisible={setModalVisible}
+                    bottomSheetVisible={modalVisible}>
+                    <ScrollView>
+                        <View onPress={() => { navigation.navigate('shop'); }}  style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
+                                <Text onPress={() => { navigation.navigate('shop'); }} style={tw.style('text-2xl font-bold text-gray-700')}>Shop Products</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View onPress={() => { navigation.navigate('upcoming'); }}  style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
+                                <Text onPress={() => { navigation.navigate('upcoming'); }} style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>View Livestreams</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </ScrollView>
+                </BottomSheet>
+            </View>
+           
+        );
+    }
+
+    const Showaccountlinks = () => {
+        return (
+            <View>
+                <TouchableOpacity onPress={() => { setAcctModalVisible(true) }}>
+                    <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
+                        <Text>
+                            <UserIcon color="#ff0000" fill="gray" size={24} />
+                        </Text>
+                            <Text style={tw.style('text-sm font-normal text-gray-700')}>Account</Text>
+                    </View>
+                </TouchableOpacity>
+
+                
+                <BottomSheet
+                    // bottomSheetTitle={'Accounts'}
+                    // bottomSheetIconColor="red"
+                    bottomSheetStyle={{
+                        backgroundColor: 'white',
+                        maxHeight: '70%',
+                        minHeight: '30%',
+                    }}
+                    // bottomSheetTitleStyle={{color: 'red'}}
+                    setBottomSheetVisible={setAcctModalVisible}
+                    bottomSheetVisible={modalAcctVisible}>
+                    <ScrollView>
+                        <View onPress={() => { navigation.navigate('shop'); }}  style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('Account'); }}>
+                                <Text onPress={() => { navigation.navigate('Account'); }} style={tw.style('text-2xl font-bold text-gray-700')}>My Account</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View onPress={() => { navigation.navigate('upcoming'); }}  style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('Overview'); }}>
+                                <Text onPress={() => { navigation.navigate('Overview'); }} style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>My Store</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </ScrollView>
+                </BottomSheet>
+            </View>
+           
+        );
     }
 
     useFocusEffect(
@@ -111,6 +198,7 @@ const Footer3 = (props) => {
               </View>
             }
         </TouchableOpacity>
+<<<<<<< HEAD
         {/*
         <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
             {onSelection==2 ?
@@ -149,6 +237,11 @@ const Footer3 = (props) => {
            </View>
         }
         </TouchableOpacity>
+=======
+       
+        {/* showShopLinks selection component */}
+        <Showshoplinks/>
+>>>>>>> 69dc1145a51011c383fa9e0332140d19f91580a5
 
 
         <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Dashlive")}} >
@@ -170,6 +263,7 @@ const Footer3 = (props) => {
 
         </TouchableOpacity>
 
+<<<<<<< HEAD
 
         <TouchableOpacity onPress={() => { setshowpop(false); setshowaccountpop(s=>!s); setTimeout(function(){ setshowaccountpop(false); },10000) }}>
          {onSelection==5 ?
@@ -188,6 +282,10 @@ const Footer3 = (props) => {
            </View>
         }
         </TouchableOpacity>
+=======
+        {/* Account links selection component */}
+        <Showaccountlinks/>
+>>>>>>> 69dc1145a51011c383fa9e0332140d19f91580a5
 
         </View>
 
