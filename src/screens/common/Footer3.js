@@ -67,7 +67,7 @@ const Footer3 = (props) => {
                     </View>
                 </TouchableOpacity>
 
-                
+
                 <BottomSheet
                     //bottomSheetTitle={'Shopping'}
                     // bottomSheetIconColor="red"
@@ -93,7 +93,7 @@ const Footer3 = (props) => {
                     </ScrollView>
                 </BottomSheet>
             </View>
-           
+
         );
     }
 
@@ -109,7 +109,7 @@ const Footer3 = (props) => {
                     </View>
                 </TouchableOpacity>
 
-                
+
                 <BottomSheet
                     // bottomSheetTitle={'Accounts'}
                     // bottomSheetIconColor="red"
@@ -135,7 +135,7 @@ const Footer3 = (props) => {
                     </ScrollView>
                 </BottomSheet>
             </View>
-           
+
         );
     }
 
@@ -169,26 +169,7 @@ const Footer3 = (props) => {
             }
         </TouchableOpacity>
 
-        
-            {/* <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(s=>!s); setTimeout(function(){ setshowpop(false); },10000) }}>
-            {onSelection==2 ?
-            <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                <Text>
-                    <ShoppingBagIcon color="red" fill="#b80000" size={24} />
-                </Text>
-                    <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Shop</Text>
-            </View>
-        :
-            <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                <Text>
-                    <ShoppingBagIcon color="red" fill="gray" size={24} />
-                </Text>
-                    <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Shop</Text>
-            </View>
-            }
-            </TouchableOpacity> */}
 
-       
         {/* showShopLinks selection component */}
         <Showshoplinks/>
 
@@ -212,24 +193,7 @@ const Footer3 = (props) => {
 
         </TouchableOpacity>
 
-            {/* <TouchableOpacity onPress={() => { setshowpop(false); setshowaccountpop(s=>!s); setTimeout(function(){ setshowaccountpop(false); },10000) }}>
-            {onSelection==5 ?
-            <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                <Text>
-                    <UserIcon color="red" fill="#b80000" size={24} />
-                </Text>
-                    <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Account</Text>
-            </View>
-        :
-            <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                <Text>
-                    <UserIcon color="red" fill="gray" size={24} />
-                </Text>
-                    <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Account</Text>
-            </View>
-            }
-            </TouchableOpacity> */}
-        
+
         {/* Account links selection component */}
         <Showaccountlinks/>
 
