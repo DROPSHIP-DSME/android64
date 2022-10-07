@@ -198,50 +198,10 @@ const Footer3 = (props) => {
               </View>
             }
         </TouchableOpacity>
-<<<<<<< HEAD
-        {/*
-        <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
-            {onSelection==2 ?
-              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                  <Text>
-                     <VideoCameraIcon color="red" fill="#b80000" size={24} />
-                  </Text>
-                   <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Livestreams</Text>
-              </View>
-          :
-              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                  <Text>
-                     <VideoCameraIcon color="red" fill="gray" size={24} />
-                  </Text>
-                   <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Livestreams</Text>
-              </View>
-            }
-        </TouchableOpacity>
-        */}
 
-        
-        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(s=>!s); setTimeout(function(){ setshowpop(false); },10000) }}>
-         {onSelection==2 ?
-           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-               <Text>
-                  <ShoppingBagIcon color="red" fill="#b80000" size={24} />
-               </Text>
-                <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Shop</Text>
-           </View>
-       :
-           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-               <Text>
-                  <ShoppingBagIcon color="red" fill="gray" size={24} />
-               </Text>
-                <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Shop</Text>
-           </View>
-        }
-        </TouchableOpacity>
-=======
        
         {/* showShopLinks selection component */}
         <Showshoplinks/>
->>>>>>> 69dc1145a51011c383fa9e0332140d19f91580a5
 
 
         <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Dashlive")}} >
@@ -263,29 +223,9 @@ const Footer3 = (props) => {
 
         </TouchableOpacity>
 
-<<<<<<< HEAD
 
-        <TouchableOpacity onPress={() => { setshowpop(false); setshowaccountpop(s=>!s); setTimeout(function(){ setshowaccountpop(false); },10000) }}>
-         {onSelection==5 ?
-           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-               <Text>
-                  <UserIcon color="red" fill="#b80000" size={24} />
-               </Text>
-                <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Account</Text>
-           </View>
-       :
-           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-               <Text>
-                  <UserIcon color="red" fill="gray" size={24} />
-               </Text>
-                <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Account</Text>
-           </View>
-        }
-        </TouchableOpacity>
-=======
         {/* Account links selection component */}
         <Showaccountlinks/>
->>>>>>> 69dc1145a51011c383fa9e0332140d19f91580a5
 
         </View>
 
