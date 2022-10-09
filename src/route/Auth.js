@@ -80,7 +80,8 @@ import {
   Sellheader,
   payment,
   ordercheckout,
-  createselleraccount
+  createselleraccount,
+  Verificationsteps,
 } from '../container';
 
 import {
@@ -164,15 +165,21 @@ const Auth = (props) => {
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
       />
 
-      <Stack.Screen
+      {/* <Stack.Screen
         name="ordercheckout"
         component={ordercheckout}
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
-      />
+      /> */}
 
       <Stack.Screen
         name="createselleraccount"
         component={createselleraccount}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
+      />
+
+      <Stack.Screen
+        name="Verificationsteps"
+        component={Verificationsteps}
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
       />
 
