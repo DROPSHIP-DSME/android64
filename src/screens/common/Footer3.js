@@ -212,7 +212,6 @@ const Footer3 = (props) => {
 
         </TouchableOpacity>
 
-
             {/* <TouchableOpacity onPress={() => { setshowpop(false); setshowaccountpop(s=>!s); setTimeout(function(){ setshowaccountpop(false); },10000) }}>
             {onSelection==5 ?
             <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>

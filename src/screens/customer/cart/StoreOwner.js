@@ -156,9 +156,14 @@ const StoreOwner = (props) => {
                 "city":City,
                 "country":selectedValue
             }
-            props.chekout(request, props.navigation, "vendor");
-            openpopup()
+            {/*props.chekout(request, props.navigation, "vendor");
+        openpopup() */}
         }
+
+        
+
+
+
     }
 
     return (
@@ -304,7 +309,7 @@ const StoreOwner = (props) => {
                 </View>
                 <View style={{alignItems:'center',marginTop:'12%',marginBottom:'22%'}}>
 
-                        <Largebutton text={" Pay $" + props?.totalcartprice} onPress={() => { handleSendRequestSubmit() }} />
+                      <Largebutton text={" Pay $" + props?.totalcartprice} onPress={() => { handleSendRequestSubmit() }} />
 
                </View>
                 </View>

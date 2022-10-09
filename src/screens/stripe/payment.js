@@ -1,86 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View,TextInput,
  ImageBackground,Image,
  ScrollView,TouchableOpacity,
  Alert,  StatusBar,
  KeyboardAvoidingView,
- Platform,Keyboard, NativeModules, Picker, Button, Switch} from 'react-native';
-{/*import { CardField, useConfirmPayment, useStripe } from '@stripe/stripe-react-native';*/}
-
-import styles from '../../screens/common/styles';
+ Platform,Keyboard, NativeModules, Picker, Button, Switch, Screen} from 'react-native';
+import { StripeProvider, useStripe } from '@stripe/stripe-react-native';
+import styles from '../common/styles';
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import Logobase from '../../components/baseassests/Logobase';
 import Paymentvector from '../../components/baseassests/Paymentvector';
 
-const payment = (props) => {
 
-    {/*const [email, setEmail] = useState();
-    const [saveCard, setSaveCard] = useState(false);
-    const { confirmPayment, loading } = useConfirmPayment();
+// const stripePromise = loadStripe('pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa');
 
-    const fetchPaymentIntentClientSecret = async () => {
-      const response = await fetch(`${API_URL}/create-payment-intent`, {
-        method: 'POST',
+const Payment = (props) => {
+
+  // const stripe = useStripe();
+  const { initPaymentSheet, presentPaymentSheet } = useStripe();
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("1");
+  const [customer, setcustomer] = useState('');
+  
+  const [loading, setLoading] = useState(false);
+  
+  const checkOutPayment = async () => {
+
+    try {
+      // const finalAmount = parseInt(amount);
+      // if (finalAmount < 1) return Alert.alert("You cannot donate below 1 INR");
+      const response = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          currency: 'usd',
-        }),
-      });
-      const {clientSecret} = await response.json();
+        body: JSON.stringify({ name, amount, customer }),
+      })
 
-      return clientSecret;
-    };
-
-    const handlePayPress = async () => {
-
-      // Fetch the intent client secret from the backend.
-      const clientSecret = await fetchPaymentIntentClientSecret();
-
-      const { error, paymentIntent } = await confirmPayment(
-        clientSecret,
-        {
-          paymentMethodType: 'Card',
-          paymentMethodData: {
-            billingDetails,
-          },
-        },
-        {
-          setupFutureUsage: saveCard ? 'OffSession' : undefined,
-        }
-      );
-
-      if (error) {
-        Alert.alert(`Error code: ${error.code}`, error.message);
-        
-      } else if (paymentIntent) {
-        Alert.alert(
-          'Success',
-          `The payment was confirmed successfully! currency: ${paymentIntent.currency}`
-        );
+      const data = await response.json();
+      // console.log(data);
+      console.log(JSON.stringify(data));
+      // console.log(data.data.customer);
+      if (!response.ok) {
+        return Alert.alert('data.paymentIntent');
       }
-
-    };
-
-    const inputStyles: CardFieldInput.Styles = {
-      borderWidth: 1,
-      backgroundColor: '#FFFFFF',
-      borderColor: '#000000',
-      borderRadius: 8,
-      fontSize: 14,
-      placeholderColor: '#A020F0',
-      textColor: '#000000',
+      const initSheet = await initPaymentSheet({
+        paymentIntentClientSecret: data.data.paymentIntent,
+        customerEphemeralKeySecret: data.data.ephemeralKey,
+        customerId: data.data.customer,
+        allowsDelayedPaymentMethods: true,
+        currencyCode: "USD",
+        style: "alwaysLight",
+        merchantDisplayName: "Dropship",
+        
+      });
+      if (initSheet.error) {
+        console.error(initSheet.error);
+        return Alert.alert(initSheet.error.message);
+      }
+      const presentSheet = await presentPaymentSheet({
+        clientSecret: data.data.paymentIntent,
+      });
+      if (presentSheet.error) {
+        console.error(presentSheet.error);
+        return Alert.alert(presentSheet.error.message);
+      }
+      Alert.alert("Payment successfully!");
+    } catch (err) {
+      console.error(err);
+      Alert.alert("Payment failed!");
     }
+  };
 
 
   return (
+    <StripeProvider
+      publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
+      merchantIdentifier="merchant.identifier"
+    >
     <KeyboardAvoidingView
        behavior={Platform.OS === "ios" ? "padding" : "height"}
        style={styles.registrationRoot}>
-
-
+        
         <View style={tw.style('items-center mt-15 mb-[10%]')}>
             <Logobase />
         </View>
@@ -92,43 +94,18 @@ const payment = (props) => {
           <Paymentvector />
         </View>
 
-          <View style={tw.style('mx-5 mt-2 mb-3')}>
-            <CardField
-              postalCodeEnabled={false}
-              autofocus
-              placeholders={{
-                number: '4242 4242 4242 4242',
-                postalCode: '12345',
-                cvc: 'CVC',
-                expiration: 'MM|YY',
-              }}
+        <View style={tw.style('my-1 mx-5 text-white mb-20')}>
+        
+          <Button onPress={checkOutPayment} title="Create strip" />
+        
+        </View>
 
-              cardStyle={inputStyles}
-              style={tw.style('h-12 mt-1 mb-2')}
-
-              onCardChange={(cardDetails) => {
-                
-              }}
-              onFocus={(focusedField) => {
-              }}
-            />
-          </View>
-
-          <View style={tw.style('flex flex-row text-center my-3 mx-4')}>
-            <Switch
-              onValueChange={(value) => setSaveCard(value)}
-              value={saveCard}
-            />
-            <Text style={tw.style('ml-2 text-base text-gray-700')}>Save card during payment</Text>
-          </View>
-          <View style={tw.style('my-1 mx-5 text-white mb-20')}>
-            <Button onPress={handlePayPress} title="Pay" disabled={loading} />
-          </View>
-
-
+        
     </KeyboardAvoidingView>
-  );*/}
+    </StripeProvider>
+ 
+  );
 
 }
 
-export default payment
+export default Payment

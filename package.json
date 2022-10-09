@@ -1,5 +1,5 @@
 {
-  "name": "SalesmanStoreOwner",
+  "name": "salesmanstoreowner",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -37,6 +37,9 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/native-stack": "^6.1.0",
     "@react-navigation/stack": "^5.14.3",
+    "@stripe/react-stripe-js": "^1.12.0",
+    "@stripe/stripe-js": "^1.38.1",
+    "@stripe/stripe-react-native": "^0.16.0",
     "affirm": "^0.1.3",
     "agora-access-token": "^2.0.4",
     "axios": "^0.21.1",
