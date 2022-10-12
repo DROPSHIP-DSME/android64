@@ -17,6 +17,8 @@ const Checkoutform = () => {
   const [paymentIntent, setpaymentIntent] = useState('');
   const [ephemeralKey, setephemeralKey] = useState('');
   const [customer, setcustomer] = useState('');
+
+  
   // const [publishableKey, setpublishableKey] = useState('');
 
   const [loading, setLoading] = useState(false);

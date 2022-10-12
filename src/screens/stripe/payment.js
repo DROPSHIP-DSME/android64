@@ -19,9 +19,10 @@ const Payment = (props) => {
 
   // const stripe = useStripe();
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("1");
+  const [name, setName] = useState("Aushie Robinson");
+  const [amount, setAmount] = useState("170.00");
   const [customer, setcustomer] = useState('');
+  const [email, setEmail] = useState('cd@dropship.com');
   
   const [loading, setLoading] = useState(false);
   
@@ -35,7 +36,7 @@ const Payment = (props) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, amount, customer }),
+        body: JSON.stringify({ name, amount, customer, email }),
       })
 
       const data = await response.json();
