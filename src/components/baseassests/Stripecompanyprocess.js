@@ -8,7 +8,7 @@ import { Text, View,TextInput,
 import tw from 'twrnc';
 import Logobase from './Logobase';
 
-const Stripeindprocess = () => {
+const Stripecompanyprocess = () => {
     
     const [firstName, setfirstName] = useState("Aushie");
     const [lastName, setlastName] = useState("Robinson");
@@ -27,7 +27,7 @@ const Stripeindprocess = () => {
     const supportedURL = data;
 
     useEffect(() => {
-        const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , { 
+        const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/company` , { 
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -65,7 +65,7 @@ const Stripeindprocess = () => {
               style={tw.style('inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
             >
               <TouchableOpacity style={tw.style('h-15 w-10/11 justify-center items-center')} onPress={handlePress}>
-                <Text style={tw.style('text-lg text-white')}>Individual Stripe Account</Text>
+                <Text style={tw.style('text-lg text-white')}>Business Stripe Account</Text>
               </TouchableOpacity>
             </View>
           );
@@ -82,4 +82,4 @@ const Stripeindprocess = () => {
     );
     
 }
-   export default Stripeindprocess;
+   export default Stripecompanyprocess;
