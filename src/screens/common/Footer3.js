@@ -193,7 +193,6 @@ const Footer3 = (props) => {
 
         </TouchableOpacity>
 
-
         {/* Account links selection component */}
         <Showaccountlinks/>
 
