@@ -102,27 +102,27 @@ const Golive = (props) => {
         }
     }
 
-    const facebookSignIn = async () => {
-        // setshowotherAlert(true)
-        // setshowalertmsg('Work is in progress')
+    // const facebookSignIn = async () => {
+    //     // setshowotherAlert(true)
+    //     // setshowalertmsg('Work is in progress')
 
-        let request = {
-            "email": 'facebookuser@gmail.com',
-            "userName": 'Facebook',
-            "type":"facebook"
-        }
-        props.signInwithsocial(request, props.navigation);
+    //     let request = {
+    //         "email": 'facebookuser@gmail.com',
+    //         "userName": 'Facebook',
+    //         "type":"facebook"
+    //     }
+    //     props.signInwithsocial(request, props.navigation);
 
-        // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
-        //     function (result) {
-        //         if (result.isCancelled) {
-        //         } else {
-        //         }
-        //     },
-        //     function (error) {
-        //     }
-        // );
-    }
+    //     // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
+    //     //     function (result) {
+    //     //         if (result.isCancelled) {
+    //     //         } else {
+    //     //         }
+    //     //     },
+    //     //     function (error) {
+    //     //     }
+    //     // );
+    // }
 
 
 
@@ -150,7 +150,7 @@ const Golive = (props) => {
                   </View>
               </TouchableOpacity>
           </View>
-          <View style={tw.style('mt-4 items-center')}>
+          {/* <View style={tw.style('mt-4 items-center')}>
               <TouchableOpacity
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-full border border-slate-400 shadow-sm ')}
                   activeOpacity = { .5}
@@ -160,9 +160,9 @@ const Golive = (props) => {
                       <Text style={tw.style('text-xl ml-3 mt-1 text-gray-800 tracking-wide', { fontFamily: "hintedavertastdsemibold" })}>Sign in with Facebook</Text>
                   </View>
               </TouchableOpacity>
-          </View>
+          </View> */}
 
-        <View style={[styles.devider1, { marginTop: '10%' }]}>
+        <View style={[styles.devider1, { marginTop: '5%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />

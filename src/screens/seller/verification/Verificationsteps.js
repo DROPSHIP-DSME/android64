@@ -4,7 +4,7 @@ import { Text, View,TextInput,
     ScrollView, TouchableOpacity,
     Alert, Linking,
     KeyboardAvoidingView,
-    Platform, Keyboard, NativeModules, Button,Dimensions } from 'react-native';
+    Platform, Keyboard, NativeModules, Button, Dimensions } from 'react-native';
 import tw from 'twrnc';
 import styles from '../../common/styles';
 import { useNavigation } from '@react-navigation/native';
@@ -21,15 +21,11 @@ import {CheckIcon} from "react-native-heroicons/solid";
 import Sortorder from '../../../components/pickers/Sortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
 import Loader from '../../../components/modals/Loader';
-import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 
 
 const Verificationsteps = (props) => {
-    const navigationOptions = {
-      header: null
-    };
-  
-    defaultScrollViewProps = {
+   
+   const defaultScrollViewProps = {
       keyboardShouldPersistTaps: 'handled',
       contentContainerStyle: {
         flex: 1,
@@ -43,7 +39,6 @@ const Verificationsteps = (props) => {
         handleChange,
         handleSubmit,
     } = props;
-
 
 
     const navigation = useNavigation();
@@ -85,6 +80,11 @@ const Verificationsteps = (props) => {
         value: 'Canada'
       }
     ]
+
+    // state = {
+    //     isValid: false,
+    //     errors: false
+    // };
 
      const selectPhoto = async () => {
          ImagePicker.openPicker({
@@ -132,7 +132,7 @@ const Verificationsteps = (props) => {
     onAddressNextStep = () => {
        onNextStep();
        Keyboard.dismiss();
-       /* if (firstname == "") {
+        if (firstname == "") {
             setshowotherAlert(true)
             setshowalertmsg('First name is required')
         }else if(lastname ==""){
@@ -161,7 +161,7 @@ const Verificationsteps = (props) => {
            props.saveaddress(request,'', '',0);
            alert('df')
            onNextStep();
-        }*/
+        }
         //console.log('called next step');
     };
 
@@ -207,20 +207,20 @@ const Verificationsteps = (props) => {
     };
 
     return (
+      <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.registrationRoot}>
+
+      
       <StripeProvider
           publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
           merchantIdentifier="Dropship.com" // required for Apple Pay
         >
-          <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.registrationRoot}>
+          
 
-          <ScrollView style={{backgroundColor:'#ffffff'}}>
-          
-          
 
             <View style={tw.style('flex flex-1 mt-6 mx-2')}>
-                    <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+              <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
               <ProgressSteps {...progressStepsStyle}>
                 <ProgressStep
@@ -228,23 +228,24 @@ const Verificationsteps = (props) => {
                   label="Create Brand"
                   onNext={onNextStep}
                   onPrevious={onPrevStep}
-
-                >
-                  <View style={tw.style('items-center mt-10 mb-65')}>
-                    <View style={tw.style('text-gray-700 text-xl items-center mt-6 mb-6')}>
+                  scrollViewProps={defaultScrollViewProps}
+                  nextBtnTextStyle={buttonTextStyle}
+                  previousBtnTextStyle={buttonTextStyle}
+                 >
+                  <View style={tw.style('items-center mt-5')}>
+                    <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
                       <View style={tw.style('mb-2')}>
                         <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"hintedavertastdsemibold"})}>Create your Brand</Text>
                       </View>
                         
                     
-                      {/* { billImgPath !== "" ?
-                          <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-10 mb-5`} />
+                      { billImgPath !== "" ?
+                          <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-4 mb-5`} />
                       :
-                        <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
+                        <TouchableOpacity style={tw`mt-4 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
                           <CameraIcon color="#ffffff" fill="#ffffff" size={70} />
                         </TouchableOpacity>
-                      } */}
-
+                      }
                     </View>
 
 
@@ -276,8 +277,11 @@ const Verificationsteps = (props) => {
                 <ProgressStep
                   labelFontSize="12"
                   label="Address Information"
-                  onNext={onAddressNextStep}
+                  onNext={onNextStep}
                   onPrevious={onPrevStep}
+                  scrollViewProps={defaultScrollViewProps}
+                  nextBtnTextStyle={buttonTextStyle}
+                  previousBtnTextStyle={buttonTextStyle}
 
                 >
                   <View style={tw.style('text-gray-700 text-xl items-center mt-6 mb-40')}>
@@ -368,20 +372,24 @@ const Verificationsteps = (props) => {
                   label="Stripe"
                   onNext={onNextStep}
                   onPrevious={onPrevStep}
+                  scrollViewProps={defaultScrollViewProps}
+                  nextBtnTextStyle={buttonTextStyle}
+                  previousBtnTextStyle={buttonTextStyle}
                 >
                   
                     <View style={tw.style('text-gray-700 text-xl items-center')}>
-                      <View style={tw.style('mt-6 mb-55 mx-5')}>
+                      <View style={tw.style('mt-2 mx-5')}>
                           <View style={tw.style('mb-2 mx-4')}>
                             <Text style={tw.style('text-2xl text-gray-700 text-center mb-3', {fontFamily:"hintedavertastdsemibold"})}>Create Seller Account</Text>
                             <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
                           </View>
-                          <View style={tw.style('h-65 mb-6')}>
+                          <View style={tw.style('h-85 mb-10')}>
                             <Paymentvector />
                           </View>
 
                         
                         <Stripeprocess />
+
                       </View>
                     </View>
                   
@@ -391,14 +399,15 @@ const Verificationsteps = (props) => {
                   labelFontSize="12"
                   borderWidth="4"
                   label="Confirm"
-                  scrollViewProps={defaultScrollViewProps}
                   onPrevious={onPrevStep}
-                
+                  scrollViewProps={defaultScrollViewProps}
+                  nextBtnTextStyle={buttonTextStyle}
+                  previousBtnTextStyle={buttonTextStyle}
                 >
                   
-                  <View style={tw.style('flex flex-1 bg-white mt-10 mb-75')}>
+                  <View style={tw.style('flex flex-1 mt-15 mb-75')}>
 
-                      <View style={tw.style('flex-row mb-10 mt-2 justify-center')}>
+                      <View style={tw.style('flex-row mt-2 justify-center')}>
                           <View style={tw.style('w-18 h-18 rounded-full bg-green-600 items-center justify-center')}>
                             <CheckIcon color="green" fill="#ffffff" size={48} />
                           </View>
@@ -407,17 +416,17 @@ const Verificationsteps = (props) => {
                       <View style={tw.style('mx-5 justify-center items-center')}>
                           <Text style={tw.style('text-2xl text-gray-700 mb-4', {fontFamily: 'hintedavertastdsemibold'})}>Your Store is Ready</Text>
                       </View>
-                      <View style={tw.style('mx-5 justify-center items-center mb-10')}>
+                      <View style={tw.style('mx-5 justify-center items-center mb-15')}>
                           <Text style={tw.style('text-base text-gray-600 text-center')}>Your new store information has been submitted to Dropship, and we will be in touch soon!</Text>
                       </View>
 
-                      <View style={tw`mx-3 my-6`}>
+                      <View style={tw`mx-3 my-6 bottom-1`}>
                         <Medbutton
                           text="Seller's Dashboard"
                           onPress={() => {navigation.navigate("Account");}} />
                       </View>
 
-                      <View style={tw`mx-3 my-3`}>
+                      <View style={tw`mx-3 my-3 bottom-2`}>
                         <Medbutton
                           text="Go Live"
                           onPress={() => {navigation.navigate("Dashlive");}} />
@@ -432,11 +441,9 @@ const Verificationsteps = (props) => {
               
             </View>
 
-            
-          </ScrollView>
-          
-          </KeyboardAvoidingView>
       </StripeProvider>
+      
+      </KeyboardAvoidingView>
 
     );
   

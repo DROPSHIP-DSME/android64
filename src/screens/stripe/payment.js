@@ -19,10 +19,10 @@ const Payment = (props) => {
 
   // const stripe = useStripe();
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
-  const [name, setName] = useState("Aushie Robinson");
-  const [amount, setAmount] = useState("170.00");
-  const [customer, setcustomer] = useState('');
-  const [email, setEmail] = useState('cd@dropship.com');
+  const [name, setName] = useState('Charles Robinson');
+  const [amount, setAmount] = useState('170.00');
+  const [customer, setcustomer] = useState('cus_MarHAmfDbApr9b');
+  const [receipt_email, setEmail] = useState('cd@dropship.com');
   
   const [loading, setLoading] = useState(false);
   
@@ -34,14 +34,19 @@ const Payment = (props) => {
       const response = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
         method: "POST",
         headers: {
+          Accept: 'application/json',
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, amount, customer, email }),
+        body: JSON.stringify({ 
+          amount:5000,
+          stripe_customer_id: "cus_MarHAmfDbApr9b",
+          receipt_email:"allan.k@mailainator.com"
+        }),
       })
 
       const data = await response.json();
-      // console.log(data);
-      console.log(JSON.stringify(data));
+      console.log(data);
+      //console.log(JSON.stringify(data));
       // console.log(data.data.customer);
       if (!response.ok) {
         return Alert.alert('data.paymentIntent');
