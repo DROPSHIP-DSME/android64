@@ -64,8 +64,7 @@ const Verificationsteps = (props) => {
     const [step1, setstep1] = useState(true);
     const [step2, setstep2] = useState(true);
     const [step3, setstep3] = useState(true);
-
-    const [email, setEmail] = useState(props?.loginCredentials?.email);
+    const [email, setEmail] = useState("sally.west@dropship.com");
     const [phone, setPhone] = useState("0000000000");
     const [refreshUrl, setrefreshUrl] = useState("https://dropship.shopping");
     const [returnUrl, setreturnUrl] = useState("https://dropship.shopping");
