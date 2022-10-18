@@ -111,6 +111,7 @@ const CreateAccountShop = (props) => {
             setshowotherAlert(true)
             setshowalertmsg('Please accept the Terms & Conditions')
         } else {
+            Rememberme(email);
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
@@ -126,6 +127,10 @@ const CreateAccountShop = (props) => {
             }
             props.shopsignup(request, props.navigation,);
         }
+    }
+
+    const Rememberme = async (email) => {
+        await AsyncStorage.setItem('rememberemail',email);
     }
 
     const openPrivacyPolicy = () => {

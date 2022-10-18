@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback,useEffect } from "react";
 import { Text, View,TextInput,
     Image,  SafeAreaView,
     ScrollView, TouchableOpacity,
@@ -21,6 +21,7 @@ import {CheckIcon} from "react-native-heroicons/solid";
 import Sortorder from '../../../components/pickers/Sortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
 import Loader from '../../../components/modals/Loader';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 const Verificationsteps = (props) => {
@@ -118,6 +119,10 @@ const Verificationsteps = (props) => {
         });
     }
 
+    useEffect(() => {
+
+        getrememberMe();
+    })
   const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
         const formData = new FormData();
@@ -141,9 +146,7 @@ const Verificationsteps = (props) => {
         props.saveaddress(request,'', '',0);
         setshowotherAlert(true)
         setshowalertmsg('Stripe account created successfully')
-        
-
-        //onNextStep();
+        onNextStep();
     },
 
 
@@ -181,7 +184,11 @@ const Verificationsteps = (props) => {
       console.log('called next step');
     };
   
-  
+   const getrememberMe = async () => {
+        var getemail = await AsyncStorage.getItem('rememberemail');
+        setEmail(getemail);
+   }
+
     const creaetstripeaccount= () => {
         const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , { 
             method: 'POST',
