@@ -258,6 +258,7 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
   }
 };
 
+
 //createcategoryproduct
   export const createcategoryproduct = (signupRequest, navigation, role) => {
     
@@ -456,6 +457,23 @@ export const updateprofile = (signupRequest, navigation, role) => {
     }
   }
 };
+
+export const updatestripedata = (signupRequest, navigation, role) => {
+    
+  return async (dispatch, getState) => {
+    let isInternetConnected = await getState().auth?.isInternetConnected;
+    if (isInternetConnected) {
+      try {
+        let response = await Utilise.apiCalling('POST', Api.updatestripeId, signupRequest);
+        if (response?.status) {
+          //dispatch({ type: SIGNUP_CREDENTIALS, payload: response.data });
+        } 
+      } catch (error) {
+      }
+    }
+  }
+};
+
 
 //newprofile
 export const newprofile = (request, navigation, role) => {
@@ -788,11 +806,12 @@ export const createbrand = (signupRequest, navigation, role) => {
         let response = await Utilise.apiCalling('POST', Api.createbrand, signupRequest);
         dispatch({ type: SET_BRAND_LOADER, payload: false }); 
         dispatch({ type: VENDOR_REQUEST_LOADER, payload: false });
+        dispatch({ type: SET_LOGIN_CREDENTIAL, payload: response?.data });
         if (response?.status) {
-          if (navigation) { 
-              navigation.navigate("Accountproduct",{ brandId:response.data._id  })
+          // if (navigation) { 
+          //     navigation.navigate("Accountproduct",{ brandId:response.data._id  })
           
-          }
+          // }
         }
       } catch (error) {
       }

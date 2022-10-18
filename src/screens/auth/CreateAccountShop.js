@@ -106,7 +106,7 @@ const CreateAccountShop = (props) => {
             setshowalertmsg('Confirm Password is required')
         } else if (confirmPassword != password) {
             setshowotherAlert(true)
-            setshowalertmsg('Confirm Password does not match.')
+            setshowalertmsg('Password does not match.')
         }else if(toggleCheckBox==false){
             setshowotherAlert(true)
             setshowalertmsg('Please accept the Terms & Conditions')
@@ -140,13 +140,11 @@ const CreateAccountShop = (props) => {
         <KeyboardAwareScrollView
             style={styles.registrationRootscroll}>
         <View style={{flex:1,backgroundColor:'#ffffff'}}>
-
-            <View style={styles.leftlogView}>
-                <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
-
-                <Image source={ImageIcons.left} style={styles.droparrow}  />
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
+                <View style={styles.leftlogView}>
+                    <Image source={ImageIcons.left} style={styles.droparrow}  />
+                </View>
+            </TouchableOpacity>
             <View style={tw.style('items-center mb-[10%]')}>
                 <Logobase />
             </View>
@@ -193,9 +191,9 @@ const CreateAccountShop = (props) => {
                     <View style={tw`absolute top-3 right-8`}>
                        <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
                         {passwordsecure==false ?
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        :
                             <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
                         }
                         </TouchableOpacity>
                   </View>
@@ -213,9 +211,9 @@ const CreateAccountShop = (props) => {
                     <View style={tw`absolute top-3 right-8`}>
                       <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>
                         {confirmsecure==false ?
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        :
                             <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
                         }
                       </TouchableOpacity>
                     </View>

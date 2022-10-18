@@ -90,15 +90,12 @@ const Golive = (props) => {
             }
             props.signInwithsocial(request, props.navigation);
         } catch (error) {
-            //setshowotherAlert(true)
-            //setshowalertmsg('Something went wrong, Try again later!')
             let request = {
                 "email": 'googleuser@gmail.com',
                 "userName": 'Google',
                 "type":"google"
             }
             props.signInwithsocial(request, props.navigation);
-
         }
     }
 
@@ -181,18 +178,8 @@ const Golive = (props) => {
                     <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
-
-
-            <View style={tw`mx-5 mt-10`}>
-              <Largebutton
-                text="Stripe Payment 2"
-                onPress={() => { navigation.navigate('Verificationsteps'); }}
-              />
-            </View>
-
         </View>
-
-         </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
     )
 }
 export default Golive

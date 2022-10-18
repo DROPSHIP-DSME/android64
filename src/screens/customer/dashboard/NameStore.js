@@ -34,6 +34,8 @@ import Loader from '../../../components/modals/Loader';
 
 const NameStore = (props) => {
 
+const ref = React.useRef();
+
   const {
     navigation,
     values,
@@ -94,7 +96,7 @@ const NameStore = (props) => {
   }, [])
 
   const cartdataSubmit = async () => {
-
+    setloginLoader(true)
     let request = {
       "productId": props?.getlistproductdetails?.data?._id,
       "userId": props?.loginuserid,
@@ -102,9 +104,11 @@ const NameStore = (props) => {
       "productPrice":props?.getlistproductdetails?.data?.productPrice
     }
     props.cartadd(request, props.navigation, "vendor");
-    setshowotherAlert(true)
+    
     setshowalertmsg('Item added in cart successfully!')
     setTimeout(function(){  props.cartdata(props?.loginuserid); },1000);
+    setTimeout(function(){ setloginLoader(false);setshowotherAlert(true) },2000);
+
   }
 
   const getpopup = () => {
@@ -139,8 +143,11 @@ const NameStore = (props) => {
     setloginLoader(true)
     setshowlargeImage('');
     props.getAllproductdetails(productId);
-    setTimeout(function(){ setloginLoader(false) },2000);
+    setTimeout(function(){ setloginLoader(false); ref.current.scrollTo(0) },2000);
   }
+
+  
+
 
   const ratingCompleted = (ratingdata) => {
     
@@ -276,7 +283,7 @@ const NameStore = (props) => {
       style={tw.style('flex-1 justify-center')}>
 
 
-      <ScrollView onScroll={({ nativeEvent }) => {
+      <ScrollView ref={ref} onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
 
@@ -330,12 +337,26 @@ const NameStore = (props) => {
           <View style={tw.style('pt-2.5 pl-2.5')}>
             <Text style={tw.style('text-[#1A1A1A] text-sm font-bold')}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
             <View style={tw.style('flex flex-row')}>
-              <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#B80000] rounded-full')}>
+              {/* <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#B80000] rounded-full')}>
                 <Text style={tw.style('text-center text-white text-xs font-bold')}>FOLLOW</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#4AFFBD] rounded-full')}>
+              </TouchableOpacity> */}
+              <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:props?.getlistproductdetails?.getbrands?._id})} style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#4AFFBD] rounded-full')}>
                 <Text style={tw.style('text-center text-gray-700 text-xs font-bold')}>OPEN STORE</Text>
               </TouchableOpacity>
+            </View>
+            <View style={{flexDirection:'row',marginTop:"5%"}}>
+              <Rating
+                type='custom'
+                imageSize={18}
+                ratingCount={5}
+                readonly
+                ratingColor='#EB5757'
+                tintColor='#FFE7E7'
+                value={5}
+                startingValue={props?.getlistproductdetails?.totalRating}
+                style={{ marginLeft:'3%',marginTop:"1%"}}
+              />
+            
             </View>
           </View>
 
@@ -373,7 +394,8 @@ const NameStore = (props) => {
         </View>
 
         <View style={tw.style('flex flex-row mx-4 mt-10 justify-between')}>
-          <View style={tw`w-[65%]`}>
+         
+           <View style={tw`w-[65%]`}>
             <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit() }}/>
           </View>
 
@@ -406,114 +428,12 @@ const NameStore = (props) => {
         />
       
       </View>
-          {props?.getlistproductdetails?.totalRating>0 ?
-           <Text style={styles.clothpop}>Customer Rating ({( (props?.getlistproductdetails?.productRating5)*5+(props?.getlistproductdetails?.productRating4)*4+(props?.getlistproductdetails?.productRating3)*3+(props?.getlistproductdetails?.productRating2)*2+props?.getlistproductdetails?.productRating1)})</Text>
-          :
-            <Text style={styles.clothpop}>Customer Rating (0)</Text>
-          }
           </View>
 
         
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-    <Rating
-      type='custom'
-      imageSize={18}
-      ratingCount={5}
-      readonly
-      ratingColor='#EB5757'
-      tintColor='#FFE7E7'
-      value={5}
-      startingValue={5}
-      style={{ marginLeft:'3%',marginTop:"1%"}}
-    />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={props?.getlistproductdetails?.productRating5} width={200} height={20} color={"#B80000"} />
-  </View>
-  {props?.getlistproductdetails?.productRating5 >0 &&
-    <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>{props?.getlistproductdetails?.productRating5 * 100}%</Text>
-  }
-  </View>
+  
 
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-    <Rating
-      type='custom'
-      imageSize={18}
-      ratingCount={5}
-      readonly
-      ratingColor='#EB5757'
-      tintColor='#FFE7E7'
-      value={4}
-      startingValue={4}
-      style={{ marginLeft:'3%',marginTop:"1%"}}
-    />
-    <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-      <Progress.Bar progress={props?.getlistproductdetails?.productRating4} width={200} height={20} color={"#B80000"} />
-    </View>
-    {props?.getlistproductdetails?.productRating4>0 &&
-    <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>{props?.getlistproductdetails?.productRating4 * 100}%</Text>
-  }
-  </View>
-
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-    <Rating
-        type='custom'
-        imageSize={18}
-        ratingCount={5}
-        readonly
-        ratingColor='#EB5757'
-        tintColor='#FFE7E7'
-        value={3}
-        startingValue={3}
-        style={{ marginLeft:'3%',marginTop:"1%"}}
-    />
-    <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-      <Progress.Bar progress={props?.getlistproductdetails?.productRating3} width={200} height={20} color={"#B80000"} />
-    </View>
-    {props?.getlistproductdetails?.productRating3 >0 &&
-      <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>{props?.getlistproductdetails?.productRating3 *100}%</Text>
-    }
-  </View>
-
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-    type='custom'
-    imageSize={18}
-    ratingCount={5}
-    readonly
-    ratingColor='#EB5757'
-    tintColor='#FFE7E7'
-    value={2}
-    startingValue={2}
-    style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-    <Progress.Bar progress={props?.getlistproductdetails?.productRating2} width={200} height={20} borderWidth={1} color={"#B80000"} />
-  </View>
-    {props?.getlistproductdetails?.productRating2 >0 &&
-      <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>{props?.getlistproductdetails?.productRating2 *100}%</Text>
-    }
-  </View>
-
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-      type='custom'
-      imageSize={18}
-      readonly
-      ratingCount={5}
-      ratingColor='#EB5757'
-      tintColor='#FFE7E7'
-      value={1}
-      startingValue={1}
-      style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-      <Progress.Bar progress={props?.getlistproductdetails?.productRating1} width={200} height={20} color={"#B80000"} />
-  </View>
-    
-    {props?.getlistproductdetails?.productRating1 >0 &&
-      <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>{props?.getlistproductdetails?.productRating1*100}%</Text>
-    }
-  </View>
+  
 
         <View style={tw`mt-5 mx-3`}>
           <Text style={styles.clothpop}>More Products from this Store</Text>

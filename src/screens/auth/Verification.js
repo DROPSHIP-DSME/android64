@@ -36,7 +36,7 @@ const Verification = (props) => {
     // Local states
     const [hide, setHide] = React.useState(false)
     const [show, setShow] = React.useState(false)
-    const [code, setCode] = React.useState("123456");
+    const [code, setCode] = React.useState("");
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');
 
@@ -61,7 +61,7 @@ const Verification = (props) => {
         Keyboard.dismiss();
         if(code!='123456'){
             setshowotherAlert(true)
-            setshowalertmsg('Code is invalid')
+            setshowalertmsg('Code is invalid, only 123456 is allowed for now')
         }else {
             props.navigation.navigate("Codeconfirm");
         }
@@ -119,13 +119,15 @@ const Verification = (props) => {
 
             </View>
 
-            <View style={tw.style('flex flex-row mx-6')}>
+           {/* 
+                <View style={tw.style('flex flex-row mx-6')}>
                <Text style={tw.style('text-base text-gray-600')}>Didn't receive a code?</Text>
                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                <Text style={tw.style('text-base text-blue-700 ml-1', {fontFamily:'hintedavertastdsemibold'})}>Rescend Code</Text>
+                    <Text style={tw.style('text-base text-blue-700 ml-1', {fontFamily:'hintedavertastdsemibold'})}>Rescend Code</Text>
                </TouchableOpacity>
-           </View>
 
+           </View>
+       */ }
             <View style={tw`mx-5 my-5`}>
               <Largebutton text="Confirm" onPress={() => handleRegistrationSubmit1()} />
             </View>

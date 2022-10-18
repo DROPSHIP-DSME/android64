@@ -75,12 +75,11 @@ const Dashlive = (props) => {
 
     }, [])
 
-    // useEffect(() => {
-    //   if(props?.brandName && props?.brandName?._id){
-    //   }else {
-    //     props.navigation.navigate("CreateStore");
-    //   }
-    // }, [props?.brandName])
+    useEffect(() => {
+      if(props?.loginCredentials?.isSeller==false){
+        props.navigation.navigate("Verificationsteps");
+      }
+    }, [])
 
     const makeid=(len)=>{
         var result           = '';

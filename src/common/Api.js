@@ -84,6 +84,7 @@ const api = {
   updatediscount:`/shops/updatediscount`,
   updateprofile:`/shops/updateProfilepicture`,
   newprofile:`/shops/updateProfile`,
+  updatestripeId:`/shops/updatestripeId`,
   getchannelAudiance:`/shops/getchannelAudiance`,
   updateAudianceCount:`/shops/updateAudianceCount`,
   updateLikeCount:`/shops/updateLikeCount`,

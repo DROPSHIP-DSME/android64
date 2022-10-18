@@ -89,13 +89,10 @@ const Codeconfirm = (props) => {
               style={tw.style('mx-5 items-center px-4 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
             >
             <TouchableOpacity style={tw.style('w-10/11 items-center')}
-                onPress={() => {props.navigation.navigate("Goliveshop");}}>
+                onPress={() => {props.navigation.navigate("Verificationsteps");}}> 
                 <Text style={tw.style('text-lg text-white')}>Create Store</Text>
               </TouchableOpacity>
             </View>
-
-
-
             <Loader isVisible={props?.loginLoader} />
         </View>
        </KeyboardAwareScrollView>

@@ -53,6 +53,7 @@ const Cart = (props) => {
     const getBrandUserId = async () => {
         //alert(props?.loginuserid)
         props.cartdata(props?.loginuserid);
+        props.cartPrice(props?.loginuserid);
     }
 
     //Reference
@@ -67,15 +68,19 @@ const Cart = (props) => {
     const [name, setName] = useState("");
     const [amount, setAmount] = useState("1");
     const [customer, setcustomer] = useState('');
-    
+    const [loginLoader, setloginLoader] = React.useState(false);
+
     const [loading, setLoading] = useState(false);
 
     const setIncrement = async (Incval,cartId) => {
+      setloginLoader(true);
       setIncval(Incval)
       props.increcartlist(cartId, Incval);
        setTimeout(function(){
            props.cartdata(props?.loginuserid);
+           props.cartPrice(props?.loginuserid);
        },1000);
+       setTimeout(function(){ setloginLoader(false); },2000);
     };
 
     const setdeletedata = async (cartId) => {
@@ -125,16 +130,17 @@ const Cart = (props) => {
                         />
                     </View>
                 </View>
-                <View style={tw`flex-row mt-4 -ml-2 mr-8 items-center`}>
-                    <View style={tw`w-7/12 flex-row`}>
+                <View style={tw`flex-row mt-2 -ml-2 items-center`}>
+                    <View style={tw`w-6/12 flex-row`}>
                       <Deletebutton onPress={() =>setdeletedata(item._id)} />
                       <Heartbutton  />
                     </View>
-                    <View style={tw`flex-row items-center`}>
-                      <Text style={tw.style('text-xl',{fontFamily: 'hintedavertastdsemibold'})}>Total </Text>
-                      <Text style={tw.style('text-xl')}>${item.productId?.productPrice*item.productQuantity}</Text>
-                    </View>
+                    
                 </View>
+                <View style={tw`flex-row items-center`}>
+                      <Text style={tw`text-base font-bold`}>Price </Text>
+                      <Text style={tw`text-base font-bold`}>${item.productId?.productPrice*item.productQuantity}</Text>
+                    </View>
             </View>
       </View>
 
@@ -211,6 +217,7 @@ const Cart = (props) => {
             <Text style={tw`text-sm text-gray-500`}>Added Items</Text>
           </View>
 
+          <Loader isVisible={loginLoader} />
 
            <Modal
               isVisible={isVisible}
@@ -232,6 +239,12 @@ const Cart = (props) => {
           { props?.cartlistdata1?.length>0 ?
 
               <View style={tw.style('top-2 mx-5')}>
+
+                <View style={tw`flex-row items-center my-5`}>
+                    <Text style={tw`text-base font-bold`}>Total Amount: </Text>
+                    <Text style={tw`text-base font-bold`}>${props?.totalcartprice}</Text>
+                </View>
+
                 <Button variant="primary" title="Stripe Checkout" onPress={checkOutPayment} />
               </View>
 

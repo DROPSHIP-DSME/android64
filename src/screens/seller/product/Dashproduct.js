@@ -254,7 +254,7 @@ const Dashproduct = (props) => {
           <TouchableOpacity>
             <Text style={tw.style('text-2xl text-gray-600',{fontFamily:'hintedavertastdsemibold'})}>Products ({props?.getlistproduct?.length})</Text>
           </TouchableOpacity>
-          {props?.brandName ?
+          { props?.loginCredentials?.isSeller==true ?
             <Smallbutton
               text="Add Product"
               onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName._id })}

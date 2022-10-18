@@ -177,11 +177,11 @@ const watchlist = (props) => {
         props.getnotificationcount(props?.loginuserid);
         showalldata();
         props.getfavoriteproductlist(props?.loginuserid);
-
         if (Platform.OS === 'android') requestMultiplePermisisons();
     }, [])
 
 
+                
 
     // const showalldata = (index) => {
 

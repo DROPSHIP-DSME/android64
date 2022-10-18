@@ -125,6 +125,29 @@ const RegistrationShop = (props) => {
             }
             if(email!="" && password!=""){
                 props.shoplogin(request, props.navigation, 'user', 'shop')
+
+                //create customer strip id
+                const response = fetch(`http://161.35.123.125/api/stripe/customer` , { 
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 'email':email }),
+                 })
+                .then(response => response.json())
+                .then((responseJson) => {
+                    console.log('stripe_id',responseJson?.data?.id)
+                    let request = {
+                        "userId": email,
+                        "stripe_id": responseJson?.data?.id,
+                    }
+                    props.updatestripedata(request, props.navigation, 'user', 'shop')
+                }).catch((error) => {
+                    console.log('error',error)
+                })
+                
+
             }
         }
     }
@@ -174,10 +197,8 @@ const RegistrationShop = (props) => {
         <View>
 
         <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
-
-
-              <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
-                  <TextInput
+        <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
+            <TextInput
                       style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
                       placeholder="Email address"
                       autoCompleteType='email'
@@ -186,10 +207,9 @@ const RegistrationShop = (props) => {
                       value={email}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
+        </View>
 
-              </View>
-
-              <View style={tw.style('mx-1 mt-2 mb-1 flex items-center rounded-lg')} >
+        <View style={tw.style('mx-1 mt-2 mb-1 flex items-center rounded-lg')} >
                   <TextInput
                       style={tw.style('w-11/12 sm:text-sm bg-zinc-200 rounded-lg text-gray-700 border-gray-300 pl-3')}
                       placeholder="Password"
@@ -199,18 +219,20 @@ const RegistrationShop = (props) => {
                       secureTextEntry={passwordsecure}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
+
                   <View style={tw`absolute top-3 right-8`}>
                     <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
                         {passwordsecure==false ?
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        :
                             <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
                         }
                     </TouchableOpacity>
                   </View>
 
               </View>
-              <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
+
+        <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
                   <CheckBox
                         value={toggleCheckBox}
                         onValueChange={(newValue) => {
@@ -224,9 +246,8 @@ const RegistrationShop = (props) => {
                      />
                   <Text style={tw.style('mt-1 text-base')}>Remember me</Text>
               </View>
+        </View>
 
-
-          </View>
           <View style={tw`mx-5`}>
             <Largebutton text="Login" onPress={() => handleRegistrationSubmit()} />
           </View>

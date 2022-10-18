@@ -49,17 +49,26 @@ const Verificationsteps = (props) => {
     const [Brand, onChangeBrand] = React.useState("");
     const [AboutBrand, onChangeAboutBrand] = React.useState("");
 
-    const [firstname, setfirstname] = useState("");
-    const [lastname, setlastname] = useState("");
-    const [address1, setaddress1] = useState("");
-    const [address2, setaddress2] = useState("");
+    const [firstName, setfirstname] = useState("");
+    const [lastName, setlastname] = useState("");
+    const [line1, setaddress1] = useState("");
+    const [line2, setaddress2] = useState("");
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("USA");
-    const [zipcode, setzipcode] = useState("");
+    const [zipCode, setzipcode] = useState("");
     const [selectedValue, setSelectedValue] = useState("");
 
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');
+
+    const [step1, setstep1] = useState(true);
+    const [step2, setstep2] = useState(true);
+    const [step3, setstep3] = useState(true);
+
+    const [email, setEmail] = useState(props?.loginCredentials?.email);
+    const [phone, setPhone] = useState("0000000000");
+    const [refreshUrl, setrefreshUrl] = useState("https://dropship.shopping");
+    const [returnUrl, setreturnUrl] = useState("https://dropship.shopping");
 
 
     const options = [
@@ -112,55 +121,55 @@ const Verificationsteps = (props) => {
 
   const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
-        if  (Brand !== "" && AboutBrand !== "" && billImgPath !== "" ) {
-            alert(props?.loginuserid)
-            const formData = new FormData();
-            formData.append("brandName", Brand);
-            formData.append("aboutBrand", AboutBrand);
-            formData.append("userId", props?.loginuserid);
-            formData.append("brandImage", billImgPath);
-            formData.append("country", "USA");
-            props.createbrand(formData, '', '');
+        const formData = new FormData();
+        formData.append("brandName", Brand);
+        formData.append("aboutBrand", AboutBrand);
+        formData.append("userId", props?.loginuserid);
+        formData.append("brandImage", billImgPath);
+        formData.append("country", "USA");
+        props.createbrand(formData, '', '');
 
-            setshowotherAlert(true)
-            setshowalertmsg('Store account created')
-        }else{
-          
+        let request = {
+            "firstName":firstName,
+            "lastName":lastName,
+            "streetAdress":line1,
+            "phoneNumber":line2,
+            "city":city,
+            "userId":props?.loginuserid,
+            "country":country,
+            "zipCode":zipCode,
         }
+        props.saveaddress(request,'', '',0);
+        setshowotherAlert(true)
+        setshowalertmsg('Stripe account created successfully')
+        
+
+        //onNextStep();
     },
 
+
     onAddressNextStep = () => {
-       onNextStep();
-       Keyboard.dismiss();
-        if (firstname == "") {
+        if (firstName == "") {
             setshowotherAlert(true)
             setshowalertmsg('First name is required')
-        }else if(lastname ==""){
+        }else if(lastName ==""){
             setshowotherAlert(true)
             setshowalertmsg('Last name is required')
-        }else if (address1 == "") {
+        }else if (line1 == "") {
             setshowotherAlert(true)
             setshowalertmsg('Address is required')
+        }else if (line2 == "") {
+            setshowotherAlert(true)
+            setshowalertmsg('Address line 2 is required')
         }else if(city ==""){
             setshowotherAlert(true)
             setshowalertmsg('City is required')
-        }else if(zipcode ==""){
+        }else if(zipCode ==""){
             setshowotherAlert(true)
             setshowalertmsg('Zipcode is required')
         } else {
-            let request = {
-                "firstName":firstname,
-                "lastName":lastname,
-                "streetAdress":address1,
-                "phoneNumber":address2,
-                "city":city,
-                "userId":'6319a8fd9ad53151c16ae880',
-                "country":country,
-                "zipCode":zipcode,
-            }
-           props.saveaddress(request,'', '',0);
-           alert('df')
-           onNextStep();
+            setstep2(false)
+            onNextStep();
         }
         //console.log('called next step');
     };
@@ -169,20 +178,66 @@ const Verificationsteps = (props) => {
         setSelectedValue(itemValue)
     };
 
-    onNextStep = () => {   
+    const onNextStep = () => {   
       console.log('called next step');
     };
   
-    onPaymentStepComplete = () => {
-      handleSendRequestSubmit();
-      onNextStep();
-    };
   
-    onPrevStep = () => {
+    const creaetstripeaccount= () => {
+        const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , { 
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ firstName, lastName, line1, line2, city, email, zipCode, phone, refreshUrl, returnUrl }),
+         })
+        .then(response => response.json())
+        .then((responseJson) => {
+            //alert(responseJson.data.url)
+            console.log(responseJson);
+            //setData(responseJson.data.url);
+           // setstep3(false)
+            if(responseJson?.data?.url){
+                setstep3(false);
+                handleSendRequestSubmit();
+            }else{
+                setshowotherAlert(true)
+                setshowalertmsg(JSON.stringify(responseJson.error));
+            }
+        })
+        .catch((error) => {
+            setshowotherAlert(true)
+            setshowalertmsg(error)
+            console.error(error)
+        })
+        .finally(() => {
+
+        });
+    }
+
+    const onNextStep1= () => {   
+        if(billImgPath == "") {
+            setshowotherAlert(true)
+            setshowalertmsg('Brand Image is required')
+        }else if(Brand == "" ) { 
+            setshowotherAlert(true)
+            setshowalertmsg('Brand name is required')
+        }else if(AboutBrand == "") {
+            setshowotherAlert(true)
+            setshowalertmsg('Enter your brand details')
+        }else {
+            setstep1(false)
+            onNextStep();
+        }
+    };
+
+  
+    const onPrevStep = () => {
       console.log('called previous step');
     };
   
-    onSubmitSteps = () => {
+    const onSubmitSteps = () => {
       console.log('called on submit step.');
     };
 
@@ -226,13 +281,15 @@ const Verificationsteps = (props) => {
                 <ProgressStep
                   labelFontSize="12"
                   label="Create Brand"
-                  onNext={onNextStep}
+                  onNext={onNextStep1}
                   onPrevious={onPrevStep}
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
+                  errors={step1}
                  >
                   <View style={tw.style('items-center mt-5')}>
+                  <ScrollView>
                     <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
                       <View style={tw.style('mb-2')}>
                         <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"hintedavertastdsemibold"})}>Create your Brand</Text>
@@ -249,73 +306,73 @@ const Verificationsteps = (props) => {
                     </View>
 
 
-                    {/* <View style={tw`flex flex-row pl-3 h-16 bg-zinc-200 rounded-lg rounded-md mt-8 mb-2 mx-5`}>
+                     <View style={tw`flex flex-row pl-3 h-16 bg-zinc-200 rounded-lg rounded-md mt-8 mb-2 mx-5`}>
                         <TextInput
                           style={tw`text-gray-700 w-full px-2`}
                           onChangeText={onChangeBrand}
                           value={Brand}
                           placeholder="Brand name"
-                          placeholderTextColor="#848484"
+                          placeholderTextColor="#b3b3b3"
                         />
                     </View>
 
-                    <View style={tw`w-11/12 h-32 bg-zinc-200 rounded-lg my-3`}>
+                    <View style={tw` h-32 bg-zinc-200 rounded-lg my-3  mx-5`}>
                         <TextInput
                           style={tw`px-2 text-gray-700 text-start`}
                           onChangeText={(text) =>onChangeAboutBrand(text)}
                           value={AboutBrand}
                           placeholder="Tell us about your brand in fewer then 150 characters"
-                          placeholderTextColor="#848484"
+                          placeholderTextColor="#b3b3b3"
                           numberOfLines={10}
                           multiline={true}
                         />
-                    </View> */}
-
+                    </View> 
+</ScrollView>
                   </View>
                 </ProgressStep>
 
                 <ProgressStep
                   labelFontSize="12"
                   label="Address Information"
-                  onNext={onNextStep}
+                  onNext={onAddressNextStep}
                   onPrevious={onPrevStep}
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
-
+                  errors={step2}
                 >
-                  <View style={tw.style('text-gray-700 text-xl items-center mt-6 mb-40')}>
-                    
-                    {/* <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
+                  <View style={tw.style('text-gray-700 text-xl items-center mt-2 mb-1')}>
+                    <ScrollView>
+                     <View style={[styles.pickerViewshorttodaybrand,{marginTop:'1%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                         <TextInput
                             placeholder="First Name"
-                            placeholderTextColor="#1a1a1a"
                             onChangeText={(firstname) =>setfirstname(firstname)}
                             style={{color:'#333333',marginTop:5}}
                             paddingLeft={15}
-                            value={firstname}
+                            placeholderTextColor="#b3b3b3"
+                            value={firstName}
                         />
                     </View>
 
-                    <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
+                    <View style={[styles.pickerViewshorttodaybrand,{marginTop:'5%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                         <TextInput
                             placeholder="Last Name"
-                            placeholderTextColor="#1a1a1a"
+                            placeholderTextColor="#b3b3b3"
                             onChangeText={(lastname) =>setlastname(lastname)}
                             style={{color:'#333333',marginTop:5}}
                             paddingLeft={15}
-                            value={lastname}
+                            value={lastName}
                         />
                     </View>
 
                     <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                         <TextInput
                             placeholder="Address Line 1"
-                            placeholderTextColor="#1a1a1a"
+                            placeholderTextColor="#b3b3b3"
                             onChangeText={(address1) =>setaddress1(address1)}
                             style={{color:'#333333',marginTop:5}}
                             paddingLeft={15}
-                            value={address1}
+                            value={line1}
                         />
                     </View>
 
@@ -323,11 +380,11 @@ const Verificationsteps = (props) => {
                     <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                         <TextInput
                             placeholder="Address Line 2"
-                            placeholderTextColor="#1a1a1a"
+                            placeholderTextColor="#b3b3b3"
                             onChangeText={(address2) =>setaddress2(address2)}
                             style={{color:'#333333',marginTop:5}}
                             paddingLeft={15}
-                            value={address2}
+                            value={line2}
                         />
                     </View>
 
@@ -335,7 +392,7 @@ const Verificationsteps = (props) => {
                     <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                         <TextInput
                             placeholder="City"
-                            placeholderTextColor="#1a1a1a"
+                            placeholderTextColor="#b3b3b3"
                             onChangeText={(city) =>setcity(city)}
                             style={{color:'#333333',marginTop:5}}
                             paddingLeft={15}
@@ -346,7 +403,6 @@ const Verificationsteps = (props) => {
                     <View style={{marginHorizontal:'4%',marginTop:'7%'}}>
                     <View style={{height:55,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',borderRadius:10,}}>
                           <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
                     </View>
 
                     </View>
@@ -355,14 +411,14 @@ const Verificationsteps = (props) => {
                     <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                         <TextInput
                             placeholder="Zipcode"
-                            placeholderTextColor="#1a1a1a"
+                            placeholderTextColor="#b3b3b3"
                             onChangeText={(zipcode) =>setzipcode(zipcode)}
                             style={{color:'#333333',marginTop:5}}
                             paddingLeft={15}
-                            value={zipcode}
+                            value={zipCode}
                         />
-                    </View> */}
-
+                    </View>
+                    </ScrollView>
 
                   </View>
                 </ProgressStep>
@@ -370,25 +426,34 @@ const Verificationsteps = (props) => {
                 <ProgressStep
                   labelFontSize="12"
                   label="Stripe"
-                  onNext={onNextStep}
+                  onNext={onSubmitSteps}
                   onPrevious={onPrevStep}
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
+                  errors={step3}
                 >
-                  
                     <View style={tw.style('text-gray-700 text-xl items-center')}>
                       <View style={tw.style('mt-2 mx-5')}>
                           <View style={tw.style('mb-2 mx-4')}>
                             <Text style={tw.style('text-2xl text-gray-700 text-center mb-3', {fontFamily:"hintedavertastdsemibold"})}>Create Seller Account</Text>
                             <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
                           </View>
-                          <View style={tw.style('h-85 mb-10')}>
+                          <View style={tw.style('h-55 mb-0')}>
                             <Paymentvector />
                           </View>
 
-                        
-                        <Stripeprocess />
+                        {step3==true &&
+                            <View
+                              type="button"
+                              style={tw.style('bottom-1 inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+                            >
+                                <TouchableOpacity style={tw.style('h-15 w-10/11 justify-center items-center')} onPress={() => { creaetstripeaccount()}}>
+
+                                <Text style={tw.style('text-lg text-white')}>Create Stripe Account</Text>
+                              </TouchableOpacity>
+                            </View>
+                        }
 
                       </View>
                     </View>
@@ -403,9 +468,10 @@ const Verificationsteps = (props) => {
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
+                  removeBtnRow={true}
                 >
                   
-                  <View style={tw.style('flex flex-1 mt-15 mb-75')}>
+                  <View style={tw.style('flex flex-1 mt-15 mb-1')}>
 
                       <View style={tw.style('flex-row mt-2 justify-center')}>
                           <View style={tw.style('w-18 h-18 rounded-full bg-green-600 items-center justify-center')}>
@@ -420,13 +486,13 @@ const Verificationsteps = (props) => {
                           <Text style={tw.style('text-base text-gray-600 text-center')}>Your new store information has been submitted to Dropship, and we will be in touch soon!</Text>
                       </View>
 
-                      <View style={tw`mx-3 my-6 bottom-1`}>
+                      <View style={tw.style('mx-3 my-6 bottom-1')}>
                         <Medbutton
                           text="Seller's Dashboard"
                           onPress={() => {navigation.navigate("Account");}} />
                       </View>
 
-                      <View style={tw`mx-3 my-3 bottom-2`}>
+                      <View style={tw.style('mx-3 my-3 bottom-2')}>
                         <Medbutton
                           text="Go Live"
                           onPress={() => {navigation.navigate("Dashlive");}} />

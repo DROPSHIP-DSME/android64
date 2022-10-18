@@ -6,6 +6,7 @@ const mapStateToProps = (state) => ({
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
     vendorRequestLoader: state.auth.vendorRequestLoader,
+    loginCredentials:state.auth.loginCredentials,
     getlistshop: state.auth.getlistshop,
     getuseraddresslist: state.auth.getuseraddresslist,
     deleteaddresslioder: state.auth.deleteaddresslioder,
