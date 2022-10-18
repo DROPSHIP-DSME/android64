@@ -31,10 +31,10 @@ const Payment = (props) => {
     try {
       // const finalAmount = parseInt(amount);
       // if (finalAmount < 1) return Alert.alert("You cannot donate below 1 INR");
-      const response = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
+      const response1 = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
         method: "POST",
         headers: {
-          Accept: 'application/json',
+         // "Accept": "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
@@ -44,11 +44,11 @@ const Payment = (props) => {
         }),
       })
 
-      const data = await response.json();
+      const data = await response1.json();
       console.log(data);
       //console.log(JSON.stringify(data));
       // console.log(data.data.customer);
-      if (!response.ok) {
+      if (!response1.ok) {
         return Alert.alert('data.paymentIntent');
       }
       const initSheet = await initPaymentSheet({
