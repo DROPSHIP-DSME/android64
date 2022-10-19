@@ -19,10 +19,9 @@ const Payment = (props) => {
 
   // const stripe = useStripe();
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
-  const [name, setName] = useState('Charles Robinson');
-  const [amount, setAmount] = useState('170.00');
-  const [customer, setcustomer] = useState('cus_MarHAmfDbApr9b');
-  const [receipt_email, setEmail] = useState('cd@dropship.com');
+  const [amount, setAmount] = useState('17000');
+  const [stripe_customer_id, setcustomer] = useState('cus_MarHAmfDbApr9b');
+  const [receipt_email, setEmail] = useState('cr@dropship.com');
   
   const [loading, setLoading] = useState(false);
   
@@ -38,9 +37,9 @@ const Payment = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
-          amount:5000,
-          stripe_customer_id: "cus_MarHAmfDbApr9b",
-          receipt_email:"allan.k@mailainator.com"
+          amount,
+          stripe_customer_id,
+          receipt_email,
         }),
       })
 
