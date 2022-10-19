@@ -123,8 +123,9 @@ const Verificationsteps = (props) => {
 
         getrememberMe();
     })
-  const handleSendRequestSubmit = async () => {
-        Keyboard.dismiss();
+
+  const handleSendRequestSubmit = async (type) => {
+        //Keyboard.dismiss();
         const formData = new FormData();
         formData.append("brandName", Brand);
         formData.append("aboutBrand", AboutBrand);
@@ -144,9 +145,12 @@ const Verificationsteps = (props) => {
             "zipCode":zipCode,
         }
         props.saveaddress(request,'', '',0);
-        setshowotherAlert(true)
-        setshowalertmsg('Stripe account created successfully')
-        onNextStep();
+        if(type==1){
+            props.navigation.navigate('Account')
+        }else{
+            props.navigation.navigate('Dashlive')
+        }
+        //onNextStep();
     },
 
 
@@ -206,20 +210,15 @@ const Verificationsteps = (props) => {
            // setstep3(false)
             if(responseJson?.data?.url){
                 setstep3(false);
-                handleSendRequestSubmit();
+                setshowotherAlert(true)
+                setshowalertmsg('stripe account created successfully')
             }else{
                 setshowotherAlert(true)
                 setshowalertmsg(JSON.stringify(responseJson.error));
             }
         })
-        .catch((error) => {
-            setshowotherAlert(true)
-            setshowalertmsg(error)
-            console.error(error)
-        })
-        .finally(() => {
-
-        });
+        .catch((error) => console.error(error) )
+        .finally(() => console.log('sd') );
     }
 
     const onNextStep1= () => {   
@@ -495,13 +494,13 @@ const Verificationsteps = (props) => {
                       <View style={tw.style('mx-3 my-6 bottom-1')}>
                         <Medbutton
                           text="Seller's Dashboard"
-                          onPress={() => {navigation.navigate("Account");}} />
+                          onPress={() => { handleSendRequestSubmit(1)}} />
                       </View>
 
                       <View style={tw.style('mx-3 my-3 bottom-2')}>
                         <Medbutton
                           text="Go Live"
-                          onPress={() => {navigation.navigate("Dashlive");}} />
+                          onPress={() => { handleSendRequestSubmit(0)}} />
                       </View>
 
                   </View>
