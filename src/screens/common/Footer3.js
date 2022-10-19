@@ -21,7 +21,7 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { useNavigation } from '@react-navigation/native';
-import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
+import { RadioButton ,Provider, Modal, Portal, Button,} from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -78,22 +78,28 @@ const Footer3 = (props) => {
                     }}
                     // bottomSheetTitleStyle={{color: 'red'}}
                     setBottomSheetVisible={setModalVisible}
-                    bottomSheetVisible={modalVisible}>
+                    bottomSheetVisible={modalVisible}
+                    modalProps={{
+                        animationType: 'fade',
+                        hardwareAccelerated: true,
+                        onRequestClose: () => {
+                            setModalVisible(false);
+                        },
+                    }}>
                     <ScrollView>
                         <View style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { setModalVisible(false); navigation.navigate('shop'); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
                                 <Text style={tw.style('text-2xl font-bold text-gray-700')}>Shop Products</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { setModalVisible(false); navigation.navigate('upcoming'); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
                                 <Text style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>View Livestreams</Text>
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
                 </BottomSheet>
             </View>
-
         );
     }
 
@@ -120,15 +126,22 @@ const Footer3 = (props) => {
                     }}
                     // bottomSheetTitleStyle={{color: 'red'}}
                     setBottomSheetVisible={setAcctModalVisible}
-                    bottomSheetVisible={modalAcctVisible}>
+                    bottomSheetVisible={modalAcctVisible}
+                    modalProps={{
+                        animationType: 'fade',
+                        hardwareAccelerated: true,
+                        onRequestClose: () => {
+                            setAcctModalVisible(false);
+                        },
+                    }}>
                     <ScrollView>
-                        <View  style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => {setAcctModalVisible(false); setshowaccountpop(false); setshowpop(false);navigation.navigate('Account'); }}>
-                                <Text  style={tw.style('text-2xl font-bold text-gray-700')}>My Account</Text>
+                        <View style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('Account'); }}>
+                                <Text style={tw.style('text-2xl font-bold text-gray-700')}>My Account</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { setAcctModalVisible(false);setshowaccountpop(false); setshowpop(false);navigation.navigate('Accountbrand'); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('Overview'); }}>
                                 <Text style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>My Store</Text>
                             </TouchableOpacity>
                         </View>
