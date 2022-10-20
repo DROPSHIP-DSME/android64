@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { CreateStore } from '../../../screens/seller/product';
-import { createshop,createbrand } from '../../../redux/actions/Auth'
+import { createshop,updatebrand,getbrandName } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -8,11 +8,13 @@ const mapStateToProps = (state) => ({
     vendorRequestedInfo: state.auth.vendorRequestedInfo,
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
+    brandName: state.auth.brandName
 });
 
 const mapDispatchToProps = {
     createshop,
-    createbrand,
+    updatebrand,
+    getbrandName
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateStore);

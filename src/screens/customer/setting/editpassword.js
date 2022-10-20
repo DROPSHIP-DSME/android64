@@ -71,13 +71,7 @@ const editpassword = (props) => {
         Keyboard.dismiss();
         var getpassword = await AsyncStorage.getItem('rememberpassword');
 
-        if (oldpassword == "") {
-            setshowotherAlert(true)
-            setshowalertmsg('Old Password is required')
-        }else if (oldpassword != getpassword) {
-            setshowotherAlert(true)
-            setshowalertmsg('Old Password is not correct')
-        } else if (password == "") {
+        if (password == "") {
             setshowotherAlert(true)
             setshowalertmsg('Password is required')
         }else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
@@ -93,10 +87,12 @@ const editpassword = (props) => {
             let request = {
                 "userId": props?.loginuserid,
                 "password": password,
-
             }
-            openpopup();
+            //openpopup();
             props.updatepassword(request, props.navigation, "user");
+            setshowotherAlert(true)
+            setshowalertmsg('Password changed successfully!')
+            setTimeout(function(){ props.navigation.navigate("Account");},2000)
         }
     }
 
@@ -120,7 +116,7 @@ const editpassword = (props) => {
         setVisible(false)
     }
 
-    const containerStyle = { backgroundColor: 'white', padding: 15, marginHorizontal: '5%', borderRadius: 10 };
+    const containerStyle = { backgroundColor: 'white', padding: 15, marginHorizontal: '5%', height:'100%', borderRadius: 10 };
 
     return (
         <KeyboardAvoidingView
@@ -138,7 +134,7 @@ const editpassword = (props) => {
                     <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Change Password</Text>
                 </View>
 
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-2 justify-center'), { width: deviceWidth / 1.1 }]}>
+                {/*<View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         style={tw.style(' pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                         placeholder="Old Password"
@@ -153,13 +149,13 @@ const editpassword = (props) => {
 
                       <TouchableOpacity onPress={() => setoldsecure(s=>!s)}>
                         {oldsecure==false ?
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        :
                             <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
                         }
                       </TouchableOpacity>
                     </View>
-                </View>
+                </View>*/}
 
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
@@ -176,9 +172,9 @@ const editpassword = (props) => {
                     <View style={tw`absolute top-3 right-8`}>
                       <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
                         {passwordsecure==false ?
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        :
                             <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
                         }
                       </TouchableOpacity>
                     </View>
@@ -197,9 +193,9 @@ const editpassword = (props) => {
                     <View style={tw`absolute top-3 right-8`}>
                       <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>
                         {confirmsecure==false ?
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        :
                             <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
                         }
                       </TouchableOpacity>
                     </View>
@@ -213,27 +209,7 @@ const editpassword = (props) => {
                 onPress={() => { handleRegistrationSubmit() }} />
                 </View>
 
-                {openpopup &&
-                    <Provider>
-                        <Portal>
-                            <Modal visible={visible} contentContainerStyle={containerStyle}>
-
-                                <TouchableOpacity style={{ alignItems: "flex-end" }} onPress={() => closepopup()}>
-                                    <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-7')} />
-                                </TouchableOpacity>
-                                <View style={{ marginTop: "10%", alignItems: "center" }}>
-                                    <Image source={ImageIcons.righticon} style={{ height: 80, width: 80 }} />
-                                </View>
-                                <View style={{ marginTop: "3%", alignItems: "center", marginBottom: "10%" }}>
-                                    <Text style={{ fontFamily: "hinted-AvertaStd-Regular", fontSize: 18, color: "#1A1A1A" }}>Password changed successfully.
-                                    </Text>
-                                </View>
-
-
-                            </Modal>
-                        </Portal>
-                    </Provider>
-                }
+                
 
 
             </ScrollView>

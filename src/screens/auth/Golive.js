@@ -89,6 +89,27 @@ const Golive = (props) => {
                 "type":"google"
             }
             props.signInwithsocial(request, props.navigation);
+            //create customer strip id
+            const response = fetch(`http://161.35.123.125/api/stripe/customer` , {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'email':userInfo?.user?.email }),
+             })
+            .then(response => response.json())
+            .then((responseJson) => {
+                console.log('stripe_id',responseJson?.data?.id)
+                let request = {
+                    "userId": userInfo?.user?.email,
+                    "stripe_id": responseJson?.data?.id,
+                }
+                props.updatestripedata(request, props.navigation, 'user', 'shop')
+            }).catch((error) => {
+                console.log('error',error)
+            })
+
         } catch (error) {
             let request = {
                 "email": 'googleuser@gmail.com',
@@ -96,6 +117,27 @@ const Golive = (props) => {
                 "type":"google"
             }
             props.signInwithsocial(request, props.navigation);
+
+            //create customer strip id
+            const response = fetch(`http://161.35.123.125/api/stripe/customer` , {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'email':'googleuser@gmail.com' }),
+             })
+            .then(response => response.json())
+            .then((responseJson) => {
+                console.log('stripe_id',responseJson?.data?.id)
+                let request = {
+                    "userId": 'googleuser@gmail.com',
+                    "stripe_id": responseJson?.data?.id,
+                }
+                props.updatestripedata(request, props.navigation, 'user', 'shop')
+            }).catch((error) => {
+                console.log('error',error)
+            })
         }
     }
 

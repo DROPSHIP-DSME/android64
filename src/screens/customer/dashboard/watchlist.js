@@ -171,7 +171,7 @@ const watchlist = (props) => {
         props.getcurrentevent(1);
         props.getwatchlistproduct(props?.loginuserid);
         props.getAllshop(props?.loginuserid, 1);
-        props.Brandslist();
+        props.Brandslist(1);
         props.getbrandName(props?.loginuserid);
         props.cartdata(props?.loginuserid);
         props.getnotificationcount(props?.loginuserid);
@@ -220,7 +220,7 @@ const watchlist = (props) => {
         setshop(false);
         props.getAllproduct(1);
         props.getcurrentevent(1);
-        props.Brandslist();
+        props.Brandslist(props?.loginuserid);
         props.getAllshop(1);
     }
     const Showlivestrem = () => {
@@ -247,7 +247,7 @@ const watchlist = (props) => {
         setData(false);
         setstore(true);
         setshop(false);
-        props.Brandslist();
+        props.Brandslist(props?.loginuserid);
     }
     const Showshops = () => {
         setlivestream(false);

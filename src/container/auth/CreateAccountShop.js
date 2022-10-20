@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { CreateAccountShop } from '../../screens/auth';
-import { shopsignup } from '../../redux/actions/Auth'
+import { shopsignup,updatestripedata } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    shopsignup
+    shopsignup,
+    updatestripedata
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAccountShop);

@@ -84,7 +84,7 @@ const Dashproduct = (props) => {
     props.getselldeshboard(props?.loginuserid);
     props.gettopsell(props?.loginuserid, 3);
     props.liveeventdetail(props?.loginuserid);
-    props.Brandslist();
+    props.Brandslist(props?.loginuserid);
   }, [])
 
   useEffect(() => {
@@ -262,7 +262,7 @@ const Dashproduct = (props) => {
             :
             <Smallbutton
               text="Add Store"
-              onPress={() => props.navigation.navigate("CreateStore")}
+              onPress={() => props.navigation.navigate("Verificationsteps")}
             />
           }
         </View>

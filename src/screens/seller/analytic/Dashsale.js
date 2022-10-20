@@ -66,7 +66,7 @@ const Dashsale = (props) => {
     props.gettopsell(props?.loginuserid, 3);
     props.liveeventdetail(props?.loginuserid);
     props.gettopcountry(props?.loginuserid);
-    props.Brandslist();
+    props.Brandslist(props?.loginuserid);
   }, [])
 
   useEffect(() => {

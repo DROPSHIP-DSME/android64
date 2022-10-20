@@ -83,7 +83,7 @@ const Sellheader = (props) => {
 
 
          { showvisible == true &&
-                <View style={{marginHorizontal:'5%',paddingTop:'10%'}}>
+                <ScrollView style={{marginHorizontal:'5%',paddingTop:'10%'}}>
                          <View style={{flexDirection:'row',backgroundColor:'#b80000',width:'100%',justifyContent:'space-between',marginHorizontal:'4%'}}>
                                   <View>
 
@@ -141,19 +141,20 @@ const Sellheader = (props) => {
                                   </View>
                         </View>
 
-                        <View style={{marginVertical:'10%'}}>
+                        <View style={{marginTop:'10%',marginBottom:'15%'}}>
                             <TextInput style={{height:50,width:deviceWidth/1.1,backgroundColor:'#ffffff',borderRadius:10,alignSelf:'center'}}
                               placeholder="Search"
                               placeholderTextColor="#b3b3b3"
-                              paddingLeft={35}
+                              color="#333333"
+                              paddingLeft={45}
                             />
 
                             <View style={tw`absolute top-4 ml-4`}>
-                              <SearchIcon color="white" fill="White" size={14} />
+                              <SearchIcon color="gray" fill="gray" size={18} />
                             </View>
                         </View>
 
-            </View>
+            </ScrollView>
         }
         </View>
          </View>

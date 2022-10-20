@@ -62,7 +62,7 @@ const deviceWidth = Dimensions.get('window').width;
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
-      props.Brandslist();
+      props.Brandslist(props?.loginuserid);
     }, [])
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Golive } from '../../screens/auth';
-import { signup,shopsignupphone,countrylist,signInwithsocial } from '../../redux/actions/Auth'
+import { signup,shopsignupphone,countrylist,signInwithsocial,updatestripedata } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -14,7 +14,8 @@ const mapDispatchToProps = {
     signup,
     shopsignupphone,
     countrylist,
-    signInwithsocial
+    signInwithsocial,
+    updatestripedata
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Golive);

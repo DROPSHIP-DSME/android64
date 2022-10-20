@@ -820,6 +820,22 @@ export const createbrand = (signupRequest, navigation, role) => {
 };
 
 
+//createbrand
+export const updatebrand = (signupRequest, navigation, role) => {
+    
+  return async (dispatch, getState) => {
+    let isInternetConnected = await getState().auth?.isInternetConnected;
+    if (isInternetConnected) {
+      try {
+        let response = await Utilise.apiCalling('POST', Api.addUpdateBrand, signupRequest);
+        dispatch({ type: SET_BRAND_LOADER, payload: false });
+        navigation.navigate("Dashsetting");
+      } catch (error) {
+      }
+    }
+  }
+}
+
 // shop 
 
 export const createshop = (signupRequest, navigation, role) => {
@@ -1195,16 +1211,16 @@ export const getsearchlist = (userId) => {
 //Brandslist data
 
 export const Brandslist = (userId) => {
-  
    let request = {
       userId:userId
     }
+    console.log('userId',userId);
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.Brandslist}`,  request);
-                
+                console.log('responseBrandslist',response)
                 if (response?.status) {
                     dispatch({ type: BRANDS_LIST_DATA, payload: response.data });
                 } else {
@@ -2193,7 +2209,7 @@ export const logout = () => {
 }
 
 //deletuser
-export const deleteUseraccount = (id,navigation) => {
+export const deleteUseraccount = (id) => {
     let request = {
       "id":id
     }
@@ -2201,7 +2217,8 @@ export const deleteUseraccount = (id,navigation) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
-              let response = await Utilise.apiCalling('POST', `${Api.deleteUser}`,  request);
+              let response = await Utilise.apiCalling('GET', `${Api.deleteUser}/${id}`,  request);
+              console.log('response',response)
               if (response?.status) {
                 dispatch({ type: DELETE_USER, payload: [] });
               } 

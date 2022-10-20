@@ -14,43 +14,6 @@ import { CameraIcon } from "react-native-heroicons/solid";
 import Help from '../../../components/help/Help';
 import Largesortorder from '../../../components/pickers/Largesortorder';
 
-const options = [
-      {
-        label: 'Sneakers',
-        value: '61b2e25addb2bd19c2b9532a'
-      },
-      {
-        label: 'Fashion',
-        value: '61b2e4bfddb2bd19c2b9532f'
-      },
-      {
-        label: 'Furniture',
-        value: '61b2e63bddb2bd19c2b95335'
-      },
-      {
-        label: 'Cloths',
-        value: '61b2e882ddb2bd19c2b9533c'
-      },
-      {
-        label: 'Beauty & Hair',
-        value: '61b2eb67ddb2bd19c2b95346'
-      },
-      {
-        label: 'Electronics',
-        value: '61b2ec5addb2bd19c2b9534b'
-      },
-      {
-        label: 'Cosmetics',
-        value: '61b651846a4c8e2f3dacf60a'
-      },
-      {
-        label: 'Other',
-        value: '61b4aa1539889b2e9971b521'
-      }
-    ]
-
-
-
 const CreateStore = (props) => {
 
     const {
@@ -64,40 +27,18 @@ const CreateStore = (props) => {
     //Reference
 
     const [billImgPath, setBillImgPath] = useState("");
-    const [retakeFlag, setRetakeFlag] = useState(false);
-    const [fromGallery, setFromGallery] = useState(false);
-
     const [checked, setChecked] = React.useState('first');
-    const [text1, onChangeText3] = React.useState("");
-    const [subMsg, onChangeText1] = React.useState("");
-    const [Brand, onChangeBrand] = React.useState("");
-    const [AboutBrand, onChangeAboutBrand] = React.useState("");
-    const [Store, onChangeStore] = React.useState("");
-    const [Themecolor, onThemecolor] = React.useState("");
+    const [Brand, onChangeBrand] = React.useState(props?.brandName?.brandName);
+    const [AboutBrand, onChangeAboutBrand] = React.useState(props?.brandName?.aboutBrand);
     const [City, onChangeCity] = React.useState("City");
-    const [Country, onChangeCountry] = React.useState("Country");
-    const [UserID, setUserID] = useState("");
     const [visible, setVisible] = React.useState(false);
     const [managedata, setmanagedata] = React.useState(true);
     const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
 
-    const selectcolor = async (color) => {
-        onThemecolor(color);
-    }
-
     useEffect(() => {
-         getBrandUserId();
+        props.getbrandName(props?.loginuserid);
     }, [])
 
-    const getBrandUserId = async () => {
-         var getUserId = await AsyncStorage.getItem('UserId');
-         //alert(getUserId)
-         setUserID(getUserId);
-    }
-
-    const updateorderStatus = (itemValue) => {
-    setSelectedValue(itemValue)
-  }
 
      const selectPhoto = async () => {
          ImagePicker.openPicker({
@@ -123,20 +64,10 @@ const CreateStore = (props) => {
         });
     }
 
-
-    const openpopup = () => {
-        setVisible(true)
-
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-       const containerStyle = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',alignItems:'center'};
-
     // Vendor request submission
     const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
-        if(billImgPath == "") {
+        if(billImgPath == "" && props?.brandName?.brandImage=="") {
             alert('Brand Image is required')
         }else if(Brand == "" ) { 
             alert('Brand name is required')
@@ -147,57 +78,15 @@ const CreateStore = (props) => {
             formData.append("brandName", Brand);
             formData.append("aboutBrand", AboutBrand);
             formData.append("userId", props?.loginuserid);
+            formData.append("brandId", props?.brandName?._id);
             formData.append("brandImage", billImgPath);
             formData.append("country", "USA");
-            props.createbrand(formData, props.navigation, "vendor");
+            props.updatebrand(formData, props.navigation, "vendor");
+            setTimeout(function(){props.getbrandName(props?.loginuserid);},1000);
         }
     }
 
-    const helpbuttonsubmit = async (textval) => {
-        if(textval!=''){
-            let request = {
-                "userId": props?.loginuserid,
-                "message": textval,
-                "msgDate": new Date()
-            }
-            onChangeText1('');
-            props.support(request, props.navigation, "vendor");
-        }
-    }
-
-    const renderItem = ({ item }) => {
-  return(
-    <TouchableOpacity onPress={() => selectcolor(item.color)}>
-    <View style={{marginHorizontal:15, }}>
-     <View style={{backgroundColor:item.color,borderRadius:20,width:20,height:20,}}></View>
-     </View>
-     </TouchableOpacity>
-  );
-}
-
-const renderItem6 = ({ item }) => {
-            return(
-                <View>
-                    { item.userId.userName=='Admin' ?
-                       <View>
-                        <View style={styles.chatrightView}>
-                           <Text style={styles.hellotext}>{item.message}</Text>
-                        </View>
-                         <Text style={styles.chattingtime}>{ moment(item.msgDate).format('hh:mm A')}</Text>
-                        </View>
-                    :
-                        <View>
-                        <View style={styles.chatlongView}>
-                          <Text style={styles.chattingtext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                        </View>
-
-                    }
-                </View>
-            );
-    }
-
+    
     return (
        <KeyboardAvoidingView style={{flex:1,backgroundColor:'#F2F2F2'}}>
 
@@ -209,7 +98,7 @@ const renderItem6 = ({ item }) => {
               <View style={styles.brandimagetextviewMY}>
 
                 <View style={tw`flex flex-row justify-between mx-3 mb-10 mt-15`}>
-                  <Text style={tw`text-3xl text-gray-700`}>Create Your Brand</Text>
+                  <Text style={tw`text-3xl text-gray-700`}>Update Brand Info</Text>
                 </View>
 
                 <Text style={tw`text-lg text-gray-700 text-center mx-4`}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
@@ -217,11 +106,18 @@ const renderItem6 = ({ item }) => {
                 <View>
                 { billImgPath !== "" ?
                     <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-10 mb-3`} />
-
                 :
-                  <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
-                     <CameraIcon color="white" fill="white" size={70} />
-                  </TouchableOpacity>
+                  <View>
+                    {props?.brandName?.brandImage!="" ?
+                        <TouchableOpacity  onPress={() => selectPhoto()}>
+                            <Image source={{ uri: props?.brandName?.brandImage }} style={tw`h-28 w-28 rounded-full mt-10 mb-3`} />
+                        </TouchableOpacity>
+                    :
+                        <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
+                            <CameraIcon color="white" fill="white" size={70} />
+                         </TouchableOpacity>
+                   }
+                  </View>
                 }
 
                 </View>
@@ -253,7 +149,7 @@ const renderItem6 = ({ item }) => {
 
 
                   <View style={tw`my-10`}>
-                   <Largebutton text="Save Your Brand" onPress={() => handleSendRequestSubmit()}/>
+                   <Largebutton text="Update Brand" onPress={() => handleSendRequestSubmit()}/>
                   </View>
 
 
