@@ -400,7 +400,7 @@ const Account = (props) => {
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    {/*<View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                    {/*<View style={tw.style('border-b mx-4 border-gray-500')}></View> 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-4`}>
                             <Text style={tw.style('text-base text-gray-800')}>Bookmarks</Text>

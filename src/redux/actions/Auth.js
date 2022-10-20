@@ -378,6 +378,7 @@ export const getfavoriteproductlist = (userId) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getfavoriteproductlist}`,  request);
+                console.log('getfavoriteproductlist',response.data)
                 if (response?.status) {
                     dispatch({ type: GET_ALL_FAVORITE, payload: response.data });
                 } else {
