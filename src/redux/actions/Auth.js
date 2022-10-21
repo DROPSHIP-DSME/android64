@@ -10,6 +10,7 @@ import {
   SET_OTP_LOADER,
   SET_LOGIN_LOADER,
   GET_ALL_FAVORITE,
+  GET_ALL_FOLLOW,
   USER_ALERT_STATUS,
   SET_PHONESIGNUP_LOADER,
   SET_FORGET_PASSWORD_LOADER,
@@ -358,10 +359,7 @@ export const managefavorite = (productId,userId) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.managefavorite}`,  request);
-                if (response?.status) {
-                } else {
-
-                }
+                console.log('data added')
             } catch (error) {
             }
         };
@@ -383,6 +381,47 @@ export const getfavoriteproductlist = (userId) => {
                     dispatch({ type: GET_ALL_FAVORITE, payload: response.data });
                 } else {
                   dispatch({ type: GET_ALL_FAVORITE, payload: [] });
+                }
+            } catch (error) {
+
+            }
+        };
+    }
+};
+
+
+//managefavorite
+export const managefollow = (productId,userId) => {
+    let request = {
+      productId:productId,
+      userId:userId,
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected; 
+        if (isInternetConnected) {
+            try {
+                let response = await Utilise.apiCalling('POST', `${Api.managefollow}`,  request);
+                console.log('data added')
+            } catch (error) {
+
+            }
+        };
+    }
+};
+
+export const getfollowproductlist = (userId) => {
+    let request = {
+      userId:userId,
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected; 
+        if (isInternetConnected) {
+            try {
+                let response = await Utilise.apiCalling('POST', `${Api.getfollowproductlist}`,  request);
+                if (response?.status) {
+                    dispatch({ type: GET_ALL_FOLLOW, payload: response.data });
+                } else {
+                  dispatch({ type: GET_ALL_FOLLOW, payload: [] });
                 }
             } catch (error) {
 

@@ -23,6 +23,8 @@ const api = {
   getnotificationcount:`/shops/getnotificationcount`,
   managefavorite:`/shops/managefavorite`,
   getfavoriteproductlist:`/shops/getfavoriteproductlist`,
+  managefollow:`/shops/managefollow`,
+  getfollowproductlist:`/shops/getfollowproductlist`,
   forgotPassword: `/auth/forgotPassword`,
   cartlist: `/users/cartlist`,
   cartdata: `/shops/getcartList`,

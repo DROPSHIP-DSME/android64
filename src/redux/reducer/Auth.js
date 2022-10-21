@@ -35,6 +35,7 @@ import {
   GET_ALL_CATEGORY,
   GET_ALL_NOTIFICAITON,
   GET_ALL_FAVORITE,
+  GET_ALL_FOLLOW,
   GET_ALL_PRODUCT,
   GET_ALL_WatchPRODUCT,
   GET_ALL_PRODUCTDETAILS,
@@ -134,6 +135,7 @@ const initialState = {
   getshopselllist: null,
   getlistproduct: null,
   getfavproduct:null,
+  getfollowproduct:null,
   getwatchlistproduct: null,
   getorderlist: null,
   getinconeorderlist: null,
@@ -523,6 +525,13 @@ const Auth = (state = initialState, action) => {
         ...state,
         getfavproduct: action.payload,
       };
+    
+    case GET_ALL_FOLLOW:
+    return {
+        ...state,
+        getfollowproduct: action.payload,
+    };
+
     case GET_ALL_WatchPRODUCT:
       return {
         ...state,

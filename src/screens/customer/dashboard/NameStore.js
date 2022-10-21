@@ -64,6 +64,8 @@ const ref = React.useRef();
   const [showclassName, setshowclassName] = useState("#B80000");
   const [reportpopup, setreportpopup] = React.useState(false);
   const [fav, setfav] = React.useState(false);
+  const [followdata, setfollowdata] = React.useState(false);
+  
   const [incCount, setincCount] = useState(1);
   const [openpopup, setopenpopup] = React.useState(false);
 
@@ -85,7 +87,7 @@ const ref = React.useRef();
     props.shopproduct(shopId);
     props.shopsellcount(shopId);
     props.getfavoriteproductlist(props?.loginuserid);
-    
+    props.getfollowproductlist(props?.loginuserid);
     console.log('props?.getlistproductdetails',props?.getlistproductdetails)
 
     if(props?.getfavproduct && props?.getfavproduct?.length){
@@ -93,6 +95,13 @@ const ref = React.useRef();
           setfav(true)
       }
     }
+
+    if(props?.getfollowproduct && props?.getfollowproduct?.length){
+      if(props?.getfollowproduct.indexOf(productId) > -1) {
+          setfollowdata(true)
+      }
+    }
+
   }, [])
 
   const cartdataSubmit = async () => {
@@ -165,6 +174,14 @@ const ref = React.useRef();
       // setshowotherAlert(true)
       // setshowalertmsg('Favorites updated successfully!')
   }
+
+  const addtofollow = () => {
+      setfollowdata(s => !s);
+      props.managefollow(productId,props?.loginuserid)
+  }
+
+  
+
 
 
   const handleScroll = (pageYOffset) => {
@@ -334,12 +351,20 @@ const ref = React.useRef();
             <Image source={{ uri: props?.getlistproductdetails?.getbrands?.brandImage }} style={tw.style('w-14 h-14 rounded-full bg-gray-500')} />
           </View>
 
+      
+
           <View style={tw.style('pt-2.5 pl-2.5')}>
             <Text style={tw.style('text-[#1A1A1A] text-sm font-bold')}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
             <View style={tw.style('flex flex-row')}>
-              {/* <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#B80000] rounded-full')}>
-                <Text style={tw.style('text-center text-white text-xs font-bold')}>FOLLOW</Text>
-              </TouchableOpacity> */}
+              
+              <TouchableOpacity onPress={() => { addtofollow() }}  style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#B80000] rounded-full')}>
+                {followdata==true ?
+                    <Text style={tw.style('text-center text-white text-xs font-bold')}>UNFOLLOW</Text>
+                :
+                    <Text style={tw.style('text-center text-white text-xs font-bold')}>FOLLOW</Text>
+                }
+              </TouchableOpacity>
+
               <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:props?.getlistproductdetails?.getbrands?._id})} style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#4AFFBD] rounded-full')}>
                 <Text style={tw.style('text-center text-gray-700 text-xs font-bold')}>OPEN STORE</Text>
               </TouchableOpacity>
