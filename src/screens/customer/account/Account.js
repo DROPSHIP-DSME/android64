@@ -27,7 +27,8 @@ import { TagIcon } from "react-native-heroicons/solid";
 import { LogoutIcon } from "react-native-heroicons/outline";
 import moment from 'moment';
 import Help from '../../../components/help/Help';
-
+import AwesomeAlert from 'react-native-awesome-alerts';
+import CustomAwesomeAlert from '../../../components/modals/AlertModal';
 
 const Account = (props) => {
 
@@ -49,18 +50,11 @@ const Account = (props) => {
         props.getuseraddress(props?.loginuserid);
         props.getusercard(props?.loginuserid);
         props.getsupportlist(props?.loginuserid);
-        props.Brandslist();
+        props.Brandslist(props?.loginuserid);
 
     }, [])
 
-    useEffect(() => {
-      getBrandUserId();
-    }, [])
-
-    useFocusEffect(() => {
-      getBrandUserId();
-    })
-
+    
     const deviceWidth = Dimensions.get('window').width;
     const deviceHeight = Dimensions.get('window').height;
 
@@ -76,16 +70,8 @@ const Account = (props) => {
     const [selectedValue, setSelectedValue] = useState("java");
     const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
     const [showclassName, setshowclassName] = useState("#B80000");
     const handleScroll = (pageYOffset) => {
         if (pageYOffset > 0) {
@@ -95,6 +81,17 @@ const Account = (props) => {
         }
     }
 
+    const deleetaccount = () => {
+        setshowAlert(true);
+    }
+
+    const deleteapidataaccount = () => {
+        setshowAlert(false);
+        props.deleteUseraccount(props.loginuserid)
+        setshowotherAlert(true)
+        setshowalertmsg('Account deleted successfully')
+        props.navigation.navigate("Golive")
+    }
 
     const helpbuttonsubmit = async (textval) => {
         if(textval!=''){
@@ -107,21 +104,7 @@ const Account = (props) => {
         }
     }
 
-    const checklogin = async () => {
-        if (props?.loginuserstatus == "1") {
-            props.navigation.navigate("watchlist")
-        } else {
-            setshowAlert(true)
-        }
-    }
-
-    const getBrandUserId = async () => {
-      if (userId != "" && userId != undefined) {
-        await AsyncStorage.setItem('UserId', userId);
-        await AsyncStorage.setItem('userLogin', "1");
-      }
-    }
-
+    
     const renderItem6 = ({ item }) => {
         return (
             <View>
@@ -391,47 +374,15 @@ const Account = (props) => {
 
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
-                              <Text style={tw.style('text-base font-normal text-gray-900')}>Payment Type</Text>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Stripe Id</Text>
                           </View>
-                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                              <View>
-                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.cardtype}</Text>
-                              </View>
-                          }
+                           <View>
+                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.loginCredentials?.stripe_id}</Text>
+                           </View>
+                        
                       </View>
                       <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                          <View>
-                              <Text style={tw.style('text-base font-normal text-gray-900')}>Cashholder Name</Text>
-                          </View>
-                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                              <View>
-                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.name}</Text>
-                              </View>
-                          }
-                      </View>
-                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                          <View>
-                              <Text style={tw.style('text-base font-normal text-gray-900')}>Card Number</Text>
-                          </View>
-                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                              <View>
-                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.cardNumber}</Text>
-                              </View>
-                          }
-                      </View>
-                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-3')}>
-                          <View>
-                              <Text style={tw.style('text-base font-normal text-gray-900')}>Expiry Date</Text>
-                          </View>
-                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                              <View>
-                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.expiry}</Text>
-                              </View>
-                          }
-                      </View>
+                      
                   </View>
                 </View>
 
@@ -449,13 +400,13 @@ const Account = (props) => {
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                    {/*<View style={tw.style('border-b mx-4 border-gray-500')}></View> 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-4`}>
                             <Text style={tw.style('text-base text-gray-800')}>Bookmarks</Text>
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
-                    </TouchableOpacity>
+                    </TouchableOpacity>*/}
                     <View style={tw.style('border-b mx-4 border-gray-500')}></View>
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-4`}>
@@ -495,7 +446,7 @@ const Account = (props) => {
                           </View>
                       </TouchableOpacity>
                       <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
-                      <TouchableOpacity onPress={() => props.navigation.navigate("deletaccount")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                      <TouchableOpacity onPress={() => deleetaccount() } style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                           <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Delete Account</Text>
                           </View>
@@ -528,6 +479,30 @@ const Account = (props) => {
 
 
             </ScrollView>
+
+            <CustomAwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
+
+            <AwesomeAlert
+                show={showAlert}
+                showProgress={false}
+                title="DROPSHIP"
+                message="Are you sure you want to delete this account?"
+                closeOnTouchOutside={true}
+                closeOnHardwareBackPress={false}
+                showCancelButton={true}
+                showConfirmButton={true}
+                cancelText="Cancel"
+                confirmText="Delete"
+                confirmButtonColor="#E22020"
+                onCancelPressed={() => {
+                    setshowAlert(false)
+                }}
+                onConfirmPressed={() => {
+                    deleteapidataaccount()
+                }}
+            />
+
 
             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 

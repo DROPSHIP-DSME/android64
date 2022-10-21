@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Account } from '../../../screens/customer/account';
-import { support,getAllshop,getprofileuser,getuseraddress,getusercard,getsupportlist,branddetails,Brandslist } from '../../../redux/actions/Auth'
+import { support,getAllshop,getprofileuser,getuseraddress,deleteUseraccount,getusercard,getsupportlist,branddetails,Brandslist } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
     getlistshop: state.auth.getlistshop,
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
+    loginCredentials:state.auth.loginCredentials,
     getprofileuserlist: state.auth.getprofileuserlist,
     getuseraddresslist: state.auth.getuseraddresslist,
     getusercardlist: state.auth.getusercardlist,
@@ -26,6 +27,7 @@ const mapDispatchToProps = {
     support,
     branddetails,
     Brandslist,
+    deleteUseraccount
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

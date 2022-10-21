@@ -88,12 +88,12 @@ const Footer3 = (props) => {
                     }}>
                     <ScrollView>
                         <View style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
+                            <TouchableOpacity onPress={() => { setModalVisible(false); navigation.navigate('shop'); }}>
                                 <Text style={tw.style('text-2xl font-bold text-gray-700')}>Shop Products</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
+                            <TouchableOpacity onPress={() => { setModalVisible(false); navigation.navigate('upcoming'); }}>
                                 <Text style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>View Livestreams</Text>
                             </TouchableOpacity>
                         </View>
@@ -135,13 +135,13 @@ const Footer3 = (props) => {
                         },
                     }}>
                     <ScrollView>
-                        <View style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('Account'); }}>
-                                <Text style={tw.style('text-2xl font-bold text-gray-700')}>My Account</Text>
+                        <View  style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
+                            <TouchableOpacity onPress={() => {setAcctModalVisible(false); setshowaccountpop(false); setshowpop(false);navigation.navigate('Account'); }}>
+                                <Text  style={tw.style('text-2xl font-bold text-gray-700')}>My Account</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('Overview'); }}>
+                            <TouchableOpacity onPress={() => { setAcctModalVisible(false);setshowaccountpop(false); setshowpop(false);navigation.navigate('Accountbrand'); }}>
                                 <Text style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>My Store</Text>
                             </TouchableOpacity>
                         </View>

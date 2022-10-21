@@ -105,7 +105,7 @@ const Verification = (props) => {
     { hide == true &&
         <View>
              <View style={tw.style('mx-5 mb-3')}>
-                <Text style={tw.style('text-base text-gray-600')}>Please enter the code you received via text message.</Text>
+                <Text style={tw.style('text-base text-gray-600')}>Please enter the code you received via text message. You can use 123456 for beta version</Text>
             </View>
             <View style={tw.style('flex mt-2 my-4')}>
                 <TextInput

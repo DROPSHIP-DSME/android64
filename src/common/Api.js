@@ -43,6 +43,7 @@ const api = {
   gettopcountry:`/shops/topsellingcountry`,
   uploadproductpic:`/shops/uploadProductImage`,
   createbrand: `/shops/createOrUpdateBrand`,
+  addUpdateBrand:`/shops/addUpdateBrand`,
   createproduct: `/shops/createOrUpdateProduct`,
   createproduct2: `/shops/createOrUpdateProduct`,
   createproduct3: `/shops/addtoshopProduct`,

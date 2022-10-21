@@ -1,5 +1,5 @@
 import React, { useEffect,useRef, useState } from 'react';
-import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard,ProgressBarAndroid} from 'react-native';
+import { Text, View,Image,TextInput, ImageBackground,Linking,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard,ProgressBarAndroid} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -56,10 +56,10 @@ const deviceWidth = Dimensions.get('window').width;
     const brandId = props?.route?.params?.brandId;
 
     useEffect(() => {
-      props.getincomingtlist(props?.loginuserid);
-      props.getselldeshboard(props?.loginuserid);
-      props.gettopsell(props?.loginuserid,3);
-      props.liveeventdetail(props?.loginuserid);
+      // props.getincomingtlist(props?.loginuserid);
+      // props.getselldeshboard(props?.loginuserid);
+      // props.gettopsell(props?.loginuserid,3);
+      // props.liveeventdetail(props?.loginuserid);
     }, [])
 
     useEffect(() => {
@@ -101,6 +101,27 @@ const deviceWidth = Dimensions.get('window').width;
         setVisible(false)
     }
 
+    const opensocialicon = (type) => {
+        if(type=='facebook'){
+            Linking.openURL('https://www.facebook.com/DROPSHIPAPP/');
+        }
+        if(type=='insta'){
+            Linking.openURL('https://www.instagram.com/dropship.shopping/');
+        }
+        if(type=='twitter'){
+            Linking.openURL('https://twitter.com/Dropship_app');
+        }
+        if(type=='linkedin'){
+            Linking.openURL('https://www.linkedin.com/company/dropship-shop/');
+        }
+        if(type=='phone'){
+            Linking.openURL('tel:+13107287960');
+        }
+        if(type=='email'){
+            Linking.openURL('mailto:info@dropship.shopping');
+        }
+    }
+
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
     return (
@@ -122,14 +143,19 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-12')}>
                 <View style={tw.style('px-2 py-5')}>
-                    <View style={tw.style('flex flex-row px-4 items-center')}>
-                        <PhoneIcon color="red" fill="#b80000" size={24} />
-                        <Text style={tw.style('text-xl text-gray-700 ml-3')}>+1-555-555-5555</Text>
-                    </View>
-                    <View style={tw.style('flex flex-row px-4 mt-4 items-center')}>
-                        <MailIcon color="red" fill="#b80000" size={24} />
-                        <Text style={tw.style('text-xl text-gray-700 ml-3')}>info@dropship.com</Text>
-                    </View>
+                    <TouchableOpacity onPress={() => opensocialicon('phone')}>
+                        <View style={tw.style('flex flex-row px-4 items-center')}>
+                            <PhoneIcon color="red" fill="#b80000" size={24} />
+                            <Text style={tw.style('text-xl text-gray-700 ml-3')}>+1 (310) 728-7960</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => opensocialicon('email')}>
+                        <View style={tw.style('flex flex-row px-4 mt-4 items-center')}>
+                            <MailIcon color="red" fill="#b80000" size={24} />
+                            <Text style={tw.style('text-xl text-gray-700 ml-3')}>info@dropship.shopping</Text>
+                        </View>
+                    </TouchableOpacity>
+
                     <View style={tw.style('flex items-center my-6')}>
                       <View style={tw.style('w-full border-t border-gray-300')}></View>
                     </View>
@@ -139,111 +165,33 @@ const deviceWidth = Dimensions.get('window').width;
                     </View>
 
                     <View style={tw.style('flex flex-row mx-4')}>
-                      <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
-                         <Image source={ImageIcons.facebook} style={tw.style('w-4 h-6')}/>
-                      </View>
-
-                      <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
-                         <Image source={ImageIcons.message} style={tw.style('w-6 h-6')}/>
-                      </View>
-
-                      <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
-                         <Image source={ImageIcons.twitter} style={tw.style('w-6 h-6')}/>
-                      </View>
-
-                      <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
-                         <Image source={ImageIcons.linkin} style={tw.style('w-6 h-6')}/>
-                      </View>
+                        <TouchableOpacity onPress={() => opensocialicon('facebook')}>
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                                <Image source={ImageIcons.facebook} style={tw.style('w-4 h-7')}/>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => opensocialicon('insta')}>
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                                <Image source={ImageIcons.insta} style={tw.style('w-6 h-6')}/>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => opensocialicon('twitter')}>
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                                <Image source={ImageIcons.twitter} style={tw.style('w-6 h-6')}/>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => opensocialicon('linkedin')}>
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                                <Image source={ImageIcons.linkin} style={tw.style('w-6 h-6')}/>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
-              </View>
-
-
-
-
-                 <View>
-
-
-        { openpopup  &&
-                    <Provider>
-                    <Portal>
-                    <Modal visible={visible} style={{backgroundColor:'rgba(0, 0, 0, 0.8)',marginHorizontal:-20,marginVertical:-5}} onDismiss={closepopup} contentContainerStyle={containerStyle}>
-          <View style={{ marginTop:40,position: 'absolute', textAlign: 'center',justifyContent: 'center',alignItems: 'center',top: 10,left: 0,right: 0 }}>
-            <View style={{ width: 320, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
-
-
-
-
-
-                 <View style={{width:deviceWidth/1.15,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'7%',borderRadius:15,}}>
-
-                   <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'3%'}}>
-                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Transaction Details</Text>
-
-
-                     <TouchableOpacity onPress={() => closepopup() } style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'4%',padding:8,}}>
-                      <Image source={ImageIcons.closetoday}  style={{height:12,width:12,marginTop:5,alignSelf:'center'}} />
-                    </TouchableOpacity>
-
-                   </View>
-
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',marginTop:'3%'}}>Transaction Information</Text>
-
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Transaction ID</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>264554855</Text>
-               </View>
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Receiving Account</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',width:140}}>CRDB Bank Limited (8391)</Text>
-               </View>
-                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Transfer Amount</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>$0*</Text>
-               </View>
-                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Transfer Fee</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>$0</Text>
-               </View>
-
-              </View>
-
-
-             <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',alignSelf:'center',marginVertical:'5%'}}></View>
-
-                <View style={{width:deviceWidth/1.15,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',borderRadius:15,}}>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',marginTop:'3%'}}>Transaction Timeline</Text>
-
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Approved</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>25 - 01 - 22</Text>
-               </View>
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Sent to Bank</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>25 - 01 - 22</Text>
-               </View>
-                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Estimated deposit date**</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>25 - 01 - 22</Text>
-               </View>
-              </View>
-
-               <View style={{marginHorizontal:'4%',marginTop:'2%',marginBottom:'8%'}}>
-                <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>*A transaction may take longer than described above if requested outside of business hours. If you experience a delay of more than 5 days, contact us.</Text>
-                <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>**Total amount may be subject to fees charged by banks or third-party providers.</Text>
-               </View>
-
-
-
+                    </View>
+                <View>
             </View>
-          </View>
-       </Modal>
-                    </Portal>
-                    </Provider>
-                }
-         </View>
-               </ScrollView>
-            <Footer3 />
+        </ScrollView>
+        <Footer3 />
         </View>
     )
 }

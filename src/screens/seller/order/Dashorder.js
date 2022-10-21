@@ -66,7 +66,6 @@ const Dashorder = (props) => {
     // props.getselldeshboard(props?.loginuserid);
     // props.gettopsell(props?.loginuserid, 3);
     // props.liveeventdetail(props?.loginuserid);
-    // props.Brandslist();
   }, [props?.getinconeorderlist])
 
   useEffect(() => {

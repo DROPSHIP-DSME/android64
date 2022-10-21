@@ -1,6 +1,6 @@
  import { connect } from 'react-redux';
 import { Accountfav1 } from '../../../screens/customer/account';
-import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail } from '../../../redux/actions/Auth'
+import { getselldeshboard,gettopsell,getincomingtlist,getAllproduct,liveeventdetail,getfavoriteproductlist } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -11,13 +11,17 @@ const mapStateToProps = (state) => ({
     getlistselldeshboard: state.auth.getlistselldeshboard,
     gettopsellproduct: state.auth.gettopsellproduct,
     getinconeorderlist: state.auth.getinconeorderlist,
+    showwatchlistproduct: state.auth.getwatchlistproduct,
+    getlistproduct:state.auth.getlistproduct
 });
 
 const mapDispatchToProps = {
    getselldeshboard,
    gettopsell,
    getincomingtlist,
-   liveeventdetail
+   liveeventdetail,
+   getfavoriteproductlist,
+   getAllproduct
    // signup
 
 };

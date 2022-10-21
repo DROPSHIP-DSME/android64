@@ -69,16 +69,9 @@ const deviceWidth = Dimensions.get('window').width;
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
-      props.Brandslist();
+      props.Brandslist(props?.loginuserid);
     }, [])
 
-    useEffect(() => {
-       getBrandUserId();
-    }, [])
-
-    useFocusEffect(() => {
-        getBrandUserId();
-     })
 
     const helpbuttonsubmit = async (textval) => {
         if(textval!=''){
@@ -100,12 +93,7 @@ const deviceWidth = Dimensions.get('window').width;
         }
     }
 
-    const getBrandUserId = async () => {
-        if(userId!="" && userId!=undefined){
-            await AsyncStorage.setItem('UserId',userId);
-            await AsyncStorage.setItem('userLogin',"1");
-        }
-    }
+    
     // Local states
     const [text1, onChangeText3] = React.useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
@@ -172,7 +160,7 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
                <View style={tw`flex flex-row justify-betwwen mx-4 my-6`}>
-                 <Text style={tw`text-3xl text-gray-700`}>My Brands</Text>
+                 <Text style={tw`text-3xl text-gray-700`}>My Store</Text>
                </View>
 
 

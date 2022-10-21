@@ -114,61 +114,30 @@ const deviceWidth = Dimensions.get('window').width;
         props.support(request, props.navigation, "vendor");
     }
 
-    const linkedin=()=>{
-        Linking.openURL('https://www.linkedin.com/company/dropship-shop/?viewAsMember=true')
-    }
-
-    const instragram=()=>{
-        Linking.openURL('https://www.instagram.com/dropship_la/')
-    }
-
-    const twitter=()=>{
-        Linking.openURL('https://twitter.com/Dropship_app')
-    }
-
-    const facebook=()=>{
-        Linking.openURL('https://www.facebook.com/dropship')
-    }
-
-    const phonenumber=(phoneNumber)=>{
-        Linking.openURL(`tel:${phoneNumber}`)
-    }
-
-    const sendemail=(email)=>{
-        Linking.openURL(`mailto:${email}`)
-    }
-
-    const google=()=>{
-        Linking.openURL('https://www.google.com/')
-    }
-
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
 
-     const renderItem6 = ({ item }) => {
-            return(
-                <View>
-                    { item.userId.userName=='Admin' ?
-                       <View>
-                        <View style={styles.chatrightView}>
-                           <Text style={styles.hellotext}>{item.message}</Text>
-                        </View>
-                         <Text style={styles.chattingtime}>{ moment(item.msgDate).format('hh:mm A')}</Text>
-                        </View>
-                    :
-                        <View>
-                        <View style={styles.chatlongView}>
-                          <Text style={styles.chattingtext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                        </View>
-
-                    }
-                </View>
-            );
+    const opensocialicon = (type) => {
+        if(type=='facebook'){
+            Linking.openURL('https://www.facebook.com/DROPSHIPAPP/');
+        }
+        if(type=='insta'){
+            Linking.openURL('https://www.instagram.com/dropship.shopping/');
+        }
+        if(type=='twitter'){
+            Linking.openURL('https://twitter.com/Dropship_app');
+        }
+        if(type=='linkedin'){
+            Linking.openURL('https://www.linkedin.com/company/dropship-shop/');
+        }
+        if(type=='phone'){
+            Linking.openURL('tel:+13107287960');
+        }
+        if(type=='email'){
+            Linking.openURL('mailto:info@dropship.shopping');
+        }
     }
-
 
     return (
          <View style={{flex:1}}>
@@ -189,14 +158,18 @@ const deviceWidth = Dimensions.get('window').width;
 
                     <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-12')}>
                       <View style={tw.style('px-2 py-5')}>
-                          <View style={tw.style('flex flex-row px-4 items-center')}>
-                              <PhoneIcon color="red" fill="#b80000" size={24} />
-                              <Text style={tw.style('text-xl text-gray-700 ml-3')}>+1-555-555-5555</Text>
-                          </View>
-                          <View style={tw.style('flex flex-row px-4 mt-4 items-center')}>
-                              <MailIcon color="red" fill="#b80000" size={24} />
-                              <Text style={tw.style('text-xl text-gray-700 ml-3')}>info@dropship.com</Text>
-                          </View>
+                          <TouchableOpacity onPress={() => opensocialicon('phone')}>
+                        <View style={tw.style('flex flex-row px-4 items-center')}>
+                            <PhoneIcon color="red" fill="#b80000" size={24} />
+                            <Text style={tw.style('text-xl text-gray-700 ml-3')}>+1 (310) 728-7960</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => opensocialicon('email')}>
+                        <View style={tw.style('flex flex-row px-4 mt-4 items-center')}>
+                            <MailIcon color="red" fill="#b80000" size={24} />
+                            <Text style={tw.style('text-xl text-gray-700 ml-3')}>info@dropship.shopping</Text>
+                        </View>
+                    </TouchableOpacity>
                           <View style={tw.style('flex items-center my-6')}>
                             <View style={tw.style('w-full border-t border-gray-300')}></View>
                           </View>
@@ -206,21 +179,26 @@ const deviceWidth = Dimensions.get('window').width;
                           </View>
 
                           <View style={tw.style('flex flex-row mx-4')}>
+                            <TouchableOpacity onPress={() => opensocialicon('facebook')}>
                             <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
                                <Image source={ImageIcons.facebook} style={tw.style('w-4 h-6')}/>
                             </View>
-
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => opensocialicon('insta')}>
                             <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
-                               <Image source={ImageIcons.message} style={tw.style('w-6 h-6')}/>
+                               <Image source={ImageIcons.insta} style={tw.style('w-6 h-6')}/>
                             </View>
-
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => opensocialicon('twitter')}>
                             <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
                                <Image source={ImageIcons.twitter} style={tw.style('w-6 h-6')}/>
                             </View>
-
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => opensocialicon('linkedin')}>
                             <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
                                <Image source={ImageIcons.linkin} style={tw.style('w-6 h-6')}/>
                             </View>
+                            </TouchableOpacity>
                           </View>
                       </View>
                     </View>

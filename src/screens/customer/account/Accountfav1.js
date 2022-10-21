@@ -65,14 +65,15 @@ const Accountfav1 = (props) => {
         props.getselldeshboard(props?.loginuserid);
         props.gettopsell(props?.loginuserid, 3);
         props.liveeventdetail(props?.loginuserid);
+        props.getAllproduct(1);
     }, [])
 
     useEffect(() => {
-        getBrandUserId();
+        props.getfavoriteproductlist(props?.loginuserid);
     }, [])
 
     useFocusEffect(() => {
-        getBrandUserId();
+        //getBrandUserId();
     })
 
     const updateorderStatus = (itemValue) => {
@@ -103,59 +104,32 @@ const Accountfav1 = (props) => {
 
     const DATA2 = [];
 
-
-    const renderItem2 = ({ item, index }) => {
+    const renderItem = ({ item, index }) => {
         return (
             <View>
-                <View style={tw`p-2 mx-4`}>
-                    <Image source={item.image} style={tw.style('h-10 rounded-md', {width: deviceWidth / 2.5})} />
-                </View>
-                <View style={tw`my-4 flex flex-row mx-3`}>
-                    <View>
-                        <Text style={tw`text-base w-9/11 ml-3`}>{item.text}</Text>
-                        <Text style={tw`text-lg w-9/11 ml-3`}>{item.text1}</Text>
-                        <View style={{ marginBottom: '12%' }}>
-                             {item?.productRating ?
-                            <Rating
-                                type='custom'
-                                imageSize={18}
-                                ratingCount={5}
-                                ratingColor='#EB5757'
-                                tintColor='#FFE7E7'
-                                value={item?.productRating}
-                                startingValue={item?.productRating}
-                                style={tw`py-3 w-full`}
-                            />
-                            :
-                            <Rating
-                                type='custom'
-                                imageSize={18}
-                                ratingCount={5}
-                                ratingColor='#EB5757'
-                                tintColor='#FFE7E7'
-                                value={0}
-                                startingValue={0}
-                                style={tw`py-3 w-full`}
-                            />
-                        }
+                {(props?.showwatchlistproduct.indexOf(item._id) > -1) &&
+                    <View style={tw.style('ml-2 mr-2')}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
+                            <View style={{borderWidth:1,borderColor:'#e6e6e6'}}>
+                                <Image source={{ uri: item.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                                <Text style={styles.beautyproduct}></Text>
+                            </View>
 
-                        </View>
+                            <View style={tw.style('flex flex-row mt-2')}>
+                                <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:20}}>
+                                    <Image source={{ uri: item.productImage }} style={tw.style('h-6 w-6 rounded-full')} />
+                                </View>
+                                <View style={tw.style('pl-2 pt-1')}>
+                                    <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
+                                </View>
+                            </View>
 
+                        </TouchableOpacity>
                     </View>
-                    <View style={tw`ml-3`}>
-                        <View style={tw`p-2 mx-3`}>
-                            <Image source={ImageIcons.outlock} style={tw`ml-3 h-8 w-8`} />
-                        </View>
-                        <View style={tw`p-2 mx-2`}>
-                            <Image source={ImageIcons.outheart} style={tw`ml-3 h-8 w-8`} />
-                        </View>
-                    </View>
-                </View>
+                }
             </View>
         );
     }
-
-
 
     return (
          <View style={{flex:1}}>
@@ -168,22 +142,13 @@ const Accountfav1 = (props) => {
                     <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>My Favorites</Text>
                 </View>
 
-                <View style={tw`flex flex-row mx-4`}>
-                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                    <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav1")} />
-                </View>
-
-
-
-
                 <View style={tw`mt-10`}>
-
                     <View style={tw`mx-3`}>
+                        
                         <FlatList
-                            data={DATA2}
-                            renderItem={renderItem2}
-                            key={item => item.id}
+                            data={props?.getlistproduct || []}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
                             showsHorizontalScrollIndicator={false}
                             numColumns={2}
                         />

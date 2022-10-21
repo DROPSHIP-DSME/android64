@@ -62,7 +62,7 @@ const Accountstore = (props) => {
     props.getselldeshboard(props?.loginuserid);
     props.gettopsell(props?.loginuserid, 3);
     props.liveeventdetail(props?.loginuserid);
-    props.Brandslist();
+    props.Brandslist(props?.loginuserid);
   }, [])
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const Accountstore = (props) => {
         {index == 0 &&
           <View style={tw`pb-3 px-2`}>
             <View style={tw`flex flex-row justify-between items-center mb-2`}>
-                <Text style={tw`text-2xl text-gray-700`}>My Brands</Text>
+                <Text style={tw`text-2xl text-gray-700`}>My Store</Text>
                 <Smallbutton text="SEE ALL"  onPress={() => props.navigation.navigate("Accountbrand")}></Smallbutton>
             </View>
             <View style={tw`flex flex-row justify-between`}>

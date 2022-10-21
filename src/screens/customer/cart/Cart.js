@@ -13,6 +13,8 @@ import InputField from '../../../components/forms/inputField';
 import { RoundedButton } from '../../../components/forms/button';
 import { phoneRegExp } from '../../../services/helper';
 import DropdownField from '../../../components/dropdown/DropDownMenu';
+import AwesomeAlert from '../../../components/modals/AlertModal';
+
 import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../../components/modals/Loader';
 import { Rating ,AirbnbRating} from 'react-native-ratings';
@@ -61,6 +63,8 @@ const Cart = (props) => {
     const [IsLogin, setIsLogin] = useState("");
     // Local states
     const [showAlert, setshowAlert] = React.useState(false);
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
     const [isVisible, setisVisible] = React.useState(false);
     const [Incval, setIncval] = useState(1);
     // Stripe variable and customer variables 
@@ -148,53 +152,89 @@ const Cart = (props) => {
     }
 
     const checkOutPayment = async () => {
-
+      setloginLoader(true);
       try {
-        // const finalAmount = parseInt(amount);
-        // if (finalAmount < 1) return Alert.alert("You cannot donate below 1 INR");
-        const response = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, amount, customer }),
+        const finalAmount = parseInt(props?.totalcartprice);
+        if (finalAmount < 1) return Alert.alert("You cannot pay below $1");
+        console.log('stripe_customer_id',props.loginCredentials?.stripe_id);
+        console.log('receipt_email',props.loginCredentials?.email);
+        console.log('amount',finalAmount);
+
+        const response = fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent` , { 
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 'receiptEmail':props.loginCredentials?.email, 'amount':finalAmount, 'stripeCustomerId':props.loginCredentials?.stripe_id }),
+         })
+        .then(response => response.json())
+        .then((responseJson) => {
+            console.log('checkOutPayment',responseJson.data)
+
+            let request = {
+                "userId":props?.loginuserid,
+                "orderNumber":props?.loginuserid+''+finalAmount,
+                "orderStatus":"accepted",
+                "orderAmount":finalAmount,
+                "paymentMethod":"cash",
+                "orderDate":new Date(),
+                "firstName":props.loginCredentials?.userName,
+                "lastName":'',
+                "emailaddress":props.loginCredentials?.email,
+                "phoneNumber":props.loginCredentials?.phoneNumber,
+                "streetAdress":props.loginCredentials?.streetAdress,
+                "zipCode":props.loginCredentials?.zipCode,
+                "city":props.loginCredentials?.city,
+                "country":'USA'
+            }
+            props.chekout(request, props.navigation, "vendor");
+            setTimeout(function(){ 
+                  setloginLoader(false); setshowotherAlert(true)
+                  setshowalertmsg('Order placed successfully');
+                  props.cartdata(props?.loginuserid);
+            },1000);
+            
+        }).catch((error) => {
+            console.log('error',error)
+            setshowotherAlert(true)
+            setshowalertmsg('Payment failed')
         })
-  
-        const data = await response.json();
-        // console.log(data);
-        console.log(JSON.stringify(data));
-        // console.log(data.data.customer);
-        if (!response.ok) {
-          return Alert.alert('data.paymentIntent');
-        }
-        const initSheet = await initPaymentSheet({
-          paymentIntentClientSecret: data.data.paymentIntent,
-          customerEphemeralKeySecret: data.data.ephemeralKey,
-          customerId: data.data.customer,
+      }
+      catch (err) {
+        console.error(err);
+        Alert.alert("Payment failed!");
+      }
+        
+    };
+
+    const getiDataPaymentSheet =  async (dataRec) => {
+        const initSheet =  initPaymentSheet({
+          paymentIntentClientSecret: dataRec.paymentIntent,
+          customerEphemeralKeySecret: dataRec.ephemeralKey,
+          customerId: dataRec.customer,
           allowsDelayedPaymentMethods: true,
           currencyCode: "USD",
           style: "alwaysLight",
           merchantDisplayName: "Dropship",
           
         });
+        
         if (initSheet.error) {
-          console.error(initSheet.error);
-          return Alert.alert(initSheet.error.message);
+           Alert.alert(initSheet.error.message);
+
         }
-        const presentSheet = await presentPaymentSheet({
-          clientSecret: data.data.paymentIntent,
+        
+        const presentSheet = presentPaymentSheet({
+          clientSecret: dataRec.paymentIntent,
         });
+        
         if (presentSheet.error) {
           console.error(presentSheet.error);
-          return Alert.alert(presentSheet.error.message);
+          Alert.alert(presentSheet.error.message);
         }
         Alert.alert("Payment successfully!");
-      } catch (err) {
-        console.error(err);
-        Alert.alert("Payment failed!");
-      }
-    };
-
+    }
 
     return (
       <StripeProvider
@@ -205,6 +245,10 @@ const Cart = (props) => {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
      style={styles.registrationRoot}>
       
+      
+      <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
+
       <ScrollView style={{backgroundColor:'#ffffff'}}>
       
         <View style={tw`pt-1 pb-20`}>

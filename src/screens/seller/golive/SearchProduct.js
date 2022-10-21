@@ -36,7 +36,7 @@ const SearchProduct = (props) => {
      useEffect(() => {
         //alert('d')
         //getBrandUserId();
-        props.Brandslist();
+        props.Brandslist(props?.loginuserid);
     }, [])
 
      const getBrandUserId = async () => {
@@ -96,7 +96,7 @@ const SearchProduct = (props) => {
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
         if (First == "") {
-           props.Brandslist();
+           props.Brandslist(props?.loginuserid);
         }else {
             props.searchbrand(1,First)
         }
