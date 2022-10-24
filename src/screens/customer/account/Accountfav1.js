@@ -65,11 +65,21 @@ const Accountfav1 = (props) => {
         props.getselldeshboard(props?.loginuserid);
         props.gettopsell(props?.loginuserid, 3);
         props.liveeventdetail(props?.loginuserid);
+        props.getfavoriteproductlist(props?.loginuserid);
         props.getAllproduct(1);
     }, [])
 
     useEffect(() => {
         props.getfavoriteproductlist(props?.loginuserid);
+        setloginLoader(true);
+        var getmaparr = [];
+        props.getlistproduct.map(function(category, i){
+            if((props?.getfavproduct && props?.getfavproduct.indexOf(category._id) > -1)){
+                getmaparr.push(category)
+            }
+        });
+        setfavlist(getmaparr)
+        setTimeout(function(){ setloginLoader(false); },1000);
     }, [])
 
     useFocusEffect(() => {
@@ -98,7 +108,8 @@ const Accountfav1 = (props) => {
     const [text1, onChangeText3] = React.useState("");
     const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
-
+    const [favlist, setfavlist] = useState([]);
+    const [loginLoader, setloginLoader] = React.useState(false);
 
 
 
@@ -106,27 +117,23 @@ const Accountfav1 = (props) => {
 
     const renderItem = ({ item, index }) => {
         return (
-            <View>
-                {(props?.showwatchlistproduct.indexOf(item._id) > -1) &&
-                    <View style={tw.style('ml-2 mr-2')}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
-                            <View style={{borderWidth:1,borderColor:'#e6e6e6'}}>
-                                <Image source={{ uri: item.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
-                                <Text style={styles.beautyproduct}></Text>
-                            </View>
-
-                            <View style={tw.style('flex flex-row mt-2')}>
-                                <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:20}}>
-                                    <Image source={{ uri: item.productImage }} style={tw.style('h-6 w-6 rounded-full')} />
-                                </View>
-                                <View style={tw.style('pl-2 pt-1')}>
-                                    <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
-                                </View>
-                            </View>
-
-                        </TouchableOpacity>
+            <View style={tw.style('ml-2 mr-2')}>
+                <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
+                    <View style={{borderWidth:1,borderColor:'#e6e6e6'}}>
+                        <Image source={{ uri: item.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                        <Text style={styles.beautyproduct}></Text>
                     </View>
-                }
+
+                    <View style={tw.style('flex flex-row mt-2')}>
+                        <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:20}}>
+                            <Image source={{ uri: item.productImage }} style={tw.style('h-6 w-6 rounded-full')} />
+                        </View>
+                        <View style={tw.style('pl-2 pt-1')}>
+                            <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
+                        </View>
+                    </View>
+
+                </TouchableOpacity>
             </View>
         );
     }
@@ -142,16 +149,21 @@ const Accountfav1 = (props) => {
                     <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>My Favorites</Text>
                 </View>
 
+                <Loader isVisible={loginLoader} />
+
                 <View style={tw`mt-10`}>
                     <View style={tw`mx-3`}>
-                        
+                        {favlist?.length>0 ?
                         <FlatList
-                            data={props?.getlistproduct || []}
+                            data={favlist || []}
                             renderItem={renderItem}
                             keyExtractor={item => item.id}
                             showsHorizontalScrollIndicator={false}
                             numColumns={2}
                         />
+                        :
+                            <Text style={{margin:100,fontSize:20}}>No Data found</Text>
+                        }
                     </View>
                 </View>
 
@@ -165,6 +177,5 @@ const Accountfav1 = (props) => {
         </View>
     )
 }
-
 
 export default Accountfav1

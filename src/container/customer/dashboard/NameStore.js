@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { NameStore } from '../../../screens/customer/dashboard';
-import { shopproduct,cartdata,shopsellcount,getAllproduct,managefavorite,getfavoriteproductlist,getAllproductdetails,getAllshop,cartadd,getpostrating } from '../../../redux/actions/Auth'
+import { shopproduct,cartdata,shopsellcount,getAllproduct,getfollowproductlist,managefollow,managefavorite,getfavoriteproductlist,getAllproductdetails,getAllshop,cartadd,getpostrating } from '../../../redux/actions/Auth'
 
 
 
@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
     addcartLoader: state.auth.addcartLoader,
     getlistproduct: state.auth.getlistproduct,
     getfavproduct: state.auth.getfavproduct,
+    getfollowproduct: state.auth.getfollowproduct
 });
 
 const mapDispatchToProps = {
@@ -28,7 +29,9 @@ const mapDispatchToProps = {
     cartdata,
     getpostrating,
     managefavorite,
-    getfavoriteproductlist
+    managefollow,
+    getfavoriteproductlist,
+    getfollowproductlist
 };
  
 export default connect(mapStateToProps, mapDispatchToProps)(NameStore);

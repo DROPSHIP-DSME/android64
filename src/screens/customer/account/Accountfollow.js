@@ -22,11 +22,14 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
-import Modal from 'react-native-modal';
+import Modal from 'react-native-modal'
 import tw from 'twrnc';
-import { ShoppingBagIcon } from "react-native-heroicons/solid";
-import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import Sortfilter from '../../../components/pickers/Sortfilter';
+import Supportchat from '../../../components/Supportchat';
+import Sortorder from '../../../components/pickers/Sortorder';
 import Help from '../../../components/help/Help';
+
+ const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 
 import {
@@ -62,16 +65,30 @@ const Accountfollow = (props) => {
         props.getselldeshboard(props?.loginuserid);
         props.gettopsell(props?.loginuserid, 3);
         props.liveeventdetail(props?.loginuserid);
+        props.getfollowproductlist(props?.loginuserid);
+        props.getAllproduct(1);
     }, [])
 
     useEffect(() => {
-        getBrandUserId();
+        props.getfollowproductlist(props?.loginuserid);
+        setloginLoader(true);
+        var getmaparr = [];
+        props.getlistproduct.map(function(category, i){
+            if(props?.getfollowproduct && props?.getfollowproduct.indexOf(category._id) > -1){
+                getmaparr.push(category)
+            }
+        });
+        setfollowlist(getmaparr)
+        setTimeout(function(){ setloginLoader(false); },1000);
     }, [])
 
     useFocusEffect(() => {
-        getBrandUserId();
+        //getBrandUserId();
     })
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
 
     const handleScroll = (pageYOffset) => {
         if (pageYOffset > 0) {
@@ -81,18 +98,6 @@ const Accountfollow = (props) => {
         }
     }
 
-    const helpbuttonsubmit = async (textval) => {
-        if(textval!=''){
-            let request = {
-                "userId": props?.loginuserid,
-                "message": textval,
-                "msgDate": new Date()
-            }
-            props.support(request, props.navigation, "vendor");
-        }
-    }
-
-
     const getBrandUserId = async () => {
         if (userId != "" && userId != undefined) {
             await AsyncStorage.setItem('UserId', userId);
@@ -100,90 +105,74 @@ const Accountfollow = (props) => {
         }
     }
 
-    // Local states
     const [text1, onChangeText3] = React.useState("");
+    const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
+    const [followlist, setfollowlist] = useState([]);
+    const [loginLoader, setloginLoader] = React.useState(false);
 
 
-    const renderItem6 = ({ item }) => {
+
+    const DATA2 = [];
+
+    const renderItem = ({ item, index }) => {
         return (
-            <View>
-                {item.userId.userName == 'Admin' ?
-                    <View>
-                        <View style={styles.chatrightView}>
-                            <Text style={styles.hellotext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                    </View>
-                    :
-                    <View>
-                        <View style={styles.chatlongView}>
-                            <Text style={styles.chattingtext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
+            <View style={tw.style('ml-2 mr-2')}>
+                <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
+                    <View style={{borderWidth:1,borderColor:'#e6e6e6'}}>
+                        <Image source={{ uri: item.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                        <Text style={styles.beautyproduct}></Text>
                     </View>
 
-                }
+                    <View style={tw.style('flex flex-row mt-2')}>
+                        <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:20}}>
+                            <Image source={{ uri: item.productImage }} style={tw.style('h-6 w-6 rounded-full')} />
+                        </View>
+                        <View style={tw.style('pl-2 pt-1')}>
+                            <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
+                        </View>
+                    </View>
+
+                </TouchableOpacity>
             </View>
         );
     }
 
-
     return (
-         <View style={tw`flex flex-1 mx-4`}>
+         <View style={{flex:1}}>
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
-
-                <View style={tw`flex flex-row justify-between mt-10 mb-5`}>
+                <View style={tw`flex flex-row justify-between mx-4 mt-10 mb-5`}>
                     <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>Following</Text>
                 </View>
 
-                <View style={tw.style('flex flex-row',{ width: deviceWidth / 1.1})}>
-                  <View style={tw`bg-white rounded-lg py-3 my-3 mx-1 w-1/2 items-center`}>
-                    <Image source={ImageIcons.colortodayshoe} style={tw`w-14 h-14 rounded-full`} />
+                <Loader isVisible={loginLoader} />
 
-                    <Text style={tw`text-lg text-gray-700`}>Sneakers Store</Text>
-
-                    <Text style={tw`text-base text-blue-600`}>store.dropship.com</Text>
-
-
-                    <View style={tw`flex-row my-2 items-center`}>
-                        <ShoppingBagIcon color="red" fill="#b80000" size={24} />
-                        <Text style={tw`text-base ml-2`}>0 products</Text>
+                <View style={tw`mt-10`}>
+                    <View style={tw`mx-3`}>
+                        {followlist?.length>0 ?
+                        <FlatList
+                            data={followlist || []}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
+                            showsHorizontalScrollIndicator={false}
+                            numColumns={2}
+                        />
+                        :
+                            <Text style={{margin:100,fontSize:20}}>No Data found</Text>
+                        }
+                        
                     </View>
-
-                    <View style={tw`my-4`}>
-                        <Smallbutton text="Unfollow" />
-                    </View>
-                  </View>
-
-                  <View style={tw`bg-white rounded-lg py-3 my-3 mx-1 w-1/2 items-center`}>
-                    <Image source={ImageIcons.colortodayshoe} style={tw`w-14 h-14 rounded-full`} />
-
-                    <Text style={tw`text-lg text-gray-700`}>Sneakers Store</Text>
-
-                    <Text style={tw`text-base text-blue-600`}>store.dropship.com</Text>
-
-
-                    <View style={tw`flex-row my-2 items-center`}>
-                        <ShoppingBagIcon color="red" fill="#b80000" size={24} />
-                        <Text style={tw`text-base ml-2`}>0 products</Text>
-                    </View>
-
-                    <View style={tw`my-4`}>
-                        <Smallbutton text="Unfollow" />
-                    </View>
-                  </View>
-
                 </View>
+
 
 
             </ScrollView>
 
             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
-
 
             <Footer3 onSelection="5" />
         </View>
