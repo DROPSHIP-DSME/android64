@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
     getlistselldeshboard: state.auth.getlistselldeshboard,
     gettopsellproduct: state.auth.gettopsellproduct,
     getinconeorderlist: state.auth.getinconeorderlist,
+    loginCredentials: state.auth.loginCredentials,
     getlistproduct: state.auth.getlistproduct,
     brandName:state.auth.brandName,
     Brandlistdata: state.auth.Brandlistdata,
