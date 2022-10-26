@@ -85,16 +85,18 @@ const Dashproduct = (props) => {
     props.gettopsell(props?.loginuserid, 3);
     props.liveeventdetail(props?.loginuserid);
     props.Brandslist(props?.loginuserid);
+    //alert(props?.loginCredentials?.isSeller)
   }, [])
 
   useEffect(() => {
-    // AsyncStorage.setItem('UserId','');
-    // AsyncStorage.setItem('userLogin','');
-    getBrandUserId();
+    props.getAllproduct(props?.loginuserid);
+    props.getbrandName(props?.loginuserid);
+    setUserID(props?.loginuserid);
   }, [])
 
   const callnewfun = () => {
     props.getAllproduct(props?.loginuserid);
+    setTimeout(function(){ setloginLoader(false); },2000);
   }
 
   useFocusEffect(
@@ -113,13 +115,6 @@ const Dashproduct = (props) => {
   }
 
 
-  const getBrandUserId = async () => {
-    var getUserId = await AsyncStorage.getItem('UserId');
-    setUserID(getUserId);
-    callnewfun();
-    props.getbrandName(props?.loginuserid);
-  }
-
   // Local states
   const [UserID, setUserID] = useState("");
   const [subMsg, onChangeText1] = React.useState("");
@@ -130,6 +125,7 @@ const Dashproduct = (props) => {
   const [visible, setVisible] = React.useState(false);
   const [selectedValue, setSelectedValue] = useState("1");
   const [showclassName, setshowclassName] = useState("#B80000");
+  const [loginLoader, setloginLoader] = React.useState(true);
 
   const updateorderStatus = (itemValue) => {
     setSelectedValue(itemValue)
@@ -249,22 +245,18 @@ const Dashproduct = (props) => {
             </TouchableOpacity>
         </View>
 
+        <Loader isVisible={loginLoader} />
+
         <View style={tw.style('flex flex-row justify-between mx-4')}>
 
           <TouchableOpacity>
             <Text style={tw.style('text-2xl text-gray-600',{fontFamily:'hintedavertastdsemibold'})}>Products ({props?.getlistproduct?.length})</Text>
           </TouchableOpacity>
-          { props?.loginCredentials?.isSeller==true ?
             <Smallbutton
               text="Add Product"
               onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName._id })}
             />
-            :
-            <Smallbutton
-              text="Add Store"
-              onPress={() => props.navigation.navigate("Verificationsteps")}
-            />
-          }
+            
         </View>
 
         <View style={tw.style('flex flex-row mx-4 items-center')}>

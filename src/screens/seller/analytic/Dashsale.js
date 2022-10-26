@@ -134,7 +134,7 @@ const Dashsale = (props) => {
   return (
     <View style={tw.style('flex flex-1')}>
 
-       <View style={tw`py-6 bg-white h-[93%]`}>
+      {/* <View style={tw`py-6 bg-white h-[93%]`}>
         <View style={tw`items-center mt-25 mx-4`}>
           <Comingsoon />
           <View style={tw`items-center mt-10`}>
@@ -145,7 +145,7 @@ const Dashsale = (props) => {
            <Medbutton text="Upgrade Account" />
           </View>
         </View>
-       </View>
+       </View> */}
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);

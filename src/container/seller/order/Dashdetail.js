@@ -20,7 +20,7 @@ const mapDispatchToProps = {
    getincomingtlist,
    liveeventdetail,
    getorderdetail,
-   updateorderdetail
+   updateorderdetail,
    // signup
 
 };

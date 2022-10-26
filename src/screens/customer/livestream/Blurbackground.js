@@ -184,9 +184,10 @@ const Blurbackground = (props) => {
     }
 
     useEffect(() => {
-        props.getchannelbrandName(props?.getliveeventlist?._id);
-        props.getLiveCustomer(props?.getliveeventlist?._id);
+        props.getchannelbrandName(channel);
+        props.getLiveCustomer(channel);
         props.getLivecommentCustomer(props?.getliveeventlist?._id);
+        //props.updatelikecount(channel,false,props?.loginuserid);
         if (isbroadcaster) {
             props.updateaudiancecount(channel,0,props?.loginuserid);
         }else {
@@ -219,7 +220,7 @@ const Blurbackground = (props) => {
         }else {
             const interval = setInterval(() => {
                props.getaudiancecount(channel,0);
-               //props.getLivecommentCustomer(channel);
+              // props.getLivecommentCustomer(channel);
             }, 15000);
           return () => clearInterval(interval);
         }
@@ -407,12 +408,14 @@ const Blurbackground = (props) => {
     }
 
     const doComment = () => {
+
         if(comment!="" && comment!=undefined){
-               let request ={
+                let request ={
                   "liveevent":props?.getliveeventlist?._id,
                   "message":comment,
                   "user":props?.loginuserid
                 }
+                
                 props.postcomment(request, props.navigation, "vendor");
                 setTimeout(function(){ props.getLivecommentCustomer(props?.getliveeventlist?._id);},1000);
             try {
@@ -535,8 +538,33 @@ const Blurbackground = (props) => {
                         />
                         </View>
                     </View>
-                }
+                } 
 
+                { showsidebar  &&
+                <Provider>
+                    <Portal>
+                        <Modal visible={showsidebar} onDismiss={hidesidebar}
+                        contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:0 }}>
+                            <View>
+                                <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
+                                <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',paddingHorizontal:0}}>
+                                    <Sortorder options={options1} onSelect={(checked) => updateorderStatus(checked)} />
+                                </View>
+                                <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>
+                                <View style={{borderRadius:10,marginLeft:-20,alignSelf:'center',padding:'1%',paddingHorizontal:'3%'}}>
+                                    <SwitchToggle
+                                      switchOn={on}
+                                      onPress={() => seton(s => !s)}
+                                      backgroundColorOn='#B80000'
+                                      containerStyle={{ marginTop: 5, width: 96, height: 38, borderRadius: 25, padding: 5 }}
+                                      circleStyle={{ width: 30, height: 30, borderRadius: 20 }}
+                                    />
+                                </View>
+                            </View>
+                        </Modal>
+                    </Portal>
+                </Provider>
+            }
                 <View style={tw`flex flex-1 justify-end mx-2`}>
                     <View style={tw`flex-end flex-row mb-1`}>
                         { isbroadcaster == false ?
@@ -612,31 +640,7 @@ const Blurbackground = (props) => {
                 </View>
             }
 
-            { showsidebar  &&
-                <Provider>
-                    <Portal>
-                        <Modal visible={showsidebar} onDismiss={hidesidebar}
-                        contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:0 }}>
-                            <View>
-                                <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
-                                <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',paddingHorizontal:0}}>
-                                    <Sortorder options={options1} onSelect={(checked) => updateorderStatus(checked)} />
-                                </View>
-                                <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>
-                                <View style={{borderRadius:10,marginLeft:-20,alignSelf:'center',padding:'1%',paddingHorizontal:'3%'}}>
-                                    <SwitchToggle
-                                      switchOn={on}
-                                      onPress={() => seton(s => !s)}
-                                      backgroundColorOn='#B80000'
-                                      containerStyle={{ marginTop: 5, width: 96, height: 38, borderRadius: 25, padding: 5 }}
-                                      circleStyle={{ width: 30, height: 30, borderRadius: 20 }}
-                                    />
-                                </View>
-                            </View>
-                        </Modal>
-                    </Portal>
-                </Provider>
-            }
+            
         </KeyboardAvoidingView>
         )
     }

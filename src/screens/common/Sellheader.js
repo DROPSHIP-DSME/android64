@@ -83,7 +83,7 @@ const Sellheader = (props) => {
 
 
          { showvisible == true &&
-                <ScrollView style={{marginHorizontal:'5%',paddingTop:'10%'}}>
+                <ScrollView style={{marginHorizontal:'5%',paddingTop:'10%', paddingBottom:'10%'}}>
                          <View style={{flexDirection:'row',backgroundColor:'#b80000',width:'100%',justifyContent:'space-between',marginHorizontal:'4%'}}>
                                   <View>
 
@@ -106,7 +106,7 @@ const Sellheader = (props) => {
                                      </TouchableOpacity>
 
 
-                                      <TouchableOpacity onPress={() => navigation.navigate("Dashsale")} style={{flexDirection:'row',marginVertical:'15%'}}>
+                                      <TouchableOpacity onPress={() => navigation.navigate("Dashaccount")} style={{flexDirection:'row',marginVertical:'15%'}}>
                                        <Image source={ImageIcons.saletoday}  style={{height:21,width:21}} />
                                        <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Sales Analytic</Text>
                                      </TouchableOpacity>
@@ -121,7 +121,7 @@ const Sellheader = (props) => {
                                            <Image source={ImageIcons.subscribetoday}  style={{height:21,width:21}} />
                                            <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Subcriptions</Text>
                                          </TouchableOpacity>
-                                          <TouchableOpacity onPress={() => navigation.navigate("Dashaccount")}  style={{flexDirection:'row',marginVertical:'15%'}}>
+                                          <TouchableOpacity onPress={() => navigation.navigate("Account")}  style={{flexDirection:'row',marginVertical:'15%'}}>
                                            <Image source={ImageIcons.accounttoday}  style={{height:21,width:21}} />
                                            <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>My Account</Text>
                                          </TouchableOpacity>
@@ -141,7 +141,7 @@ const Sellheader = (props) => {
                                   </View>
                         </View>
 
-                        <View style={{marginTop:'10%',marginBottom:'15%'}}>
+                       {/* <View style={{marginTop:'10%',marginBottom:'15%'}}>
                             <TextInput style={{height:50,width:deviceWidth/1.1,backgroundColor:'#ffffff',borderRadius:10,alignSelf:'center'}}
                               placeholder="Search"
                               placeholderTextColor="#b3b3b3"
@@ -152,7 +152,7 @@ const Sellheader = (props) => {
                             <View style={tw`absolute top-4 ml-4`}>
                               <SearchIcon color="gray" fill="gray" size={18} />
                             </View>
-                        </View>
+                        </View> */}
 
             </ScrollView>
         }

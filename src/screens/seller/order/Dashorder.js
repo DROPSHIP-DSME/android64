@@ -167,14 +167,16 @@ const options = [
             </View>
             <View style={tw`flex flex-row justify-between items-center`}>
                 <View style={tw`mt-2`}>
-                  <Text style={tw`text-sm text-gray-900`} >Order Number:<Text style={tw`text-sm text-blue-800`} > {item.orderNumber}</Text></Text>
+                  <Text style={tw`text-sm text-gray-900`} >Order Number:</Text>
                 </View>
                 <View style={tw`flex-end right-2`}>
                     <TouchableOpacity onPress={()=> props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
                       <ArrowCircleDownIcon color="red" fill="black" size={32} />
                     </TouchableOpacity>
                 </View>
+
             </View>
+            <Text style={tw`text-sm text-blue-800`} > {item.orderNumber}</Text>
         </View>
       </View>
 

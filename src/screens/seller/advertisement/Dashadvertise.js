@@ -16,6 +16,7 @@ import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer3 from '../../../screens/common/Footer3';
+import AwesomeAlert from '../../../components/modals/AlertModal';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
@@ -123,22 +124,32 @@ const deviceWidth = Dimensions.get('window').width;
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("USA");
     const [showclassName, setshowclassName] = useState("#B80000");
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
     const updateorderStatus = (itemValue) => {
-    setSelectedValue(itemValue)
-  }
+      setSelectedValue(itemValue)
+    }
+
+    const openTerms = () => {
+        setshowotherAlert(true)
+        setshowalertmsg('This feature is in progress')
+    }
 
     return (
          <View style={{flex:1}}>
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
              <View style={tw`py-6 bg-white h-[93%]`}>
               <View style={tw`items-center mt-0 mx-4`}>
                 <Comingsoon />
+
+
                 <View style={tw`items-center mt-10`}>
-                  <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
+                  <Text style={tw`text-4xl text-Red-700 text-center`}>OOPS!</Text>
                   <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>Would you like to upgrade your account to have acces to this awsome feature!</Text>
                 </View>
                 <View style={tw`mt-10 w-full`}>
-                 <Medbutton text="Upgrade Account" />
+                    <Medbutton text="Upgrade Account" onPress={() => openTerms()}  />
                 </View>
               </View>
              </View>
@@ -176,6 +187,7 @@ const deviceWidth = Dimensions.get('window').width;
                     </View>
                 </View>
               </View>
+
 
             <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
               <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>

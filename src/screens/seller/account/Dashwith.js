@@ -130,27 +130,15 @@ const deviceWidth = Dimensions.get('window').width;
                  <Text style={tw.style('text-3xl mt-5 text-gray-800 font-bold font-sans')}>Withdrawals</Text>
                </TouchableOpacity>
 
-              <View style={tw.style('mt-3 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
-              <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Choose a Bank Account</Text>
-                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                </View>
-
                 <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
-                  <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Amount to Withdraw</Text>
-                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                </View>
-
-                 <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
-                    <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Amount to Deposit*
-                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
-                     placeholder="US$"
-                     onChangeText={onChangeText1}
-                     onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#b3b3b3"
+                    <TextInput  
+                         style={tw.style('mx-5 sm:text-sm border-gray-300 bg-gray-200 text-gray-900 rounded-lg')}
+                         placeholder="Amount to Deposit*"
+                         keyboardType={'numeric'}
+                         onChangeText={onChangeText1}
+                         onSubmitEditing={() => handleRegistrationSubmit()}
+                         placeholderTextColor="#b3b3b3"
                     />
-                    </Text>
                  </View>
 
               <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-56 w-auto')}>
@@ -159,7 +147,7 @@ const deviceWidth = Dimensions.get('window').width;
                   placeholder="Description (optional)"
                   placeholderTextColor="#b3b3b3"
                   paddingLeft={3}
-                  width={330}
+                  width={deviceWidth-40}
                   multiline
                   onChangeText={(text) => {}}
                 />
@@ -184,7 +172,7 @@ const deviceWidth = Dimensions.get('window').width;
                     <Portal>
                     <Modal visible={visible} style={{backgroundColor:'rgba(0, 0, 0, 0.8)',marginHorizontal:-20,marginVertical:-5}} onDismiss={closepopup} contentContainerStyle={containerStyle}>
           <View style={{ marginTop:90,position: 'absolute', textAlign: 'center',justifyContent: 'center',alignItems: 'center',top: 10,left: 0,right: 0 }}>
-            <View style={{ width: 320, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
+            <View style={{ width: deviceWidth-40, borderRadius: 10, backgroundColor:'#fff' }}>
 
 
 

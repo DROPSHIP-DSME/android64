@@ -55,8 +55,8 @@ import {
 
 const Dashdetail = (props) => {
 
-     const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+    const deviceHeight = Dimensions.get('window').height;
+    const deviceWidth = Dimensions.get('window').width;
 
 
     const {
@@ -113,11 +113,16 @@ const deviceWidth = Dimensions.get('window').width;
 
    useEffect(() => {
         props.getorderdetail(orderNumber);
+        //console.log('props?.getorderlist',props?.getorderlist)
     }, [])
 
     const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
         props.updateorderdetail(orderNumber,itemValue);
+        setTimeout(function(){ 
+            props.getorderdetail(orderNumber);
+            props.getincomingtlist(props?.loginuserid);
+        },1000);
     }
 
 
@@ -153,10 +158,11 @@ const deviceWidth = Dimensions.get('window').width;
 
                <View style={tw`mt-10 mx-3`}>
                  <Text style={tw`text-3xl text-gray-900 mx-3 mb-3`}>Product Info</Text>
+                 <Sortorder text="Update Status" options={options} onSelect={(checked) => updateorderStatus(checked)} />
                </View>
 
 
-              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-10')}>
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-4')}>
                 <View style={tw.style('px-2 py-5')}>
                     <Text style={tw`text-xl text-gray-900 mx-3 mb-3`}>Products Ordered: {props?.getorderlist?.data?.orderStatus}</Text>
                     <FlatList

@@ -31,8 +31,9 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+import Moment from 'moment';
 
- const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
+ const options = [ { label: '2023', value: '2023' },{ label: '2022', value: '2022' }, { label: '2021', value: '2021' }, { label: '2020', value: '2020' } ]
 
 
 const Overview = (props) => {
@@ -58,7 +59,7 @@ const deviceWidth = Dimensions.get('window').width;
     const brandId = props?.route?.params?.brandId;
 
     useEffect(() => {
-      props.getincomingtlist();
+      props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
@@ -103,8 +104,8 @@ const deviceWidth = Dimensions.get('window').width;
     let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
 
     const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
+        labels: [ "India", "Ghana","USA"], // optional
+        data: [0.2, 0.1,0.7]
     };
 
     const data = {
@@ -133,13 +134,9 @@ const renderItem2 = ({ item,index }) => {
                 <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Sales Earnings</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
                   <View style={tw.style('flex-1 w-2/3')}>
-                    <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text>
+                    <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text> 
                   </View>
-                  <View style={tw.style('flex-none')}>
-                    { props?.getlistselldeshboard?.income>0 &&
-                     <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
-                     }
-                  </View>
+                  
                 </View>
               </View>
 
@@ -153,13 +150,13 @@ const renderItem2 = ({ item,index }) => {
        return(
            <View style={tw`border-b-1 border-gray-400 my-3`}>
               <View style={tw.style('flex flex-row justify-between mx-4 mt-3')}>
-                   <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Product: {item?.Brandname}</Text>
+                   <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{item?.productId?.productName}</Text>
                    <View style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
-                    <Text style={tw`text-sm font-medium bg-blue-100 px-4 py-1 rounded-full text-blue-800`}>Processing</Text>
+                    <Text style={tw`text-sm font-medium bg-blue-100 px-4 py-1 rounded-full text-blue-800`}>{item.status}</Text>
                    </View>
                </View>
                <View style={tw`flex flex-row mx-4`}>
-                   <Text style={tw`text-base text-gray-700`}>{item?.loggedInUserId?.userName}</Text>
+                   <Text style={tw`text-base text-gray-700`}>{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
                </View>
                <View style={tw`flex flex-row mx-4`}>
                    <Text style={tw`text-sm text-gray-700 mr-2`}>Order number:</Text>
@@ -173,13 +170,13 @@ const renderItem2 = ({ item,index }) => {
        return(
 
               <View>
-                  <View style={tw`flex flex-row mb-3`}>
-                     <Image source={item.image} style={{width:24,height:24,}}/>
-                     <Text style={tw.style('text-base text-gray-700 ml-2',{fontFamily:'hintedavertastdsemibold'})}>{item.text}</Text>
+                  <View style={tw`flex flex-row mb-3 mt-3`}>
+                     <Image source={{uri:item?.productData?.productImage}}  style={{width:24,height:24,}}/>
+                     <Text style={tw.style('text-base text-gray-700 ml-2',{fontFamily:'hintedavertastdsemibold'})}>{item?.productData?.productName}</Text>
                   </View>
                   <View style={tw`flex flex-row justify-between mb-3`}>
-                     <Text style={tw.style('text-base text-blue-700', {fontFamily:'hintedavertastdsemibold'})}>Orders: {item.text1}</Text>
-                     <Text style={tw.style('text-base text-green-700', {fontFamily:'hintedavertastdsemibold'})}>Revenue: ${item.text1}</Text>
+                     <Text style={tw.style('text-base text-blue-700', {fontFamily:'hintedavertastdsemibold'})}>Quantity Sold: {item?.totalQuantity}</Text>
+                     <Text style={tw.style('text-base text-green-700', {fontFamily:'hintedavertastdsemibold'})}>Revenue: ${item?.totalAmount}</Text>
                   </View>
               </View>
 
@@ -214,18 +211,13 @@ const renderItem2 = ({ item,index }) => {
                     </View>
                     {props?.getinconeorderlist?.length>0 &&
                       <Smallbutton onPress={() => props.navigation.navigate("Dashorder")} text="See All Orders" />
-
                     }
                   </View>
-                   {props?.getinconeorderlist?.length>0 ?
-                       <View style={tw`flex flex-row bg-gray-300 justify-between py-4 px-6 rounded-lg items-center`}>
-                           <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Order Details</Text>
-                       </View>
-                       :
-                      <View style={tw.style('ml-1')}>
-                        <Text style={tw.style('text-base text-gray-700 my-3')}>You have no orders yet.</Text>
-                      </View>
-                  }
+                    { props?.getinconeorderlist?.length<1 &&
+                          <View style={tw.style('ml-1')}>
+                            <Text style={tw.style('text-base text-gray-700 my-3')}>You have no orders yet.</Text>
+                          </View>
+                    }
                     <View style={{marginLeft:-10}}>
                         <FlatList
                         data={props?.getinconeorderlist || []}
@@ -259,20 +251,10 @@ const renderItem2 = ({ item,index }) => {
                         decimalPlaces: 1, // optional, defaults to 2dp
                         color: (opacity = 1) => `rgba(18, 201, 9, ${opacity})`,
                         labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
                       }}
-                      style={tw.style('mr-2'),{
-                        //marginVertical: 4,
-                        //marginHorizontal:'1%'
-                      }}
-                      propsForDots={{
-                          r: "2",
-                          strokeWidth: "1",
-                          stroke: "#ffa726"
-                        }}
-                      propsForVerticalLabels={{
-                        marginTop: 4,
-                      }}
+                      style={tw.style('mr-2')}
+                      propsForDots={{ r: "2", strokeWidth: "1", stroke: "#ffa726" }}
+                      propsForVerticalLabels={{ marginTop: 4  }}
                       verticalLabelRotation={0}
                       />
                   </View>
@@ -312,7 +294,7 @@ const renderItem2 = ({ item,index }) => {
                          text="See all products"
                          onPress={() => props.navigation.navigate("Dashproduct")}
                        />
-               }
+                    }
                   </View>
                    {props?.gettopsellproduct?.length>0 ?
                    <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
@@ -322,7 +304,7 @@ const renderItem2 = ({ item,index }) => {
                    :
                 <View style={tw.style('flex flex-row justify-between items-center ml-1')}>
                    <Text style={tw.style('text-base text-gray-700 my-3')}>You have no produts yet.</Text>
-                   <Smallbutton onPress={() => props.navigation.navigate("Dashproduct")} text="Add products" />
+                   <Smallbutton onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName?._id })} text="Add products" />
                 </View>
             }
                   <View style={tw`mx-3`}>

@@ -71,6 +71,7 @@ const Dashaccount = (props) => {
   useEffect(() => {
     // AsyncStorage.setItem('UserId','');
     // AsyncStorage.setItem('userLogin','');
+    props.getselldeshboard(props?.loginuserid);
     getBrandUserId();
   }, [])
 
@@ -122,43 +123,17 @@ const Dashaccount = (props) => {
     {
       image: ImageIcons.girlcent,
       text: "25 - 01 - 22 ",
-      text1: "CRDB Bank Limited (8391) ",
+      text1: "STRIPE ID",
       text2: "$1,000.00",
     },
     {
       image: ImageIcons.girlcent,
       text: "25 - 01 - 22 ",
-      text1: "CRDB Bank Limited (8391)",
+      text1: "STRIPE ID",
       text2: "$1,000.00",
-    },
-    {
-      image: ImageIcons.girlcent,
-      text: "25 - 01 - 22 ",
-      text1: "CRDB Bank Limited (8391)",
-      text2: "$1,000.00",
-    },
-    {
-      image: ImageIcons.girlcent,
-      text: "25 - 01 - 22 ",
-      text1: "CRDB Bank Limited (8391) ",
-      text2: "$1,000.00",
-    },
-    {
-      image: ImageIcons.girlcent,
-      text: "25 - 01 - 22 ",
-      text1: "CRDB Bank Limited (8391)",
-      text2: "$1,000.00",
-    },
-
-
+    }
 
   ];
-
-
-
-
-
-
 
   const renderItem3 = ({ item, index }) => {
     return (
@@ -192,7 +167,7 @@ const Dashaccount = (props) => {
           <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>My Account</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-8`}>
+        <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-4`}>
           <Text style={tw`text-lg text-gray-600`}>Account Balance</Text>
         </TouchableOpacity>
 
@@ -203,8 +178,8 @@ const Dashaccount = (props) => {
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3')}>
           <Text style={tw.style('text-xl text-gray-500')}>Account Balance</Text>
 
-          <Text style={tw.style('text-3xl text-gray-800 mt-3', {fontFamily:'hintedavertastdsemibold'})}>US $0</Text>
-          <View style={tw`w-6/11 mt-5`}>
+          <Text style={tw.style('text-3xl text-gray-800 mt-3', {fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text>
+          <View style={tw`w-6/11 mt-5`}> 
             <Smallbutton text="Withdraw Money" onPress={() => props.navigation.navigate("Dashwith")}></Smallbutton>
           </View>
         </View>
@@ -214,7 +189,7 @@ const Dashaccount = (props) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={tw`mt-2 mx-4`}>
-          <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>Edit your associated bank account for withdrawals.</Text>
+          <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>Stripe account details for withdrawals.</Text>
         </TouchableOpacity>
 
 
@@ -222,12 +197,12 @@ const Dashaccount = (props) => {
 
               <View style={tw`flex flex-row justify-between`}>
                 <TouchableOpacity style={tw`items-center px-2.5 py-3 border border-transparent rounded bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}>
-                  <Text style={tw`text-xs font-medium text-indigo-700`}>DEFAULT BANK ACCOUNT</Text>
+                  <Text style={tw`text-xs font-medium text-indigo-700`}>DEFAULT STRIPE ACCOUNT</Text>
                 </TouchableOpacity>
-                <View style={tw`flex flex-row`}>
+                {/* <View style={tw`flex flex-row`}>
                   <Editbutton navigation={props.navigation} page='Dashaccount' />
                   <Deletebutton />
-                </View>
+                </View> */}
               </View>
 
               <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")}>
@@ -242,32 +217,23 @@ const Dashaccount = (props) => {
                 <Text style={tw`text-base text-gray-600`}>Bank Name</Text>
                 <Text style={tw`text-base text-gray-600`}>CRDB Bank</Text>
               </View>
-              <View style={tw`flex flex-row justify-between mt-5`}>
-                <Text style={tw`text-base text-gray-600`}>Order Status</Text>
-                <View style={tw`items-center px-2.5 py-1.5 border border-transparent rounded bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500`}>
-                  <Text style={tw`text-xs font-medium text-red-700`}>PENDING</Text>
-                </View>
-              </View>
-              <View style={tw`flex flex-row justify-between mt-5`}>
-                <Text style={tw`text-base text-gray-600`}>Date</Text>
-                <Text style={tw`text-base text-gray-600`}>13 - 05 - 2022</Text>
-              </View>
+              
 
         </View>
-        <View style={tw`my-15 mx-4`}>
+        {/* <View style={tw`my-15 mx-4`}>
           <Largebutton
           text="Add an Account" />
-        </View>
+        </View> */}
 
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3 mb-20')}>
           <View style={tw.style('flex flex-row justify-between mb-8')}>
-            <TouchableOpacity onPress={() => props.navigation.navigate("Dashreturn")} >
+            <TouchableOpacity>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Withdrawals</Text>
             </TouchableOpacity>
 
-            <Smallbutton
+           {/* <Smallbutton
             text="See All"
-            onPress={() => props.navigation.navigate("Dashaccountlist")} />
+            onPress={() => props.navigation.navigate("Dashaccountlist")} /> */}
 
           </View>
 
@@ -297,10 +263,7 @@ const Dashaccount = (props) => {
               <Portal>
                 <Modal visible={visible} style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', marginHorizontal: -20, marginVertical: -5 }} onDismiss={closepopup} contentContainerStyle={containerStyle}>
                   <View style={{ marginTop: 40, position: 'absolute', textAlign: 'center', justifyContent: 'center', alignItems: 'center', top: 10, left: 0, right: 0 }}>
-                    <View style={{ width: 320, borderRadius: 10, backgroundColor: '#fff', borderColor: '#999', borderWidth: 2 }}>
-
-
-
+                    <View style={{ width: deviceWidth-40, borderRadius: 10, backgroundColor: '#fff' }}>
 
 
                       <View style={{ width: deviceWidth / 1.15, backgroundColor: '#ffffff', padding: '5%', alignSelf: 'center', marginTop: '7%', borderRadius: 15, }}>

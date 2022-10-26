@@ -17,7 +17,7 @@ import CheckBox from '@react-native-community/checkbox';
 import Largesortorder from '../../../components/pickers/Largesortorder';
 import { CameraIcon } from "react-native-heroicons/solid";
 import Loader from '../../../components/modals/Loader';
-
+import AwesomeAlert from '../../../components/modals/AlertModal';
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
@@ -94,7 +94,8 @@ const Accountproduct = (props) => {
     const [SelectedDiscount, setSelectedDiscount] = React.useState("");
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [managedata, setmanagedata] = React.useState(true);
-
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
     const [loginLoader, setloginLoader] = React.useState(false);
 
 
@@ -238,20 +239,26 @@ const Accountproduct = (props) => {
        }
     } 
 
-     const handleSendRequestSubmit1 = async () => {
+     const handleSendRequestSubmit1 = async () => { 
         Keyboard.dismiss();
         if(billImgPath==""){
-            alert('Atleast 1 product image is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Atleast 1 product image is required')
         }else if(Name==""){
-            alert('Name is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Name is required')
         }else if(Product==""){
-            alert('Product description is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Product description is required')
         }else if(selectedValue==''){
-            alert('Category is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Category is required')
         }else if(selectedValue2==''){
-            alert('Product condition is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Product condition is required')
         }else if(Price==""){
-            alert('Product price is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Product price is required')
         }else{
             setloginLoader(true)
             if(billImgPath1!=""){
@@ -335,7 +342,7 @@ const renderItem6 = ({ item }) => {
                 </View>
             </TouchableOpacity>
              <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
-                 <View style={tw`flex flex-row justify-between mt-4 mb-5 mx-3 items-center`}>
+                {/* <View style={tw`flex flex-row justify-between mt-4 mb-5 mx-3 items-center`}>
                     <Progress.Bar progress={1.5} width={150} style={tw`absolute top-6`} color='#B80000' height={1} />
                     <TouchableOpacity>
 
@@ -355,24 +362,25 @@ const renderItem6 = ({ item }) => {
                           <Text style={tw`text-white text-sm text-center`} >3</Text>
                         </View>
                     </TouchableOpacity>
-                </View>
+                </View>*/}
 
                   <View style={tw`items-center mt-2`}>
 
-                  <View style={tw`flex flex-row justify-between mx-3 mt-5 mb-3`}>
+                  <View style={tw`flex flex-row justify-between mx-3 mt-1 mb-3`}>
                     <Text style={tw`text-2xl font-bold text-gray-700`}>Add a Product</Text>
                   </View>
 
                 <Text style={tw`text-base text-gray-700 text-center mx-3`}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
                  </View>
 
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
-            <View style={tw`flex flex-row mx-2 mt-15`}>
+            <View style={tw`flex flex-row mx-2 mt-7`}>
                 <TouchableOpacity onPress={()=>selectPhoto1()} style={tw.style('h-36 bg-gray-600 border-3 rounded-lg justify-center', {width:deviceWidth/2.2})}>
                   <View style={tw`items-center`}>
                       <CameraIcon color="red" fill="white" size={28} />
                       <View>
-                        <Text style={tw`text-center w-32 text-gray-200`}>Add a image or video of your product</Text>
+                        <Text style={tw`text-center w-32 text-gray-200`}>Add a image of your product, one image can be selected at a time</Text>
                       </View>
                    </View>
                 </TouchableOpacity>

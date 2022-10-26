@@ -143,7 +143,7 @@ export const login = (loginCredentials,navigation,type, usertype) => {
       }
     }
   };
-};
+}; 
 //shopsignupphone
 export const shopsignupphone = (loginCredentials,navigation,type, usertype) => {
   return async (dispatch, getState) => {
@@ -811,6 +811,7 @@ export const createproduct3 = (signupRequest, navigation, role) => {
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.postcomment, signupRequest);
+        console.log('postcommentresponse',response)
       } catch (error) {
       }
     }
@@ -1653,6 +1654,7 @@ export const gettopsell = (userId,limit) => {
             try {
                 dispatch({ type: GET_TOP_SELL, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.gettopsell}`,  request);
+                console.log('gettopsell',response.data);
                 if (response?.status) {
                     dispatch({ type: GET_TOP_SELL, payload: response.data });
                 }
@@ -1689,12 +1691,14 @@ export const getselldeshboard = (userId) => {
     let request = {
       userId:userId
     }
+    console.log('responsedash',userId);
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
                 dispatch({ type: GET_SELL_DESHBOARD, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.getselldeshboard}`,  request);
+                console.log('responsedash',response);
                 if (response?.status) {
                     dispatch({ type: GET_SELL_DESHBOARD, payload: response.data });
                 }
@@ -2016,11 +2020,14 @@ export const updatelikecount = (channelId,status,userId) => {
       status:status,
       userId:userId
     }
+    console.log('likeresponserequest',request);
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
+          console.log('`${Api.updatelikecount}`',`${Api.updateLikeCount}`)
             try {
-                let response = await Utilise.apiCalling('POST', `${Api.updatelikecount}`,  request);
+                let response = await Utilise.apiCalling('POST', `${Api.updateLikeCount}`,  request);
+                console.log('likeresponse',response);
                 if (response?.status) {
                   dispatch({ type: GET_CHANNEL_COUNT, payload: response.data });
                 }

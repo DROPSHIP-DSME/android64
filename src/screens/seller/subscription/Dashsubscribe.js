@@ -26,6 +26,7 @@ import { CheckIcon } from "react-native-heroicons/solid";
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 import Medbutton from '../../../components/dropshipbutton/Medbutton';
 import Comingsoon from '../../../components/baseassests/Comingsoon';
+import AwesomeAlert from '../../../components/modals/AlertModal';
 
 
 import {
@@ -40,9 +41,10 @@ import {
 
 const Dashsubscribe = (props) => {
 
-     const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
-
+    const deviceHeight = Dimensions.get('window').height;
+    const deviceWidth = Dimensions.get('window').width;
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
     const {
         navigation,
@@ -86,26 +88,31 @@ const deviceWidth = Dimensions.get('window').width;
         }
     }
 
+    const openTerms = () => {
+        setshowotherAlert(true)
+        setshowalertmsg('This feature is in progress')
+    }
+
     // Local states
     const [showclassName, setshowclassName] = useState("#B80000");
 
     return (
          <View style={{flex:1}}>
-
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
              <View style={tw`py-6 bg-white h-[93%]`}>
-              <View style={tw`items-center mt-25 mx-4`}>
+              <View style={tw`items-center mt-0 mx-4`}>
                 <Comingsoon />
                 <View style={tw`items-center mt-10`}>
-                  <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
+                  <Text style={tw`text-4xl text-Red-700 text-center`}>OOPS!</Text>
                   <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>We are in exclusive beta mode please join our waiting to recieve your invite Today!</Text>
                 </View>
-                <View style={tw`mt-10 w-full`}>
-                 <Medbutton text="Join Waiting List" />
+                <View style={tw`mt-5 w-full`}>
+                 <Medbutton text="Join Waiting List"  onPress={() => openTerms()} />
                 </View>
               </View>
              </View>
 
-       <ScrollView onScroll={({nativeEvent}) => {
+      {/* <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
@@ -226,7 +233,7 @@ const deviceWidth = Dimensions.get('window').width;
                </View>
 
 
-               </ScrollView>
+               </ScrollView> */}
             <Footer3 />
         </View>
     )

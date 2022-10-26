@@ -48,7 +48,8 @@ const mapDispatchToProps = {
     chekout,
     cartdata,
     updatewatchlist,
-    getLivecommentCustomer
+    getLivecommentCustomer,
+    updatelikecount
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blurbackground);
