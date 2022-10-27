@@ -395,6 +395,7 @@ const renderItem2 = ({ item,index }) => {
                   </View>
                 </View>
               </View>
+            </View>
 
             }
 
