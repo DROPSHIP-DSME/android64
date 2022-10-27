@@ -321,7 +321,7 @@ const renderItem2 = ({ item,index }) => {
                       <View>
                         <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
                       </View>
-                  }
+                  
                     <View style={{marginLeft:-10}}>
                         <FlatList
                         data={props?.getinconeorderlist || []}
