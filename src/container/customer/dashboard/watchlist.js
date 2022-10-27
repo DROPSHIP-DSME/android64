@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { watchlist } from '../../../screens/customer/dashboard';
-import { support,cartdata,Brandslist,updatestripedata,getAllproduct,getbrandName,getnotificationcount,getfavoriteproductlist,getAllshop,getsupportlist,getcurrentevent,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../../redux/actions/Auth'
+import { support,cartdata,Brandslist,getsalesanalytics,updatestripedata,getAllproduct,getbrandName,getnotificationcount,getfavoriteproductlist,getAllshop,getsupportlist,getcurrentevent,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
     loginCredentials:state.auth.loginCredentials,
     getcurrenteventdata: state.auth.getcurrenteventdata,
     getchatsupportlist1: state.auth.getchatsupportlist1,
+    getgraphData: state.auth.getgraphData,
 });
 
 const mapDispatchToProps = {
@@ -29,7 +30,8 @@ const mapDispatchToProps = {
     cartdata,
     getnotificationcount,
     getfavoriteproductlist,
-    updatestripedata
+    updatestripedata,
+    getsalesanalytics
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(watchlist);

@@ -50,9 +50,9 @@ const upcoming = (props) => {
     const channel = props?.route?.params?.channel;
     useEffect(() => {
 
-        props.getalleventlist(1);
+        props.getalleventlist(props?.loginuserid);
         props.getincomingtlist();
-        props.getlivestreamrecap("6263d7ed034c210138cdb9b3");
+        //props.getlivestreamrecap();
     }, [])
 
     //Reference
@@ -77,21 +77,23 @@ const upcoming = (props) => {
 
     const [EventId, setEventId] = useState('');
 
-    const joinbroadcast = (itemid) => {
+    const joinbroadcast = (itemid,id) => {
         setEventId(itemid);
-        props.getlivestreamrecap(itemid);
+        props.getlivestreamrecap(itemid,id);
         setshowlist(false)
     }
 
     const deletebroadcast = () => {
         //props.getlivestreamrecap(EventId);
         setshowotherAlert(true);
-        setshowalertmsg('Are you sure, you want to delete this Event?')
+        setshowalertmsg('Are you sure, you want to delete this Livestream Event?')
     }
 
     const deleteeventbroadcast = () => {
          props.deletelivestreamrecap(EventId);
-         props.navigation.navigate('upcoming');
+         setshowlist(true);
+         props.getalleventlist(props?.loginuserid);
+         //props.navigation.navigate('upcoming');
     }
 
 
@@ -160,8 +162,8 @@ const upcoming = (props) => {
 
     ];
     const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
+        labels: [ "India", "Ghana","USA"], // optional
+        data: [0.2, 0.1,0.7]
     };
 
     const data2 = {
@@ -192,7 +194,7 @@ const upcoming = (props) => {
     const renderItem5 = ({ item ,index }) => {
        return(
           <View style={tw.style('mt-3 mb-5 px-2 w-1/3')}>
-              <TouchableOpacity onPress={() => joinbroadcast(item._id)}>
+              <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId,item._id)}>
                   <View style={tw.style('')}>
                       <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-auto h-50 rounded-lg')} />
                       <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
@@ -209,11 +211,8 @@ const upcoming = (props) => {
                   </View>
 
                   <View style={tw.style('flex flex-row mt-2 items-center')}>
-                      <View>
-                          <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')} />
-                      </View>
                       <View style={tw.style('pl-2')}>
-                          <Text style={tw.style('text-gray-500 text-base')}>{item.products[0]?.productName}</Text>
+                          <Text style={tw.style('text-gray-500 text-base')}>{item.eventTitle}</Text>
                       </View>
                   </View>
               </TouchableOpacity>
@@ -271,9 +270,20 @@ const upcoming = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <View style={tw.style('mt-6 mx-5')}>
-                <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
-            </View>
+            
+            {showlist==true ?
+                <View style={tw.style('mt-6 mx-5')}>
+                    <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
+                </View>
+            :
+                <TouchableOpacity onPress={() => { setshowlist(true);  }}>
+                    <View style={tw.style('mt-6 mx-5')}>
+                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>back</Text>
+                    </View>
+                </TouchableOpacity>
+            }
+            
+
             {showlist==true ?
                 <View style={tw`flex flex-1 w-4/4`}>
                    <View style={tw`mt-4`}>
@@ -335,17 +345,17 @@ const upcoming = (props) => {
                                 <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
                                     <View style={tw.style('flex flex-row justify-between')} >
                                         <Text style={tw.style('text-base text-gray-600 font-base')} >Title</Text>
-                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
+                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >{props?.livestreamrecaplist?.getchannelAudiance?.eventTitle}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
                                         <Text style={tw.style('text-base text-gray-600 font-base')}  >Date & Time</Text>
-                                        <Text style={tw.style('text-base text-gray-800')} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
+                                        <Text style={tw.style('text-base text-gray-800')} >{Moment(props?.livestreamrecaplist?.getchannelAudiance?.eventdate).format('MMM DD YYYY, HH:mm A')}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
                                         <Text style={tw.style('text-base text-gray-600 font-base')} >Duration</Text>
-                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
+                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >20 min</Text>
                                     </View>
                                 </View>
 
@@ -364,69 +374,24 @@ const upcoming = (props) => {
                                 <View style={tw.style('p-3 my-8')}>
                                     <Text style={tw.style('text-2xl text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Summary</Text>
                                     <View style={tw.style('flex flex-row justify-between my-3')}>
-                                        <View>
-                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
+                                        <View style={{ alignItems:'center'}}>
+                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.JoinedUsers?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Viewers</Text>
                                         </View>
-                                        <View>
+                                        <View style={{ alignItems:'center'}}>
                                             <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>0</Text>
-                                            <Text style={tw.style('text-base text-gray-800')}>Saves</Text>
+                                            <Text style={tw.style('text-base text-gray-800')}>Share</Text>
                                         </View>
-                                        <View>
-                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>0</Text>
+                                        <View style={{ alignItems:'center'}}>
+                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.likeUsers?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Likes</Text>
                                         </View>
-                                        <View>
+                                        <View style={{ alignItems:'center'}}>
                                             <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Messages</Text>
                                         </View>
                                     </View>
-                                    <View style={{
-                                        width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
-                                        borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
-                                    }}>
-                                        <View style={tw.style('flex flex-row justify-between my-3')}>
-                                            <View>
-                                                <Text style={tw.style('text-xl text-gray-800 pl-3', {fontFamily:'hintedavertastdsemibold'})}>Live Attendance</Text>
-                                            </View>
-
-                                        </View>
-                                        {/*<BarChart
-                                            data={{
-                                                labels: ["This stream stats", "Average stream stats",],
-                                                datasets: [
-                                                    {
-                                                        data: props?.livestreamrecaplist(item => {
-                                                            return (
-
-                                                                item.audianceCount
-
-                                                            )
-                                                        })
-
-                                                    }
-                                                ]
-                                            }}
-                                            width={deviceWidth / 1.13}
-                                            height={200}
-                                            yAxisSuffix="k"
-                                            yAxisInterval={2}
-                                            chartConfig={{
-                                                backgroundColor: "#e26a00",
-                                                backgroundGradientFrom: "#ffffff",
-                                                backgroundGradientTo: "#ffffff",
-                                                color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
-                                                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
-                                            }}
-                                            style={{
-                                                //marginVertical: 8,
-                                                borderRadius: 16,
-                                                //marginHorizontal:'4%'
-                                            }}
-                                            verticalLabelRotation={0}
-                                        />*/}
-                                    </View>
+                                    
                                     <View style={{
                                         width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
@@ -514,7 +479,7 @@ const upcoming = (props) => {
 
                             <View style={tw`my-10`}>
                               <Largebutton
-                              text="Delete stream" />
+                              text="Delete stream" onPress={() => deletebroadcast()} />
                             </View>
 
                         </ScrollView>

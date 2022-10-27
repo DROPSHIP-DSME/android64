@@ -62,6 +62,7 @@ const deviceWidth = Dimensions.get('window').width;
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
+      props.getsalesanalytics(props?.loginuserid);
       props.liveeventdetail(props?.loginuserid);
       props.Brandslist(props?.loginuserid);
     }, [])
@@ -109,9 +110,10 @@ const deviceWidth = Dimensions.get('window').width;
     };
 
     const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
-        datasets: [{ data: [20, 45, 28, 80, 99, 73] }]
+        labels: props?.getgraphData?.month,
+        datasets: [{ data: props?.getgraphData?.amount }]
     };
+
 
     const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
@@ -238,17 +240,17 @@ const renderItem2 = ({ item,index }) => {
                         <Sortorder text="Sort" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                   </View>
-
+                <View style={{marginLeft:-20}}>
                   <BarChart
                       data={data}
-                      width={Dimensions.get("window").width - 65}
+                      width={Dimensions.get("window").width - 45}
                       height={220}
                       yAxisLabel="$"
                       chartConfig={{
                         backgroundColor: "#12cc89",
                         backgroundGradientFrom: "#ffffff",
                         backgroundGradientTo: "#ffffff",
-                        decimalPlaces: 1, // optional, defaults to 2dp
+                        decimalPlaces: 0, // optional, defaults to 2dp
                         color: (opacity = 1) => `rgba(18, 201, 9, ${opacity})`,
                         labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                       }}
@@ -256,7 +258,9 @@ const renderItem2 = ({ item,index }) => {
                       propsForDots={{ r: "2", strokeWidth: "1", stroke: "#ffa726" }}
                       propsForVerticalLabels={{ marginTop: 4  }}
                       verticalLabelRotation={0}
+                      showValuesOnTopOfBars={true}
                       />
+                  </View>
                   </View>
 
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>

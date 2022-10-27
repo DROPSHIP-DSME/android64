@@ -175,6 +175,7 @@ const watchlist = (props) => {
         props.getbrandName(props?.loginuserid);
         props.cartdata(props?.loginuserid);
         props.getnotificationcount(props?.loginuserid);
+        props.getsalesanalytics(props?.loginuserid);
         showalldata();
         props.getfavoriteproductlist(props?.loginuserid);
         if (Platform.OS === 'android') requestMultiplePermisisons();

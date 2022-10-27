@@ -32,6 +32,7 @@ const api = {
   updatewatchlist: `/shops/updatewatchlist`,
   getwatchlist: `/shops/getwatchlist`,
   gettopsell:`/shops/topsellingproduct`,
+  getsalesanalytics:`/shops/getsalesanalytics`,
   countrylist:`/shops/getallcountry`,
   getAllshop: `/shops/getAllShops`,
   getselldeshboard:`/shops/selldashboard`,
@@ -127,6 +128,7 @@ const api = {
   deleteUser:`/users/deleteUser`,
   getlivestreamrecap:`/shops/livestreamrecap`,
   deleteproductItem: `/shops/deleteproductItem`,
+  getdeletelivestreamrecap:`/shops/getdeletelivestreamrecap`,
 };
 
 export default api; 

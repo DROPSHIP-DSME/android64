@@ -76,6 +76,7 @@ import {
   TOTAL_CART_PRICE,
   GET_SELL_DESHBOARD,
   GET_TOP_SELL,
+  GET_SALES_ANALYTICS,
   GET_TOP_COUNTRY,
   GET_SHOPSELL_COUNT,
   GET_SHOP_PRODUCT,
@@ -1161,10 +1162,11 @@ export const getcurrentevent = (userId) => {
 
 
 //getlivestreamrecap
-export const getlivestreamrecap = (channelId) => {
+export const getlivestreamrecap = (channelId,Id) => {
 //alert(channelId)
   let request = {
-    "channelId": channelId
+    "channelId": channelId,
+    "Id":Id
    }
    return async (dispatch, getState) => {
        let isInternetConnected = await getState().auth?.isInternetConnected;
@@ -1664,6 +1666,27 @@ export const gettopsell = (userId,limit) => {
         }
     }
 }
+
+//gettopsell
+export const getsalesanalytics = (userId) => {
+    let request = {
+      userId:userId
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected;
+        if (isInternetConnected) {
+            try {
+                dispatch({ type: GET_TOP_SELL, payload: [] });
+                let response = await Utilise.apiCalling('POST', `${Api.getsalesanalytics}`,  request);
+                console.log('getsalesanalytics',response.data);
+                dispatch({ type: GET_SALES_ANALYTICS, payload: response.data });
+            } catch (error) {
+                dispatch({ type: GET_SALES_ANALYTICS, payload: [] });
+            }
+        }
+    }
+}
+
 
 //gettopcountry
 export const gettopcountry = (userId,limit) => {

@@ -73,6 +73,7 @@ import {
   TOTAL_CART_PRICE,
   GET_SELL_DESHBOARD,
   GET_TOP_SELL,
+  GET_SALES_ANALYTICS,
   GET_TOP_COUNTRY,
   GET_SHOP_PRODUCT,
   GET_SHOPSELL_COUNT,
@@ -118,6 +119,7 @@ const initialState = {
   getlistshop: null,
   addcartLoader: false,
   addcategoryproductLoader: false,
+  getgraphData:null,
   brandLoader: false,
   scheduleLoader: false,
   updateprofileLoader: false,
@@ -641,6 +643,12 @@ const Auth = (state = initialState, action) => {
       return {
         ...state,
         gettopsellproduct: action.payload,
+      };
+
+    case GET_SALES_ANALYTICS:
+      return {
+        ...state,
+        getgraphData: action.payload,
       };
 
     case GET_ALL_PRODUCTDETAILS:
