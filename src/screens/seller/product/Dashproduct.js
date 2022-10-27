@@ -150,16 +150,17 @@ const Dashproduct = (props) => {
 
   const renderItem2 = ({ item, index }) => {
     return (
-      <View style={tw`mr-[2%]`}>
+      <View style={tw`mr-[1%]`}>
         <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails", { productId: item._id, })} style={tw`p-2`}>
-          <Image source={{ uri: item.productImage }} style={tw`w-40 h-30`} />
+          <Image source={{ uri: item.productImage }} style={tw`w-33 h-30`} />
         </TouchableOpacity>
 
         <View style={tw`mt-2`}>
           <Text style={tw`text-sm w-10/12 ml-3`}>{item.productName}</Text>
 
-          <Text style={tw`text-base w-10/12 ml-3`}>${item.productPrice}</Text>
-          <View>
+          <Text style={tw`text-large w-10/12 ml-3`}>${item.productPrice}</Text>
+          {/* Joel want to remove we will leave incase we need to bring back */}
+          {/* <View>
             {item?.productRating ?
                 <Rating
                 type='custom'
@@ -183,7 +184,7 @@ const Dashproduct = (props) => {
                 style={{ paddingVertical: 5,width:100,marginLeft:5}}
                 />
             }
-          </View>
+          </View> */}
           <Text style={tw`text-sm w-10/12 ml-3 text-blue-300 mb-5`}>{item.text2}</Text>
         </View>
       </View>
@@ -256,7 +257,6 @@ const Dashproduct = (props) => {
               text="Add Product"
               onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName._id })}
             />
-            
         </View>
 
         <View style={tw.style('flex flex-row mx-4 items-center')}>
@@ -285,7 +285,7 @@ const Dashproduct = (props) => {
               renderItem={renderItem2}
               key={item => item.id}
               showsHorizontalScrollIndicator={false}
-              numColumns={2}
+              numColumns={3}
             />
             :
             <View style={tw.style('justify-center my-8')}>

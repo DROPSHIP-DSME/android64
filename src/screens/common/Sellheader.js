@@ -92,18 +92,11 @@ const Sellheader = (props) => {
                                        <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Home</Text>
                                      </TouchableOpacity>
 
-                                     <TouchableOpacity  onPress={() => navigation.navigate("Dashproduct")} style={{flexDirection:'row',marginVertical:'15%'}}>
-                                       <Image source={ImageIcons.producttoday}  style={{height:21,width:21}} />
-                                       <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Products</Text>
-                                     </TouchableOpacity>
-                                      <TouchableOpacity onPress={() => navigation.navigate("Dashorder")} style={{flexDirection:'row',marginVertical:'15%'}}>
-                                       <Image source={ImageIcons.ordertoday}  style={{height:21,width:21}} />
-                                       <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Orders</Text>
-                                     </TouchableOpacity>
-                                      <TouchableOpacity onPress={() => navigation.navigate("Dashchats")} style={{flexDirection:'row',marginVertical:'15%'}}>
-                                       <Image source={ImageIcons.chattoday}  style={{height:21,width:21}} />
-                                       <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Chats</Text>
-                                     </TouchableOpacity>
+                                     <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")}  style={{flexDirection:'row',marginVertical:'15%'}}>
+                                               <Image source={ImageIcons.settingtoday}  style={{height:21,width:21}} />
+                                               <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Setting</Text>
+                                      </TouchableOpacity>
+
 
 
                                       <TouchableOpacity onPress={() => navigation.navigate("Dashaccount")} style={{flexDirection:'row',marginVertical:'15%'}}>
@@ -125,18 +118,13 @@ const Sellheader = (props) => {
                                            <Image source={ImageIcons.accounttoday}  style={{height:21,width:21}} />
                                            <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>My Account</Text>
                                          </TouchableOpacity>
-                                          <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")}  style={{flexDirection:'row',marginVertical:'15%'}}>
-                                               <Image source={ImageIcons.settingtoday}  style={{height:21,width:21}} />
-                                               <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Setting</Text>
-                                         </TouchableOpacity>
-
 
 
                                          <TouchableOpacity onPress={() => { props.getnotificationcount(props?.loginuserid); navigation.navigate("watchlist")}}>
-                                          <View style={{flexDirection:'row',marginVertical:'7%'}}>
-                                               <Image source={ImageIcons.exittoday}  style={{height:21,width:21}} />
-                                               <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Exit Dashboard</Text>
-                                         </View>
+                                            <View style={{flexDirection:'row',marginVertical:'6%'}}>
+                                                <Image source={ImageIcons.exittoday}  style={{height:21,width:21}} />
+                                                <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Exit Dashboard</Text>
+                                          </View>
                                          </TouchableOpacity>
                                   </View>
                         </View>

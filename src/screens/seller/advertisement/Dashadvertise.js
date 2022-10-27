@@ -140,16 +140,14 @@ const deviceWidth = Dimensions.get('window').width;
          <View style={{flex:1}}>
             <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
              <View style={tw`py-6 bg-white h-[93%]`}>
-              <View style={tw`items-center mt-0 mx-4`}>
+              <View style={tw`items-center mt-10 mx-4`}>
                 <Comingsoon />
-
-
-                <View style={tw`items-center mt-10`}>
-                  <Text style={tw`text-4xl text-Red-700 text-center`}>OOPS!</Text>
-                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>Would you like to upgrade your account to have acces to this awsome feature!</Text>
+                <View style={tw`items-center mt-8`}>
+                  <Text style={tw`text-5xl text-Red-700 text-center`}>Dropship Premium</Text>
+                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>Get access to extended livestreams, in-depth analytics, featured streams and more!</Text>
                 </View>
                 <View style={tw`mt-10 w-full`}>
-                    <Medbutton text="Upgrade Account" onPress={() => openTerms()}  />
+                 <Medbutton text="Join Waiting List" />
                 </View>
               </View>
              </View>
