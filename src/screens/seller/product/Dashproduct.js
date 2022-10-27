@@ -257,12 +257,6 @@ const Dashproduct = (props) => {
               text="Add Product"
               onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName._id })}
             />
-          :
-            <Smallbutton
-              text="Add Store"
-              onPress={() => props.navigation.navigate("Verificationsteps")}
-            />
-          }
         </View>
 
         <View style={tw.style('flex flex-row mx-4 items-center')}>

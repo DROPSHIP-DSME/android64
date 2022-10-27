@@ -75,39 +75,40 @@ const Footer3 = (props) => {
                             <Text style={tw.style('text-sm font-normal text-gray-700')}>Shop</Text>
                     </View>
                 </TouchableOpacity>
+                    <RBSheet
+                        ref={refRBSheet}
+                        height={400}
+                        closeOnDragDown={true}
+                        closeOnPressMask={true}
+                        customStyles={{
+                            wrapper: {
+                                backgroundColor: 'rgba(52, 52, 52, 0.8)'
+                            },
+                            draggableIcon: {
+                                backgroundColor: "#000"
+                            }
+                        }}
+                    >
 
-
-                <BottomSheet
-                    //bottomSheetTitle={'Shopping'}
-                    // bottomSheetIconColor="red"
-                    bottomSheetStyle={{
-                        backgroundColor: 'white',
-                        maxHeight: '70%',
-                        minHeight: '30%',
-                    }}
-                    // bottomSheetTitleStyle={{color: 'red'}}
-                    setBottomSheetVisible={setModalVisible}
-                    bottomSheetVisible={modalVisible}
-                    modalProps={{
-                        animationType: 'fade',
-                        hardwareAccelerated: true,
-                        onRequestClose: () => {
-                            setModalVisible(false);
-                        },
-                    }}>
+               
                     <ScrollView>
-                        <View style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
-                                <Text style={tw.style('text-2xl font-bold text-gray-700')}>Shop Products</Text>
+
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('shop'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                <ShoppingCartIcon color="red" fill="#000000" size={24} />
+                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Shop Products</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
-                                <Text style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>View Livestreams</Text>
+
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('upcoming'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                <VideoCameraIcon color="red" fill="#000000" size={24} />
+                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>View Livestreams</Text>
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                </BottomSheet>
+
+                    </RBSheet>
             </View>
         );
     }
@@ -141,14 +142,52 @@ const Footer3 = (props) => {
                     }}
                 >
                     <ScrollView>
-                        <View style={tw.style('inline-block mx-4 my-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('Account'); }}>
-                                <Text style={tw.style('text-2xl font-bold text-gray-700')}>My Account</Text>
+                        {/* user Store profile */}
+                        <View style={tw`pb-2`}>
+                                <TouchableOpacity style={tw`flex flex-row`} onPress={() => {refRBSheet.current.close(); navigation.navigate('Account'); }}>
+                                    <View style={tw`flex-row items-center w-full`}>
+                                        <View>
+                                            <Image source={""} style={styles.produtbrandimage2} />
+                                        </View>
+                                        <View style={tw`ml-3`}>
+                                            <Text style={styles.droptxttt}>Brandname - Store</Text>
+
+                                            <View style={tw`flex-row items-center`}>
+                                                <View style={tw.style('flex-row items-center mr-1')}>
+                                                    <ShoppingBagIcon color="red" fill="#b80000" size={20} />
+                                                    <Text style={styles.optext}>0 products</Text>
+                                                </View>
+                                                <View style={tw.style('flex-row items-center ml-1')}>
+                                                    <TagIcon color="red" fill="#b80000" size={20} />
+                                                    <Text style={styles.optext}>0 sales</Text>
+                                                </View>
+                                            </View>
+                                        </View>
+
+                                        <View style={tw`absolute right-0`}>
+                                        <ChevronRightIcon color="red" fill="#b80000" size={48} />
+                                        </View>
+
+                                    </View>
                             </TouchableOpacity>
                         </View>
-                        <View style={tw.style('inline-block mx-4 mt-2 mb-5 md:px-2 md:mx-2')}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('Overview'); }}>
-                                <Text style={tw.style('text-2xl font-bold text-gray-700',{marginBottom:20})}>My Store</Text>
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Overview'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                <Image
+                                    style={tw.style(`w-5 h-5`)}
+                                    source={ImageIcons.stack}
+                                />
+                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Sellers Dashboard</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashproduct'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                <Image
+                                    style={tw.style(`w-5 h-5`)}
+                                    source={ImageIcons.stack}
+                                />
+                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Products</Text>
                             </TouchableOpacity>
                         </View>
 

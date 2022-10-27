@@ -185,10 +185,7 @@ const Account = (props) => {
                                 </View>
                             </View>
                         </View>
-                     
-                      
-                    
-                    
+
                         <View style={tw`absolute right-0`}>
                           <ChevronRightIcon color="red" fill="#b80000" size={48} />
                         </View>
