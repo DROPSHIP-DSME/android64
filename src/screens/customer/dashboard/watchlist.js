@@ -172,7 +172,7 @@ const watchlist = (props) => {
         props.getcurrentevent(1);
         props.getwatchlistproduct(props?.loginuserid);
         props.getAllshop(props?.loginuserid, 1);
-        props.Brandslist(1);
+        props.Brandslist(props?.loginuserid);
         props.getbrandName(props?.loginuserid);
         props.cartdata(props?.loginuserid);
         props.getnotificationcount(props?.loginuserid);
@@ -727,7 +727,7 @@ const watchlist = (props) => {
 
             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
-            <Footer3 onSelection="1" />
+            <Footer3 onSelection="1" Brandlistdata={props?.Brandlistdata} />
         </KeyboardAvoidingView>
     )
 }
