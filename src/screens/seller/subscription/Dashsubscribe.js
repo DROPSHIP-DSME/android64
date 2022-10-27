@@ -92,18 +92,18 @@ const deviceWidth = Dimensions.get('window').width;
     return (
          <View style={{flex:1}}>
 
-             <View style={tw`py-6 bg-white h-[93%]`}>
-              <View style={tw`items-center mt-25 mx-4`}>
+            <View style={tw`py-6 bg-white h-[93%]`}>
+              <View style={tw`items-center mt-15 mx-4`}>
                 <Comingsoon />
-                <View style={tw`items-center mt-10`}>
-                  <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
-                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>We are in exclusive beta mode please join our waiting to recieve your invite Today!</Text>
+                <View style={tw`items-center mt-8`}>
+                  <Text style={tw`text-5xl text-Red-700 text-center`}>Dropship Premium</Text>
+                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>Get access to extended livestreams, in-depth analytics, featured streams and more!</Text>
                 </View>
                 <View style={tw`mt-10 w-full`}>
                  <Medbutton text="Join Waiting List" />
                 </View>
               </View>
-             </View>
+            </View>
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
