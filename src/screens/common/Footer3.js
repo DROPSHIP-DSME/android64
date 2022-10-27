@@ -90,7 +90,7 @@ const Footer3 = (props) => {
                         }}
                     >
 
-               
+
                     <ScrollView>
 
                         <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>

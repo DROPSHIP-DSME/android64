@@ -54,7 +54,7 @@ const Account = (props) => {
         props.Brandslist(props?.loginuserid);
     }, [])
 
-    
+
     const deviceWidth = Dimensions.get('window').width;
     const deviceHeight = Dimensions.get('window').height;
 
@@ -104,7 +104,7 @@ const Account = (props) => {
         }
     }
 
-    
+
     const renderItem6 = ({ item }) => {
         return (
             <View>
@@ -132,14 +132,14 @@ const Account = (props) => {
 
     const renderItem2 = ({ item,index }) => {
         return(
-     
+
             <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-3 md:p-4 m-4')}>
               <View style={tw.style('flex items-center flex-row justify-between')}>
                   <Text style={tw.style('mt-1 mb-3')}>
                      <DatabaseIcon color="red" fill="#B80000" size={32} />
                   </Text>
                </View>
-     
+
                <View style={tw.style('flex justify-between')}>
                    <View>
                      <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Sales Earnings</Text>
@@ -154,9 +154,9 @@ const Account = (props) => {
                        </View>
                      </View>
                    </View>
-     
+
                </View>
-     
+
              </View>
          );
        }
@@ -203,12 +203,12 @@ const Account = (props) => {
         <View style={tw`pb-1 px-2`}>
           <TouchableOpacity style={tw`flex flex-row`} onPress={() => props.navigation.navigate("Accountbrandlist")}>
             <View style={tw`flex-row items-center w-full`}>
-                
+
                 <Text style={tw`text-lg text-red-700`}>Start Selling Today</Text>
                 <View style={tw`absolute right-0`}>
                     <ChevronRightIcon color="red" fill="#b80000" size={48} />
                 </View>
-                
+
             </View>
           </TouchableOpacity>
         </View>

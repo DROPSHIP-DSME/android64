@@ -314,21 +314,8 @@ const renderItem2 = ({ item,index }) => {
                 {/* RECENT ORDERS AREA */}
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
-                   <View>
-                      <Text style={tw.style('text-lg text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Recent Orders</Text>
-                    </View>
-                    {props?.getinconeorderlist?.length>0 &&
-                      <Smallbutton onPress={() => props.navigation.navigate("Dashorder")} text="See All Orders" />
-
-                    }
-                  </View>
-                   {props?.getinconeorderlist?.length>0 ?
-                       <View style={tw`flex flex-row bg-gray-300 justify-between py-4 px-6 rounded-lg items-center`}>
-                           <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Order Details</Text>
-                       </View>
-                       :
-                      <View style={tw.style('ml-1')}>
-                        <Text style={tw.style('text-base text-gray-700 my-3')}>You have no orders yet.</Text>
+                      <View>
+                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
                       </View>
                   }
                     <View style={{marginLeft:-10}}>
