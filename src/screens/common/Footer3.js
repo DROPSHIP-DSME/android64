@@ -1,5 +1,5 @@
 import React, { useRef, useState,useEffect } from 'react';
-import { Text, View,Image,TouchableOpacity, ImageBackground, ScrollView, Alert,   KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
+import { Text, View,Image,TouchableOpacity, ImageBackground, FlatList,ScrollView, Alert,   KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -40,6 +40,7 @@ const Footer3 = (props) => {
         handleChange,
         handleSubmit,
         onSelection,
+        Brandlistdata
     } = props;
 
     const navigation = useNavigation();
@@ -54,7 +55,7 @@ const Footer3 = (props) => {
     const [modalAcctVisible, setAcctModalVisible] = useState(false);
 
     useEffect(() => {
-       getBrandUserId();
+        getBrandUserId();
     }, [])
 
     const getBrandUserId = async () => {
@@ -146,27 +147,14 @@ const Footer3 = (props) => {
                         <View style={tw`pb-2`}>
                                 <TouchableOpacity style={tw`flex flex-row`} onPress={() => {refRBSheet.current.close(); navigation.navigate('Account'); }}>
                                     <View style={tw`flex-row items-center w-full`}>
-                                        <View>
-                                            <Image source={""} style={styles.produtbrandimage2} />
-                                        </View>
-                                        <View style={tw`ml-3`}>
-                                            <Text style={styles.droptxttt}>Brandname - Store</Text>
-
-                                            <View style={tw`flex-row items-center`}>
-                                                <View style={tw.style('flex-row items-center mr-1')}>
-                                                    <ShoppingBagIcon color="red" fill="#b80000" size={20} />
-                                                    <Text style={styles.optext}>0 products</Text>
-                                                </View>
-                                                <View style={tw.style('flex-row items-center ml-1')}>
-                                                    <TagIcon color="red" fill="#b80000" size={20} />
-                                                    <Text style={styles.optext}>0 sales</Text>
-                                                </View>
-                                            </View>
-                                        </View>
-
-                                        <View style={tw`absolute right-0`}>
-                                        <ChevronRightIcon color="red" fill="#b80000" size={48} />
-                                        </View>
+                                        <FlatList
+                                              data={Brandlistdata || []}
+                                              renderItem={renderItem1}
+                                              keyExtractor={item => item.id}
+                                              showsHorizontalScrollIndicator={false}
+                                              numColumns={1}
+                                            />
+                                        
 
                                     </View>
                             </TouchableOpacity>
@@ -230,7 +218,7 @@ const Footer3 = (props) => {
                             <View style={tw.style('border-b-2 border-gray-300')}></View>
                         </View>
                         <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Overview'); }} style={tw.style(`flex-row items-center w-full`)}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Account'); }} style={tw.style(`flex-row items-center w-full`)}>
                                 <UserIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>My Profile</Text>
                             </TouchableOpacity>
@@ -266,6 +254,45 @@ const Footer3 = (props) => {
         () => {
         getBrandUserId();
      })
+
+
+     const renderItem1 = ({ item, index }) => {
+      return (
+        <View>
+          {index == 0 &&
+            <View style={tw`pb-2`}>
+                <TouchableOpacity style={tw`flex flex-row`} onPress={() => rootprops.navigation.navigate("Dashsetting")}>
+                    <View style={tw`flex-row items-center w-full`}>
+
+                        <View style={{marginLeft:10}}>
+                            <Image source={{ uri: item.brandImage }} style={styles.produtbrandimage2} />
+                        </View>
+                        <View style={tw`ml-3`}>
+                            <Text style={styles.droptxttt}>{item.brandName} - Store</Text>
+
+                            <View style={tw`flex-row items-center`}>
+                                <View style={tw.style('flex-row items-center mr-1')}>
+                                    <ShoppingBagIcon color="red" fill="#b80000" size={20} />
+                                    <Text style={styles.optext}>0 products</Text>
+                                </View>
+                                <View style={tw.style('flex-row items-center ml-1')}>
+                                    <TagIcon color="red" fill="#b80000" size={20} />
+                                    <Text style={styles.optext}>0 sales</Text>
+                                </View>
+                            </View>
+                        </View>
+
+                        <View style={tw`absolute right-0`}>
+                          <ChevronRightIcon color="red" fill="#b80000" size={48} />
+                        </View>
+
+                    </View>
+              </TouchableOpacity>
+            </View>
+          }
+        </View>
+      );
+    }
 
 
     return (

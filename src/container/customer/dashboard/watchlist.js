@@ -14,6 +14,8 @@ const mapStateToProps = (state) => ({
     getcurrenteventdata: state.auth.getcurrenteventdata,
     getchatsupportlist1: state.auth.getchatsupportlist1,
     getgraphData: state.auth.getgraphData,
+    Brandlistdata: state.auth.Brandlistdata,
+
 });
 
 const mapDispatchToProps = {

@@ -8,7 +8,6 @@ import newstyles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../common';
 import ImageIcons from '../../../common/ImageIcons';
 import { DatabaseIcon } from "react-native-heroicons/solid";
-import { UsersIcon } from "react-native-heroicons/solid";
 import InputField from '../../../components/forms/inputField';
 import { RoundedButton } from '../../../components/forms/button';
 import { phoneRegExp } from '../../../services/helper';
@@ -127,7 +126,7 @@ const renderItem2 = ({ item,index }) => {
 
        <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-3 md:p-4 m-4')}>
          <View style={tw.style('flex items-center flex-row justify-between')}>
-             <Text style={tw.style('mt-1 mb-3')}>
+             <Text style={tw.style('mt-1 mb-5')}>
                 <DatabaseIcon color="red" fill="#B80000" size={32} />
              </Text>
           </View>
@@ -137,9 +136,9 @@ const renderItem2 = ({ item,index }) => {
                 <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Sales Earnings</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
                   <View style={tw.style('flex-1 w-2/3')}>
-                    <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text>
+                    <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text> 
                   </View>
-
+                  
                 </View>
               </View>
 
@@ -147,7 +146,7 @@ const renderItem2 = ({ item,index }) => {
 
         </View>
     );
-  }
+    }
 
     const renderItem3 = ({ item,index }) => {
        return(
@@ -186,66 +185,6 @@ const renderItem2 = ({ item,index }) => {
         );
       }
 
-      // this needs to be a component - Total Store Vistors Box
-      const renderItem5 = ({ item,index }) => {
-        return(
-            <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-3 md:p-4 m-4')}>
-              <View style={tw.style('flex items-center flex-row justify-between')}>
-                  <Text style={tw.style('mt-1 mb-3')}>
-                     <UsersIcon color="red" fill="#B80000" size={32} />
-                  </Text>
-               </View>
-
-               <View style={tw.style('flex justify-between')}>
-                   <View>
-                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Total Store Visitors</Text>
-                     <View style={tw.style('flex-row h-14 mb-1')}>
-                       <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>1203</Text>
-                       </View>
-                       <View style={tw.style('flex-none')}>
-                         { props?.getlistselldeshboard?.income>0 &&
-                          <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+67%</Text>
-                          }
-                       </View>
-                     </View>
-                   </View>
-
-               </View>
-             </View>
-         );
-       }
-
-       // this needs to be a component - Total Orders Box
-      const renderItem6 = ({ item,index }) => {
-        return(
-            <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-3 md:p-4 m-4')}>
-              <View style={tw.style('flex items-center flex-row justify-between')}>
-                  <Text style={tw.style('mt-1 mb-3')}>
-                     <UsersIcon color="red" fill="#B80000" size={32} />
-                  </Text>
-               </View>
-
-               <View style={tw.style('flex justify-between')}>
-                   <View>
-                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Total Store Orders</Text>
-                     <View style={tw.style('flex-row h-14 mb-1')}>
-                       <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>300</Text>
-                       </View>
-                       <View style={tw.style('flex-none')}>
-                         { props?.getlistselldeshboard?.income>0 &&
-                          <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+27%</Text>
-                          }
-                       </View>
-                     </View>
-                   </View>
-
-               </View>
-             </View>
-         );
-       }
-
 
     return (
      <View style={{flex:1}}>
@@ -256,15 +195,50 @@ const renderItem2 = ({ item,index }) => {
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
 
             { visible1 == true &&
-              <View>
-                {/* SALES STATISTICS */}
+                <View>
+                <View style={tw`mt-6`}>
+                    <FlatList
+                    data={DATA}
+                    renderItem={renderItem2}
+                    keyExtractor={item => item.id}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={false}
+                    />
+                </View>
+
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
-                      <View>
-                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
-                      </View>
+                   <View>
+                      <Text style={tw.style('text-lg text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Recent Orders</Text>
+                    </View>
+                    {props?.getinconeorderlist?.length>0 &&
+                      <Smallbutton onPress={() => props.navigation.navigate("Dashorder")} text="See All Orders" />
+                    }
+                  </View>
+                    { props?.getinconeorderlist?.length<1 &&
+                          <View style={tw.style('ml-1')}>
+                            <Text style={tw.style('text-base text-gray-700 my-3')}>You have no orders yet.</Text>
+                          </View>
+                    }
+                    <View style={{marginLeft:-10}}>
+                        <FlatList
+                        data={props?.getinconeorderlist || []}
+                        renderItem={renderItem3}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={false}
+                        />
+                    </View>
+                </View>
 
-                      <Sortorder text="Sort" options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
+                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
+                       <View>
+                         <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
+                       </View>
+
+                        <Sortorder text="Sort" options={options} onSelect={(checked) => updateorderStatus(checked)} />
+
                   </View>
                 <View style={{marginLeft:-20}}>
                   <BarChart
@@ -289,7 +263,6 @@ const renderItem2 = ({ item,index }) => {
                   </View>
                   </View>
 
-                {/* LIVESTREAM STATISTICS AREA */}
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                     <View>
                       <Text style={tw.style('text-xl text-center text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Livestream Viewers</Text>
@@ -315,79 +288,29 @@ const renderItem2 = ({ item,index }) => {
                     </View>
                 </View>
 
-                {/* RECENT ORDERS AREA */}
-                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
+                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
-                      <View>
-                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
-                      </View>
-                  }
-                    <View style={{marginLeft:-10}}>
-                        <FlatList
-                        data={props?.getinconeorderlist || []}
-                        renderItem={renderItem3}
-                        keyExtractor={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                        horizontal={false}
-                        />
-                    </View>
-                </View>
-
-                {/* Total earnings Area */}
-                <View style={tw`mt-2`}>
-                    <FlatList
-                    data={DATA}
-                    renderItem={renderItem2}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                    />
-                </View>
-
-                {/* Total Vistors Area */}
-                <View style={tw`mt-2`}>
-                    <FlatList
-                    data={DATA}
-                    renderItem={renderItem5}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                    />
-                </View>
-
-                {/* Total Orders Area */}
-                <View style={tw`mt-2`}>
-                    <FlatList
-                    data={DATA}
-                    renderItem={renderItem6}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                    />
-                </View>
-
-                {/* Populare Products Area */}
-                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
-                  <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
-                    <View>
-                      <Text style={tw.style('text-lg text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Popular Products</Text>
+                  <View>
+                    <Text style={tw.style('text-lg text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Popular Products</Text>
                     </View>
                      {props?.gettopsellproduct?.length>0 &&
                        <Smallbutton
                          text="See all products"
                          onPress={() => props.navigation.navigate("Dashproduct")}
                        />
-                  }
+                    }
                   </View>
                    {props?.gettopsellproduct?.length>0 ?
-                  <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
-                        <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Product</Text>
-                        <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Category</Text>
-                    </View>
-                    :
-                  <View style={tw.style('flex flex-row justify-between items-center ml-1')}>
-                    <Text style={tw.style('text-base text-gray-700 my-3')}>You have no produts yet.</Text>
-                    <Smallbutton onPress={() => props.navigation.navigate("Dashproduct")} text="Add products" />
-                  </View>
-                 }
+                   <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
+                       <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Product</Text>
+                       <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Category</Text>
+                   </View>
+                   :
+                <View style={tw.style('flex flex-row justify-between items-center ml-1')}>
+                   <Text style={tw.style('text-base text-gray-700 my-3')}>You have no produts yet.</Text>
+                   <Smallbutton onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName?._id })} text="Add products" />
+                </View>
+            }
                   <View style={tw`mx-3`}>
                       <FlatList
                       data={props?.gettopsellproduct || []}
@@ -398,8 +321,7 @@ const renderItem2 = ({ item,index }) => {
                       />
                   </View>
                 </View>
-              </View>
-            </View>
+                </View>
 
             }
 

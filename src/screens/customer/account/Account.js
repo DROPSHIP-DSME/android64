@@ -148,9 +148,7 @@ const Account = (props) => {
                          <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text>
                        </View>
                        <View style={tw.style('flex-none')}>
-                         { props?.getlistselldeshboard?.income>0 &&
-                          <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
-                          }
+                         
                        </View>
                      </View>
                    </View>
@@ -372,10 +370,10 @@ const Account = (props) => {
                       </TouchableOpacity>
 
                       <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
-{/* We will need to Create the Store payments Page */}
-                      <TouchableOpacity onPress={() => props.navigation.navigate("")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                        
+                      <TouchableOpacity onPress={() => props.navigation.navigate("Golive")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                           <View style={tw.style('my-1')}>
-                              <Text style={tw.style('text-base font-normal text-gray-900')}>Store Settings</Text>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Sign Out</Text>
                           </View>
                           <View>
                               <ArrowRightIcon color="red" fill="gray" size={24} />
