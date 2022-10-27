@@ -109,13 +109,15 @@ const Accountorderhist = (props) => {
 
     const renderItem3 = ({ item }) => {
         return (
-          <View style={tw`border-b-2 border-gray-200 pb-6 mx-3 mt-4`}>
+          <View style={tw`bg-white overflow-hidden shadow rounded-md mx-1 mt-4 px-4 pt-3 pb-4`}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Accountorderview", { orderNumber: item.orderNumber })}>
             <View style={tw`flex flex-row justify-between`}>
               <View>
                 <Text style={tw`text-lg text-gray-900`} >{item?.productId?.productName}</Text>
                 <Text style={tw`text-sm text-gray-700`} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
               </View>
               <View style={{ marginTop: 5 }}>
+                {/* need if status x the show color x */}
                 <Text style={tw`items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800`} >{item.status}</Text>
               </View>
             </View>
@@ -125,11 +127,10 @@ const Accountorderhist = (props) => {
                 <Text style={tw`text-sm text-gray-900`} >Order Number:<Text style={tw`text-sm text-blue-500`} > {item.orderNumber}</Text></Text>
               </View>
               <View style={{ justifyContent: 'flex-end' }}>
-                <TouchableOpacity onPress={() => props.navigation.navigate("Accountorderview", { orderNumber: item.orderNumber })}>
                   <Image source={ImageIcons.dropDownIcon} style={{ width: 15, height: 15, marginRight: 5 }} />
-                </TouchableOpacity>
               </View>
             </View>
+            </TouchableOpacity>
           </View>
         )
       }
@@ -166,8 +167,8 @@ const Accountorderhist = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-                <View style={tw`mx-4 mt-[10%] mb-6`}>
-                    <Text style={tw`text-2xl text-gray-700 font-bold`}>Order History</Text>
+                <View style={tw`mx-4 mt-[5%] mb-6`}>
+                    <Text style={tw`text-2xl text-gray-700 font-bold`}>Purchase History</Text>
                 </View>
 
                 {/* <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '5%' }}>
@@ -181,14 +182,8 @@ const Accountorderhist = (props) => {
                     </View>
                 </View> */}
 
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-4')}>
-                    <View style={tw.style('py-8 px-3')}>
-                      <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
-                          <Text style={tw`text-sm text-gray-700`}>Order Number</Text>
-                          <Text style={tw`text-sm text-gray-700`}>Ordered by</Text>
-                          <Text style={tw`text-sm text-gray-700`}>Email </Text>
-                      </View>
-
+                <View>
+                    <View style={tw.style('px-3')}>
                       <View style={tw``}>
                           <FlatList
                               data={props?.getinconeorderlist || []}

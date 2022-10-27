@@ -20,7 +20,7 @@ import { SliderBox } from "react-native-image-slider-box";
 import { v4 as uuid } from "uuid";
 import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
-import { requestMultiplePermisisons } from '../../../services/Permissions'
+import { requestMultiplePermisisons } from '../../../services/Permissions';
 import moment from 'moment';
 import Productstream from '../../../components/product/Productstream';
 import tw from 'twrnc';
@@ -30,6 +30,7 @@ import { UsersIcon } from "react-native-heroicons/solid";
 import { PlayIcon } from "react-native-heroicons/solid";
 import { SearchIcon } from "react-native-heroicons/solid";
 import { Rating, AirbnbRating } from 'react-native-ratings';
+import {Largebutton} from '../../../components/dropshipbutton/Largebutton';
 import Searchbox from '../../../common/Searchbox';
 import Help from '../../../components/help/Help';
 

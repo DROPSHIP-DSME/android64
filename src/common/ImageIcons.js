@@ -91,6 +91,7 @@ const logoredagain=require(`${assetsRootPath}logoredagain.png`);
 const screen1=require(`${assetsRootPath}screen1.png`);
 const screen2=require(`${assetsRootPath}screen2.png`);
 const screen3=require(`${assetsRootPath}screen3.png`);
+const stack=require(`${assetsRootPath}stack.png`);
 
 const ImageIcons = {
   righticon,
@@ -183,6 +184,7 @@ const ImageIcons = {
   left,
   screen1,
   screen2,
-  screen3
+  screen3,
+  stack
 };
 export default ImageIcons;

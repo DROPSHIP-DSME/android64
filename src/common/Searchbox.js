@@ -3,10 +3,9 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import tw from 'twrnc';
 import { SearchIcon } from "react-native-heroicons/solid";
 
-const Largebutton = ({text, onPress}) => {
+const Searchbox = ({text, onPress}) => {
 
     return (
-
 
           <TouchableOpacity onPress={onPress}>
            <View style={tw.style('flex flex-row my-3 h-12 bg-zinc-200 mx-3 rounded-lg items-center')}>
@@ -20,4 +19,4 @@ const Largebutton = ({text, onPress}) => {
     );
 }
 
-export default Largebutton
+export default Searchbox
