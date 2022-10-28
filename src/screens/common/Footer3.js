@@ -261,7 +261,7 @@ const Footer3 = (props) => {
         <View>
           {index == 0 &&
             <View style={tw`pb-2`}>
-                <TouchableOpacity style={tw`flex flex-row`} onPress={() => rootprops.navigation.navigate("Dashsetting")}>
+                <TouchableOpacity style={tw`flex flex-row`} onPress={() => navigation.navigate("Dashsetting")}>
                     <View style={tw`flex-row items-center w-full`}>
 
                         <View style={{marginLeft:10}}>
