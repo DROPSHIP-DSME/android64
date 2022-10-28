@@ -177,7 +177,7 @@ const Cart = (props) => {
                 "orderNumber":props?.loginuserid+''+finalAmount,
                 "orderStatus":"accepted",
                 "orderAmount":finalAmount,
-                "paymentMethod":"cash",
+                "paymentMethod":"card",
                 "orderDate":new Date(),
                 "firstName":props.loginCredentials?.userName,
                 "lastName":'',

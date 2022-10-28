@@ -845,7 +845,7 @@ export const createbrand = (signupRequest, navigation, role) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
       try {
-        let response = await Utilise.apiCalling('POST', Api.createbrand, signupRequest);
+        let response = await Utilise.apiCalling('POST', Api.createbrand, signupRequest); 
         dispatch({ type: SET_BRAND_LOADER, payload: false }); 
         dispatch({ type: VENDOR_REQUEST_LOADER, payload: false });
         dispatch({ type: SET_LOGIN_CREDENTIAL, payload: response?.data });
@@ -2004,9 +2004,10 @@ export const getprofileuser = (userId) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getprofileuser}`,  request);
-                if (response?.status) {
+                //if (response?.status) {
                   dispatch({ type: GET_PROFILEUSER_LIST, payload: response.data });
-                }
+                  dispatch({ type: SET_LOGIN_CREDENTIAL, payload: response.data });
+                //}
             } catch (error) {
                 dispatch({ type: GET_PROFILEUSER_LIST, payload: [] });
             }

@@ -65,7 +65,7 @@ const api = {
   getsearchproduct: `/shops/getsearchproduct`,
   getlistproductdetails: `/shops/getnewProductDetails`, 
   getsupportlist:`/shops/supportlist`,
-  getprofileuser:`/shops/getUserProfile `,
+  getprofileuser:`/shops/getUserProfile`,
   getuseraddress:`/shops/getuserAddress`,
   getincomingtlist:`/shops/incommingorderList`,
   updateorderstatus:`/shops/updateorderstatus`,

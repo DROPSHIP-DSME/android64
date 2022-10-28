@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { watchlist } from '../../../screens/customer/dashboard';
-import { support,cartdata,Brandslist,getsalesanalytics,updatestripedata,getAllproduct,getbrandName,getnotificationcount,getfavoriteproductlist,getAllshop,getsupportlist,getcurrentevent,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../../redux/actions/Auth'
+import { support,cartdata,Brandslist,getprofileuser,getsalesanalytics,updatestripedata,getAllproduct,getbrandName,getnotificationcount,getfavoriteproductlist,getAllshop,getsupportlist,getcurrentevent,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -31,6 +31,7 @@ const mapDispatchToProps = {
     getbrandName,
     cartdata,
     getnotificationcount,
+    getprofileuser,
     getfavoriteproductlist,
     updatestripedata,
     getsalesanalytics

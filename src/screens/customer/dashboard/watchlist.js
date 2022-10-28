@@ -177,6 +177,7 @@ const watchlist = (props) => {
         props.cartdata(props?.loginuserid);
         props.getnotificationcount(props?.loginuserid);
         props.getsalesanalytics(props?.loginuserid);
+        props.getprofileuser(props?.loginuserid);
         showalldata();
         props.getfavoriteproductlist(props?.loginuserid);
         if (Platform.OS === 'android') requestMultiplePermisisons();
@@ -727,7 +728,7 @@ const watchlist = (props) => {
 
             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
-            <Footer3 onSelection="1" Brandlistdata={props?.Brandlistdata} />
+            <Footer3 onSelection="1" Brandlistdata={props?.Brandlistdata} loginCredentials={props?.loginCredentials} />
         </KeyboardAvoidingView>
     )
 }

@@ -41,7 +41,8 @@ const Footer3 = (props) => {
         handleChange,
         handleSubmit,
         onSelection,
-        Brandlistdata
+        Brandlistdata,
+        loginCredentials
     } = props;
 
     const navigation = useNavigation();
@@ -54,6 +55,8 @@ const Footer3 = (props) => {
     const [showaccountpop,setshowaccountpop]= React.useState(false);
     const [modalVisible, setModalVisible] = useState(false);
     const [modalAcctVisible, setAcctModalVisible] = useState(false);
+    const [getCredentials, setgetCredentials] = useState([]);
+    const [getBrandlistdata, setgetBrandlistdata] = useState([]);
 
     useEffect(() => {
         getBrandUserId();
@@ -61,6 +64,18 @@ const Footer3 = (props) => {
 
     const getBrandUserId = async () => {
         var getIsLogin = await AsyncStorage.getItem('userLogin');
+        //console.log('loginCredentials',loginCredentials?.isSeller);
+        if(Brandlistdata!=null && Brandlistdata!=undefined){
+            await AsyncStorage.setItem('Brandlistdata',JSON.stringify(Brandlistdata));
+            await AsyncStorage.setItem('loginCredentials',JSON.stringify(loginCredentials));
+            setgetCredentials(loginCredentials);
+            setgetBrandlistdata(Brandlistdata);
+        }else{
+            var newloginCredentials = await AsyncStorage.getItem('loginCredentials');
+            var newBrandlistdata = await AsyncStorage.getItem('Brandlistdata');
+            setgetCredentials(JSON.parse(newloginCredentials));
+            setgetBrandlistdata(JSON.parse(newBrandlistdata));
+        }
         setIsLogin(getIsLogin);
     }
 
@@ -145,11 +160,12 @@ const Footer3 = (props) => {
                 >
                     <ScrollView>
                         {/* user Store profile */}
-                        <View style={tw`pb-2`}>
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw`pb-2`}>
                                 <TouchableOpacity style={tw`flex flex-row`} onPress={() => {refRBSheet.current.close(); navigation.navigate('Account'); }}>
                                     <View style={tw`flex-row items-center w-full`}>
                                         <FlatList
-                                              data={Brandlistdata || []}
+                                              data={getBrandlistdata || []}
                                               renderItem={renderItem1}
                                               keyExtractor={item => item.id}
                                               showsHorizontalScrollIndicator={false}
@@ -158,61 +174,73 @@ const Footer3 = (props) => {
                                         
 
                                     </View>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Overview'); }} style={tw.style(`flex-row items-center w-full`)}>
-                                <Image
-                                    style={tw.style(`w-5 h-5`)}
-                                    source={ImageIcons.stack}
-                                />
-                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Sellers Dashboard</Text>
-                            </TouchableOpacity>
-                        </View>
+                                </TouchableOpacity>
+                            </View>
+                        }
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashproduct'); }} style={tw.style(`flex-row items-center w-full`)}>
-                                <Image
-                                    style={tw.style(`w-5 h-5`)}
-                                    source={ImageIcons.stack}
-                                />
-                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Products</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                                <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Overview'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                    <Image
+                                        style={tw.style(`w-5 h-5`)}
+                                        source={ImageIcons.stack}
+                                    />
+                                    <Text style={tw.style('text-xl text-gray-700 ml-4')}>Sellers Dashboard</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashorder'); }} style={tw.style(`flex-row items-center w-full`)}>
-                                <Image
-                                    style={tw.style(`w-5 h-5`)}
-                                    source={ImageIcons.stack}
-                                />
-                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Orders</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                                <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashproduct'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                    <Image
+                                        style={tw.style(`w-5 h-5`)}
+                                        source={ImageIcons.stack}
+                                    />
+                                    <Text style={tw.style('text-xl text-gray-700 ml-4')}>Products</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashsubscribe'); }} style={tw.style(`flex-row items-center w-full`)}>
-                                <Image
-                                    style={tw.style(`w-5 h-5`)}
-                                    source={ImageIcons.stack}
-                                />
-                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Subcriptions</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                                <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashorder'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                    <Image
+                                        style={tw.style(`w-5 h-5`)}
+                                        source={ImageIcons.stack}
+                                    />
+                                    <Text style={tw.style('text-xl text-gray-700 ml-4')}>Orders</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashadvertise'); }} style={tw.style(`flex-row items-center w-full`)}>
-                                <SpeakerphoneIcon color="red" fill="#000000" size={24} />
-                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Ads</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashsale'); }} style={tw.style(`flex-row items-center w-full`)}>
-                                <PresentationChartLineIcon color="red" fill="#000000" size={24} />
-                                <Text style={tw.style('text-xl text-gray-700 ml-4')}>Stats</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                                <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashsubscribe'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                    <Image
+                                        style={tw.style(`w-5 h-5`)}
+                                        source={ImageIcons.stack}
+                                    />
+                                    <Text style={tw.style('text-xl text-gray-700 ml-4')}>Subcriptions</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                                <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashadvertise'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                    <SpeakerphoneIcon color="red" fill="#000000" size={24} />
+                                    <Text style={tw.style('text-xl text-gray-700 ml-4')}>Ads</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
+                        {getCredentials?.isSeller == true &&
+                            <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                                <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Dashsale'); }} style={tw.style(`flex-row items-center w-full`)}>
+                                    <PresentationChartLineIcon color="red" fill="#000000" size={24} />
+                                    <Text style={tw.style('text-xl text-gray-700 ml-4')}>Stats</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
 
                         {/* If user has store or no store these links will show for both use cases */}
                         <View style={tw.style('h-5 w-full px-4')}>
@@ -251,10 +279,10 @@ const Footer3 = (props) => {
         );
     }
 
-    useFocusEffect(
-        () => {
-        getBrandUserId();
-     })
+    // useFocusEffect(
+    //     () => {
+    //     getBrandUserId();
+    //  })
 
 
      const renderItem1 = ({ item, index }) => {
