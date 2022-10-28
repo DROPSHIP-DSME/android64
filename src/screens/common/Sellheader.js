@@ -97,23 +97,10 @@ const Sellheader = (props) => {
                                                <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Setting</Text>
                                       </TouchableOpacity>
 
-
-
-                                      <TouchableOpacity onPress={() => navigation.navigate("Dashaccount")} style={{flexDirection:'row',marginVertical:'15%'}}>
-                                       <Image source={ImageIcons.saletoday}  style={{height:21,width:21}} />
-                                       <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Sales Analytic</Text>
-                                     </TouchableOpacity>
                                   </View>
 
                                    <View>
-                                         <TouchableOpacity onPress={() => navigation.navigate("Dashadvertise")} style={{flexDirection:'row',marginVertical:'15%'}}>
-                                           <Image source={ImageIcons.advertisetoday}  style={{height:21,width:21}} />
-                                           <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Advertisements</Text>
-                                         </TouchableOpacity>
-                                         <TouchableOpacity onPress={() => navigation.navigate("Dashsubscribe")} style={{flexDirection:'row',marginVertical:'15%'}}>
-                                           <Image source={ImageIcons.subscribetoday}  style={{height:21,width:21}} />
-                                           <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Subcriptions</Text>
-                                         </TouchableOpacity>
+                                         
                                           <TouchableOpacity onPress={() => navigation.navigate("Account")}  style={{flexDirection:'row',marginVertical:'15%'}}>
                                            <Image source={ImageIcons.accounttoday}  style={{height:21,width:21}} />
                                            <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>My Account</Text>

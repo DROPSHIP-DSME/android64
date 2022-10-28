@@ -15,6 +15,7 @@ import { CashIcon } from "react-native-heroicons/solid";
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
 import { ShoppingCartIcon } from "react-native-heroicons/solid";
 import { SpeakerphoneIcon } from "react-native-heroicons/solid";
+import { DotsHorizontalIcon } from "react-native-heroicons/solid";
 import { PresentationChartLineIcon } from "react-native-heroicons/solid";
 import { UserIcon } from "react-native-heroicons/solid";
 import { ChatAltIcon } from "react-native-heroicons/solid";
@@ -122,9 +123,9 @@ const Footer3 = (props) => {
                 <TouchableOpacity onPress={() => refRBSheet.current.open()}>
                     <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                         <Text>
-                            <UserIcon color="#ff0000" fill="gray" size={24} />
+                            <DotsHorizontalIcon color="#ff0000" fill="gray" size={24} />
                         </Text>
-                            <Text style={tw.style('text-sm font-normal text-gray-700')}>Account</Text>
+                            <Text style={tw.style('text-sm font-normal text-gray-700')}>More</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -296,60 +297,60 @@ const Footer3 = (props) => {
 
 
     return (
-        <View>
+    <View>
 
-        <View style={tw.style('max-w-fit  bg-white flex h-15 px-6 py-2 md:py-4 md:px-6 sm:mx-1 md:mx-2')}>
-          <View style={tw.style('flex-row justify-between')}>
+        <View style={tw.style('max-w-fit  bg-white flex h-18 px-6 py-3 md:py-4 md:px-6 sm:mx-1 md:mx-2')}>
+            <View style={tw.style('flex-row justify-between')}>
 
-          <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('watchlist'); }}>
-            {onSelection==1 ?
-              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                  <Text>
-                     <HomeIcon color="red" fill="#b80000" size={24} />
-                  </Text>
-                   <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Home</Text>
-              </View>
-          :
-              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                  <Text>
-                     <HomeIcon color="red" fill="gray" size={24} />
-                  </Text>
-                   <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Home</Text>
-              </View>
-            }
-        </TouchableOpacity>
-
-
-        {/* showShopLinks selection component */}
-        <Showshoplinks/>
+                <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('watchlist'); }}>
+                    {onSelection==1 ?
+                    <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
+                        <Text>
+                            <HomeIcon color="red" fill="#b80000" size={24} />
+                        </Text>
+                        <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Home</Text>
+                    </View>
+                :
+                    <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
+                        <Text>
+                            <HomeIcon color="red" fill="gray" size={24} />
+                        </Text>
+                        <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Home</Text>
+                    </View>
+                    }
+                    </TouchableOpacity>
 
 
-        <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Account")}} >
-            {onSelection==3 ?
-              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                  <Text>
-                     <ShoppingCartIcon color="red" fill="#b80000" size={24} />
-                  </Text>
-                   <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Sell</Text>
-              </View>
-          :
-              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
-                  <Text>
-                     <ShoppingCartIcon color="red" fill="gray" size={24} />
-                  </Text>
-                   <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Sell</Text>
-              </View>
-            }
+                    {/* showShopLinks selection component */}
+                    <Showshoplinks/>
 
-        </TouchableOpacity>
 
-        {/* Account links selection component */}
-        <Showaccountlinks/>
+                    <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Account")}} >
+                        {onSelection==3 ?
+                        <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
+                            <Text>
+                                <ShoppingCartIcon color="red" fill="#b80000" size={24} />
+                            </Text>
+                            <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Sell</Text>
+                        </View>
+                    :
+                        <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
+                            <Text>
+                                <ShoppingCartIcon color="red" fill="gray" size={24} />
+                            </Text>
+                            <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Sell</Text>
+                        </View>
+                        }
+
+                    </TouchableOpacity>
+
+                    {/* Account links selection component */}
+                    <Showaccountlinks/>
+
+            </View>
 
         </View>
-
-        </View>
-        </View>
+    </View>
 
     )
 }
