@@ -53,7 +53,6 @@ const Accountproduct = (props) => {
     const categoryId = props?.route?.params?.categoryId;
     const categoryName = props?.route?.params?.categoryName;
     const brandId = props?.route?.params?.brandId;
-
     const { Dimensions } = Reactdim;
     const deviceHeight = Dimensions.get('window').height;
     const deviceWidth = Dimensions.get('window').width;

@@ -285,6 +285,7 @@ const Dashlive2 = (props) => {
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
+    const selectedProduct = props?.route?.params?.selectedProduct;
 
 
     useEffect(() => {
@@ -295,7 +296,14 @@ const Dashlive2 = (props) => {
       //   setlivedetailId(props?.livedetail[0]?._id);
       // }else {
       //   props.liveeventdetail(props?.loginuserid);
-      // }
+      // } 
+
+      if(selectedProduct!=undefined && selectedProduct!=""){
+            let filteredData = props?.getlistproduct.filter(function (item) {
+                    return selectedProduct.indexOf(item._id) > -1;
+            });
+            setselproductShown(filteredData);
+        }
 
     }, [])
 
@@ -346,6 +354,7 @@ const Dashlive2 = (props) => {
     const [showalertmsg, setshowalertmsg] = React.useState('');
     const [producttype, setproducttype] = React.useState('new');
     const [selectedDateValue, setSelectedDateValue] = useState("");
+    const [selproductShown, setselproductShown] = React.useState([]);
 
 
     const openpopup = () => {
@@ -378,6 +387,9 @@ const Dashlive2 = (props) => {
         }else if(selectedValue==""){
             setshowotherAlert(true)
             setshowalertmsg('Stream Time is required')
+        }else if(selectedProduct==undefined || selectedProduct==""){
+            setshowotherAlert(true)
+            setshowalertmsg('Please select products')
         }else {
             let request = {
                 "eventId":livedetailId,
@@ -388,6 +400,7 @@ const Dashlive2 = (props) => {
                 "eventTime":selectedValue,
                 "Name":Name,
                 "userId":props?.loginuserid,
+                "productArr":selectedProduct,
                 "schedulelater":true
             }
             let request1 = {
@@ -571,13 +584,13 @@ return (
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-6 items-center')}>
                        <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
                        <Smallbutton
-                       text="Add Product"
-                       onPress={() => props.navigation.navigate("SearchProduct")}
+                       text="Select Product"
+                       onPress={() => props.navigation.navigate("SearchProduct",{eventId:livedetailId,pageName:'Dashlive'})}
                        />
                     </View>
                     <View style={tw`mt-3 mx-3`}>
                       <FlatList
-                          data={props?.getlistproduct || []}
+                          data={selproductShown || []}
                           renderItem={renderItem2}
                           key={item => item.id}
                           showsHorizontalScrollIndicator={false}

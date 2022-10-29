@@ -92,10 +92,12 @@ const screen1=require(`${assetsRootPath}screen1.png`);
 const screen2=require(`${assetsRootPath}screen2.png`);
 const screen3=require(`${assetsRootPath}screen3.png`);
 const stack=require(`${assetsRootPath}stack.png`);
+const tickmark = require(`${assetsRootPath}tickmark.png`);
 
 const ImageIcons = {
   righticon,
   logoredagain,
+  tickmark,
   plusicon,
   outheart,
   outlock,

@@ -263,7 +263,8 @@ const watchlist = (props) => {
     }
    
 
-    const joinbroadcast = (itemid, startnow, eventtime) => {
+    const joinbroadcast = (itemid, startnow, eventtime,userId) => {
+        console.log('userId',userId)
         //if (startnow == true){
         let request1 = {
             "channelName": itemid,
@@ -272,8 +273,13 @@ const watchlist = (props) => {
             "uid": 0
         }
         props.getchanneltoken(request1, props.navigation, "vendor");
+        //alert(userId+'-'+props?.loginuserid)
         setTimeout(function () {
-            props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
+            if(userId==props?.loginuserid){
+                props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: true });
+            }else {
+                props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
+            }
         }, 1000);
         // } else {
         //     setshowotherAlert(true)
@@ -317,7 +323,7 @@ const watchlist = (props) => {
         return (
 
             <View style={tw.style('ml-2 mr-2 mt-3')}>
-                <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId, item.startNow, item.eventdate)}>
+                <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId, item.startNow, item.eventdate,item.userId?._id)}>
                     <View>
                         <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
                         <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>

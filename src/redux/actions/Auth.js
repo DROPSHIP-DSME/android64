@@ -556,7 +556,7 @@ export const schuleEvent = (signupRequest, navigation, role) => {
   }
 };
 
-export const schuleEventstart = (signupRequest, navigation, role) => {
+export const schuleEventstart = (signupRequest, navigation, role) => { 
     
   return async (dispatch, getState) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;

@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
     getusercardlist: state.auth.getusercardlist,
     getchatsupportlist1: state.auth.getchatsupportlist1,
     getBranddetails: state.auth.getBranddetails,
+    brandName:state.auth.brandName,
     getlistbranddetails: state.auth.getlistbranddetails,
     Brandlistdata: state.auth.Brandlistdata,
     getlistselldeshboard:state.auth.getlistselldeshboard

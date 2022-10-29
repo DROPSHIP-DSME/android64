@@ -34,111 +34,117 @@ const SearchProduct = (props) => {
     } = props;
 
      useEffect(() => {
-        //alert('d')
-        //getBrandUserId();
-        props.Brandslist(props?.loginuserid);
+        props.getAllproduct(props?.loginuserid);
+        getalreadyadded();
     }, [])
 
-     const getBrandUserId = async () => {
-        var getUserId = await AsyncStorage.getItem('UserId');
-        setUserID(getUserId);
-        props.getAllproduct(props?.loginuserid);
+
+    const getalreadyadded = async () => {
+        for (var i = 0; i < props?.livedetail[0].products?.length; i++) {
+            alreadycheckedId.push(props?.livedetail[0].products[i]._id);
+            setalreadycheckedId(alreadycheckedId)
+        }
+        setTimeout(function(){ showatochecked();},1000);
     }
 
-
-    //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-     const [checked, setChecked] = React.useState('first');
-
-    const [First, onChangeFirst] = React.useState("");
-    const [Lastname, onChangeLastname] = React.useState("Last name");
-    const [Email, onChangeEmail] = React.useState("Email address");
-    const [PhoneNumber, onChangePhoneNumber] = React.useState("Phone number");
-    const [Street, onChangeStreet] = React.useState("Street address");
-    const [Zip, onChangeZip] = React.useState("Zip");
-    const [City, onChangeCity] = React.useState("City");
-    const [Country, onChangeCountry] = React.useState("Country");
-    const [UserID, setUserID] = useState("");
-    const [visible, setVisible] = React.useState(false);
-    const [pagetype, setpagetype] = React.useState(false);
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
-
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
+    const showatochecked = async () => {
+        for (var i = 0; i < props?.getlistproduct?.length; i++) {
+            if(alreadycheckedId.indexOf(props.getlistproduct[i]._id) > -1) {
+                checkedId.push(props.getlistproduct[i]._id);
+                setcheckedId(checkedId)
+            }
         }
-    ]);
-    const openpopup = () => {
-        setVisible(true)
-
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-
-        
-       const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
-
-
-    const handleRegistrationSubmit = () => {
-        Keyboard.dismiss();
-        if (First == "") {
-           props.Brandslist(props?.loginuserid);
+        if(props?.getlistproduct?.length>checkedId.length){
+            setshowall(false)
         }else {
-            props.searchbrand(1,First)
+            setshowall(true)
         }
     }
 
-    const DATA = [
-       {
-        text:"Name of the store",
-        text1:"store.dropship.com",
-        text2:"40",
-        text3:"400",
-        image:ImageIcons.clothes,
-        image1:ImageIcons.baga,
-        image2:ImageIcons.redcart,
-        image3:ImageIcons.shareicon,
-       },
+    const onlyUnique = async (value, index, self) => {
+      return self.indexOf(value) === index;
+    }
 
-     ];
+   
+    // Local states
+    const [checked, setChecked] = React.useState('first');
+    const [UserID, setUserID] = useState("");
+    //Reference
+    const eventId = props?.route?.params?.eventId;
+    const pageName = props?.route?.params?.pageName;
+    // Local states
+    const [showall, setshowall] = React.useState(false);
+    const [checkedId, setcheckedId] = React.useState([]);
+    const [alreadycheckedId, setalreadycheckedId] = React.useState([]);
 
+    
+    const saveproducttoevent = async () => {
+        //for (var i = 0; i < checkedId?.length; i++) {
+            var unique = checkedId.filter(onlyUnique);
+            //props.addproducttoevent(eventId, unique,props?.loginuserid);
+        //}
+        setTimeout(function(){ props.navigation.navigate(pageName,{selectedProduct:unique}); },1000);
+    }
 
-const renderItem2 = ({ item ,index }) => {
+    const selectAll = async () => {
+        if(showall==false){
+            setshowall(true)
+            for (var i = 0; i < props?.getlistproduct?.length; i++) {
+                checkedId.push(props.getlistproduct[i]._id);
+                setcheckedId(checkedId)
+            }
+           // console.log('newcheckedId',checkedId)
+        }else {
+            setshowall(false)
+            setcheckedId([])
+            
+        }
+    }
 
+    const callAction = async (value) => {
+        props.selectAllproduct(props?.getlistproduct);
+        for (var i = 0; i < props?.getlistproduct?.length; i++) {
+            if(props.getlistproduct[i]._id==value){
+                if(checkedId.indexOf(value) > -1) {
+                  var index = checkedId.indexOf(value);
+                  checkedId.splice(index, 1);
+                  setcheckedId(checkedId)
+                } else {
+                    checkedId.push(value);
+                    setcheckedId(checkedId)
+                }
+            }
+        }
+        if(props?.getlistproduct?.length>checkedId.length){
+            setshowall(false)
+        }else {
+            setshowall(true)
+        }
+    }
 
-   return(
+    const renderItem = ({ item }) => {
+        console.log('renderItem',checkedId)
+        console.log('item._id',item._id)
+      return(
+        <View style={styles.maincartviewshop}>
+            <TouchableOpacity onPress={() =>callAction(item._id)}>
+                <View>
+                    <View style={styles.tickmarkview}>
+                       {( checkedId.indexOf(item._id) > -1) &&
+                        <Image source={ImageIcons.tickmark}  style={styles.tickmarkicon} />
+                       }
+                    </View>
+                    <Image source={{uri: item.productImage}} style={styles.jeansimgshop} />
+                    <View>
+                       <Text style={styles.boldnewproduct}>{item.productName}</Text>
+                       <Text style={styles.salesnewtext}>${item.productPrice}</Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
+        </View>
+      );
+    }
 
-
-          <View style={tw`w-2/4 px-2 mb-6`}>
-           <TouchableOpacity >
-               <View style={tw.style('mx-2 aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8')}>
-                  <Image source={{uri:item.brandImage}} style={tw.style('w-full h-40 object-center object-cover group-hover:opacity-75')} />
-               </View>
-               <View style={tw.style('mx-4 mt-3')}>
-                 <Text style={tw.style('text-sm text-gray-700')}>{item.brandName}</Text>
-                 <Text style={tw.style('mt-1 text-xl font-bold text-gray-900')}>$45</Text>
-               </View>
-              </TouchableOpacity>
-          </View>
-
-
-
-  );
-}
 
 
 
@@ -147,53 +153,44 @@ const renderItem2 = ({ item ,index }) => {
          <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff',marginBottom:66}} >
+            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff',marginBottom:0}} >
 
              <View style={{marginHorizontal:'4%',paddingTop:'7%'}}>
-                    <View style={{width:'95%',}}>
-
-                        <TextInput
-                            style={styles.searchmainViewour}
-                            onChangeText={onChangeFirst}
-                            value={First}
-                            onSubmitEditing={() => handleRegistrationSubmit()}
-                            placeholder="Search "
-                            placeholderTextColor="#b3b3b3"
-                        />
-                        <TouchableOpacity onPress={() => handleRegistrationSubmit() } style={{position:'absolute',right:15,top:15.37,}}>
-                          <Image source={ImageIcons.searchIcon}  style={styles.searchimg} />
-                        </TouchableOpacity>
+                <View style={styles.bagimageView}>
+                    <View style={{alignItems:'center'}}>
+                       <Text style={styles.productstext}>Products</Text>
                     </View>
+                    <Smallbutton
+                          text="Save"
+                          onPress={() => saveproducttoevent()} />
+                    
+                </View>
                 <View>
 
+                    <TouchableOpacity onPress={() =>selectAll()}>
+                        <View style={{flexDirection:'row',marginHorizontal:'5%',alignItems:'center',marginTop:'1%'}}>
+                                <View style={{width:15,height:15,borderWidth:2,borderColor:'#585858'}}>
+                                    { showall==true &&
+                                        <Image source={ImageIcons.tickmark}  style={styles.tickmarkicon} />
+                                    }
 
-                    <View style={tw.style('flex flex-row mt-8')}>
-
-                        <Smallbutton
-                          text="Events"
-                          onPress={() => props.navigation.navigate("Search")} />
-
-                          <View
-                            style={tw.style('ml-3 w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300')}
-                          >
-                           <TouchableOpacity>
-                              <Text style={tw.style('text-lg text-gray-700')}>Brands</Text>
-                            </TouchableOpacity>
-                          </View>
-
-                     </View>
-                <View style={tw.style('mt-10')}>
-                  <Text style={styles.salestextonce}>Suggested Products</Text>
-                   <View style={tw`mb-10`}>
-                      <FlatList
-                          data={props?.Brandlistdata || []}
-                          renderItem={renderItem2}
-                          keyExtractor={item => item.id}
-                          showsHorizontalScrollIndicator={false}
-                          numColumns={2}
-                      />
-                    </View>
-               </View>
+                                </View>
+                            <Text style={styles.selecttstext}>Select all</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <View style={tw.style('mt-10')}>
+                      <Text style={styles.salestextonce}>Suggested Products</Text>
+                       <View style={tw`mb-10`}>
+                            <FlatList
+                                data={props?.getlistproduct || []}
+                                renderItem={renderItem}
+                                keyExtractor={item => item._id}
+                                showsHorizontalScrollIndicator={false}
+                                numColumns={2}
+                                extraData={checkedId}
+                            />
+                        </View>
+                   </View>
 
                </View>
 
@@ -203,7 +200,5 @@ const renderItem2 = ({ item ,index }) => {
         </KeyboardAvoidingView>
     )
 }
-
-
 
 export default SearchProduct

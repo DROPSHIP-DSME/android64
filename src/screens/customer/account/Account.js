@@ -54,6 +54,11 @@ const Account = (props) => {
         props.Brandslist(props?.loginuserid);
     }, [])
 
+    useEffect(() => {
+      if(props?.loginCredentials?.isSeller==false){
+        props.navigation.navigate("Verificationsteps");
+      }
+    }, [])
 
     const deviceWidth = Dimensions.get('window').width;
     const deviceHeight = Dimensions.get('window').height;
@@ -281,12 +286,11 @@ const Account = (props) => {
                         text="Go Live"
                         onPress={() => props.navigation.navigate("Dashlive")}
                     />
-                    </View>
-
+                    </View> 
                     <View style={tw.style('w-1/2 pl-2')}>
                     <Smallbutton
                         text="Add Products"
-                        onPress={() => props.navigation.navigate("Accountproduct")}
+                        onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName?._id })}
                     />
                     </View>
                 </View>

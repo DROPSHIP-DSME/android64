@@ -1128,11 +1128,11 @@ const RightMenuItemsell = ({navigation,brandImage}) => {
                <Image source={{uri:brandImage}} style={{width:40,height:40,borderRadius:20}}/>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => { navigation.navigate('Sellheader') }}>
+          {/*<TouchableOpacity onPress={() => { navigation.navigate('Sellheader') }}>
               <View style={tw.style('flex-row')}>
                   <Image source={ImageIcons.menutoday} style={{ width: 18, height: 20.6,marginRight:2}} />
               </View>
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
         </View>
     )
 }

@@ -61,7 +61,7 @@ const Dashlive = (props) => {
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-
+    const selectedProduct = props?.route?.params?.selectedProduct;
 
     useEffect(() => {
       props.getAllproduct(props?.loginuserid);
@@ -72,8 +72,17 @@ const Dashlive = (props) => {
       // }else {
       //   props.liveeventdetail(props?.loginuserid);
       // }
+        console.log('selectedProduct',selectedProduct)
+        if(selectedProduct!=undefined && selectedProduct!=""){
+            let filteredData = props?.getlistproduct.filter(function (item) {
+                    return selectedProduct.indexOf(item._id) > -1;
+            });
+            setselproductShown(filteredData);
+        }else {
+            //setselproductShown(props?.getlistproduct);
+        }
 
-    }, [])
+    }, [selectedProduct])
 
     useEffect(() => {
       if(props?.loginCredentials?.isSeller==false){
@@ -119,6 +128,8 @@ const Dashlive = (props) => {
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');
     const [producttype, setproducttype] = React.useState('new');
+    const [selproductShown, setselproductShown] = React.useState([]);
+
 
     const openpopup = () => {
         setVisible(true);
@@ -138,6 +149,9 @@ const Dashlive = (props) => {
         if(Name==""){
             setshowotherAlert(true)
             setshowalertmsg('Stream Title is required')
+        }else if(selectedProduct==undefined || selectedProduct==""){
+            setshowotherAlert(true)
+            setshowalertmsg('Please select products')
         }else {
             let request = {
                 "eventId":livedetailId,
@@ -146,6 +160,7 @@ const Dashlive = (props) => {
                 "eventType":producttype,
                 "Name":Name,
                 "userId":props?.loginuserid,
+                "productArr":selectedProduct,
                 "schedulelater":false
             }
             let request1 = {
@@ -333,11 +348,14 @@ return (
                 <View style={tw.style('mt-1')}>
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-6 items-center')}>
                        <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
-                      
+                       <Smallbutton
+                       text="Select Product"
+                       onPress={() => props.navigation.navigate("SearchProduct",{eventId:livedetailId,pageName:'Dashlive'})}
+                       />
                     </View>
                     <View style={tw`mt-3 mx-3`}>
                       <FlatList
-                          data={props?.getlistproduct || []}
+                          data={selproductShown || []}
                           renderItem={renderItem2}
                           key={item => item.id}
                           showsHorizontalScrollIndicator={false}

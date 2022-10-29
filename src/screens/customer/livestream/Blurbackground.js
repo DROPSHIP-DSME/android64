@@ -19,6 +19,8 @@ import { v4 as uuid } from "uuid";
 import SwitchToggle from "react-native-switch-toggle";
 import Sortorder from '../../../components/pickers/Sortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
+import CustomAwesomeAlert from 'react-native-awesome-alerts';
+
 import tw from 'twrnc';
 import { UsersIcon } from "react-native-heroicons/solid";
 import { ClockIcon } from "react-native-heroicons/solid";
@@ -73,6 +75,8 @@ const Blurbackground = (props) => {
     const [purchaseCount, setpurchaseCount] = React.useState(0);
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');
+    const [showAlert, setshowAlert] = React.useState('');
+
     const [selectedValue, setSelectedValue] = useState(1);
     const [comment, setcomment] = useState();
     const [getaudiance, Setgetaudiance] = useState(0);
@@ -277,19 +281,30 @@ const Blurbackground = (props) => {
     }
 
     const endStream = async() => {
+        if (isbroadcaster) {
+            setshowAlert(true)
+        }else {
+            AgoraEngine.current.destroy();
+            //if (isbroadcaster) dispatch(destroyRoom(channel, 'Ended'))
+            await AsyncStorage.removeItem('notificationData');
+            props.navigation.navigate("upcoming")
+        }
+    }
+
+    const endStreamconfirm = async() => {
         AgoraEngine.current.destroy();
         //if (isbroadcaster) dispatch(destroyRoom(channel, 'Ended'))
         await AsyncStorage.removeItem('notificationData');
         if (isbroadcaster) {
+            setshowAlert(false)
             // call removeapi
             let request = {
                 "eventId":channel,
                 "EventDuration":1200,
                 "startNow":false
-            }
+            } 
             props.schuleEventstart(request, props.navigation, "vendor");
-        }
-        if (isbroadcaster) {
+
             props.navigation.navigate("Overview")
         }else {
             props.navigation.navigate("upcoming")
@@ -644,7 +659,27 @@ const Blurbackground = (props) => {
                 </View>
             }
 
-            
+            <CustomAwesomeAlert
+                show={showAlert}
+                showProgress={false}
+                title="DROPSHIP"
+                message="Are you sure you want to close live event?"
+                closeOnTouchOutside={true}
+                closeOnHardwareBackPress={false}
+                showCancelButton={true}
+                showConfirmButton={true}
+                cancelText="Continue"
+                confirmText="Complete Event"
+                confirmButtonColor="#E22020"
+                onCancelPressed={() => {
+                    setshowAlert(false)
+                }}
+                onConfirmPressed={() => {
+                    endStreamconfirm()
+                }}
+            />
+
+
         </KeyboardAvoidingView>
         )
     }
