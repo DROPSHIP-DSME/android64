@@ -303,18 +303,22 @@ const Blurbackground = (props) => {
                     <Text style={tw`text-xl text-white`}>{props?.getliveeventlist?.eventTitle}</Text>
                 </View>
                 <View style={tw`flex-row`}>
-                    <View style={tw`items-center px-4 py-0.5 rounded-lg bg-red-700 justify-center`}>
+                    <View style={tw`mt-2 h-7 items-center px-5 py-0.5 rounded-lg bg-red-700 justify-center`}>
                         <Text style={tw`text-xs font-medium text-white`}>Live</Text>
                     </View>
-                    <View style={tw`flex-row px-4`}>
-                        <View style={tw`ml-3 flex-row items-center px-4 py-1 rounded-lg bg-green-300 justify-center`}>
+                    <View style={tw`px-3 pt-2`}>
+                        <View style={tw`ml-1 flex-row items-center px-4 py-1 rounded-lg bg-green-300 justify-center`}>
                             <UsersIcon color="red" fill="black" size={20} />
                             <Text style={tw`ml-3 text-xs font-medium text-grey-700`}>{props?.audiancecount?.JoinedUsers?.length}</Text>
                         </View>
                     </View>
-                    <View style={tw.style('ml-1 right-2',{zIndex:100})}>
+                    <View style={tw.style('ml-2 right-1',{zIndex:100})}>
                         <TouchableOpacity onPress={() => endStream()}>
-                            <PhoneOutgoingIcon color="green" fill="white" size={32} />
+                            {/* <PhoneOutgoingIcon color="green" fill="white" size={32} /> */}
+                            <Image
+                                    style={tw.style(`mt-2 w-8 h-8`)}
+                                    source={ImageIcons.exittoday}
+                                />
                         </TouchableOpacity>
                     </View>
                 </View>

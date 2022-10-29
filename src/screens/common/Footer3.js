@@ -79,7 +79,7 @@ const Footer3 = (props) => {
                 </TouchableOpacity>
                     <RBSheet
                         ref={refRBSheet}
-                        height={400}
+                        height={300}
                         closeOnDragDown={true}
                         closeOnPressMask={true}
                         customStyles={{
@@ -219,7 +219,7 @@ const Footer3 = (props) => {
                             <View style={tw.style('border-b-2 border-gray-300')}></View>
                         </View>
                         <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Account'); }} style={tw.style(`flex-row items-center w-full`)}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('  '); }} style={tw.style(`flex-row items-center w-full`)}>
                                 <UserIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>My Profile</Text>
                             </TouchableOpacity>
