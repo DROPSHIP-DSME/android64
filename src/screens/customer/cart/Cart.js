@@ -1,6 +1,6 @@
 import React, { useRef, useState,useEffect } from 'react';
-import { Text, View, Image, TextInput, ActivityIndicator, ImageBackground, 
-  ScrollView,FlatList, Alert, TouchableOpacity,  KeyboardAvoidingView, 
+import { Text, View, Image, TextInput, ActivityIndicator, ImageBackground,
+  ScrollView,FlatList, Alert, TouchableOpacity,  KeyboardAvoidingView,
   Platform,Keyboard,StatusBar, Button, Switch, Screen } from 'react-native';
 import { StripeProvider, useStripe } from '@stripe/stripe-react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -67,7 +67,7 @@ const Cart = (props) => {
     const [showalertmsg, setshowalertmsg] = React.useState('');
     const [isVisible, setisVisible] = React.useState(false);
     const [Incval, setIncval] = useState(1);
-    // Stripe variable and customer variables 
+    // Stripe variable and customer variables
     const { initPaymentSheet, presentPaymentSheet } = useStripe();
     const [name, setName] = useState("");
     const [amount, setAmount] = useState("1");
@@ -104,7 +104,7 @@ const Cart = (props) => {
           props.navigation.navigate("StoreOwner")
     }
 
-  
+
     const renderItem = ({ item, index }) => {
         return (
 
@@ -139,7 +139,7 @@ const Cart = (props) => {
                       <Deletebutton onPress={() =>setdeletedata(item._id)} />
                       <Heartbutton  />
                     </View>
-                    
+
                 </View>
                 <View style={tw`flex-row items-center`}>
                       <Text style={tw`text-base font-bold`}>Price </Text>
@@ -160,7 +160,7 @@ const Cart = (props) => {
         console.log('receipt_email',props.loginCredentials?.email);
         console.log('amount',finalAmount);
 
-        const response = fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent` , { 
+        const response = fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent` , {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -177,7 +177,7 @@ const Cart = (props) => {
                 "orderNumber":props?.loginuserid+''+finalAmount,
                 "orderStatus":"accepted",
                 "orderAmount":finalAmount,
-                "paymentMethod":"card",
+                "paymentMethod":"Card",
                 "orderDate":new Date(),
                 "firstName":props.loginCredentials?.userName,
                 "lastName":'',
@@ -189,12 +189,12 @@ const Cart = (props) => {
                 "country":'USA'
             }
             props.chekout(request, props.navigation, "vendor");
-            setTimeout(function(){ 
+            setTimeout(function(){
                   setloginLoader(false); setshowotherAlert(true)
                   setshowalertmsg('Order placed successfully');
                   props.cartdata(props?.loginuserid);
             },1000);
-            
+
         }).catch((error) => {
             console.log('error',error)
             setshowotherAlert(true)
@@ -205,7 +205,7 @@ const Cart = (props) => {
         console.error(err);
         Alert.alert("Payment failed!");
       }
-        
+
     };
 
     const getiDataPaymentSheet =  async (dataRec) => {
@@ -217,18 +217,18 @@ const Cart = (props) => {
           currencyCode: "USD",
           style: "alwaysLight",
           merchantDisplayName: "Dropship",
-          
+
         });
-        
+
         if (initSheet.error) {
            Alert.alert(initSheet.error.message);
 
         }
-        
+
         const presentSheet = presentPaymentSheet({
           clientSecret: dataRec.paymentIntent,
         });
-        
+
         if (presentSheet.error) {
           console.error(presentSheet.error);
           Alert.alert(presentSheet.error.message);
@@ -244,13 +244,13 @@ const Cart = (props) => {
      <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
      style={styles.registrationRoot}>
-      
-      
+
+
       <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
 
       <ScrollView style={{backgroundColor:'#ffffff'}}>
-      
+
         <View style={tw`pt-1 pb-20`}>
           <View style={tw`flex flex-row justify-between mt-4 mx-4`} >
             <View style={tw`self-center`}>
@@ -278,8 +278,8 @@ const Cart = (props) => {
                   keyExtractor={(item, index) => index.toString()}
               />
           </View>
-         
-          
+
+
           { props?.cartlistdata1?.length>0 ?
 
               <View style={tw.style('top-2 mx-5')}>
@@ -295,7 +295,7 @@ const Cart = (props) => {
           :
             <Text style={tw`text-lg pt-20 text-center`}>No Items added in cart yet</Text>
           }
-        
+
         </View>
      </ScrollView>
 
