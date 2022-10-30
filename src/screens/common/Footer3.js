@@ -42,8 +42,11 @@ const Footer3 = (props) => {
         handleSubmit,
         onSelection,
         Brandlistdata,
-        loginCredentials
+        loginCredentials,
+        menucount
     } = props;
+
+    
 
     const navigation = useNavigation();
 
@@ -57,25 +60,37 @@ const Footer3 = (props) => {
     const [modalAcctVisible, setAcctModalVisible] = useState(false);
     const [getCredentials, setgetCredentials] = useState([]);
     const [getBrandlistdata, setgetBrandlistdata] = useState([]);
+    const [getmenucount, setgetmenucount] = useState([]);
 
     useEffect(() => {
-        getBrandUserId();
+
+        getBrandUserId(menucount,Brandlistdata,loginCredentials);
     }, [])
 
-    const getBrandUserId = async () => {
+    const getBrandUserId = async (menucount,Brandlistdata,loginCredentials) => {
+         //console.log('footer2menucount',menucount);
         var getIsLogin = await AsyncStorage.getItem('userLogin');
         //console.log('loginCredentials',loginCredentials?.isSeller);
-        if(Brandlistdata!=null && Brandlistdata!=undefined){
+        if(loginCredentials!=null && loginCredentials!=undefined){
             await AsyncStorage.setItem('Brandlistdata',JSON.stringify(Brandlistdata));
             await AsyncStorage.setItem('loginCredentials',JSON.stringify(loginCredentials));
+            //console.log('footer3menucount',menucount);
+            await AsyncStorage.setItem('menucount',JSON.stringify(menucount));
             setgetCredentials(loginCredentials);
             setgetBrandlistdata(Brandlistdata);
+            setgetmenucount(menucount);
+
         }else{
+
             var newloginCredentials = await AsyncStorage.getItem('loginCredentials');
             var newBrandlistdata = await AsyncStorage.getItem('Brandlistdata');
+            var menucount = await AsyncStorage.getItem('menucount');
             setgetCredentials(JSON.parse(newloginCredentials));
             setgetBrandlistdata(JSON.parse(newBrandlistdata));
+            setgetmenucount(JSON.parse(menucount));
+             
         }
+
         setIsLogin(getIsLogin);
     }
 
@@ -302,11 +317,11 @@ const Footer3 = (props) => {
                             <View style={tw`flex-row items-center`}>
                                 <View style={tw.style('flex-row items-center mr-1')}>
                                     <ShoppingBagIcon color="red" fill="#b80000" size={20} />
-                                    <Text style={styles.optext}>0 products</Text>
+                                    <Text style={styles.optext}>{getmenucount?.getProductCount} products</Text>
                                 </View>
                                 <View style={tw.style('flex-row items-center ml-1')}>
                                     <TagIcon color="red" fill="#b80000" size={20} />
-                                    <Text style={styles.optext}>0 sales</Text>
+                                    <Text style={styles.optext}>{getmenucount?.getSalesCount} sales</Text>
                                 </View>
                             </View>
                         </View>

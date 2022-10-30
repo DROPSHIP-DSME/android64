@@ -52,6 +52,7 @@ const Account = (props) => {
         props.getusercard(props?.loginuserid);
         props.getsupportlist(props?.loginuserid);
         props.Brandslist(props?.loginuserid);
+        props.getselldeshboard(props?.loginuserid);
     }, [])
 
     useEffect(() => {
@@ -180,11 +181,11 @@ const Account = (props) => {
                             <View style={tw`flex-row items-center`}>
                                 <View style={tw.style('flex-row items-center mr-1')}>
                                     <ShoppingBagIcon color="red" fill="#b80000" size={20} />
-                                    <Text style={styles.optext}>0 products</Text>
+                                    <Text style={styles.optext}>{props?.menucount?.getProductCount} products</Text>
                                 </View>
                                 <View style={tw.style('flex-row items-center ml-1')}>
                                     <TagIcon color="red" fill="#b80000" size={20} />
-                                    <Text style={styles.optext}>0 sales</Text>
+                                    <Text style={styles.optext}>{props?.menucount?.getSalesCount} sales</Text>
                                 </View>
                             </View>
                         </View>

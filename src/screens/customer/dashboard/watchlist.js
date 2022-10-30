@@ -178,6 +178,7 @@ const watchlist = (props) => {
         props.getnotificationcount(props?.loginuserid);
         props.getsalesanalytics(props?.loginuserid);
         props.getprofileuser(props?.loginuserid);
+        props.getmenucounts(props?.loginuserid);
         showalldata();
         props.getfavoriteproductlist(props?.loginuserid);
         if (Platform.OS === 'android') requestMultiplePermisisons();
@@ -262,6 +263,7 @@ const watchlist = (props) => {
 
     }
    
+    //
 
     const joinbroadcast = (itemid, startnow, eventtime,userId) => {
         console.log('userId',userId)
@@ -730,11 +732,11 @@ const watchlist = (props) => {
                     </View>
 
                 </View>
-            </ScrollView>
+            </ScrollView> 
 
             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
-            <Footer3 onSelection="1" Brandlistdata={props?.Brandlistdata} loginCredentials={props?.loginCredentials} />
+            <Footer3 onSelection="1" Brandlistdata={props?.Brandlistdata} loginCredentials={props?.loginCredentials} menucount={props?.menucount} />
         </KeyboardAvoidingView>
     )
 }

@@ -12,6 +12,7 @@ import {
   GET_ALL_FAVORITE,
   GET_ALL_FOLLOW,
   USER_ALERT_STATUS,
+  SET_MENU_DATA,
   SET_PHONESIGNUP_LOADER,
   SET_FORGET_PASSWORD_LOADER,
   SET_RESET_PASSWORD_LOADER,
@@ -1581,6 +1582,28 @@ export const getbrandName = (UserId,navigation) => {
     }
 }
 
+
+//namebrand
+export const getmenucounts = (UserId,navigation) => {
+    let request = {
+      userId:UserId
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected;
+        if (isInternetConnected) {
+            try {
+                let response = await Utilise.apiCalling('POST', `${Api.getmenucount}`,  request);
+                if (response?.status) {
+                   dispatch({ type: SET_MENU_DATA, payload: response.data });
+                }
+            } catch (error) {
+                dispatch({ type: SET_MENU_DATA, payload: [] });
+            }
+        }
+    }
+}
+
+
 //namebrand
 export const getchannelbrandName = (channelId,navigation) => {
     let request = {
@@ -2004,6 +2027,7 @@ export const getprofileuser = (userId) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getprofileuser}`,  request);
+                console.log('SET_LOGIN_CREDENTIAL',response.data);
                 //if (response?.status) {
                   dispatch({ type: GET_PROFILEUSER_LIST, payload: response.data });
                   dispatch({ type: SET_LOGIN_CREDENTIAL, payload: response.data });

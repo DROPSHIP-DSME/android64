@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Account } from '../../../screens/customer/account';
-import { support,getAllshop,getprofileuser,getuseraddress,deleteUseraccount,getusercard,getsupportlist,branddetails,Brandslist } from '../../../redux/actions/Auth'
+import { support,getAllshop,getprofileuser,getselldeshboard,getuseraddress,deleteUseraccount,getusercard,getsupportlist,branddetails,Brandslist } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -17,7 +17,8 @@ const mapStateToProps = (state) => ({
     brandName:state.auth.brandName,
     getlistbranddetails: state.auth.getlistbranddetails,
     Brandlistdata: state.auth.Brandlistdata,
-    getlistselldeshboard:state.auth.getlistselldeshboard
+    getlistselldeshboard:state.auth.getlistselldeshboard,
+    menucount: state.auth.menucount,
 });
 
 const mapDispatchToProps = {
@@ -29,7 +30,8 @@ const mapDispatchToProps = {
     support,
     branddetails,
     Brandslist,
-    deleteUseraccount
+    deleteUseraccount,
+    getselldeshboard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

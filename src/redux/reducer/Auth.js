@@ -33,6 +33,7 @@ import {
   SET_SAVEADDRESS_LOADER,
   SET_CATEGORY_LOADER,
   GET_ALL_CATEGORY,
+  SET_MENU_DATA,
   GET_ALL_NOTIFICAITON,
   GET_ALL_FAVORITE,
   GET_ALL_FOLLOW,
@@ -149,6 +150,7 @@ const initialState = {
   getuseraddresslist: null,
   getusercardlist: null,
   deletedatalioder: null,
+  menucount:null,
   deletecardlioder: null,
   deleteaddresslioder: null,
   removedatalioder: null,
@@ -505,6 +507,11 @@ const Auth = (state = initialState, action) => {
         getlistcategory: action.payload,
       };
 
+    case SET_MENU_DATA:
+      return {
+        ...state,
+        menucount: action.payload,
+      };
     case GET_ALL_NOTIFICAITON:
       return {
         ...state,

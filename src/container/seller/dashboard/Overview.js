@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
     Brandlistdata: state.auth.Brandlistdata,
     getgraphData: state.auth.getgraphData,
 });
-
+ 
 const mapDispatchToProps = {
    getselldeshboard,
    gettopsell,

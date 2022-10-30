@@ -28,6 +28,7 @@ const api = {
   forgotPassword: `/auth/forgotPassword`,
   cartlist: `/users/cartlist`,
   cartdata: `/shops/getcartList`,
+  getmenucount:`/shops/getmenucount`,
   cartprice: `/shops/getcartprice`,
   updatewatchlist: `/shops/updatewatchlist`,
   getwatchlist: `/shops/getwatchlist`,
