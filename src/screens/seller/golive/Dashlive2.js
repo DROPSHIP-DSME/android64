@@ -305,7 +305,7 @@ const Dashlive2 = (props) => {
             setselproductShown(filteredData);
         }
 
-    }, [])
+    }, [selectedProduct])
 
     useEffect(() => {
        //getBrandUserId();
@@ -585,7 +585,7 @@ return (
                        <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
                        <Smallbutton
                        text="Select Product"
-                       onPress={() => props.navigation.navigate("SearchProduct",{eventId:livedetailId,pageName:'Dashlive'})}
+                       onPress={() => props.navigation.navigate("SearchProduct",{eventId:livedetailId,pageName:'Dashlive2'})}
                        />
                     </View>
                     <View style={tw`mt-3 mx-3`}>

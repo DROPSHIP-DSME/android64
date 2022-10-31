@@ -146,9 +146,9 @@ const Verificationsteps = (props) => {
         }
         props.saveaddress(request,'', '',0);
         if(type==1){
-            props.navigation.navigate('Account')
+            props.navigation.navigate('watchlist')
         }else{
-            props.navigation.navigate('Dashlive')
+            props.navigation.navigate('watchlist')
         }
         //onNextStep();
     },
@@ -164,9 +164,6 @@ const Verificationsteps = (props) => {
         }else if (line1 == "") {
             setshowotherAlert(true)
             setshowalertmsg('Address is required')
-        }else if (line2 == "") {
-            setshowotherAlert(true)
-            setshowalertmsg('Address line 2 is required')
         }else if(city ==""){
             setshowotherAlert(true)
             setshowalertmsg('City is required')
@@ -174,6 +171,7 @@ const Verificationsteps = (props) => {
             setshowotherAlert(true)
             setshowalertmsg('Zipcode is required')
         } else {
+            setaddress2(line1);
             setstep2(false)
             onNextStep();
         }

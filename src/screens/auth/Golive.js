@@ -57,6 +57,7 @@ const Golive = (props) => {
     const [showalertmsg, setshowalertmsg] = React.useState('');
 
     useEffect(() => {
+         getBrandUserId();
         props.countrylist();
          AsyncStorage.setItem('UserId','');
          //AsyncStorage.setItem('userLogin',"0");
@@ -66,6 +67,13 @@ const Golive = (props) => {
         });
         //requestUserPermission();
     }, [])
+
+    const getBrandUserId = async () => {
+        await AsyncStorage.removeItem('Brandlistdata');
+        await AsyncStorage.removeItem('loginCredentials');
+        await AsyncStorage.removeItem('menucount');
+    }
+            
 
     // const googlesignin = async () => {
     //     try {

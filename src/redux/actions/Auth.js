@@ -1138,7 +1138,7 @@ export const getalleventlist = (userId) => {
 
 
 //getalleventlist
-export const getcurrentevent = (userId) => {
+export const getcurrentevent = (userId) => { 
 
    let request = {
       userId:userId
@@ -1263,6 +1263,7 @@ export const Brandslist = (userId) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
+                dispatch({ type: BRANDS_LIST_DATA, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.Brandslist}`,  request);
                 console.log('responseBrandslist',response)
                 if (response?.status) {

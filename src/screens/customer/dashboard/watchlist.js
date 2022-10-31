@@ -164,28 +164,36 @@ const watchlist = (props) => {
     };
 
     useEffect(() => {
+
         // AsyncStorage.setItem('UserId','');
         //AsyncStorage.setItem('userLogin','');
         getBrandUserId();
-        //alert(props?.loginuserid)
         props.getAllproduct(1);
         props.getcurrentevent(1);
         props.getwatchlistproduct(props?.loginuserid);
         props.getAllshop(props?.loginuserid, 1);
-        props.Brandslist(props?.loginuserid);
+        
         props.getbrandName(props?.loginuserid);
         props.cartdata(props?.loginuserid);
         props.getnotificationcount(props?.loginuserid);
         props.getsalesanalytics(props?.loginuserid);
-        props.getprofileuser(props?.loginuserid);
-        props.getmenucounts(props?.loginuserid);
         showalldata();
         props.getfavoriteproductlist(props?.loginuserid);
+
+        props.Brandslist(props?.loginuserid);
+        props.getprofileuser(props?.loginuserid);
+        props.getmenucounts(props?.loginuserid);
         if (Platform.OS === 'android') requestMultiplePermisisons();
     }, [])
 
 
-                
+    useEffect(() => {
+       // console.log('footerbrand3',props?.Brandlistdata)
+        props.Brandslist(props?.loginuserid);
+        props.getprofileuser(props?.loginuserid);
+        props.getmenucounts(props?.loginuserid);
+        if (Platform.OS === 'android') requestMultiplePermisisons();
+    }, [props?.loginuserid])       
 
     // const showalldata = (index) => {
 

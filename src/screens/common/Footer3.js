@@ -63,15 +63,18 @@ const Footer3 = (props) => {
     const [getmenucount, setgetmenucount] = useState([]);
 
     useEffect(() => {
-
         getBrandUserId(menucount,Brandlistdata,loginCredentials);
-    }, [])
+    }, [loginCredentials])
 
     const getBrandUserId = async (menucount,Brandlistdata,loginCredentials) => {
-         //console.log('footer2menucount',menucount);
+        console.log('Brandlistdata',Brandlistdata);
         var getIsLogin = await AsyncStorage.getItem('userLogin');
         //console.log('loginCredentials',loginCredentials?.isSeller);
         if(loginCredentials!=null && loginCredentials!=undefined){
+            await AsyncStorage.removeItem('Brandlistdata');
+            await AsyncStorage.removeItem('loginCredentials');
+            await AsyncStorage.removeItem('menucount');
+
             await AsyncStorage.setItem('Brandlistdata',JSON.stringify(Brandlistdata));
             await AsyncStorage.setItem('loginCredentials',JSON.stringify(loginCredentials));
             //console.log('footer3menucount',menucount);
@@ -79,7 +82,6 @@ const Footer3 = (props) => {
             setgetCredentials(loginCredentials);
             setgetBrandlistdata(Brandlistdata);
             setgetmenucount(menucount);
-
         }else{
 
             var newloginCredentials = await AsyncStorage.getItem('loginCredentials');
@@ -262,7 +264,7 @@ const Footer3 = (props) => {
                             <View style={tw.style('border-b-2 border-gray-300')}></View>
                         </View>
                         <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('  '); }} style={tw.style(`flex-row items-center w-full`)}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('Account'); }} style={tw.style(`flex-row items-center w-full`)}>
                                 <UserIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>My Profile</Text>
                             </TouchableOpacity>

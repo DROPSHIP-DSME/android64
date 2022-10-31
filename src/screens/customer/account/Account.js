@@ -53,6 +53,8 @@ const Account = (props) => {
         props.getsupportlist(props?.loginuserid);
         props.Brandslist(props?.loginuserid);
         props.getselldeshboard(props?.loginuserid);
+        props.getmenucounts(props?.loginuserid);
+
     }, [])
 
     useEffect(() => {
@@ -436,7 +438,7 @@ const Account = (props) => {
 
             <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
-            <Footer3 onSelection="5" />
+            <Footer3 onSelection="1" Brandlistdata={props?.Brandlistdata} loginCredentials={props?.loginCredentials} menucount={props?.menucount} />
         </KeyboardAvoidingView>
     )
 }
