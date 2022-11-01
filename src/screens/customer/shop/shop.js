@@ -23,6 +23,7 @@ import Sortfilter from '../../../components/pickers/Sortfilter';
 import { ChevrondoubleupIcon } from "react-native-heroicons/solid";
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { VideoCameraIcon } from "react-native-heroicons/outline";
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
 
 const shop = (props) => {
 
@@ -136,22 +137,19 @@ const shop = (props) => {
 
     const renderItem = ({ item, index }) => {
         return (
-            <View style={tw.style(tw`w-1/3 mb-6`)}>
+            <View style={tw.style(tw`flex w-1/3 mb-6`)}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { productId: item._id }) }} style={tw.style('rounded-lg mt-5 mx-2')} >
                     <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:10}}>
                         <Image source={{ uri: item.productImage }} style={tw.style('rounded-lg w-fit h-40')} />                        
-                        <View style={tw.style('absolute right-3 top-3')}>
-                           
-                        </View>
+                        <View style={tw.style('absolute right-3 top-3')}></View>
                     </View>
-                    <View style={tw.style('mx-2 top-2')}>
-                        <View style={{ flexDirection:'row', justifyContent:'space-between'}}>
-                            <Text style={styles.boldproduct}>{item.productName}</Text>
-                            <Image source={ImageIcons.Iconlock} style={tw.style('w-6 h-6')} />
+                    <View style={tw.style('top-2 px-1')}>
+                        <View style={tw.style(`flex-row justify-between items-center`)}>
+                            <Text style={tw.style(`text-sm text-gray-600 w-[85%]`)}>{item.productName}</Text>
+                            <ShoppingBagIcon color="red" fill="#b80000" size={24} />
                         </View>
-                        <View style={tw.style('flex flex-row',{justifyContent:'space-between',marginBottom:10})}>
-                            <Text style={styles.salestext}>${item.productPrice}</Text>
-                            
+                        <View style={tw.style('flex-row')}>
+                            <Text style={tw.style(`text-lg text-gray-700`)}>${item.productPrice}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>

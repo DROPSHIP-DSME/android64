@@ -365,15 +365,15 @@ const watchlist = (props) => {
 
     const renderItem = ({ item, index }) => {
         return (
-            <View style={tw.style('ml-2 mr-2')}>
+            <View style={tw.style('flex ml-2 w-40 rounded-lg p-1')}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
-                    <View style={{borderWidth:1,borderColor:'#e6e6e6'}}>
-                        <Image source={{ uri: item.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                    <View style={tw.style('border-2 border-gray-100 rounded-lg')}>
+                        <Image source={{ uri: item.productImage }} style={tw.style('w-[100%] h-45')} />
                         <Text style={styles.beautyproduct}></Text>
                     </View>
 
-                    <View style={tw.style('flex flex-row mt-2')}>
-                        <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:20}}>
+                    <View style={tw.style('flex-row mt-2')}>
+                        <View>
                             <Image source={{ uri: item.productImage }} style={tw.style('h-6 w-6 rounded-full')} />
                         </View>
                         <View style={tw.style('pl-2 pt-1')}>

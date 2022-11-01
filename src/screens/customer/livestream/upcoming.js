@@ -192,18 +192,18 @@ const upcoming = (props) => {
         );
     }
 
+    // Livestream image, label Holder
     const renderItem5 = ({ item ,index }) => {
        return(
-          <View style={tw.style('mt-3 mb-5 px-2 w-1/3')}>
+          <View style={tw.style('flex mt-3 mb-5 px-2 w-1/3')}>
               <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId,item._id)}>
                   <View style={tw.style('')}>
-                      <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-auto h-50 rounded-lg')} />
-                      <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
+                      <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-auto h-45 rounded-lg')} />
 
                       <View style={tw.style('ml-3 bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 justify-center items-center')}>
                           <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
                       </View>
-                      <View style={tw.style('flex flex-row ml-3 bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-13 items-center')}>
+                      <View style={tw.style('flex-row ml-3 bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-13 items-center')}>
                           <View style={tw.style('pt-[2%] justify-center')}>
                               <UsersIcon color="red" fill="#000000" size={14} />
                           </View>
@@ -211,7 +211,7 @@ const upcoming = (props) => {
                       </View>
                   </View>
 
-                  <View style={tw.style('flex flex-row mt-2 items-center')}>
+                  <View style={tw.style('flex-row mt-2 items-center')}>
                       <View style={tw.style('pl-2')}>
                           <Text style={tw.style('text-gray-500 text-base')}>{item.eventTitle}</Text>
                       </View>
@@ -220,6 +220,7 @@ const upcoming = (props) => {
           </View>
       );
     }
+    // Livestream image, label Holder
 
     const rendermessage = ({ item }) => {
         return (
@@ -273,12 +274,12 @@ const upcoming = (props) => {
             style={styles.registrationRoot}>
             
             {showlist==true ?
-                <View style={tw.style('mt-6 mx-5')}>
+                <View style={tw.style('mt-6 mx-4')}>
                     <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
                 </View>
             :
                 <TouchableOpacity onPress={() => { setshowlist(true);  }}>
-                    <View style={tw.style('mt-6 mx-5')}>
+                    <View style={tw.style('mt-6 mx-4')}>
                         <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>back</Text>
                     </View>
                 </TouchableOpacity>
@@ -286,7 +287,7 @@ const upcoming = (props) => {
             
 
             {showlist==true ?
-                <View style={tw`flex flex-1 w-4/4`}>
+                <View style={tw`flex flex-1 w-4/4 mx-2`}>
                    <View style={tw`mt-4`}>
                     {props?.getalleventdata?.length>0 ?
                     <FlatList
@@ -304,8 +305,8 @@ const upcoming = (props) => {
             :
             <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
 
-                <View style={tw.style('pt-2 mx-5')}>
-                    <View style={tw.style('flex flex-row justify-between border-gray-800 border-b-2')}>
+                <View style={tw.style('flex pt-2 mx-5')}>
+                    <View style={tw.style('flex-row justify-between border-gray-800 border-b-2')}>
                         <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tw.style('m-3')} >
                             {tab1 == false ?
                                 <Text style={tw.style('text-base text-gray-700')}>Stats</Text>
@@ -344,7 +345,7 @@ const upcoming = (props) => {
                         <ScrollView>
                             <View style={tw.style('bg-gray-100')} >
                                 <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
-                                    <View style={tw.style('flex flex-row justify-between')} >
+                                    <View style={tw.style('flex-row justify-between')} >
                                         <Text style={tw.style('text-base text-gray-600 font-base')} >Title</Text>
                                         <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >{props?.livestreamrecaplist?.getchannelAudiance?.eventTitle}</Text>
                                     </View>

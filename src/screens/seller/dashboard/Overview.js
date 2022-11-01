@@ -201,7 +201,7 @@ const renderItem2 = ({ item,index }) => {
                      <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Total Store Visitors</Text>
                      <View style={tw.style('flex-row h-14 mb-1')}>
                        <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.totalproduct}</Text>
+                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>{props?.getlistselldeshboard?.totalproduct}</Text>
                        </View>
                        <View style={tw.style('flex-none')}>
                          { props?.getlistselldeshboard?.income>0 &&
@@ -231,7 +231,7 @@ const renderItem2 = ({ item,index }) => {
                      <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Total Store Orders</Text>
                      <View style={tw.style('flex-row h-14 mb-1')}>
                        <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.totalorder}</Text>
+                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>{props?.getlistselldeshboard?.totalorder}</Text>
                        </View>
                        <View style={tw.style('flex-none')}>
                          { props?.getlistselldeshboard?.income>0 &&
