@@ -335,7 +335,7 @@ const watchlist = (props) => {
             <View style={tw.style('ml-2 mr-2 mt-3')}>
                 <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId, item.startNow, item.eventdate,item.userId?._id)}>
                     <View>
-                        <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                        <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-45 h-35 rounded-md')} />
                         <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
 
                         <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2 items-center')}>
@@ -491,7 +491,6 @@ const watchlist = (props) => {
     }
 
     const renderItem3 = ({ item, index }) => {
-
         return (
             <View style={{ marginHorizontal: 3 }}>
                 <Image source={{ uri: item.productId.productImage }} style={styles.imgbasket} />
@@ -517,6 +516,7 @@ const watchlist = (props) => {
         );
     }
 
+    // Sliding Navigation formatting
     const renderItem9 = ({ item, index }) => {
         return(
           <View style={tw.style('flex flex-row justify-items-center my-2 px-1 pt-1')}>
@@ -568,29 +568,18 @@ const watchlist = (props) => {
                         }
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={() => Showshops()}>
-                        {shop ?
-                            <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
-                                <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>Shops</Text>
-                            </View>
-                        :
-                            <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
-                                 <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Shops</Text>
-                            </View>
-                        }
-                        </TouchableOpacity>
-
-
                     </View>
         );
     }
+    // End of Sliding Navigation formatting
 
+    // Livestream area current and past list of Livestreams
     const renderItem5 = ({ item, index }) => {
         return (
             <View style={tw.style('ml-2 mr-2')}>
                 <TouchableOpacity >
                     <View>
-                        <Image source={{ uri: item.brandImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                        <Image source={{ uri: item.brandImage }} style={tw.style('w-40 h-40 rounded-md')} />
                         <Text style={styles.beautyproduct}></Text>
                         <Text style={styles.uplivetext}>{item.productName}</Text>
 
@@ -605,12 +594,12 @@ const watchlist = (props) => {
                         </View>
                     </View>
 
-                    <View style={tw.style('flex flex-row mt-2')}>
+                    <View style={tw.style('flex flex-row mt-2 items-center')}>
                         <View>
-                            <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')} />
+                            <Image source={ImageIcons.profileimage} style={tw.style('h-7 w-7 rounded-full')} />
                         </View>
-                        <View style={tw.style('pl-2 pt-1')}>
-                            <Text style={tw.style('text-gray-500 text-xs')}>{item.brandName}</Text>
+                        <View style={tw.style('pl-2')}>
+                            <Text style={tw.style('text-gray-500 text-base')}>{item.brandName}</Text>
                         </View>
                     </View>
 
@@ -619,6 +608,7 @@ const watchlist = (props) => {
 
         );
     }
+    // End Livestream area current and past list of Livestreams
 
 
     return (

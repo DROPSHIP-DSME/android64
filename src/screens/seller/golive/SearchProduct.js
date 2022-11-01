@@ -126,8 +126,8 @@ const SearchProduct = (props) => {
         console.log('renderItem',checkedId)
         console.log('item._id',item._id)
       return(
-        <View style={styles.maincartviewshop}>
-            <TouchableOpacity onPress={() =>callAction(item._id)}>
+        <View style={tw.style(`mr-2 w-1/3 overflow-hidden`)}>
+            {/* <TouchableOpacity onPress={() =>callAction(item._id)}>
                 <View>
                     <View style={styles.tickmarkview}>
                        {( checkedId.indexOf(item._id) > -1) &&
@@ -140,8 +140,23 @@ const SearchProduct = (props) => {
                        <Text style={styles.salesnewtext}>${item.productPrice}</Text>
                     </View>
                 </View>
+            </TouchableOpacity> */}
+            <TouchableOpacity onPress={() =>callAction(item._id)}>
+            <View>
+                    <View style={tw.style(`w-5 h-5 top-3 left-3 border-2 border-white absolute z-1001`)}>
+                       {( checkedId.indexOf(item._id) > -1) &&
+                        <Image source={ImageIcons.tickmark}  style={styles.tickmarkicon} />
+                       }
+                    </View>
+                    <Image source={{uri: item.productImage}} style={tw.style(`h-35 max-h-50 w-full rounded-lg object-center`)} />
+                    <View>
+                        <Text style={tw.style(`mt-1 text-base text-gray-700`)}>{item.productName}</Text>
+                        <Text style={tw.style(`text-xl text-gray-700 font-bold`)}>${item.productPrice}</Text>
+                    </View>
+            </View>
             </TouchableOpacity>
         </View>
+
       );
     }
 
@@ -155,38 +170,41 @@ const SearchProduct = (props) => {
             style={styles.registrationRoot}>
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff',marginBottom:0}} >
 
-             <View style={{marginHorizontal:'4%',paddingTop:'7%'}}>
+             <View style={tw.style('flex flex-1 mx-1 pt-[2%')}>
                 <View style={styles.bagimageView}>
                     <View style={{alignItems:'center'}}>
-                       <Text style={styles.productstext}>Products</Text>
+                       <Text style={tw.style(`text-2xl text-grey-700`)}>Products</Text>
                     </View>
                     <Smallbutton
                           text="Save"
                           onPress={() => saveproducttoevent()} />
-                    
-                </View>
+                    </View>
                 <View>
 
-                    <TouchableOpacity onPress={() =>selectAll()}>
-                        <View style={{flexDirection:'row',marginHorizontal:'5%',alignItems:'center',marginTop:'1%'}}>
-                                <View style={{width:15,height:15,borderWidth:2,borderColor:'#585858'}}>
-                                    { showall==true &&
-                                        <Image source={ImageIcons.tickmark}  style={styles.tickmarkicon} />
-                                    }
+                    
+                    <View style={tw.style('flex mt-5')}>
+                        <View style={tw.style(`flex-row justify-between items-center`)}>
+                            <Text style={tw.style(`text-xl text-grey-700 mx-3`)}>Suggested Products</Text>
+                            <TouchableOpacity onPress={() =>selectAll()}>
+                                <View style={{flexDirection:'row',alignItems:'center',marginTop:'1%'}}>
+                                        <View style={{width:15,height:15,borderWidth:2,borderColor:'#585858'}}>
+                                            { showall==true &&
+                                                <Image source={ImageIcons.tickmark}  style={styles.tickmarkicon} />
+                                            }
 
+                                        </View>
+                                    <Text style={tw.style(`text-lg text-gray-700 mx-3`)}>Select all</Text>
                                 </View>
-                            <Text style={styles.selecttstext}>Select all</Text>
+                            </TouchableOpacity>
                         </View>
-                    </TouchableOpacity>
-                    <View style={tw.style('mt-10')}>
-                      <Text style={styles.salestextonce}>Suggested Products</Text>
-                       <View style={tw`mb-10`}>
+                       
+                       <View style={tw`mt-3 mb-5 mx-3`}>
                             <FlatList
                                 data={props?.getlistproduct || []}
                                 renderItem={renderItem}
                                 keyExtractor={item => item._id}
                                 showsHorizontalScrollIndicator={false}
-                                numColumns={2}
+                                numColumns={3}
                                 extraData={checkedId}
                             />
                         </View>
