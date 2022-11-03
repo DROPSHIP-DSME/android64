@@ -228,6 +228,9 @@ const Golive = (props) => {
                     <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("payment")}>
+                    <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
+            </TouchableOpacity>
         </View>
         </KeyboardAvoidingView>
     )

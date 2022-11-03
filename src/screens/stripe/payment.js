@@ -15,39 +15,38 @@ import Paymentvector from '../../components/baseassests/Paymentvector';
 
 // const stripePromise = loadStripe('pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa');
 
-const Payment = (props) => {
+const Payment = () => {
 
-  // const stripe = useStripe();
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
-  const [amount, setAmount] = useState('17000');
-  const [stripe_customer_id, setcustomer] = useState('cus_MarHAmfDbApr9b');
-  const [receipt_email, setEmail] = useState('cr@dropship.com');
-  
+  // const [paymentIntent, setpaymentIntent] = useState('');
+  // const [ephemeralKey, setephemeralKey] = useState('');
+  // const [customer, setcustomer] = useState('');
+
+  const finalAmount = 17000;
+  const customer = "cus_MarHAmfDbApr9b";
+  const email = "cd@dropship.com";
+
   const [loading, setLoading] = useState(false);
-  
+
   const checkOutPayment = async () => {
 
     try {
       // const finalAmount = parseInt(amount);
       // if (finalAmount < 1) return Alert.alert("You cannot donate below 1 INR");
-      const response1 = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
-        method: "POST",
-        headers: {
-         // "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          amount,
-          stripe_customer_id,
-          receipt_email,
-        }),
-      })
-
-      const data = await response1.json();
-      console.log(data);
-      //console.log(JSON.stringify(data));
-      // console.log(data.data.customer);
-      if (!response1.ok) {
+      const requestOptions = {
+          method: 'POST',
+          headers: { 
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({'receiptEmail':email, 'amount':finalAmount, 'stripeCustomerId':customer }),
+      }
+      const response = await fetch('http://161.35.123.125/api/stripe/mobile-payment-intent', requestOptions );
+      
+      const data = await response.json();
+      // console.log(JSON.stringify(data));
+      console.log(data.data.customer);
+      if (!response.ok) {
         return Alert.alert('data.paymentIntent');
       }
       const initSheet = await initPaymentSheet({
@@ -56,17 +55,25 @@ const Payment = (props) => {
         customerId: data.data.customer,
         allowsDelayedPaymentMethods: true,
         currencyCode: "USD",
-        style: "alwaysLight",
-        merchantDisplayName: "Dropship",
+        merchantDisplayName: "anything",
+        style: 'automatic',
+        returnURL: 'stripe-example://stripe-redirect',
+        googlePay: {
+          merchantCountryCode: 'US',
+          testEnv: true, // use test environment
+        },
         
-      });
+      })
+      // console.log(data.data.customer);
       if (initSheet.error) {
         console.error(initSheet.error);
         return Alert.alert(initSheet.error.message);
       }
+      console.log(data.data.customer);
       const presentSheet = await presentPaymentSheet({
         clientSecret: data.data.paymentIntent,
       });
+
       if (presentSheet.error) {
         console.error(presentSheet.error);
         return Alert.alert(presentSheet.error.message);
@@ -77,40 +84,20 @@ const Payment = (props) => {
       Alert.alert("Payment failed!");
     }
   };
-
-
+  
   return (
-    <StripeProvider
-      publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
-      merchantIdentifier="merchant.identifier"
-    >
-    <KeyboardAvoidingView
-       behavior={Platform.OS === "ios" ? "padding" : "height"}
-       style={styles.registrationRoot}>
-        
-        <View style={tw.style('items-center mt-15 mb-[10%]')}>
-            <Logobase />
-        </View>
-        <View style={tw.style('mb-1 mx-5')}>
-          <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Payment</Text>
-          <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
-        </View>
-        <View style={tw.style('h-100')}>
-          <Paymentvector />
-        </View>
+    <View style={tw.style('top-50')}>
+     
+     <StripeProvider
+        publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
+        merchantIdentifier="merchant.identifier"
+        >
+      <Button variant="primary" title="Stripe Checkout" onPress={checkOutPayment} />
+      </StripeProvider>
 
-        <View style={tw.style('my-1 mx-5 text-white mb-20')}>
-        
-          <Button onPress={checkOutPayment} title="Create strip" />
-        
-        </View>
-
-        
-    </KeyboardAvoidingView>
-    </StripeProvider>
  
+    </View>
   );
-
 }
 
 export default Payment
