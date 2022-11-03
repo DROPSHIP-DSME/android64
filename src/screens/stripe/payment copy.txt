@@ -1,0 +1,120 @@
+import React, { useState, useEffect } from 'react';
+import { Text, View,TextInput,
+ ImageBackground,Image,
+ ScrollView,TouchableOpacity,
+ Alert,  StatusBar,
+ KeyboardAvoidingView,
+ Platform,Keyboard, NativeModules, Picker, Button, Switch, Screen} from 'react-native';
+ import AsyncStorage from '@react-native-community/async-storage';
+import { StripeProvider, useStripe } from '@stripe/stripe-react-native';
+import styles from '../common/styles';
+import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Logobase from '../../components/baseassests/Logobase';
+import Paymentvector from '../../components/baseassests/Paymentvector';
+
+
+// const stripePromise = loadStripe('pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa');
+
+const Payment = (props) => {
+
+  // const stripe = useStripe();
+  const stripe = useStripe();
+  const [name, setName] = useState('Charles Robinson');
+  // const [finalAmount, setAmount] = useState("17000");
+  // const [customer, setcustomer] = useState("cus_MarHAmfDbApr9b");
+  // const [receiptemail, setEmail] = useState("cd@dropship.com");
+  
+  const [loading, setLoading] = useState(false);
+
+  const finalAmount = 17000;
+  const customer = "cus_MarHAmfDbApr9b";
+  const email = "cd@dropship.com";
+  
+  const checkOutPayment = async () => {
+
+    try {
+      // const finalAmount = parseInt(amount);
+      // if (finalAmount < 1) return Alert.alert("You cannot donate below 1 INR");
+      const requestOptions = {
+          method: 'POST',
+          headers: { 
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({'receiptEmail':email, 'amount':finalAmount, 'stripeCustomerId':customer })
+      };
+      const response = await fetch('http://161.35.123.125/api/stripe/mobile-payment-intent', requestOptions );
+      
+      const data = await response.json();
+      console.log(data);
+      //console.log(JSON.stringify(data));
+      // console.log(data.data.customer);
+      if (!response.ok) {
+        return Alert.alert('data.paymentIntent');
+      }
+      const initSheet = await stripe.initPaymentSheet({
+        paymentIntentClientSecret: data.data.paymentIntent,
+        customerEphemeralKeySecret: data.data.ephemeralKey,
+        customerId: data.data.customer,
+        allowsDelayedPaymentMethods: true,
+        currencyCode: "USD",
+        merchantDisplayName: "Dropship",
+        
+      });
+      if (initSheet.error) {
+        console.error(initSheet.error);
+        return Alert.alert(initSheet.error.message);
+      }
+
+      const presentSheet = await stripe.presentPaymentSheet({
+        clientSecret: data.data.paymentIntent,
+      });
+      
+      if (presentSheet.error) {
+        console.error(presentSheet.error);
+        return Alert.alert(presentSheet.error.message);
+      }
+      Alert.alert("Payment successfully!");
+    } catch (err) {
+      console.error(err);
+      Alert.alert("Payment failed!");
+    }
+  };
+
+
+  return (
+    <KeyboardAvoidingView
+       behavior={Platform.OS === "ios" ? "padding" : "height"}
+       style={styles.registrationRoot}>
+        <View>
+          <StripeProvider
+          publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa">
+          
+              <View style={tw.style('items-center mt-15 mb-[10%]')}>
+                  <Logobase />
+              </View>
+              <View style={tw.style('mb-1 mx-5')}>
+                <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Payment</Text>
+                <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
+              </View>
+              <View style={tw.style('h-100')}>
+                <Paymentvector />
+              </View>
+
+              <View style={tw.style('my-1 mx-5 text-white mb-20')}>
+              
+                <Button onPress={checkOutPayment} title="Create strip" />
+              
+              </View>
+          </StripeProvider>
+        </View>
+        
+    </KeyboardAvoidingView>
+    
+ 
+  );
+
+}
+
+export default Payment

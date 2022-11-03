@@ -186,7 +186,7 @@ const Golive = (props) => {
             <View style={tw`mx-5 mt-10`}>
               <Largebutton
                 text="Stripe Payment 2"
-                onPress={() => { navigation.navigate('Verificationsteps'); }}
+                onPress={() => { navigation.navigate('payment'); }}
               />
             </View>
 

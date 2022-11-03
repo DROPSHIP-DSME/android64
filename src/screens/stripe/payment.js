@@ -5,7 +5,8 @@ import { Text, View,TextInput,
  Alert,  StatusBar,
  KeyboardAvoidingView,
  Platform,Keyboard, NativeModules, Picker, Button, Switch, Screen} from 'react-native';
-import { StripeProvider, useStripe } from '@stripe/stripe-react-native';
+ import AsyncStorage from '@react-native-community/async-storage';
+import { useStripe } from '@stripe/stripe-react-native';
 import styles from '../common/styles';
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
@@ -15,103 +16,101 @@ import Paymentvector from '../../components/baseassests/Paymentvector';
 
 // const stripePromise = loadStripe('pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa');
 
-const Payment = (props) => {
+const Payment = () => {
 
-  // const stripe = useStripe();
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
-  const [name, setName] = useState('Charles Robinson');
-  const [amount, setAmount] = useState('170.00');
-  const [customer, setcustomer] = useState('cus_MarHAmfDbApr9b');
-  const [receipt_email, setEmail] = useState('cd@dropship.com');
-  
+  const [paymentIntent, setpaymentIntent] = useState('');
+  const [ephemeralKey, setephemeralKey] = useState('');
+  // const [customer, setcustomer] = useState('');
+
+  const finalAmount = 17000;
+  const customer = "cus_MarHAmfDbApr9b";
+  const email = "cd@dropship.com";
+
   const [loading, setLoading] = useState(false);
+
+  const fetchPaymentSheetParams = async () => {
+    const response = await fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({'receiptEmail':email, 'amount':finalAmount, 'stripeCustomerId':customer }),
+    })
+    .then(response => response.json())
+    .then((responseJson) => {
+      console.log(responseJson.data);
+      // setpaymentIntent(responseJson.data.paymentIntent);
+      // setephemeralKey(responseJson.data.ephemeralKey);
+      // setcustomer(responseJson.data.customer);
+      // setpublishableKey(responseJson.data.publishableKey);
+    })
+    .catch(e => Alert.alert(e.message));
+
+    return {
+      paymentIntent,
+      ephemeralKey,
+      customer,
+    };
+  };
+
+  const openPaymentSheet = async () => {
+    if (!paymentIntent) {
+      return;
+    }
+    const { error } = await presentPaymentSheet();
+
+    if (error) {
+      Alert.alert(`Error code: ${error.code}`, error.message);
+    } else {
+      Alert.alert('Success', 'Your order is confirmed!');
+    }
   
-  const checkOutPayment = async () => {
+  };
 
-    try {
-      // const finalAmount = parseInt(amount);
-      // if (finalAmount < 1) return Alert.alert("You cannot donate below 1 INR");
-      const response = await fetch("http://161.35.123.125/api/stripe/mobile-payment-intent", {
-        method: "POST",
-        headers: {
-          Accept: 'application/json',
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          amount:5000,
-          stripe_customer_id: "cus_MarHAmfDbApr9b",
-          receipt_email:"allan.k@mailainator.com"
-        }),
-      })
-
-      const data = await response.json();
-      console.log(data);
-      //console.log(JSON.stringify(data));
-      // console.log(data.data.customer);
-      if (!response.ok) {
-        return Alert.alert('data.paymentIntent');
-      }
-      const initSheet = await initPaymentSheet({
-        paymentIntentClientSecret: data.data.paymentIntent,
-        customerEphemeralKeySecret: data.data.ephemeralKey,
-        customerId: data.data.customer,
-        allowsDelayedPaymentMethods: true,
-        currencyCode: "USD",
-        style: "alwaysLight",
-        merchantDisplayName: "Dropship",
-        
-      });
-      if (initSheet.error) {
-        console.error(initSheet.error);
-        return Alert.alert(initSheet.error.message);
-      }
-      const presentSheet = await presentPaymentSheet({
-        clientSecret: data.data.paymentIntent,
-      });
-      if (presentSheet.error) {
-        console.error(presentSheet.error);
-        return Alert.alert(presentSheet.error.message);
-      }
-      Alert.alert("Payment successfully!");
-    } catch (err) {
-      console.error(err);
-      Alert.alert("Payment failed!");
+  const initializePaymentSheet = async () => { 
+    const {
+      publishableKey = "pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa",
+      paymentIntent,
+      ephemeralKey,
+      customer,
+    } = await fetchPaymentSheetParams();
+    
+    const { error } = await initPaymentSheet({
+      customerId: customer,
+      customerEphemeralKeySecret: ephemeralKey,
+      paymentIntentClientSecret: paymentIntent,
+      allowsDelayedPaymentMethods: true,
+      currencyCode: "USD",
+      merchantDisplayName: "anything",
+      style: 'automatic',
+      returnURL: 'stripe-example://stripe-redirect',
+      googlePay: {
+        merchantCountryCode: 'US',
+        testEnv: true, // use test environment
+      },
+    });
+    if (!error) {
+      setLoading(true);
     }
   };
 
+  useEffect(() => {
+    initializePaymentSheet();
+  }, []);
+
+  
+
 
   return (
-    <StripeProvider
-      publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
-      merchantIdentifier="merchant.identifier"
-    >
-    <KeyboardAvoidingView
-       behavior={Platform.OS === "ios" ? "padding" : "height"}
-       style={styles.registrationRoot}>
-        
-        <View style={tw.style('items-center mt-15 mb-[10%]')}>
-            <Logobase />
-        </View>
-        <View style={tw.style('mb-1 mx-5')}>
-          <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Payment</Text>
-          <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
-        </View>
-        <View style={tw.style('h-100')}>
-          <Paymentvector />
-        </View>
+    <View style={tw.style('top-50')}>
+     
 
-        <View style={tw.style('my-1 mx-5 text-white mb-20')}>
-        
-          <Button onPress={checkOutPayment} title="Create strip" />
-        
-        </View>
+      <Button variant="primary" disabled={!loading} title="Checkout" onPress={openPaymentSheet} />
 
-        
-    </KeyboardAvoidingView>
-    </StripeProvider>
  
+    </View>
   );
-
 }
 
 export default Payment
