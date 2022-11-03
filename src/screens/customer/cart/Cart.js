@@ -159,7 +159,6 @@ const Cart = (props) => {
         console.log('stripe_customer_id',props.loginCredentials?.stripe_id);
         console.log('receipt_email',props.loginCredentials?.email);
         console.log('amount',finalAmount);
-
         const response = fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent` , {
             method: 'POST',
             headers: {
@@ -188,53 +187,66 @@ const Cart = (props) => {
                 "city":props.loginCredentials?.city,
                 "country":'USA'
             }
+
+            // this is where your error is; Your are killing the order before it can be processed
             props.chekout(request, props.navigation, "vendor");
             setTimeout(function(){
                   setloginLoader(false); setshowotherAlert(true)
-                  setshowalertmsg('Order placed successfully');
+                  // setshowalertmsg('Order placed successfully');
                   props.cartdata(props?.loginuserid);
             },1000);
+            // this is where your error is; Your are killing the order before it can be processed
 
+            
         }).catch((error) => {
             console.log('error',error)
             setshowotherAlert(true)
             setshowalertmsg('Payment failed')
+        });
+
+        const data = await response.json();
+        // console.log(JSON.stringify(data));
+        console.log(data);
+        if (!response.ok) {
+          return Alert.alert('data.paymentIntent');
+        }
+
+        const initSheet = await initPaymentSheet({
+          paymentIntentClientSecret: data.data.paymentIntent,
+          customerEphemeralKeySecret: data.data.ephemeralKey,
+          customerId: data.data.customer,
+          allowsDelayedPaymentMethods: true,
+          currencyCode: "USD",
+          merchantDisplayName: "anything",
+          style: 'automatic',
+          returnURL: 'stripe-example://stripe-redirect',
+          googlePay: {
+            merchantCountryCode: 'US',
+            testEnv: true, // use test environment
+          },
+          
         })
-      }
-      catch (err) {
+        // console.log(data.data.customer);
+        if (initSheet.error) {
+          console.error(initSheet.error);
+          return Alert.alert(initSheet.error.message);
+        }
+        // console.log(data.data.customer);
+        const presentSheet = await presentPaymentSheet({
+          clientSecret: data.data.paymentIntent,
+        });
+
+        if (presentSheet.error) {
+          console.error(presentSheet.error);
+          return Alert.alert(presentSheet.error.message);
+        }
+        Alert.alert("Payment successfully!");
+      } catch (err) {
         console.error(err);
         Alert.alert("Payment failed!");
       }
 
     };
-
-    const getiDataPaymentSheet =  async (dataRec) => {
-        const initSheet =  initPaymentSheet({
-          paymentIntentClientSecret: dataRec.paymentIntent,
-          customerEphemeralKeySecret: dataRec.ephemeralKey,
-          customerId: dataRec.customer,
-          allowsDelayedPaymentMethods: true,
-          currencyCode: "USD",
-          style: "alwaysLight",
-          merchantDisplayName: "Dropship",
-
-        });
-
-        if (initSheet.error) {
-           Alert.alert(initSheet.error.message);
-
-        }
-
-        const presentSheet = presentPaymentSheet({
-          clientSecret: dataRec.paymentIntent,
-        });
-
-        if (presentSheet.error) {
-          console.error(presentSheet.error);
-          Alert.alert(presentSheet.error.message);
-        }
-        Alert.alert("Payment successfully!");
-    }
 
     return (
       <StripeProvider
