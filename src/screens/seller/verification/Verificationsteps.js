@@ -246,7 +246,7 @@ const Verificationsteps = (props) => {
               style={tw.style('bottom-1 inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
             >
               <TouchableOpacity style={tw.style('h-15 w-10/11 justify-center items-center')} onPress={handlePress}>
-                <Text style={tw.style('text-lg text-white')}>Create Stripe Account</Text>
+                <Text style={tw.style('text-lg text-white')}>Setup Payouts</Text>
               </TouchableOpacity>
             </View>
         );
@@ -498,7 +498,7 @@ const Verificationsteps = (props) => {
                         </View>
 
                         {step3==true &&
-                            <OpenURLButton url={supportedURL}>Checkout</OpenURLButton>
+                            <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
                         }
 
                       </View>

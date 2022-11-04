@@ -205,32 +205,34 @@ const Cart = (props) => {
 
         console.log('initSheet',initSheet);
 
-        if (initSheet.error) {
-          console.error('initSheet',initSheet.error);
-          setshowotherAlert(true)
-          setshowalertmsg('initSheet error')
-        }
+        const presentSheet = await presentPaymentSheet({
+          clientSecret: resdata.paymentIntent,
+        });
 
-        if(initSheet && initSheet.paymentOption!=undefined){
-            const presentSheet = await presentPaymentSheet({
-              clientSecret: resdata.paymentIntent,
-            });
+        // if (initSheet.error) {
+        //   console.error('initSheet',initSheet.error);
+        //   // setshowotherAlert(true)
+        //   setshowalertmsg('initSheet error')
+        // }
 
-            if (presentSheet.error) {
-                setloginLoader(false); 
-               console.error('presentSheet',presentSheet.error);
-               setshowotherAlert(true)
-               setshowalertmsg('presentSheet error')
-            }else {
-                saveCartData();
-                setloginLoader(false); 
-                setshowotherAlert(true)
-                setshowalertmsg('Payment successfully Done')
-            }
-        }else {
-            saveCartData();
-        }
-        return true;
+        // if(initSheet && initSheet.paymentOption!=undefined){
+           
+
+        //     // if (presentSheet.error) {
+        //     //     setloginLoader(false); 
+        //     //    console.error('presentSheet',presentSheet.error);
+        //     //   //  setshowotherAlert(true)
+        //     //    setshowalertmsg('presentSheet error')
+        //     // }else {
+        //     //     saveCartData();
+        //     //     setloginLoader(false); 
+        //     //     setshowotherAlert(true)
+        //     //     setshowalertmsg('Payment successfully Done')
+        //     // }
+        // }else {
+        //     saveCartData();
+        // }
+        // return true;
     }
 
     const saveCartData = async () => {
