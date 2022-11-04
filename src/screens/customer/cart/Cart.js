@@ -203,7 +203,11 @@ const Cart = (props) => {
           
         })
 
-        console.log('initSheet',initSheet);
+        if (initSheet.error) {
+          Alert.alert(initSheet.error.message);
+          console.error(initSheet.error);
+          return Alert.alert(initSheet.error.message);
+       }
 
         const presentSheet = await presentPaymentSheet({
           clientSecret: resdata.paymentIntent,
