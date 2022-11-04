@@ -179,6 +179,7 @@ const Verificationsteps = (props) => {
         } else {
             setaddress2(line1);
             setstep2(false)
+            onsetuppayout();
             onNextStep();
         }
         //console.log('called next step');
@@ -198,6 +199,11 @@ const Verificationsteps = (props) => {
    }
 
    useEffect(() => {
+        
+    }, []);
+
+    const onsetuppayout = () => { 
+
         const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , { 
             method: 'POST',
             headers: {
@@ -213,8 +219,7 @@ const Verificationsteps = (props) => {
             setData(responseJson.data.url);
            // setstep3(false)
             if(responseJson?.data?.url){
-                setstep3(fales);
-
+                setstep3(false);
                 // setshowotherAlert(true)
                 // setshowalertmsg('stripe account created successfully')
             }else{
@@ -224,7 +229,8 @@ const Verificationsteps = (props) => {
         })
         .catch((error) => console.error(error) )
         .finally(() => console.log('sd') );
-    }, []);
+
+    }
 
     const OpenURLButton = ({ url, children }) => {
         const handlePress = useCallback(async () => {
@@ -471,6 +477,7 @@ const Verificationsteps = (props) => {
                   previousBtnTextStyle={buttonTextStyle}
                   errors={step3}
                 >
+                    <ScrollView>
                     <View style={tw.style(`flex flex-1 mx-4 justify-center`)}>
                         <View style={tw.style('mb-2')}>
                             <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Almost There!</Text>
@@ -486,7 +493,7 @@ const Verificationsteps = (props) => {
                             <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@UserName</Text>
                             <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
-                          <View style={tw.style(`mx-20 mb-15`)}>
+                          <View style={tw.style(`mx-20 mb-5`)}>
                             <Smallbutton
                               text="View Products"
                               onPress={() => { }} />
@@ -497,11 +504,12 @@ const Verificationsteps = (props) => {
                           <Text style={tw.style('mt-1 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
                         </View>
 
-                        {step3==true &&
-                            <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
+                        {step3==false &&
+                            <OpenURLButton url={data}>Setup Payouts</OpenURLButton>
                         }
 
                       </View>
+                      </ScrollView>
                   
                 </ProgressStep>
 
