@@ -205,34 +205,20 @@ const Cart = (props) => {
 
         console.log('initSheet',initSheet);
 
+        
+
+        if (initSheet.error) {
+          console.error('initSheet',initSheet.error);
+          setshowotherAlert(true)
+          setshowalertmsg('initSheet error')
+        }
+
         const presentSheet = await presentPaymentSheet({
           clientSecret: resdata.paymentIntent,
         });
-
-        // if (initSheet.error) {
-        //   console.error('initSheet',initSheet.error);
-        //   // setshowotherAlert(true)
-        //   setshowalertmsg('initSheet error')
-        // }
-
-        // if(initSheet && initSheet.paymentOption!=undefined){
-           
-
-        //     // if (presentSheet.error) {
-        //     //     setloginLoader(false); 
-        //     //    console.error('presentSheet',presentSheet.error);
-        //     //   //  setshowotherAlert(true)
-        //     //    setshowalertmsg('presentSheet error')
-        //     // }else {
-        //     //     saveCartData();
-        //     //     setloginLoader(false); 
-        //     //     setshowotherAlert(true)
-        //     //     setshowalertmsg('Payment successfully Done')
-        //     // }
-        // }else {
-        //     saveCartData();
-        // }
-        // return true;
+        if (presentSheet.error) {
+            alert('error')
+        }
     }
 
     const saveCartData = async () => {
@@ -254,12 +240,12 @@ const Cart = (props) => {
             "country":'USA'
         }
         console.log('checkOutPayment',request)
-        props.chekout(request, props.navigation, "vendor");
+        //props.chekout(request, props.navigation, "vendor");
         setTimeout(function(){
             setloginLoader(false); 
             setshowotherAlert(true)
             setshowalertmsg('Order placed successfully');
-            props.cartdata(props?.loginuserid);
+            //props.cartdata(props?.loginuserid);
         },1000);
     }
 
