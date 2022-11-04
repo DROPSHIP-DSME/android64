@@ -154,99 +154,113 @@ const Cart = (props) => {
     const checkOutPayment = async () => {
       setloginLoader(true);
       try {
-        const finalAmount = parseInt(props?.totalcartprice);
-        if (finalAmount < 1) return Alert.alert("You cannot pay below $1");
-        console.log('stripe_customer_id',props.loginCredentials?.stripe_id);
-        console.log('receipt_email',props.loginCredentials?.email);
-        console.log('amount',finalAmount);
-        const response = fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent` , {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 'receiptEmail':props.loginCredentials?.email, 'amount':finalAmount, 'stripeCustomerId':props.loginCredentials?.stripe_id }),
-         })
-        .then(response => response.json())
-        .then((responseJson) => {
-            console.log('checkOutPayment',responseJson.data)
-
-            let request = {
-                "userId":props?.loginuserid,
-                "orderNumber":props?.loginuserid+''+finalAmount,
-                "orderStatus":"accepted",
-                "orderAmount":finalAmount,
-                "paymentMethod":"Card",
-                "orderDate":new Date(),
-                "firstName":props.loginCredentials?.userName,
-                "lastName":'',
-                "emailaddress":props.loginCredentials?.email,
-                "phoneNumber":props.loginCredentials?.phoneNumber,
-                "streetAdress":props.loginCredentials?.streetAdress,
-                "zipCode":props.loginCredentials?.zipCode,
-                "city":props.loginCredentials?.city,
-                "country":'USA'
-            }
-
-            // this is where your error is; Your are killing the order before it can be processed
-            props.chekout(request, props.navigation, "vendor");
-            setTimeout(function(){
-                  setloginLoader(false); setshowotherAlert(true)
-                  // setshowalertmsg('Order placed successfully');
-                  props.cartdata(props?.loginuserid);
-            },1000);
-            // this is where your error is; Your are killing the order before it can be processed
-
-            
-        }).catch((error) => {
-            console.log('error',error)
-            setshowotherAlert(true)
-            setshowalertmsg('Payment failed')
-        });
-
-        const data = await response.json();
-        // console.log(JSON.stringify(data));
-        console.log(data);
-        if (!response.ok) {
-          return Alert.alert('data.paymentIntent');
-        }
-
-        const initSheet = await initPaymentSheet({
-          paymentIntentClientSecret: data.data.paymentIntent,
-          customerEphemeralKeySecret: data.data.ephemeralKey,
-          customerId: data.data.customer,
-          allowsDelayedPaymentMethods: true,
-          currencyCode: "USD",
-          merchantDisplayName: "anything",
-          style: 'automatic',
-          returnURL: 'stripe-example://stripe-redirect',
-          googlePay: {
-            merchantCountryCode: 'US',
-            testEnv: true, // use test environment
-          },
-          
-        })
-        // console.log(data.data.customer);
-        if (initSheet.error) {
-          console.error(initSheet.error);
-          return Alert.alert(initSheet.error.message);
-        }
-        // console.log(data.data.customer);
-        const presentSheet = await presentPaymentSheet({
-          clientSecret: data.data.paymentIntent,
-        });
-
-        if (presentSheet.error) {
-          console.error(presentSheet.error);
-          return Alert.alert(presentSheet.error.message);
-        }
-        Alert.alert("Payment successfully!");
-      } catch (err) {
-        console.error(err);
-        Alert.alert("Payment failed!");
+            const finalAmount = parseInt(props?.totalcartprice)*100;
+            if (finalAmount < 1) return Alert.alert("You cannot pay below $1");
+            console.log('stripe_customer_id',props.loginCredentials?.stripe_id);
+            console.log('receipt_email',props.loginCredentials?.email);
+            console.log('amount',finalAmount);
+            const response = fetch(`http://161.35.123.125/api/stripe/mobile-payment-intent` , {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'receiptEmail':props.loginCredentials?.email, 'amount':finalAmount, 'stripeCustomerId':props.loginCredentials?.stripe_id }),
+             })
+            .then(response => response.json())
+            .then((responseJson) => {
+                console.log('checkOutPayment',responseJson.data)
+                checkOutPaymentPayment(responseJson.data);
+            }).catch((error) => {
+                setloginLoader(false); 
+                console.log('error',error)
+                setshowotherAlert(true)
+                setshowalertmsg('Payment failed')
+            });
+     
+       } catch (err) {
+            setloginLoader(false); 
+            console.error(err);
+            Alert.alert("Payment failed!");
       }
 
     };
+
+    const checkOutPaymentPayment = async (resdata) => {
+
+        const initSheet = await initPaymentSheet({
+          paymentIntentClientSecret: resdata.paymentIntent,
+          customerEphemeralKeySecret: resdata.ephemeralKey,
+          customerId: resdata.customer,
+          allowsDelayedPaymentMethods: true,
+          currencyCode: "USD",
+          merchantDisplayName: "Dropship",
+          style: 'automatic',
+          returnURL: 'stripe-example://stripe-redirect',
+          googlePay: true,
+          merchantCountryCode: 'US',
+          testEnv: true
+          
+        })
+
+        console.log('initSheet',initSheet);
+
+        if (initSheet.error) {
+          console.error('initSheet',initSheet.error);
+          setshowotherAlert(true)
+          setshowalertmsg('initSheet error')
+        }
+
+        if(initSheet && initSheet.paymentOption!=undefined){
+            const presentSheet = await presentPaymentSheet({
+              clientSecret: resdata.paymentIntent,
+            });
+
+            if (presentSheet.error) {
+                setloginLoader(false); 
+               console.error('presentSheet',presentSheet.error);
+               setshowotherAlert(true)
+               setshowalertmsg('presentSheet error')
+            }else {
+                saveCartData();
+                setloginLoader(false); 
+                setshowotherAlert(true)
+                setshowalertmsg('Payment successfully Done')
+            }
+        }else {
+            saveCartData();
+        }
+        return true;
+    }
+
+    const saveCartData = async () => {
+        let newfinaldata = parseInt(props?.totalcartprice);
+        let request = {
+            "userId":props?.loginuserid,
+            "orderNumber":props?.loginuserid+''+newfinaldata,
+            "orderStatus":"accepted",
+            "orderAmount":newfinaldata,
+            "paymentMethod":"Card",
+            "orderDate":new Date(),
+            "firstName":props.loginCredentials?.userName,
+            "lastName":'',
+            "emailaddress":props.loginCredentials?.email,
+            "phoneNumber":props.loginCredentials?.phoneNumber,
+            "streetAdress":props.loginCredentials?.streetAdress,
+            "zipCode":props.loginCredentials?.zipCode,
+            "city":props.loginCredentials?.city,
+            "country":'USA'
+        }
+        console.log('checkOutPayment',request)
+        props.chekout(request, props.navigation, "vendor");
+        setTimeout(function(){
+            setloginLoader(false); 
+            setshowotherAlert(true)
+            setshowalertmsg('Order placed successfully');
+            props.cartdata(props?.loginuserid);
+        },1000);
+    }
+
 
     return (
       <StripeProvider

@@ -596,7 +596,7 @@ const watchlist = (props) => {
 
                     <View style={tw.style('flex flex-row mt-2 items-center')}>
                         <View>
-                            <Image source={ImageIcons.profileimage} style={tw.style('h-7 w-7 rounded-full')} />
+                            <Image source={{uri: item.brandImage}} style={tw.style('h-7 w-7 rounded-full')} />
                         </View>
                         <View style={tw.style('pl-2')}>
                             <Text style={tw.style('text-gray-500 text-base')}>{item.brandName}</Text>
