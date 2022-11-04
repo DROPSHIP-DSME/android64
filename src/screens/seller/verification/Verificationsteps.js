@@ -10,6 +10,7 @@ import styles from '../../common/styles';
 import { useNavigation } from '@react-navigation/native';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import Medbutton from '../../../components/dropshipbutton/Medbutton';
+import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 import Paymentvector from '../../../components/baseassests/Paymentvector';
 import Stripeprocess from '../../../components/baseassests/Stripeindprocess';
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
@@ -327,44 +328,44 @@ const Verificationsteps = (props) => {
                  >
                   <View style={tw.style('items-center mt-5')}>
                   <ScrollView>
-                    <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
-                      <View style={tw.style('mb-2')}>
-                        <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"hintedavertastdsemibold"})}>Create your Brand</Text>
+                      <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
+                        <View style={tw.style('mb-2')}>
+                          <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"hintedavertastdsemibold"})}>Create your Brand</Text>
+                        </View>
+                          
+                      
+                        { billImgPath !== "" ?
+                            <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-4 mb-5`} />
+                        :
+                          <TouchableOpacity style={tw`mt-4 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
+                            <CameraIcon color="#ffffff" fill="#ffffff" size={70} />
+                          </TouchableOpacity>
+                        }
                       </View>
-                        
-                    
-                      { billImgPath !== "" ?
-                          <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-4 mb-5`} />
-                      :
-                        <TouchableOpacity style={tw`mt-4 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
-                          <CameraIcon color="#ffffff" fill="#ffffff" size={70} />
-                        </TouchableOpacity>
-                      }
-                    </View>
 
 
-                     <View style={tw`flex flex-row pl-3 h-16 bg-zinc-200 rounded-lg rounded-md mt-8 mb-2 mx-5`}>
-                        <TextInput
-                          style={tw`text-gray-700 w-full px-2`}
-                          onChangeText={onChangeBrand}
-                          value={Brand}
-                          placeholder="Brand name"
-                          placeholderTextColor="#b3b3b3"
-                        />
-                    </View>
+                      <View style={tw`flex flex-row pl-3 h-16 bg-zinc-200 rounded-lg rounded-md mt-8 mb-2 mx-5`}>
+                          <TextInput
+                            style={tw`text-gray-700 w-full px-2`}
+                            onChangeText={onChangeBrand}
+                            value={Brand}
+                            placeholder="Brand name"
+                            placeholderTextColor="#b3b3b3"
+                          />
+                      </View>
 
-                    <View style={tw` h-32 bg-zinc-200 rounded-lg my-3  mx-5`}>
-                        <TextInput
-                          style={tw`px-2 text-gray-700 text-start`}
-                          onChangeText={(text) =>onChangeAboutBrand(text)}
-                          value={AboutBrand}
-                          placeholder="Tell us about your brand in fewer then 150 characters"
-                          placeholderTextColor="#b3b3b3"
-                          numberOfLines={10}
-                          multiline={true}
-                        />
-                    </View> 
-</ScrollView>
+                      <View style={tw` h-32 bg-zinc-200 rounded-lg my-3  mx-5`}>
+                          <TextInput
+                            style={tw`px-2 text-gray-700 text-start`}
+                            onChangeText={(text) =>onChangeAboutBrand(text)}
+                            value={AboutBrand}
+                            placeholder="Tell us about your brand in fewer then 150 characters"
+                            placeholderTextColor="#b3b3b3"
+                            numberOfLines={10}
+                            multiline={true}
+                          />
+                      </View> 
+                    </ScrollView>
                   </View>
                 </ProgressStep>
 
@@ -470,31 +471,37 @@ const Verificationsteps = (props) => {
                   previousBtnTextStyle={buttonTextStyle}
                   errors={step3}
                 >
-                    <View style={tw.style('text-gray-700 text-xl items-center')}>
-                      <View style={tw.style('mt-2 mx-5')}>
-                          <View style={tw.style('mb-2 mx-4')}>
-                            <Text style={tw.style('text-2xl text-gray-700 text-center mb-3', {fontFamily:"hintedavertastdsemibold"})}>Create Seller Account</Text>
-                            <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
+                    <View style={tw.style(`flex flex-1 mx-4 justify-center`)}>
+                        <View style={tw.style('mb-2')}>
+                            <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Almost There!</Text>
+                            <Text style={tw.style('text-base text-gray-600 text-center mt-3', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
+                        </View>
+                        <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-9')}>
+                          <View style={tw.style('px-6 py-5 items-center')}>
+                            <Image
+                              style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                              source={''}
+                            />
+                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>User Name</Text>
+                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@UserName</Text>
+                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
-                          <View style={tw.style('h-55 mb-0')}>
-                            <Paymentvector />
+                          <View style={tw.style(`mx-20 mb-15`)}>
+                            <Smallbutton
+                              text="View Products"
+                              onPress={() => { }} />
                           </View>
+                        </View>
+                        <View style={tw.style(`mb-15`)}>
+                          <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Let's Make sure you get Paid</Text>
+                          <Text style={tw.style('mt-1 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
+                        </View>
 
                         {step3==true &&
                             <OpenURLButton url={supportedURL}>Checkout</OpenURLButton>
-                            // <View
-                            //   type="button"
-                            //   style={tw.style('bottom-1 inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
-                            // >
-                            //     <TouchableOpacity style={tw.style('h-15 w-10/11 justify-center items-center')} onPress={() => { creaetstripeaccount()}}>
-                                
-                            //     <Text style={tw.style('text-lg text-white')}>Create Stripe Account</Text>
-                            //   </TouchableOpacity>
-                            // </View>
                         }
 
                       </View>
-                    </View>
                   
                 </ProgressStep>
 
