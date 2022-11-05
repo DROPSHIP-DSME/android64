@@ -150,5 +150,5 @@ export {
     payment,
     createselleraccount,
     Verificationsteps,
-    Profile,
+    Profile
 }
