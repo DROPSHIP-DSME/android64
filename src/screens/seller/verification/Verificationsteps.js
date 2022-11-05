@@ -26,7 +26,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 const Verificationsteps = (props) => {
-   
+
    const defaultScrollViewProps = {
       keyboardShouldPersistTaps: 'handled',
       contentContainerStyle: {
@@ -66,7 +66,7 @@ const Verificationsteps = (props) => {
     const [step1, setstep1] = useState(true);
     const [step2, setstep2] = useState(true);
     const [step3, setstep3] = useState(true);
-    const [email, setEmail] = useState("sally.west@dropship.com");
+    const [email, setEmail] = useState("sallywest@dropship.com");
     const [phone, setPhone] = useState("0000000000");
     const [refreshUrl, setrefreshUrl] = useState("https://dropship.shopping");
     const [returnUrl, setreturnUrl] = useState("https://dropship.shopping");
@@ -121,7 +121,7 @@ const Verificationsteps = (props) => {
                 setBillImgPath(file);
             }
         }).catch((error) => {
-            
+
         });
     }
 
@@ -189,22 +189,22 @@ const Verificationsteps = (props) => {
         setSelectedValue(itemValue)
     };
 
-    const onNextStep = () => {   
+    const onNextStep = () => {
       console.log('called next step');
     };
-  
+
    const getrememberMe = async () => {
         var getemail = await AsyncStorage.getItem('rememberemail');
         setEmail(getemail);
    }
 
    useEffect(() => {
-        
+
     }, []);
 
-    const onsetuppayout = () => { 
+    const onsetuppayout = () => {
 
-        const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , { 
+        const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -236,7 +236,7 @@ const Verificationsteps = (props) => {
         const handlePress = useCallback(async () => {
         // Checking if the link is supported for links with custom URL scheme.
         const supported = await Linking.canOpenURL(url);
-    
+
         if (supported) {
             // Opening the link with some app, if the URL scheme is "http" the web link should be opened
             // by some browser in the mobile
@@ -249,9 +249,9 @@ const Verificationsteps = (props) => {
         return (
             <View
               type="button"
-              style={tw.style('bottom-1 inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+              style={tw.style('bottom-1 inline-flex items-center px-3 py-1 mx-8 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
             >
-              <TouchableOpacity style={tw.style('h-15 w-10/11 justify-center items-center')} onPress={handlePress}>
+              <TouchableOpacity style={tw.style('h-12 justify-center items-center')} onPress={handlePress}>
                 <Text style={tw.style('text-lg text-white')}>Setup Payouts</Text>
               </TouchableOpacity>
             </View>
@@ -260,11 +260,11 @@ const Verificationsteps = (props) => {
 
 
 
-    const onNextStep1= () => {   
+    const onNextStep1= () => {
         if(billImgPath == "") {
             setshowotherAlert(true)
             setshowalertmsg('Brand Image is required')
-        }else if(Brand == "" ) { 
+        }else if(Brand == "" ) {
             setshowotherAlert(true)
             setshowalertmsg('Brand name is required')
         }else if(AboutBrand == "") {
@@ -276,16 +276,16 @@ const Verificationsteps = (props) => {
         }
     };
 
-  
+
     const onPrevStep = () => {
       console.log('called previous step');
     };
-  
+
     const onSubmitSteps = () => {
       console.log('called on submit step.');
     };
 
-    
+
     const progressStepsStyle = {
       borderWidth: 2,
       activeStepIconBorderColor: '#b80000',
@@ -310,12 +310,12 @@ const Verificationsteps = (props) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.registrationRoot}>
 
-      
+
       <StripeProvider
           publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
           merchantIdentifier="Dropship.com" // required for Apple Pay
         >
-          
+
 
 
             <View style={tw.style('flex flex-1 mt-6 mx-2')}>
@@ -338,8 +338,8 @@ const Verificationsteps = (props) => {
                         <View style={tw.style('mb-2')}>
                           <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"hintedavertastdsemibold"})}>Create your Brand</Text>
                         </View>
-                          
-                      
+
+
                         { billImgPath !== "" ?
                             <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-4 mb-5`} />
                         :
@@ -370,7 +370,7 @@ const Verificationsteps = (props) => {
                             numberOfLines={10}
                             multiline={true}
                           />
-                      </View> 
+                      </View>
                     </ScrollView>
                   </View>
                 </ProgressStep>
@@ -383,8 +383,8 @@ const Verificationsteps = (props) => {
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
-                  errors={step2}
-                >
+                  errors={step2}>
+
                   <View style={tw.style('text-gray-700 text-xl items-center mt-2 mb-1')}>
                     <ScrollView>
                      <View style={[styles.pickerViewshorttodaybrand,{marginTop:'1%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
@@ -481,9 +481,9 @@ const Verificationsteps = (props) => {
                     <View style={tw.style(`flex flex-1 mx-4 justify-center`)}>
                         <View style={tw.style('mb-2')}>
                             <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Almost There!</Text>
-                            <Text style={tw.style('text-base text-gray-600 text-center mt-3', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
+                            <Text style={tw.style('text-base text-gray-600 text-center mt-3 mx-4', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
                         </View>
-                        <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-9')}>
+                        <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-5')}>
                           <View style={tw.style('px-6 py-5 items-center')}>
                             <Image
                               style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
@@ -493,24 +493,26 @@ const Verificationsteps = (props) => {
                             <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@UserName</Text>
                             <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
-                          <View style={tw.style(`mx-20 mb-5`)}>
+                          <View style={tw.style(`mx-20 mb-10`)}>
                             <Smallbutton
-                              text="View Products"
+                              text="Add Products"
                               onPress={() => { }} />
                           </View>
                         </View>
-                        <View style={tw.style(`mb-15`)}>
+                        <View style={tw.style(`mb-9`)}>
                           <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Let's Make sure you get Paid</Text>
                           <Text style={tw.style('mt-1 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
                         </View>
 
-                        {step3==false &&
-                            <OpenURLButton url={data}>Setup Payouts</OpenURLButton>
-                        }
+                        <View style={tw.style(`mb-10`)}>
+                          { step3==true &&
 
-                      </View>
-                      </ScrollView>
-                  
+                              <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
+
+                          }
+                        </View>
+                    </View>
+                  </ScrollView>
                 </ProgressStep>
 
                 <ProgressStep
@@ -523,7 +525,7 @@ const Verificationsteps = (props) => {
                   previousBtnTextStyle={buttonTextStyle}
                   removeBtnRow={true}
                 >
-                  
+
                   <View style={tw.style('flex flex-1 mt-15 mb-1')}>
 
                       <View style={tw.style('flex-row mt-2 justify-center')}>
@@ -555,17 +557,17 @@ const Verificationsteps = (props) => {
 
                 </ProgressStep>
               </ProgressSteps>
-            
 
-              
+
+
             </View>
 
       </StripeProvider>
-      
+
       </KeyboardAvoidingView>
 
     );
-  
+
   }
-  
+
   export default Verificationsteps;

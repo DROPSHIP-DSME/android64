@@ -25,6 +25,7 @@ import Accountstore      from './customer/account/Accountstore';
 import Accountfav1       from './customer/account/Accountfav1';
 import Accountbrandlist  from './customer/account/Accountbrandlist';
 import Account           from './customer/account/Account';
+import Profile           from './customer/account/Profile';
 import Accountsum        from './customer/account/Accountsum';
 import Accountorderview  from './customer/account/Accountorderview';
 import Accountdata       from './customer/account/Accountdata';
@@ -148,5 +149,6 @@ export {
     Sellheader,
     payment,
     createselleraccount,
-    Verificationsteps
+    Verificationsteps,
+    Profile
 }

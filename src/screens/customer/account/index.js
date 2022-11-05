@@ -1,4 +1,5 @@
 import Account from './Account';
+import Profile from './Profile';
 import editaddress from './editaddress';
 import editprofile from './editprofile';
 import editviewaddress from './editviewaddress';
@@ -27,4 +28,5 @@ export {
     Accountfav1,
     Accountdata,
     Accountfollow,
+    Profile,
 }

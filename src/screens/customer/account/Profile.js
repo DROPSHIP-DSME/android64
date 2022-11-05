@@ -3,8 +3,8 @@ import { Text, View, Image, FlatList, Dimensions, StatusBar, Picker, TextInput, 
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/common/styles';
-import styl from '../../../screens/common/styledrop';
+import styles from '../../common/styles';
+import styl from '../../common/styledrop';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -13,7 +13,7 @@ import { phoneRegExp } from '../../../services/helper';
 import DropdownField from '../../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../../components/modals/Loader';
-import Footer3 from '../../../screens/common/Footer3';
+import Footer3 from '../../common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
@@ -30,7 +30,7 @@ import Help from '../../../components/help/Help';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import CustomAwesomeAlert from '../../../components/modals/AlertModal';
 
-const Account = (props) => {
+const Profile = (props) => {
 
     const {
         navigation,
@@ -224,74 +224,17 @@ const Account = (props) => {
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
-                <View style={tw.style('mx-4 pt-3')}>
-                    <Text style={tw.style('text-3xl text-gray-900 pt-3 mt-1 mb-4', {fontFamily:'hintedavertastdsemibold'})}>Shop Account</Text>
-                </View>
-
-                {/* TODO: remove the current account store summary a move to its own component */}
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-3')}>
-                  <View style={tw.style('px-2 py-5')}>
-                    <FlatList
-                      ListEmptyComponent={handleEmpty}
-                      data={props?.Brandlistdata || []}
-                      renderItem={renderItem1}
-                      keyExtractor={item => item.id}
-                      showsHorizontalScrollIndicator={false}
-                      numColumns={1}
+                <View style={tw.style('px-6 py-5 items-center')}>
+                    <Image
+                        style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                        source={''}
                     />
-                  </View>
-                </View>
-                {/* TODO: remove the current account store summary a move to its own component */}
-
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
-                  <View style={tw.style('px-2 py-5')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 items-center mb-3')}>
-                        <View>
-                            <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>My Profile</Text>
-                        </View>
-                            <Editbutton navigation={props.navigation} page='editprofile'  />
-                    </View>
-
-                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
-                            <Text style={tw`text-base text-gray-700`}>First Name</Text>
-                        </View>
-                        <View>
-                            <Text style={tw`text-lg text-gray-900`}>{props?.getprofileuserlist?.userName}</Text>
-                        </View>
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
-                            <Text style={tw`text-base text-gray-900`}>Last Name</Text>
-                        </View>
-                        <View>
-                            <Text style={tw`text-lg text-gray-900`}>{props?.getprofileuserlist?.lastName}</Text>
-                        </View>
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
-                            <Text style={tw`text-base text-gray-700`}>Email</Text>
-                        </View>
-                        <View>
-                            <Text style={tw`text-lg text-gray-900`}>{props?.getprofileuserlist?.email}</Text>
-                        </View>
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
-                            <Text style={tw`text-base text-gray-700`}>Number</Text>
-                        </View>
-                        <View>
-                            <Text style={tw`text-base text-gray-900`}>{props?.getprofileuserlist?.phone}</Text>
-                        </View>
-                    </View>
-                  </View>
+                    <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.userName} {props?.getprofileuserlist?.userName}</Text>
+                    <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.email}</Text>
                 </View>
 
 
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-2')}>
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-2 mb-3')}>
                           <View>
@@ -345,7 +288,7 @@ const Account = (props) => {
                   </View>
                 </View>
 
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-2')}>
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
@@ -370,11 +313,18 @@ const Account = (props) => {
 
 
                 <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
-                  <View style={tw.style('px-2 py-5')}>
+                  <View style={tw.style('px-2 py-4')}>
 
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-1 mb-5x')}>
-                        <Text style={tw.style('flex flex-row text-xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Saved Items</Text>
-                    </View>
+                        {/* <View style={tw.style('flex flex-row justify-between mx-4 mt-1 mb-5x')}>
+                            <Text style={tw.style('flex flex-row text-xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Saved Items</Text>
+                        </View> */}
+                    <TouchableOpacity onPress={() => props.navigation.navigate("editprofile")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                        <View style={tw`my-3`}>
+                            <Text style={tw.style('text-base text-gray-800')}>Edit Profile</Text>
+                        </View>
+                        <ArrowRightIcon color="red" fill="gray" size={24} />
+                    </TouchableOpacity>
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View> 
 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav1")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-3`}>
@@ -382,13 +332,13 @@ const Account = (props) => {
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    {/*<View style={tw.style('border-b mx-4 border-gray-500')}></View> 
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View> 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-4`}>
                             <Text style={tw.style('text-base text-gray-800')}>Bookmarks</Text>
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
-                    </TouchableOpacity>*/}
+                    </TouchableOpacity>
                     <View style={tw.style('border-b mx-4 border-gray-500')}></View>
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-4`}>
@@ -396,22 +346,17 @@ const Account = (props) => {
                         </View>
                           <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-
-                  </View>
-                </View>
-
-
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4')}>
-                  <View style={tw.style('px-2 py-5')}>
-                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-5')}>
-                          <View>
-                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Account Settings</Text>
-                          </View>
-
-                      </View>
-
-                      <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                          <View style={tw.style('my-1')}>
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Dashorder")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                        <View style={tw`my-4`}>
+                            <Text style={tw.style('text-base text-gray-800')}>Orders</Text>
+                        </View>
+                          <ArrowRightIcon color="red" fill="gray" size={24} />
+                    </TouchableOpacity>
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                    {/* Account Settings Section */}
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                          <View style={tw.style('my-4')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Customer Support</Text>
                           </View>
                           <View>
@@ -419,8 +364,8 @@ const Account = (props) => {
                           </View>
                       </TouchableOpacity>
                       <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
-                      <TouchableOpacity onPress={() => props.navigation.navigate("editpassword")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                          <View style={tw.style('my-1')}>
+                      <TouchableOpacity onPress={() => props.navigation.navigate("editpassword")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                          <View style={tw.style('my-4')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Change Password</Text>
                           </View>
                           <View>
@@ -428,8 +373,8 @@ const Account = (props) => {
                           </View>
                       </TouchableOpacity>
                       <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
-                      <TouchableOpacity onPress={() => deleetaccount() } style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                          <View style={tw.style('my-1')}>
+                      <TouchableOpacity onPress={() => deleetaccount() } style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                          <View style={tw.style('my-4')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Delete Account</Text>
                           </View>
                           <View>
@@ -493,4 +438,4 @@ const Account = (props) => {
     )
 }
 
-export default Account
+export default Profile
