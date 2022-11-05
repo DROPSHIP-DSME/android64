@@ -138,11 +138,17 @@ const Profile = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
                 <View style={tw.style('px-6 py-5 items-center')}>
+                    {props?.Brandlistdata && props?.Brandlistdata[0]?.brandImage!="" ?
                     <Image
                         style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
-                        source={{ uri: item.brandImage }}
+                        source={{uri: props?.Brandlistdata[0]?.brandImage}}
                     />
-                    <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.userName} {props?.getprofileuserlist?.userName}</Text>
+                    :
+                    <View style={tw.style(`mt-8 h-28 w-28 items-center rounded-full border-2 border-gray-400`)}>
+                       <Text style={{fontSize:60,width:50, height:80,marginTop:5,textAlign:'center'}}>{props?.getprofileuserlist?.userName}</Text>
+                    </View>
+                    }
+                    <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.userName}</Text>
                     <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.email}</Text>
                 </View>
 
@@ -201,7 +207,7 @@ const Profile = (props) => {
                   </View>
                 </View>
 
-                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-2')}>
+                {/* <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-2')}>
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
@@ -222,7 +228,7 @@ const Profile = (props) => {
                       <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
                       
                   </View>
-                </View>
+                </View>*/}
 
 
                 <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>

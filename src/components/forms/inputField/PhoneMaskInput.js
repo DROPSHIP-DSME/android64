@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors, Fonts } from '../../../common'
 import PhoneInput from "react-native-phone-number-input";
-import TextInputMask from 'react-native-text-input-mask';
+//import TextInputMask from 'react-native-text-input-mask';
 import styles from './styles';
 
 
@@ -29,21 +29,7 @@ const PhoneMaskInput = ({ id, theme, onCountryChange, onChangePhone, defaultValu
                     {...others}
                 // autoFocus
                 />
-                <TextInputMask
-                    ref={reference}
-                    returnKeyType="next"
-                    style={[styles.inputmask, {
-                        backgroundColor: theme === "black" ? Colors.LIGHT_BLACK : Colors.WHITE,
-                        color: theme === "black" ? Colors.WHITE : Colors.BLACK, fontSize: 16,
-                        flex: 1
-                    }]}
-                    value={defaultValue}
-                    onChangeText={(formatted, extracted) => onChangePhone(extracted)}
-                    mask={"([000]) [000] [00] [00]"}
-                    placeholder="(000) 000 00 00"
-                    placeholderTextColor={'#b3b3b3'}
-                    keyboardType="numeric"
-                />
+               
             </View>
         </View>
     )
