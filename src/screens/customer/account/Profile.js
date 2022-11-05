@@ -128,93 +128,6 @@ const Profile = (props) => {
         );
     }
 
-    const renderItem1 = ({ item, index }) => {
-      return (
-        <View>
-          {index == 0 &&
-            <View style={tw`pb-2`}>
-              <View style={tw`flex flex-row`}>
-                <TouchableOpacity style={tw`flex-row items-center`} onPress={() => props.navigation.navigate("Accountbrand")}>
-                  <View>
-                    <Image source={{ uri: item.brandImage }} style={styles.produtbrandimage2} />
-                  </View>
-                  <View style={tw`ml-3`}>
-                    <Text style={styles.droptxttt}>{item.brandName} - Store</Text>
-
-                    <View style={tw`flex-row items-center`}>
-                      <View style={tw.style('flex-row items-center mr-1')}>
-                        <ShoppingBagIcon color="red" fill="#b80000" size={20} />
-                        <Text style={styles.optext}>0 products</Text>
-                      </View>
-                      <View style={tw.style('flex-row items-center ml-1')}>
-                        <TagIcon color="red" fill="#b80000" size={20} />
-                        <Text style={styles.optext}>0 sales</Text>
-                      </View>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={tw`flex-row top-4`} onPress={() => props.navigation.navigate("Accountbrand")}>
-                  <ChevronRightIcon color="red" fill="#b80000" size={48} />
-                </TouchableOpacity>
-              </View>
-
-            </View>
-          }
-        </View>
-      );
-    }
-
-    const handleEmpty = () => {
-      return (
-        <View style={tw`pb-1 px-2`}>
-          <View style={tw`flex flex-row`}>
-            <TouchableOpacity style={tw`flex-row items-center justify-between w-full`} onPress={() => props.navigation.navigate("Accountbrandlist")}>
-              <Text style={tw`text-lg text-red-700`}>Start Selling Today</Text>
-              <View style={tw`right-1`}>
-                <ChevronRightIcon color="red" fill="#b80000" size={48} />
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    }
-
-    // //     const renderItem = ({
-
-
-    //    return(
-
-    //     <View style={styles.maincartviewshop}>
-    //         <TouchableOpacity  onPress={() => {props.navigation.navigate("NameStore",{shopId:item._id, shopName:item.shopName}) }}>
-
-    //          <View style={styles.comingViewflatshop}>
-    //            <Image source={{uri: item.shopImage}} style={styles.storeimageflat} />
-    //            <View>
-    //                <View style={{flexDirection:'row',marginTop:'10%',width:160,justifyContent:'center'}}>
-    //                     <Text style={[styles.namestoretext,{ textAlign:'center', justifyContent:'center'}]} numberOfLines={1}>{item.shopName}</Text>
-    //                     <Image source={ImageIcons.brandicon} style={styles.bagimage} />
-    //                 </View>
-    //             <Text style={styles.storedropship}>{item.shopName}.dropship.com</Text>
-    //            </View>
-
-    //         </View>
-
-    //         </TouchableOpacity>
-
-    //     </View>
-
-    //   );
-    // }
-    //  <View style={{marginHorizontal:'3%', marginBottom:90}}>
-    //            <FlatList
-    //                 data={props?.getlistshop || []}
-    //                 renderItem={renderItem}
-    //                 keyExtractor={item => item.id}
-    //                 showsHorizontalScrollIndicator={false}
-    //                 numColumns={2}
-    //                 />
-    //         </View>
-
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -227,7 +140,7 @@ const Profile = (props) => {
                 <View style={tw.style('px-6 py-5 items-center')}>
                     <Image
                         style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
-                        source={''}
+                        source={{ uri: item.brandImage }}
                     />
                     <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.userName} {props?.getprofileuserlist?.userName}</Text>
                     <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.email}</Text>
