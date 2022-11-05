@@ -1,6 +1,17 @@
 import { connect } from 'react-redux';
 import { Profile } from '../../../screens/customer/account';
-import { support,getAllshop,getprofileuser,getselldeshboard,getmenucounts,getuseraddress,deleteUseraccount,getusercard,getsupportlist,branddetails,Brandslist } from '../../../redux/actions/Auth'
+import { 
+    support,
+    getAllshop,
+    getprofileuser,
+    getselldeshboard,
+    getmenucounts,
+    getuseraddress,
+    deleteUseraccount,
+    getusercard,
+    getsupportlist,
+    branddetails,
+    Brandslist } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
