@@ -3,8 +3,8 @@ import { Text, View, Image, FlatList, Dimensions, StatusBar, Picker, TextInput, 
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/common/styles';
-import styl from '../../../screens/common/styledrop';
+import styles from '../../common/styles';
+import styl from '../../common/styledrop';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -13,7 +13,7 @@ import { phoneRegExp } from '../../../services/helper';
 import DropdownField from '../../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../../components/modals/Loader';
-import Footer3 from '../../../screens/common/Footer3';
+import Footer3 from '../../common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
@@ -30,7 +30,7 @@ import Help from '../../../components/help/Help';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import CustomAwesomeAlert from '../../../components/modals/AlertModal';
 
-const Account = (props) => {
+const Profile = (props) => {
 
     const {
         navigation,
@@ -493,4 +493,4 @@ const Account = (props) => {
     )
 }
 
-export default Account
+export default Profile

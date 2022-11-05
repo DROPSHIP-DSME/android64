@@ -66,7 +66,7 @@ const Verificationsteps = (props) => {
     const [step1, setstep1] = useState(true);
     const [step2, setstep2] = useState(true);
     const [step3, setstep3] = useState(true);
-    const [email, setEmail] = useState("sally.west@dropship.com");
+    const [email, setEmail] = useState("sallywest@dropship.com");
     const [phone, setPhone] = useState("0000000000");
     const [refreshUrl, setrefreshUrl] = useState("https://dropship.shopping");
     const [returnUrl, setreturnUrl] = useState("https://dropship.shopping");
@@ -213,8 +213,7 @@ const Verificationsteps = (props) => {
             setData(responseJson.data.url);
            // setstep3(false)
             if(responseJson?.data?.url){
-                setstep3(fales);
-
+                setstep3(false);
                 // setshowotherAlert(true)
                 // setshowalertmsg('stripe account created successfully')
             }else{
@@ -243,9 +242,9 @@ const Verificationsteps = (props) => {
         return (
             <View
               type="button"
-              style={tw.style('bottom-1 inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+              style={tw.style('bottom-1 inline-flex items-center px-3 py-1 mx-8 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
             >
-              <TouchableOpacity style={tw.style('h-15 w-10/11 justify-center items-center')} onPress={handlePress}>
+              <TouchableOpacity style={tw.style('h-12 justify-center items-center')} onPress={handlePress}>
                 <Text style={tw.style('text-lg text-white')}>Setup Payouts</Text>
               </TouchableOpacity>
             </View>
@@ -377,8 +376,8 @@ const Verificationsteps = (props) => {
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
-                  errors={step2}
-                >
+                  errors={step2}>
+                    
                   <View style={tw.style('text-gray-700 text-xl items-center mt-2 mb-1')}>
                     <ScrollView>
                      <View style={[styles.pickerViewshorttodaybrand,{marginTop:'1%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
@@ -469,14 +468,15 @@ const Verificationsteps = (props) => {
                   scrollViewProps={defaultScrollViewProps}
                   nextBtnTextStyle={buttonTextStyle}
                   previousBtnTextStyle={buttonTextStyle}
-                  errors={step3}
-                >
-                    <View style={tw.style(`flex flex-1 mx-4 justify-center`)}>
-                        <View style={tw.style('mb-2')}>
+                  errors={step3}>
+
+                  <ScrollView>
+                    <View style={tw.style(`flex flex-1 mx-4 my-10 justify-center`)}>
+                        <View style={tw.style('mb-1')}>
                             <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Almost There!</Text>
-                            <Text style={tw.style('text-base text-gray-600 text-center mt-3', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
+                            <Text style={tw.style('text-base text-gray-600 text-center mt-3 mx-4', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
                         </View>
-                        <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-9')}>
+                        <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-5')}>
                           <View style={tw.style('px-6 py-5 items-center')}>
                             <Image
                               style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
@@ -486,23 +486,26 @@ const Verificationsteps = (props) => {
                             <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@UserName</Text>
                             <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
-                          <View style={tw.style(`mx-20 mb-15`)}>
+                          <View style={tw.style(`mx-20 mb-10`)}>
                             <Smallbutton
-                              text="View Products"
+                              text="Add Products"
                               onPress={() => { }} />
                           </View>
                         </View>
-                        <View style={tw.style(`mb-15`)}>
+                        <View style={tw.style(`mb-9`)}>
                           <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Let's Make sure you get Paid</Text>
                           <Text style={tw.style('mt-1 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
                         </View>
 
-                        {step3==true &&
-                            <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
-                        }
+                        <View style={tw.style(`mb-10`)}>
+                          { step3==true &&
 
-                      </View>
-                  
+                              <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
+
+                          }
+                        </View>
+                    </View>
+                  </ScrollView>
                 </ProgressStep>
 
                 <ProgressStep

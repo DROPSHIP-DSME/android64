@@ -82,6 +82,7 @@ import {
   ordercheckout,
   createselleraccount,
   Verificationsteps,
+  Profile,
 } from '../container';
 
 import {
@@ -260,6 +261,20 @@ const Auth = (props) => {
       <Stack.Screen
         name="Account"
         component={Account}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} notificationCount={notificationCount}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
+      />
+
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
