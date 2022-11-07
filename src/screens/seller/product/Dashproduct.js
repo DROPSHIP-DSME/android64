@@ -232,7 +232,7 @@ const Dashproduct = (props) => {
                 type="button"
                 style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
               >
-                  <Text style={tw`text-base font-medium text-white`}>Orders</Text>
+                  <Text style={tw.style('text-base text-white', {fontFamily:'hintedavertastdsemibold'})}>Orders</Text>
               </View>
             </TouchableOpacity>
 
@@ -241,7 +241,7 @@ const Dashproduct = (props) => {
                 type="button"
                 style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
               >
-                  <Text style={tw`text-base font-medium text-gray-700`}>Sales Overview</Text>
+                  <Text style={tw.style('text-base text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Sales Overview</Text>
               </View>
             </TouchableOpacity>
         </View>

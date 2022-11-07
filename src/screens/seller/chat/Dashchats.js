@@ -151,17 +151,17 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-               <View style={tw`flex-row justify-between mx-4 mt-10 mb-6`}>
+               <View style={tw`flex-row justify-between mx-4 mt-5 mb-3`}>
                  <Text style={tw.style('text-3xl text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Chats (0)</Text>
                </View>
 
 
                   <View style={tw.style('flex flex-row mx-4')}>
-                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                    {/* <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} /> */}
 
-                    <Sortfilter
+                    {/* <Sortfilter
                       text="Filter"
-                    />
+                    /> */}
 
                   </View>
 
@@ -170,19 +170,19 @@ const deviceWidth = Dimensions.get('window').width;
                         text="Select All"
                       />
 
-                      <Editbutton navigation={props.navigation} page='Dashachats' />
+                      {/* <Editbutton navigation={props.navigation} page='Dashachats' /> */}
 
                       <Deletebutton />
 
                   </View>
 
-                    <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 py-3 my-10')}>
-                      <View style={tw.style('px-2 py-5')}>
-                          <View style={tw`flex flex-row justify-between bg-gray-200 mx-2 px-3 rounded-md items-center h-15`}>
-                             <Text style={tw`text-base leading-3 text-gray-600`}>Order Number</Text>
-                             <Text style={tw`text-base leading-3 text-gray-600`}>Message</Text>
+                    <View style={tw.style('flex bg-white overflow-hidden shadow rounded-md mx-4 py-2 my-5')}>
+                      <View style={tw.style('px-2 py-2')}>
+                          <View style={tw`flex-row justify-between mx-3 py-2 items-center border-b-2 border-gray-300`}>
+                             <Text style={tw`text-base text-gray-600`}>Order Number</Text>
+                             <Text style={tw`text-base text-gray-600`}>Message</Text>
                           </View>
-                          <View style={tw`mx-2`}>
+                          <View style={tw`mx-1`}>
                               <FlatList
                               data={DATA3}
                               renderItem={renderItem3}

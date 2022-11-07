@@ -126,8 +126,7 @@ const Verificationsteps = (props) => {
     }
 
     useEffect(() => {
-
-        getrememberMe();
+      getrememberMe();
     })
 
   const handleSendRequestSubmit = async (type) => {
@@ -199,11 +198,10 @@ const Verificationsteps = (props) => {
    }
 
    useEffect(() => {
-
+      onsetuppayout();
     }, []);
 
     const onsetuppayout = () => {
-
         const response = fetch(`http://161.35.123.125/api/stripe/account/express-account/individual` , {
             method: 'POST',
             headers: {
@@ -229,7 +227,6 @@ const Verificationsteps = (props) => {
         })
         .catch((error) => console.error(error) )
         .finally(() => console.log('sd') );
-
     }
 
     const OpenURLButton = ({ url, children }) => {
@@ -257,8 +254,6 @@ const Verificationsteps = (props) => {
             </View>
         );
     };
-
-
 
     const onNextStep1= () => {
         if(billImgPath == "") {
@@ -478,41 +473,42 @@ const Verificationsteps = (props) => {
                   errors={step3}
                 >
                     <ScrollView>
-                    <View style={tw.style(`flex flex-1 mx-4 justify-center`)}>
-                        <View style={tw.style('mb-2')}>
+                    <View style={tw.style(`flex flex-1 mx-4 mb-10 justify-center`)}>
+                    
+                        <View style={tw.style('mb-2 mt-3')}>
                             <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Almost There!</Text>
                             <Text style={tw.style('text-base text-gray-600 text-center mt-3 mx-4', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
                         </View>
                         <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-5')}>
                           <View style={tw.style('px-6 py-5 items-center')}>
                             <Image
-                              style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                              style={tw.style(`mt-4 h-28 w-28 rounded-full border-2 border-gray-400`)}
                               source={''}
                             />
                             <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>User Name</Text>
                             <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@UserName</Text>
                             <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
-                          <View style={tw.style(`mx-20 mb-10`)}>
+                          {/* <View style={tw.style(`mx-20 mb-10`)}>
                             <Smallbutton
                               text="Add Products"
                               onPress={() => { }} />
-                          </View>
+                          </View> */}
                         </View>
-                        <View style={tw.style(`mb-9`)}>
-                          <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Let's Make sure you get Paid</Text>
-                          <Text style={tw.style('mt-1 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
+                        <View style={tw.style(`mb-5`)}>
+                          <Text style={tw.style('text-2xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Let's Make sure you get Paid</Text>
+                          <Text style={tw.style('mt-1 text-base text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
                         </View>
 
-                        <View style={tw.style(`mb-10`)}>
+                        <View style={tw.style(`mb-5`)}>
                           { step3==true &&
 
                               <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
-
                           }
                         </View>
+                       
                     </View>
-                  </ScrollView>
+                    </ScrollView>
                 </ProgressStep>
 
                 <ProgressStep
