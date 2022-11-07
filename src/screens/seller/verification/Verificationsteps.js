@@ -73,8 +73,8 @@ const Verificationsteps = (props) => {
 
     // URL process
     const [data, setData] = useState([]);
-    console.log(JSON.stringify(data));
-    const supportedURL = data;
+    // console.log(JSON.stringify(data));
+    // const supportedURL = data;
 
 
     const options = [
@@ -505,11 +505,7 @@ const Verificationsteps = (props) => {
                         </View>
 
                         <View style={tw.style(`mb-10`)}>
-                          { step3==true &&
-
-                              <OpenURLButton url={supportedURL}>Setup Payouts</OpenURLButton>
-
-                          }
+                            <OpenURLButton url={data}>Setup Payouts</OpenURLButton>
                         </View>
                     </View>
                   </ScrollView>
@@ -547,11 +543,7 @@ const Verificationsteps = (props) => {
                           onPress={() => { handleSendRequestSubmit(1)}} />
                       </View>
 
-                      <View style={tw.style('mx-3 my-3 bottom-2')}>
-                        <Medbutton
-                          text="Go Live"
-                          onPress={() => { handleSendRequestSubmit(0)}} />
-                      </View>
+                        
 
                   </View>
 

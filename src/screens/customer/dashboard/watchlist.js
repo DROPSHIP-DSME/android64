@@ -164,7 +164,9 @@ const watchlist = (props) => {
     };
 
     useEffect(() => {
-
+        props.Brandslist(props?.loginuserid);
+        props.getprofileuser(props?.loginuserid);
+        props.getmenucounts(props?.loginuserid);
         // AsyncStorage.setItem('UserId','');
         //AsyncStorage.setItem('userLogin','');
         getBrandUserId();
@@ -177,12 +179,8 @@ const watchlist = (props) => {
         props.cartdata(props?.loginuserid);
         props.getnotificationcount(props?.loginuserid);
         props.getsalesanalytics(props?.loginuserid);
-        showalldata();
+        //showalldata();
         props.getfavoriteproductlist(props?.loginuserid);
-
-        props.Brandslist(props?.loginuserid);
-        props.getprofileuser(props?.loginuserid);
-        props.getmenucounts(props?.loginuserid);
         if (Platform.OS === 'android') requestMultiplePermisisons();
     }, [])
 

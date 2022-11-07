@@ -88,10 +88,11 @@ const ref = React.useRef();
     props.shopsellcount(shopId);
     props.getfavoriteproductlist(props?.loginuserid);
     props.getfollowproductlist(props?.loginuserid);
-    console.log('props?.getlistproductdetails',props?.getlistproductdetails)
+    console.log('props?.getfavproduct',props?.getfavproduct)
 
     if(props?.getfavproduct && props?.getfavproduct?.length){
       if(props?.getfavproduct.indexOf(productId) > -1) {
+        
           setfav(true)
       }
     }
@@ -151,6 +152,8 @@ const ref = React.useRef();
   const newProductData = (productId) => {
     setloginLoader(true)
     setshowlargeImage('');
+    setfollowdata(false);
+    setfav(false);
     props.getAllproductdetails(productId);
     setTimeout(function(){ setloginLoader(false); ref.current.scrollTo(0) },2000);
   }
