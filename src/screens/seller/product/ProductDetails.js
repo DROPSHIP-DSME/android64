@@ -119,13 +119,13 @@ const ProductDetails = (props) => {
                   </View>
 
                   <View style={tw.style('pt-2.5 pl-2.5')}>
-                    <Text style={tw.style('text-[#1A1A1A] text-sm font-bold')}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
+                    <Text style={tw.style('text-[#1A1A1A] text-base', {fontFamily:'hintedavertastdsemibold'})}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
                     <View style={tw.style('flex flex-row')}>
                       <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#B80000] rounded-full')}>
                         <Text style={tw.style('text-center text-white text-xs font-bold')}>FOLLOW</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#4AFFBD] rounded-full')}>
-                        <Text style={tw.style('text-center text-gray-700 text-xs font-bold')}>OPEN STORE</Text>
+                        <Text style={tw.style('text-center text-gray-700 text-xs', {fontFamily:'hintedavertastdsemibold'})}>OPEN STORE</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -135,7 +135,7 @@ const ProductDetails = (props) => {
 
                <View style={tw.style('border-b my-8 mx-4 border-[#B6B6B6]')}></View>
                <View style={tw.style('mx-4')}>
-                 <Text style={tw.style('text-gray-700 text-2xl font-bold')}>Product Details</Text>
+                 <Text style={tw.style('text-gray-700 text-2xl',{fontFamily:'hintedavertastdsemibold'})}>Products Details</Text>
                  <Text style={tw.style('text-[#1A1A1A] text-lg font-normal')}>{props?.getlistproductdetails?.data?.productDescription}</Text>
                </View>
 

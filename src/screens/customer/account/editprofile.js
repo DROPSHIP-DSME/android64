@@ -116,7 +116,7 @@ const editprofile = (props) => {
            props.newprofile(request, props.navigation, "vendor",0);
            setTimeout(function(){
                 props.getprofileuser(props?.loginuserid);
-                props.navigation.navigate("Account")
+                props.navigation.navigate("Profile")
             },1000);
         }
     }

@@ -4,5 +4,5 @@ module.exports = {
         ios:{},
         android:{}
     },
-    assets: ['src/res/assets/fonts/AvertaStd/'],
+    assets: ['src/res/assets/fonts/'],
 }
