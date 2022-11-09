@@ -52,7 +52,7 @@
     "react": "17.0.1",
     "react-custom-checkbox": "^2.0.0",
     "react-horizontal-slider": "^1.1.1",
-    "react-native": "^0.64.3",
+    "react-native": "^0.64.4",
     "react-native-agora": "^3.6.2",
     "react-native-app-intro-slider": "^4.0.4",
     "react-native-awesome-alerts": "^1.5.2",
