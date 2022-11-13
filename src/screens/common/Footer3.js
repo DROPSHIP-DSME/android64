@@ -127,14 +127,14 @@ const Footer3 = (props) => {
 
                     <ScrollView>
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-3 md:mx-6')}>
                             <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('shop'); }} style={tw.style(`flex-row items-center w-full`)}>
                                 <ShoppingCartIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>Shop Products</Text>
                             </TouchableOpacity>
                         </View>
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-2 md:mx-6')}>
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-3 md:mx-6')}>
                             <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('upcoming'); }} style={tw.style(`flex-row items-center w-full`)}>
                                 <VideoCameraIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>View Livestreams</Text>

@@ -117,7 +117,7 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
                <View style={tw.style('flex flex-row justify-between mx-4 my-10')}>
-                 <Text style={tw.style('text-3xl text-gray-700 tracking-wide', {fontFamily:'hintedavertastdsemibold'})}>Settings</Text>
+                 <Text style={tw.style('text-3xl text-gray-700 tracking-wide', {fontFamily:'AvertaStdSemibold'})}>Settings</Text>
                </View>
 
 
@@ -125,7 +125,7 @@ const deviceWidth = Dimensions.get('window').width;
                 <View style={tw.style('px-2 py-8')}>
 
                     <View style={tw.style('flex flex-row justify-between px-4')}>
-                        <Text style={tw.style('text-2xl text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Brand Profile</Text>
+                        <Text style={tw.style('text-2xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Brand Profile</Text>
                          <Editbutton navigation={props.navigation} page='CreateStore' />
                     </View>
 
@@ -149,7 +149,7 @@ const deviceWidth = Dimensions.get('window').width;
                 <View style={tw.style('px-2 py-8')}>
 
                     <View style={tw.style('flex flex-row justify-between px-4')}>
-                        <Text style={tw.style('text-2xl text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Account Settings</Text>
+                        <Text style={tw.style('text-2xl text-gray-700', {fontFamily:'AvertaStdSemibold'})}>Account Settings</Text>
                     </View>
 
                    {/* <TouchableOpacity  onPress={() => props.navigation.navigate("Dashimport")} style={tw.style('w-full')}>

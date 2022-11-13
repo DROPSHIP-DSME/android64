@@ -131,7 +131,7 @@ const editpassword = (props) => {
                     <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
                 <View style={tw`mx-4 my-10`}>
-                    <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Change Password</Text>
+                    <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>Change Password</Text>
                 </View>
 
                 {/*<View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-2 justify-center'), { width: deviceWidth / 1.1 }]}>

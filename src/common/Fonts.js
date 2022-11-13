@@ -1,9 +1,9 @@
-const RalewayExtraBold = "hintedavertaStdextrabold"; //similar GothamBold
-const QuestrialRegular = "hintedavertaStdregular"; //  similar GothamBook //Raleway-Medium  //Raleway-Regular
+const RalewayExtraBold = "AvertaStdSemibold"; //similar GothamBold
+const QuestrialRegular = "AvertaStdRegular"; //  similar GothamBook //Raleway-Medium  //Raleway-Regular
 const RalewaySemiBold = "hintedavertastdasemiBold";  // similar GothamMedium
 const RalewayLight = "hintedavertastdlight";
 const RalewayThin = "hintedavertastdthin";
-const SfproSemibold = "hintedavertaStdsemibold";
+const SfproSemibold = "AvertaStdSemibold";
 const HomepageBaukastenBold = "hintedavertastdbold"; // Number
 
 export default Fonts = {

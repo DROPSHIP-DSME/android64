@@ -188,7 +188,7 @@ const Login = (props) => {
                 <Logobase />
             </View>
             <View style={tw.style('items-center mt-[30%] mx-5')}>
-              <Text style={tw.style('px-2 text-4xl text-white text-center', { fontFamily: "hintedavertastdsemibold" })}> {item.text}</Text>
+              <Text style={tw.style('px-2 text-4xl text-white text-center', { fontFamily: "AvertaStdSemibold" })}> {item.text}</Text>
             </View>
           </View>
           :
@@ -199,7 +199,7 @@ const Login = (props) => {
               </View>
               <View style={tw.style('h-30')}></View>
               <View style={tw.style('flex-row mt-10 mx-4')}>
-                <Text style={tw.style('px-4 text-3xl text-black text-center', { fontFamily: "hintedavertastdsemibold" })}>{item.text}</Text>
+                <Text style={tw.style('px-4 text-3xl text-black text-center', { fontFamily: "AvertaStdSemibold" })}>{item.text}</Text>
               </View>
             </View>
           </View>

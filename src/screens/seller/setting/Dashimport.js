@@ -104,7 +104,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
                    <View style={tw.style('flex flex-row justify-between mx-4 mt-10 mb-4')}>
-                     <Text style={tw.style('text-3xl text-gray-700 racking-wide',{fontFamily:'hintedavertastdsemibold'})}>Import Data</Text>
+                     <Text style={tw.style('text-3xl text-gray-700 racking-wide',{fontFamily:'AvertaStdSemibold'})}>Import Data</Text>
                    </View>
 
                    <View style={tw.style('mx-4 mt-3 mb-8')}>
@@ -114,14 +114,14 @@ const deviceWidth = Dimensions.get('window').width;
                    <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4')}>
                      <View style={tw.style('flex flex-row px-2 py-5 justify-center')}>
                        <Image source={ImageIcons.shoptoday} style={tw.style('w-6 h-6 mr-2')}/>
-                       <Text style={tw.style('text-base text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Connect with Shopify</Text>
+                       <Text style={tw.style('text-base text-gray-700', {fontFamily:'AvertaStdSemibold'})}>Connect with Shopify</Text>
                      </View>
                    </View>
 
                    <View style={tw.style('bg-white overflow-hidden shadow rounded-md my-5 mx-4')}>
                      <View style={tw.style('flex flex-row px-2 py-5 justify-center')}>
                        <Image source={ImageIcons.commercetoday} style={tw.style('w-6 h-6 mr-2')}/>
-                       <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Connect with Big Commerce</Text>
+                       <Text style={tw.style('text-base text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Connect with Big Commerce</Text>
                      </View>
                    </View>
 

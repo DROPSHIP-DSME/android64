@@ -47,7 +47,7 @@ const ProductDisplay = () =>{
           <Logobase />
       </View>
       <View style={tw.style('mb-1 mx-5')}>
-        <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Payment</Text>
+        <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"AvertaStdSemibold"})}>Payment</Text>
         <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
       </View>
       <View style={tw.style('h-100')}>
@@ -71,7 +71,7 @@ const ProductDisplay = () =>{
               <Text style={tw.style('text-lg text-gray-600')}>$20.00</Text>
             </View>
         </View>
-        <Text style={tw.style('text-xl text-gray-700 text-center my-3', {fontFamily: 'hintedavertastdsemibold'})}> You shopping Total $40.00 plus shipping</Text>
+        <Text style={tw.style('text-xl text-gray-700 text-center my-3', {fontFamily: 'AvertaStdSemibold'})}> You shopping Total $40.00 plus shipping</Text>
 
          <View style={tw.style('mb-20')}>
             {/* We should change this to send intent button as I do think as is will work*/}

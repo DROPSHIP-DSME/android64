@@ -173,7 +173,7 @@ const RegistrationShop = (props) => {
             </View>
             
           <View style={tw.style('mx-5 mb-2')}>
-              <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Login</Text>
+              <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Login</Text>
           </View>
         <View>
 

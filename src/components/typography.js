@@ -14,9 +14,9 @@ export const typography = () => {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'hintedavertastdregular',
+    fontFamily: 'AvertaStdRegular',
   },
   titleText: {
-    fontFamily: 'hintedavertastdsemibold'
+    fontFamily: 'AvertaStdSemibold'
   }
 });

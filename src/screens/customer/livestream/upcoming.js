@@ -227,7 +227,7 @@ const upcoming = (props) => {
             <View style={tw`flex flex-row justify-between mt-3 items-center`} >
 
                 <View style={tw`ml-1`}>
-                    <Text style={tw.style('text-lg text-gray-700', {fontFamily:'hintedavertastdsemibold'})} >{item?.user?.userName}</Text>
+                    <Text style={tw.style('text-lg text-gray-700', {fontFamily:'AvertaStdSemibold'})} >{item?.user?.userName}</Text>
                     <View style={tw`flex-row items-center`}>
                       <Text style={tw`text-base text-gray-600`} >{item.message}</Text>
                       <Text style={tw`text-sm text-blue-500 ml-4`} >{Moment(item.createdAt).format("HH:mm A")}</Text>
@@ -275,12 +275,12 @@ const upcoming = (props) => {
             
             {showlist==true ?
                 <View style={tw.style('mt-6 mx-4')}>
-                    <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
+                    <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>Livestreams</Text>
                 </View>
             :
                 <TouchableOpacity onPress={() => { setshowlist(true);  }}>
                     <View style={tw.style('mt-6 mx-4')}>
-                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>back</Text>
+                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>back</Text>
                     </View>
                 </TouchableOpacity>
             }
@@ -311,7 +311,7 @@ const upcoming = (props) => {
                             {tab1 == false ?
                                 <Text style={tw.style('text-base text-gray-700')}>Stats</Text>
                                 :
-                                <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Stats</Text>
+                                <Text style={tw.style('text-base text-gray-800', {fontFamily:'AvertaStdSemibold'})}>Stats</Text>
                             }
                         </TouchableOpacity >
                         <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={tw.style('m-3')}>
@@ -319,14 +319,14 @@ const upcoming = (props) => {
                             {tab2 == false ?
                                 <Text style={tw.style('text-base text-gray-700')}>Orders(0)</Text>
                                 :
-                                <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Orders(0)</Text>
+                                <Text style={tw.style('text-base text-gray-800', {fontFamily:'AvertaStdSemibold'})}>Orders(0)</Text>
                             }
                         </TouchableOpacity >
                         <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={tw.style('m-3')} >
                             {tab3 == false ?
                                 <Text style={tw.style('text-base text-gray-700')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
                                 :
-                                <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                <Text style={tw.style('text-base text-gray-800', {fontFamily:'AvertaStdSemibold'})}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
                             }
                         </TouchableOpacity >
                     </View>
@@ -347,7 +347,7 @@ const upcoming = (props) => {
                                 <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
                                     <View style={tw.style('flex-row justify-between')} >
                                         <Text style={tw.style('text-base text-gray-600 font-base')} >Title</Text>
-                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >{props?.livestreamrecaplist?.getchannelAudiance?.eventTitle}</Text>
+                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'AvertaStdSemibold'})} >{props?.livestreamrecaplist?.getchannelAudiance?.eventTitle}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
@@ -357,7 +357,7 @@ const upcoming = (props) => {
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
                                         <Text style={tw.style('text-base text-gray-600 font-base')} >Duration</Text>
-                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})} >20 min</Text>
+                                        <Text style={tw.style('text-base text-gray-800', {fontFamily:'AvertaStdSemibold'})} >20 min</Text>
                                     </View>
                                 </View>
 
@@ -374,22 +374,22 @@ const upcoming = (props) => {
                                 {/*<---------Summary------------>*/}
 
                                 <View style={tw.style('p-3 my-8')}>
-                                    <Text style={tw.style('text-2xl text-gray-700', {fontFamily:'hintedavertastdsemibold'})}>Summary</Text>
+                                    <Text style={tw.style('text-2xl text-gray-700', {fontFamily:'AvertaStdSemibold'})}>Summary</Text>
                                     <View style={tw.style('flex flex-row justify-between my-3')}>
                                         <View style={{ alignItems:'center'}}>
-                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.JoinedUsers?.length}</Text>
+                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.JoinedUsers?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Viewers</Text>
                                         </View>
                                         <View style={{ alignItems:'center'}}>
-                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>0</Text>
+                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>0</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Share</Text>
                                         </View>
                                         <View style={{ alignItems:'center'}}>
-                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.likeUsers?.length}</Text>
+                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>{props?.livestreamrecaplist?.getchannelAudiance?.likeUsers?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Likes</Text>
                                         </View>
                                         <View style={{ alignItems:'center'}}>
-                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
+                                            <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Messages</Text>
                                         </View>
                                     </View>
@@ -400,7 +400,7 @@ const upcoming = (props) => {
                                     }}>
                                         <View style={tw.style('my-2 p-3')}>
                                             <View>
-                                                <Text style={tw.style('text-xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestream Benchmarks</Text>
+                                                <Text style={tw.style('text-xl text-gray-800', {fontFamily:'AvertaStdSemibold'})}>Livestream Benchmarks</Text>
                                             </View>
                                             <View style={tw.style('flex flex-row mt-4')}>
                                                 <View style={tw.style('bg-gray-200 py-2 px-4 rounded-lg')}>
@@ -441,7 +441,7 @@ const upcoming = (props) => {
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
                                     }}>
                                         <View>
-                                            <Text style={tw.style('text-2xl text-center text-gray-700 mt-4', {fontFamily:'hintedavertastdsemibold'})}>Livestream Viewers</Text>
+                                            <Text style={tw.style('text-2xl text-center text-gray-700 mt-4', {fontFamily:'AvertaStdSemibold'})}>Livestream Viewers</Text>
                                         </View>
                                         <ProgressChart
                                             data={data1}

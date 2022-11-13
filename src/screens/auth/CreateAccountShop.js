@@ -176,7 +176,7 @@ const CreateAccountShop = (props) => {
                 <Logobase />
             </View>
         <View style={tw.style('mx-5 mb-3')}>
-            <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Sign Up</Text>
+            <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Sign Up</Text>
         </View>
 
             <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />

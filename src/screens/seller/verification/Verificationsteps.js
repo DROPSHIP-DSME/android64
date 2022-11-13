@@ -331,7 +331,7 @@ const Verificationsteps = (props) => {
                   <ScrollView>
                       <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
                         <View style={tw.style('mb-2')}>
-                          <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"hintedavertastdsemibold"})}>Create your Brand</Text>
+                          <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"AvertaStdSemibold"})}>Create your Brand</Text>
                         </View>
 
 
@@ -476,8 +476,8 @@ const Verificationsteps = (props) => {
                     <View style={tw.style(`flex flex-1 mx-4 mb-10 justify-center`)}>
                     
                         <View style={tw.style('mb-2 mt-3')}>
-                            <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Almost There!</Text>
-                            <Text style={tw.style('text-base text-gray-600 text-center mt-3 mx-4', {fontFamily:"hintedavertastdsemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
+                            <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"AvertaStdSemibold"})}>Almost There!</Text>
+                            <Text style={tw.style('text-base text-gray-600 text-center mt-3 mx-4', {fontFamily:"AvertaStdSemibold"})}>Congrats! You’re store is almost ready! Here’s a quick preview!</Text>
                         </View>
                         <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-5')}>
                           <View style={tw.style('px-6 py-5 items-center')}>
@@ -485,9 +485,9 @@ const Verificationsteps = (props) => {
                               style={tw.style(`mt-4 h-28 w-28 rounded-full border-2 border-gray-400`)}
                               source={''}
                             />
-                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>User Name</Text>
-                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@UserName</Text>
-                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
+                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"AvertaStdSemibold"})}>User Name</Text>
+                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"AvertaStdSemibold"})}>@UserName</Text>
+                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"AvertaStdSemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
                           {/* <View style={tw.style(`mx-20 mb-10`)}>
                             <Smallbutton
@@ -496,8 +496,8 @@ const Verificationsteps = (props) => {
                           </View> */}
                         </View>
                         <View style={tw.style(`mb-5`)}>
-                          <Text style={tw.style('text-2xl text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Let's Make sure you get Paid</Text>
-                          <Text style={tw.style('mt-1 text-base text-gray-700 text-center', {fontFamily:"hintedavertastdsemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
+                          <Text style={tw.style('text-2xl text-gray-700 text-center', {fontFamily:"AvertaStdSemibold"})}>Let's Make sure you get Paid</Text>
+                          <Text style={tw.style('mt-1 text-base text-gray-700 text-center', {fontFamily:"AvertaStdSemibold"})}>Dropship uses Stripe to ensure seamless transactions for our buyers and sellers</Text>
                         </View>
 
                         <View style={tw.style(`mb-10`)}>
@@ -528,7 +528,7 @@ const Verificationsteps = (props) => {
                       </View>
 
                       <View style={tw.style('mx-5 justify-center items-center')}>
-                          <Text style={tw.style('text-2xl text-gray-700 mb-4', {fontFamily: 'hintedavertastdsemibold'})}>Your Store is Ready</Text>
+                          <Text style={tw.style('text-2xl text-gray-700 mb-4', {fontFamily: 'AvertaStdSemibold'})}>Your Store is Ready</Text>
                       </View>
                       <View style={tw.style('mx-5 justify-center items-center mb-15')}>
                           <Text style={tw.style('text-base text-gray-600 text-center')}>Your new store information has been submitted to Dropship, and we will be in touch soon!</Text>

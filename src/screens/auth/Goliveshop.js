@@ -166,7 +166,7 @@ const Goliveshop = (props) => {
                     activeOpacity = { .5}
                     onPress={() => shopifylogin()}>
                     <View style={{alignItems:'center',padding:10}}>
-                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'hintedavertastdsemibold'})}>Register as a Seller</Text>
+                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'AvertaStdSemibold'})}>Register as a Seller</Text>
                         <Text style={[styles.proregultxt,{textAlign:'center',width:150}]}>Sell personal goods or products</Text>
                     </View>
                 </TouchableOpacity>
@@ -178,7 +178,7 @@ const Goliveshop = (props) => {
                     activeOpacity = { .5}
                     onPress={() => shopifylogin()}>
                     <View style={{alignItems:'center',padding:10}}>
-                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'hintedavertastdsemibold'})}>Register as a Seller</Text>
+                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'AvertaStdSemibold'})}>Register as a Seller</Text>
                         <Text style={[styles.proregultxt,{textAlign:'center',width:150}]}>Sell personal goods or products</Text>
                     </View>
                 </TouchableOpacity>
@@ -190,7 +190,7 @@ const Goliveshop = (props) => {
                     style={styles.Touchablestarttextnew}
                     activeOpacity = { .5}
                     onPress={() => props.navigation.navigate('CreateStore')}>
-                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'hintedavertastdsemibold'})}>Are you a brand?</Text>
+                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'AvertaStdSemibold'})}>Are you a brand?</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -204,7 +204,7 @@ const Goliveshop = (props) => {
                     onPress={() => shopifylogin()}>
                     <View style={{flexDirection:'row', justifyContent:'center',padding:10}}>
                         <Image source={ImageIcons.shopify} style={{ width:20,height:20}} />
-                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'hintedavertastdsemibold'})}>CONTINUE WITH SHOPIFY</Text>
+                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'AvertaStdSemibold'})}>CONTINUE WITH SHOPIFY</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -216,7 +216,7 @@ const Goliveshop = (props) => {
                     onPress={() => bigcommercelogin()}>
                     <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
                         <Image source={ImageIcons.bigcommerce} style={{ width:25,height:23,}} />
-                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'hintedavertastdsemibold'})}>CONTINUE WITH BIG COMMERCE</Text>
+                        <Text style={tw.style('text-base ml-3 text-center',{fontFamily:'AvertaStdSemibold'})}>CONTINUE WITH BIG COMMERCE</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -230,7 +230,7 @@ const Goliveshop = (props) => {
                     style={tw.style('w-full px-4 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
                     activeOpacity = { .5}
                     onPress={() => props.navigation.navigate('CreateStore')}>
-                        <Text style={tw.style('text-lg ml-3 text-center',{fontFamily:'hintedavertastdsemibold'})}>Create a new store</Text>
+                        <Text style={tw.style('text-lg ml-3 text-center',{fontFamily:'AvertaStdSemibold'})}>Create a new store</Text>
                 </TouchableOpacity>
             </View>
         </View>

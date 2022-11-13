@@ -220,7 +220,7 @@ const Accountdata = (props) => {
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
                 <View style={tw`flex flex-row justify-between mx-4 mt-10 mb-5`}>
-                    <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>Bookmarks</Text>
+                    <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'AvertaStdSemibold', })}>Bookmarks</Text>
                 </View>
 
                 <View style={tw`flex flex-row mx-4`}>

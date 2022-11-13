@@ -183,9 +183,9 @@ const ProductStore = (props) => {
                 <View style={styles.bagimageView}>
                     <View style={{ alignItems: 'center' }}>
                         {props?.getshopproductlist == false ?
-                            <Text style={tw.style('mx-2 text-xl text-gray-700 w-fit',{fontFamily:'hintedavertastdsemibold'})}>Products</Text>
+                            <Text style={tw.style('mx-2 text-xl text-gray-700 w-fit',{fontFamily:'AvertaStdSemibold'})}>Products</Text>
                         :
-                            <Text style={tw.style('mx-2 text-xl text-gray-700 w-fit',{fontFamily:'hintedavertastdsemibold'})}>Products({props?.getshopproductlist?.length})</Text>
+                            <Text style={tw.style('mx-2 text-xl text-gray-700 w-fit',{fontFamily:'AvertaStdSemibold'})}>Products({props?.getshopproductlist?.length})</Text>
                         }
                     </View>
                 </View>

@@ -73,7 +73,7 @@ const Codeconfirm = (props) => {
             </View>
 
             <View style={tw.style('mx-5 justify-center items-center')}>
-                <Text style={tw.style('text-2xl text-gray-700 mb-8', {fontFamily: 'hintedavertastdsemibold'})}>Code Confirmed</Text>
+                <Text style={tw.style('text-2xl text-gray-700 mb-8', {fontFamily: 'AvertaStdSemibold'})}>Code Confirmed</Text>
             </View>
             <View style={tw.style('mx-5 justify-center items-center')}>
                 <Text style={tw.style('text-lg text-gray-600 text-center')}>Your account has been created. Confirm your account via email to get access to all features.</Text>

@@ -148,8 +148,8 @@ const Profile = (props) => {
                        <Text style={{fontSize:60,width:50, height:80,marginTop:5,textAlign:'center'}}>{props?.getprofileuserlist?.userName}</Text>
                     </View>
                     }
-                    <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.userName}</Text>
-                    <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{props?.getprofileuserlist?.email}</Text>
+                    <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"AvertaStdSemibold"})}>{props?.getprofileuserlist?.userName}</Text>
+                    <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"AvertaStdSemibold"})}>{props?.getprofileuserlist?.email}</Text>
                 </View>
 
 
@@ -157,7 +157,7 @@ const Profile = (props) => {
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-2 mb-3')}>
                           <View>
-                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>My Address</Text>
+                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>My Address</Text>
                           </View>
                           <Editbutton navigation={props.navigation} page='editaddress' />
                       </View>
@@ -211,7 +211,7 @@ const Profile = (props) => {
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
-                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Payment Details</Text>
+                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>Payment Details</Text>
                           </View>
 
                       </View>
@@ -235,7 +235,7 @@ const Profile = (props) => {
                   <View style={tw.style('px-2 py-4')}>
 
                         {/* <View style={tw.style('flex flex-row justify-between mx-4 mt-1 mb-5x')}>
-                            <Text style={tw.style('flex flex-row text-xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Saved Items</Text>
+                            <Text style={tw.style('flex flex-row text-xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>Saved Items</Text>
                         </View> */}
                     <TouchableOpacity onPress={() => props.navigation.navigate("editprofile")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View style={tw`my-3`}>
@@ -313,7 +313,7 @@ const Profile = (props) => {
 
                         <View style={tw.style('my-4')}>
                             <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
-                                <Text style={tw.style('text-xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>
+                                <Text style={tw.style('text-xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>
                                     Sign Out
                                 </Text>
                             </TouchableOpacity>

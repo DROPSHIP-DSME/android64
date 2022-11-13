@@ -123,7 +123,7 @@ const Verification = (props) => {
                 <View style={tw.style('flex flex-row mx-6')}>
                <Text style={tw.style('text-base text-gray-600')}>Didn't receive a code?</Text>
                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={tw.style('text-base text-blue-700 ml-1', {fontFamily:'hintedavertastdsemibold'})}>Rescend Code</Text>
+                    <Text style={tw.style('text-base text-blue-700 ml-1', {fontFamily:'AvertaStdSemibold'})}>Rescend Code</Text>
                </TouchableOpacity>
 
            </View>

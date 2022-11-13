@@ -134,10 +134,10 @@ const renderItem2 = ({ item,index }) => {
 
           <View style={tw.style('flex justify-between')}>
               <View>
-                <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Sales Earnings</Text>
+                <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'AvertaStdSemibold'})}>Sales Earnings</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
                   <View style={tw.style('flex-1 w-2/3')}>
-                    <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>${props?.getlistselldeshboard?.income}</Text>
+                    <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'AvertaStdSemibold'})}>${props?.getlistselldeshboard?.income}</Text>
                   </View>
 
                 </View>
@@ -153,7 +153,7 @@ const renderItem2 = ({ item,index }) => {
        return(
            <View style={tw`border-b-1 border-gray-400 my-3`}>
               <View style={tw.style('flex flex-row justify-between mx-4 mt-3')}>
-                   <Text style={tw.style('text-base text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>{item?.productId?.productName}</Text>
+                   <Text style={tw.style('text-base text-gray-800', {fontFamily:'AvertaStdSemibold'})}>{item?.productId?.productName}</Text>
                    <View style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
                     <Text style={tw`text-sm font-medium bg-blue-100 px-4 py-1 rounded-full text-blue-800`}>{item.status}</Text>
                    </View>
@@ -175,11 +175,11 @@ const renderItem2 = ({ item,index }) => {
               <View>
                   <View style={tw`flex flex-row mb-3 mt-3`}>
                      <Image source={{uri:item?.productData?.productImage}}  style={{width:24,height:24,}}/>
-                     <Text style={tw.style('text-base text-gray-700 ml-2',{fontFamily:'hintedavertastdsemibold'})}>{item?.productData?.productName}</Text>
+                     <Text style={tw.style('text-base text-gray-700 ml-2',{fontFamily:'AvertaStdSemibold'})}>{item?.productData?.productName}</Text>
                   </View>
                   <View style={tw`flex flex-row justify-between mb-3`}>
-                     <Text style={tw.style('text-base text-blue-700', {fontFamily:'hintedavertastdsemibold'})}>Quantity Sold: {item?.totalQuantity}</Text>
-                     <Text style={tw.style('text-base text-green-700', {fontFamily:'hintedavertastdsemibold'})}>Revenue: ${item?.totalAmount}</Text>
+                     <Text style={tw.style('text-base text-blue-700', {fontFamily:'AvertaStdSemibold'})}>Quantity Sold: {item?.totalQuantity}</Text>
+                     <Text style={tw.style('text-base text-green-700', {fontFamily:'AvertaStdSemibold'})}>Revenue: ${item?.totalAmount}</Text>
                   </View>
               </View>
 
@@ -198,10 +198,10 @@ const renderItem2 = ({ item,index }) => {
 
                <View style={tw.style('flex justify-between')}>
                    <View>
-                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Total Store Visitors</Text>
+                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'AvertaStdSemibold'})}>Total Store Visitors</Text>
                      <View style={tw.style('flex-row h-14 mb-1')}>
                        <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>1203</Text>
+                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'AvertaStdSemibold'})}>1203</Text>
                        </View>
                        <View style={tw.style('flex-none')}>
                          { props?.getlistselldeshboard?.income>0 &&
@@ -228,10 +228,10 @@ const renderItem2 = ({ item,index }) => {
 
                <View style={tw.style('flex justify-between')}>
                    <View>
-                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'hintedavertastdsemibold'})}>Total Store Orders</Text>
+                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'AvertaStdSemibold'})}>Total Store Orders</Text>
                      <View style={tw.style('flex-row h-14 mb-1')}>
                        <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'hintedavertastdsemibold'})}>300</Text>
+                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'AvertaStdSemibold'})}>300</Text>
                        </View>
                        <View style={tw.style('flex-none')}>
                          { props?.getlistselldeshboard?.income>0 &&
@@ -261,7 +261,7 @@ const renderItem2 = ({ item,index }) => {
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
                       <View>
-                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
+                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'AvertaStdSemibold'})}>Sales Statistics</Text>
                       </View>
 
                       <Sortorder text="Sort" options={options} onSelect={(checked) => updateorderStatus(checked)} />
@@ -292,7 +292,7 @@ const renderItem2 = ({ item,index }) => {
                 {/* LIVESTREAM STATISTICS AREA */}
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                     <View>
-                      <Text style={tw.style('text-xl text-center text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Livestream Viewers</Text>
+                      <Text style={tw.style('text-xl text-center text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Livestream Viewers</Text>
                       </View>
                       <View style={tw.style('items-center mr-8')}>
                       <ProgressChart
@@ -319,7 +319,7 @@ const renderItem2 = ({ item,index }) => {
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
                       <View>
-                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'hintedavertastdsemibold'})}>Sales Statistics</Text>
+                        <Text style={tw.style('text-xl text-gray-700 pl-2',{fontFamily:'AvertaStdSemibold'})}>Sales Statistics</Text>
                       </View>
                   
                     <View style={{marginLeft:-10}}>
@@ -368,7 +368,7 @@ const renderItem2 = ({ item,index }) => {
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
                     <View>
-                      <Text style={tw.style('text-lg text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Popular Products</Text>
+                      <Text style={tw.style('text-lg text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Popular Products</Text>
                     </View>
                      {props?.gettopsellproduct?.length>0 &&
                        <Smallbutton
@@ -379,8 +379,8 @@ const renderItem2 = ({ item,index }) => {
                   </View>
                    {props?.gettopsellproduct?.length>0 ?
                   <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
-                        <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Product</Text>
-                        <Text style={tw.style('text-base text-gray-700',{fontFamily:'hintedavertastdsemibold'})}>Category</Text>
+                        <Text style={tw.style('text-base text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Product</Text>
+                        <Text style={tw.style('text-base text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Category</Text>
                     </View>
                     :
                   <View style={tw.style('flex flex-row justify-between items-center ml-1')}>

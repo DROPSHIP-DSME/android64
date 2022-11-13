@@ -129,7 +129,7 @@ const Cart = (props) => {
                         val={parseInt(item.productQuantity)}
                         styleBtn={{width:30.6,height:28,backgroundColor:'#F3F3F3'}}
                         styleTextInput={{width:38.25,height:28,backgroundColor:'#F3F3F3'}}
-                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hintedavertastdsemibold'}}
+                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'AvertaStdSemibold'}}
                         handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>
@@ -291,7 +291,7 @@ const Cart = (props) => {
         <View style={tw`pt-1 pb-20`}>
           <View style={tw`flex flex-row justify-between mt-4 mx-4`} >
             <View style={tw`self-center`}>
-                <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'hintedavertastdsemibold'})}>Shopping Bag</Text>
+                <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>Shopping Bag</Text>
             </View>
           </View>
           <View style={tw`mx-4 my-2`}>
