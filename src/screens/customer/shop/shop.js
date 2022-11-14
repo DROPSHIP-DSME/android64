@@ -168,7 +168,7 @@ const shop = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
                 <View style={tw.style('mx-4 mt-9 mb-5')}>
-                    <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Shop</Text>
+                    <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Shop</Text>
                 </View>
 
                 <View style={tw.style('flex flex-row mx-5 mt-0')}>

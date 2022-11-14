@@ -123,7 +123,7 @@ const Accountsum = (props) => {
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#E5E5E5' }} >
 
                 <View style={tw.style('mx-4 pt-3 mb-4')}>
-                    <Text style={tw.style('text-3xl text-gray-900 pt-3 mt-4', {fontFamily:'AvertaStdSemibold'})}>Order Summary</Text>
+                    <Text style={tw.style('text-3xl text-gray-900 pt-3 mt-4', {fontFamily:'AvertaStd-Semibold'})}>Order Summary</Text>
                 </View>
                 <View style={tw.style('flex flex-row justify-between mx-4 px-8 pt-5')}>
                     <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
@@ -136,7 +136,7 @@ const Accountsum = (props) => {
                       </TouchableOpacity>
                     */}
 
-                    <Text style={tw.style('text-lg text-gray-900', {fontFamily:'AvertaStdSemibold'})}>Order Summary</Text>
+                    <Text style={tw.style('text-lg text-gray-900', {fontFamily:'AvertaStd-Semibold'})}>Order Summary</Text>
                 </View>
 
 
@@ -149,7 +149,7 @@ const Accountsum = (props) => {
                     <View style={tw.style('py-8 px-3')}>
                         <View style={tw.style('flex flex-row justify-between items-center mb-5')}>
                             <View>
-                                <Text style={tw.style('text-2xl text-gray-900', {fontFamily:'AvertaStdSemibold'})}>Order History</Text>
+                                <Text style={tw.style('text-2xl text-gray-900', {fontFamily:'AvertaStd-Semibold'})}>Order History</Text>
                             </View>
 
                             <Smallbutton text="See All" onPress={() => props.navigation.navigate("Accountorderhist")}></Smallbutton>

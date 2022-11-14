@@ -164,7 +164,7 @@ const Dashaccount = (props) => {
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
         <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-8`}>
-          <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>My Account</Text>
+          <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'AvertaStd-Semibold'})}>My Account</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-4`}>
@@ -178,7 +178,7 @@ const Dashaccount = (props) => {
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3')}>
           <Text style={tw.style('text-xl text-gray-500')}>Account Balance</Text>
 
-          <Text style={tw.style('text-3xl text-gray-800 mt-3', {fontFamily:'AvertaStdSemibold'})}>${props?.getlistselldeshboard?.income}</Text>
+          <Text style={tw.style('text-3xl text-gray-800 mt-3', {fontFamily:'AvertaStd-Semibold'})}>${props?.getlistselldeshboard?.income}</Text>
           <View style={tw`w-6/11 mt-5`}> 
             <Smallbutton text="Withdraw Money" onPress={() => props.navigation.navigate("Dashwith")}></Smallbutton>
           </View>

@@ -133,7 +133,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
                 <View style={tw.style('flex flex-row justify-between mx-4 mt-10')}>
-                  <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Customer Support</Text>
+                  <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Customer Support</Text>
                 </View>
 
                <View style={tw.style('mx-4 my-4')}>

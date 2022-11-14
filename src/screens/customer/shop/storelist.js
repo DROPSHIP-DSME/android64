@@ -121,7 +121,7 @@ const shop = (props) => {
                     <View style={tw.style('flex flex-row mt-2 justify-between')}>
                         <View style={tw.style('pl-2')}>
 
-                          <Text style={tw.style('text-gray-600 text-xl',{fontFamily:"AvertaStdSemibold"})}>{item.brandName}</Text>
+                          <Text style={tw.style('text-gray-600 text-xl',{fontFamily:"AvertaStd-Semibold"})}>{item.brandName}</Text>
                             
                       
                         </View>
@@ -146,7 +146,7 @@ const shop = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
                 <View style={tw.style('mx-4 mt-9 mb-5')}>
-                    <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Stores</Text>
+                    <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Stores</Text>
                 </View>
 
                 {/* TODO: Need to add DATA binding to Category buttons */}

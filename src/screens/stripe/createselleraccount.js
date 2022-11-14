@@ -47,7 +47,7 @@ const ProductDisplay = () =>{
           <Logobase />
       </View>
       <View style={tw.style('mb-6 mx-7')}>
-        <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"AvertaStdSemibold"})}>Create Seller Account</Text>
+        <Text style={tw.style('text-3xl text-gray-700 text-center', {fontFamily:"AvertaStd-Semibold"})}>Create Seller Account</Text>
         <Text style={tw.style('text-base my-1 text-gray-700 text-center')}>We at Dropship value your privacy so all payments are processd through Stripes payment system</Text>
       </View>
       <View style={tw.style('h-100 mb-8')}>

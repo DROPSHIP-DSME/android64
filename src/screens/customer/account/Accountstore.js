@@ -175,7 +175,7 @@ const Accountstore = (props) => {
 
 
         <View style={tw.style('mx-4 pt-3 mb-4')}>
-            <Text style={tw.style('text-4xl text-gray-900 pt-3 mt-4', {fontFamily:'AvertaStdSemibold'})}>My Account</Text>
+            <Text style={tw.style('text-4xl text-gray-900 pt-3 mt-4', {fontFamily:'AvertaStd-Semibold'})}>My Account</Text>
         </View>
 
         <View style={tw.style('flex flex-row justify-between mx-4 pt-5')}>
@@ -183,7 +183,7 @@ const Accountstore = (props) => {
             <Text style={tw`text-base text-gray-400`}>Personal Details</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-            <Text style={tw.style('text-lg text-gray-900', {fontFamily:'AvertaStdSemibold'})}>My store</Text>
+            <Text style={tw.style('text-lg text-gray-900', {fontFamily:'AvertaStd-Semibold'})}>My store</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
             <Text style={tw`text-base text-gray-400`}>Account Summary</Text>
@@ -215,7 +215,7 @@ const Accountstore = (props) => {
 
                 <View style={tw.style('my-1 px-1')}>
                     <TouchableOpacity onPress={() => navigation.navigate("Overview")} style={tw.style('flex flex-row rounded-md bg-white justify-between items-center')}>
-                        <Text style={tw.style('text-xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>
+                        <Text style={tw.style('text-xl text-gray-900',{fontFamily:'AvertaStd-Semibold'})}>
                             Seller's Dashboard
                         </Text>
                         <View style={tw.style('mx-4 my-4')}>

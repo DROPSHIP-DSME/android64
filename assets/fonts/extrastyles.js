@@ -1,8 +1,8 @@
 {
 	"font-averta-bold": {
-            "fontFamily": "AvertaStdBold"
+            "fontFamily": "AvertaStd-Bold"
 	},
 	"font-averta-semibold": {
-            "fontFamily": "AvertaStdSemibold"
+            "fontFamily": "AvertaStd-Semibold"
 	}
 }

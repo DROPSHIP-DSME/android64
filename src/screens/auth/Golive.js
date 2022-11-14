@@ -193,7 +193,7 @@ const Golive = (props) => {
                   onPress={() => googleSignIn()}>
                   <View style={tw.style('flex flex-row justify-center items-center')}>
                       <Image source={ImageIcons.googleicon} style={tw.style('w-8 h-8')} />
-                        <Text style={tw.style('text-xl ml-3 text-gray-800 tracking-wide', { fontFamily: "AvertaStdSemibold" })}>Sign in with Google</Text>
+                        <Text style={tw.style('text-xl ml-3 text-gray-800 tracking-wide', { fontFamily: "AvertaStd-Semibold" })}>Sign in with Google</Text>
                   </View>
               </TouchableOpacity>
           </View>
@@ -204,7 +204,7 @@ const Golive = (props) => {
                   onPress={() => facebookSignIn()}>
                   <View style={tw.style('flex flex-row justify-center items-center')}>
                       <Image source={ImageIcons.facebook} style={tw.style('w-5 h-9')} />
-                      <Text style={tw.style('text-xl ml-3 mt-1 text-gray-800 tracking-wide', { fontFamily: "AvertaStdSemibold" })}>Sign in with Facebook</Text>
+                      <Text style={tw.style('text-xl ml-3 mt-1 text-gray-800 tracking-wide', { fontFamily: "AvertaStd-Semibold" })}>Sign in with Facebook</Text>
                   </View>
               </TouchableOpacity>
           </View> */}

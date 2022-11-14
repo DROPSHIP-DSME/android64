@@ -243,7 +243,7 @@ return (
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
 
               <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-8 mb-6')}>
-                <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStdSemibold'})}>Go Live</Text>
+                <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Go Live</Text>
                </View>
 
 

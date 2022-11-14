@@ -185,11 +185,11 @@ const deletaccount = (props) => {
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
         <View style={tw`mt-20 mb-5 mx-4`}>
-          <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>Delete Account</Text>
+          <Text style={tw.style('flex flex-row text-3xl text-gray-900',{fontFamily:'AvertaStd-Semibold'})}>Delete Account</Text>
         </View>
 
         <View style={tw`mx-4 my-5`}>
-          <Text style={tw.style('text-xl text-gray-800',{fontFamily:'AvertaStdSemibold'})}>Reasons for Deleting </Text>
+          <Text style={tw.style('text-xl text-gray-800',{fontFamily:'AvertaStd-Semibold'})}>Reasons for Deleting </Text>
         </View>
 
         <View style={tw`mx-4`}>

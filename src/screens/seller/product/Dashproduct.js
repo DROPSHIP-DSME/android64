@@ -232,7 +232,7 @@ const Dashproduct = (props) => {
                 type="button"
                 style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
               >
-                  <Text style={tw.style('text-base text-white', {fontFamily:'AvertaStdSemibold'})}>Orders</Text>
+                  <Text style={tw.style('text-base text-white', {fontFamily:'AvertaStd-Semibold'})}>Orders</Text>
               </View>
             </TouchableOpacity>
 
@@ -241,7 +241,7 @@ const Dashproduct = (props) => {
                 type="button"
                 style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
               >
-                  <Text style={tw.style('text-base text-gray-700', {fontFamily:'AvertaStdSemibold'})}>Sales Overview</Text>
+                  <Text style={tw.style('text-base text-gray-700', {fontFamily:'AvertaStd-Semibold'})}>Sales Overview</Text>
               </View>
             </TouchableOpacity>
         </View>
@@ -251,7 +251,7 @@ const Dashproduct = (props) => {
         <View style={tw.style('flex flex-row justify-between mx-4')}>
 
           <TouchableOpacity>
-            <Text style={tw.style('text-2xl text-gray-600',{fontFamily:'AvertaStdSemibold'})}>Products ({props?.getlistproduct?.length})</Text>
+            <Text style={tw.style('text-2xl text-gray-600',{fontFamily:'AvertaStd-Semibold'})}>Products ({props?.getlistproduct?.length})</Text>
           </TouchableOpacity>
             <Smallbutton
               text="Add Product"
@@ -289,7 +289,7 @@ const Dashproduct = (props) => {
             />
             :
             <View style={tw.style('justify-center my-8')}>
-              <Text style={tw.style('text-base text-center', {fontFamily:'AvertaStdSemibold'})}>No Product added yet</Text>
+              <Text style={tw.style('text-base text-center', {fontFamily:'AvertaStd-Semibold'})}>No Product added yet</Text>
             </View>
           }
         </View>

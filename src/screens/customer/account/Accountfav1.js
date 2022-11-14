@@ -146,7 +146,7 @@ const Accountfav1 = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
                 <View style={tw`flex flex-row justify-between mx-4 mt-10 mb-5`}>
-                    <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'AvertaStdSemibold', })}>My Favorites</Text>
+                    <Text style={tw.style('text-3xl text-gray-700', {fontFamily: 'AvertaStd-Semibold', })}>My Favorites</Text>
                 </View>
 
                 <Loader isVisible={loginLoader} />

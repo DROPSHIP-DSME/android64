@@ -150,10 +150,10 @@ const Account = (props) => {
 
                <View style={tw.style('flex justify-between')}>
                    <View>
-                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'AvertaStdSemibold'})}>Sales Earnings</Text>
+                     <Text style={tw.style('text-lg text-gray-700 mt-1 md:mt-2 mb-1', {fontFamily:'AvertaStd-Semibold'})}>Sales Earnings</Text>
                      <View style={tw.style('flex-row h-14 mb-1')}>
                        <View style={tw.style('flex-1 w-2/3')}>
-                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'AvertaStdSemibold'})}>${props?.getlistselldeshboard?.income}</Text>
+                         <Text style={tw.style('text-4xl text-gray-800',{fontFamily:'AvertaStd-Semibold'})}>${props?.getlistselldeshboard?.income}</Text>
                        </View>
                        <View style={tw.style('flex-none')}>
                          
@@ -267,7 +267,7 @@ const Account = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
                 <View style={tw.style('mx-4 pt-3')}>
-                    <Text style={tw.style('text-3xl text-gray-900 pt-3 mt-1 mb-4', {fontFamily:'AvertaStdSemibold'})}>Shop Account</Text>
+                    <Text style={tw.style('text-3xl text-gray-900 pt-3 mt-1 mb-4', {fontFamily:'AvertaStd-Semibold'})}>Shop Account</Text>
                 </View>
 
                 {/* TODO: remove the current account store summary a move to its own component */}
@@ -314,7 +314,7 @@ const Account = (props) => {
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
-                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>Stripe Account</Text>
+                              <Text style={tw.style('flex flex-row text-2xl text-gray-900',{fontFamily:'AvertaStd-Semibold'})}>Stripe Account</Text>
                           </View>
                       </View>
 
@@ -399,7 +399,7 @@ const Account = (props) => {
 
                         <View style={tw.style('my-4')}>
                             <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
-                                <Text style={tw.style('text-xl text-gray-900',{fontFamily:'AvertaStdSemibold'})}>
+                                <Text style={tw.style('text-xl text-gray-900',{fontFamily:'AvertaStd-Semibold'})}>
                                     Sign Out
                                 </Text>
                             </TouchableOpacity>

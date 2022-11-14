@@ -152,7 +152,7 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
                <View style={tw`flex-row justify-between mx-4 mt-5 mb-3`}>
-                 <Text style={tw.style('text-3xl text-gray-700', {fontFamily:'AvertaStdSemibold'})}>Chats (0)</Text>
+                 <Text style={tw.style('text-3xl text-gray-700', {fontFamily:'AvertaStd-Semibold'})}>Chats (0)</Text>
                </View>
 
 
