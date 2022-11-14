@@ -71,6 +71,7 @@ import {
   BRANDS_LIST_DATA,
   ALLEVENT_LIST_DATA,
   CURRENTEVENT_LIST_DATA,
+  UPCOMINGEVENT_LIST_DATA,
   GET_BRAND_DETAILS,
   GET_BRAND_PRODUCT,
   GET_CHANNEL_COUNT,
@@ -1114,7 +1115,7 @@ export const changeLoginCredentials = (loginCredentials) => {
     }
 };
 //getalleventlist
-export const getalleventlist = (userId) => {
+export const getalleventlist = (userId) => { 
 
    let request = {
       userId:userId
@@ -1160,6 +1161,31 @@ export const getcurrentevent = (userId) => {
         };
     }
 };
+
+//getalleventlist
+export const getupcomingevent = (userId) => { 
+
+   let request = {
+      userId:userId
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected;
+        
+        if (isInternetConnected) {
+            try {
+                let response = await Utilise.apiCalling('POST', `${Api.getupcomingevent}`,  request);
+                
+                if (response?.status) {
+                    dispatch({ type: UPCOMINGEVENT_LIST_DATA, payload: response.data });
+                } else {
+                }
+            } catch (error) {
+                //dispatch({ type: ALLEVENT_LIST_DATA, payload: [] });
+            }
+        };
+    }
+};
+
 
 
 //getlivestreamrecap

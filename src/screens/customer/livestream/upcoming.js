@@ -49,8 +49,8 @@ const upcoming = (props) => {
     } = props;
     const channel = props?.route?.params?.channel;
     useEffect(() => {
-
-        props.getalleventlist(props?.loginuserid);
+        getalllivestream('past');
+        //props.getalleventlist(props?.loginuserid);
         props.getincomingtlist();
         //props.getlivestreamrecap();
         
@@ -75,6 +75,7 @@ const upcoming = (props) => {
 
     const [showalertmsg, setshowalertmsg] = useState('');
     const [showotherAlert, setshowotherAlert] = useState(false);
+    const [livestreamtype, setlivestreamtype] = useState('past');
 
     const [EventId, setEventId] = useState('');
 
@@ -171,6 +172,19 @@ const upcoming = (props) => {
         labels: ["This stream stats", "Average stream stats",],
         datasets: [{ data: [490, 1000,] }]
     };
+
+    const getalllivestream = (type) => {
+        setlivestreamtype(type);
+        if(type=='past'){
+            props.getalleventlist(props?.loginuserid);
+        }
+        if(type=='upcoming'){
+            props.getupcomingevent(1);
+        }
+        if(type=='current'){
+            props.getcurrentevent(1);
+        }
+    }
 
     const viewprofile = [
 
@@ -274,13 +288,58 @@ const upcoming = (props) => {
             style={styles.registrationRoot}>
             
             {showlist==true ?
-                <View style={tw.style('mt-6 mx-4')}>
-                    <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
+                <View>
+                    <View style={tw.style('mt-6 mx-4')}>
+                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
+                    </View>
+                    <View style={{justifyContent:'space-between', flexDirection:'row',margin:20}}>
+                        {livestreamtype=='past'?
+                            <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                                <TouchableOpacity onPress={() => { getalllivestream('past');  }}>
+                                    <Text style={tw.style('text-xs text-white mx-2')}>Past</Text>
+                                </TouchableOpacity>
+                            </View>
+                        :
+                            <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                                <TouchableOpacity onPress={() => { getalllivestream('past');  }}>
+                                    <Text style={tw.style('text-xs text-gray-800 mx-2')}>Past</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
+
+                        {livestreamtype=='upcoming'?
+                            <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                                <TouchableOpacity onPress={() => { getalllivestream('upcoming');  }}>
+                                    <Text style={tw.style('text-xs text-white mx-2')}>Upcoming</Text>
+                                </TouchableOpacity>
+                            </View>
+                        :
+                            <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                                <TouchableOpacity onPress={() => { getalllivestream('upcoming');  }}>
+                                    <Text style={tw.style('text-xs text-gray-800 mx-2')}>Upcoming</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
+
+                        {livestreamtype=='current'?
+                            <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                                <TouchableOpacity onPress={() => { getalllivestream('current');  }}>
+                                    <Text style={tw.style('text-xs text-white mx-2')}>Current</Text>
+                                </TouchableOpacity>
+                            </View>
+                        :
+                            <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                                <TouchableOpacity onPress={() => { getalllivestream('current');  }}>
+                                    <Text style={tw.style('text-xs text-gray-800 mx-2')}>Current</Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
+                    </View>
                 </View>
             :
                 <TouchableOpacity onPress={() => { setshowlist(true);  }}>
                     <View style={tw.style('mt-6 mx-4')}>
-                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>back</Text>
+                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}> back</Text>
                     </View>
                 </TouchableOpacity>
             }
@@ -288,19 +347,56 @@ const upcoming = (props) => {
 
             {showlist==true ?
                 <View style={tw`flex flex-1 w-4/4 mx-2`}>
-                   <View style={tw`mt-4`}>
-                    {props?.getalleventdata?.length>0 ?
-                    <FlatList
-                        data={props?.getalleventdata || []}
-                        renderItem={renderItem5}
-                        keyExtractor={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                        numColumns={3}
-                    />
-                    :
-                        <Text style={tw`text-center text-xl mt-65 text-gray-700`}>No Events Found</Text>
+                    {livestreamtype=='past' &&
+                       <View style={tw`mt-1`}>
+                            {props?.getalleventdata?.length>0 ?
+                            <FlatList
+                                data={props?.getalleventdata || []}
+                                renderItem={renderItem5}
+                                keyExtractor={item => item.id}
+                                showsHorizontalScrollIndicator={false}
+                                extraData={livestreamtype}
+                                numColumns={3}
+                            />
+                            :
+                                <Text style={tw`text-center text-xl mt-65 text-gray-700`}>No Events Found</Text>
+                            }
+                        </View>
                     }
-                    </View>
+
+                    {livestreamtype=='current' &&
+                       <View style={tw`mt-1`}>
+                            {props?.getcurrenteventdata?.length>0 ?
+                            <FlatList
+                                data={props?.getcurrenteventdata || []}
+                                renderItem={renderItem5}
+                                keyExtractor={item => item.id}
+                                showsHorizontalScrollIndicator={false}
+                                extraData={livestreamtype}
+                                numColumns={3}
+                            />
+                            :
+                                <Text style={tw`text-center text-xl mt-65 text-gray-700`}>No Events Found</Text>
+                            }
+                        </View>
+                    }
+                    {livestreamtype=='upcoming' &&
+                       <View style={tw`mt-1`}>
+                            {props?.getupcomingeventdata?.length>0 ?
+                            <FlatList
+                                data={props?.getupcomingeventdata || []}
+                                renderItem={renderItem5}
+                                keyExtractor={item => item.id}
+                                showsHorizontalScrollIndicator={false}
+                                extraData={livestreamtype}
+                                numColumns={3}
+                            />
+                            :
+                                <Text style={tw`text-center text-xl mt-65 text-gray-700`}>No Events Found</Text>
+                            }
+                        </View>
+                    }
+                        
                 </View>
             :
             <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >

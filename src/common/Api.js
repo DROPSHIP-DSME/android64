@@ -44,6 +44,7 @@ const api = {
   searchlistitmes:`/shops/searchitems`,
   getalleventlist:`/shops/getallevent`,
   getcurrentevent:`/shops/getcurrentevent`,
+  getupcomingevent:`/shops/getupcomingevent`,
   gettopcountry:`/shops/topsellingcountry`,
   uploadproductpic:`/shops/uploadProductImage`,
   createbrand: `/shops/createOrUpdateBrand`,

@@ -86,9 +86,14 @@ const Dashlive = (props) => {
 
     useEffect(() => {
       if(props?.loginCredentials?.isSeller==false){
+        Rememberme(props?.loginCredentials?.email);
         props.navigation.navigate("Verificationsteps");
       }
     }, [])
+
+    const Rememberme = async (email) => {
+        await AsyncStorage.setItem('rememberemail',email);
+    }
 
     const makeid=(len)=>{
         var result           = '';
