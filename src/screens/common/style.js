@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     marginTop:"3%", backgroundColor:"#B80000",height:25,width:74,paddingHorizontal:'2%',borderRadius:20
   },
 flltxt:{
-  textAlign:'center',paddingTop:"3%",color:"#FFFFFF",fontSize:12,fontFamily:"hinted-AvertaStd-Bold",fontWeight:"bold"
+  textAlign:'center',paddingTop:"3%",color:"#FFFFFF",fontSize:12,fontFamily:"AvertaStd-Semibold",fontWeight:"bold"
 },
   modal: {
     backgroundColor: Colors.white,

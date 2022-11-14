@@ -416,7 +416,7 @@ const Blurbackground = (props) => {
                     <Image source={{uri:item.productImage}} style={[newstyles.blurimg,{borderRadius:10}]} />
               </TouchableOpacity>
               <View style={{marginLeft:20}}>
-                    <Text style={{fontSize:12,color:'#1a1a1a',fontWeight:'400',fontFamily:'source hinted-AvertaStd-Semibold'}}>${item.productPrice}</Text>
+                    <Text style={{fontSize:12,color:'#1a1a1a',fontWeight:'400',fontFamily:'source AvertaStd-Semibold'}}>${item.productPrice}</Text>
                     <View style={{ backgroundColor:'#D4E0F2',paddingHorizontal:10,paddingVertical:3,borderRadius:10,marginTop:5}}>
                        <Text style={{color:'#2666BE',fontSize:11}}>New Stock</Text>
                     </View>
@@ -565,11 +565,11 @@ const Blurbackground = (props) => {
                         <Modal visible={showsidebar} onDismiss={hidesidebar}
                         contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:0 }}>
                             <View>
-                                <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
+                                <Text style={{fontFamily:'AvertaStd-Semibold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
                                 <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',paddingHorizontal:0}}>
                                     <Sortorder options={options1} onSelect={(checked) => updateorderStatus(checked)} />
                                 </View>
-                                <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>
+                                <Text style={{fontFamily:'AvertaStd-Semibold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>
                                 <View style={{borderRadius:10,marginLeft:-20,alignSelf:'center',padding:'1%',paddingHorizontal:'3%'}}>
                                     <SwitchToggle
                                       switchOn={on}

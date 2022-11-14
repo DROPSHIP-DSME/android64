@@ -181,7 +181,7 @@ const deviceWidth = Dimensions.get('window').width;
                  <View style={{width:deviceWidth/1.15,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'7%',borderRadius:15,}}>
 
                    <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'3%'}}>
-                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',width:190}}>Withdrawal to Bank Account</Text>
+                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',width:190}}>Withdrawal to Bank Account</Text>
 
 
                      <TouchableOpacity onPress={() => closepopup() } style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'4%',padding:8,}}>
@@ -190,19 +190,19 @@ const deviceWidth = Dimensions.get('window').width;
 
                    </View>
 
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',marginTop:'3%'}}>Withdrawal Details</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',marginTop:'3%'}}>Withdrawal Details</Text>
 
                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Receiving Account</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',width:140}}>CRDB Bank Limited (0)</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#666666'}}>Receiving Account</Text>
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',width:140}}>CRDB Bank Limited (0)</Text>
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Transfer Amount</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>$0*</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#666666'}}>Transfer Amount</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>$0*</Text>
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Transfer Fee</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>$0</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#666666'}}>Transfer Fee</Text>
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>$0</Text>
                </View>
 
               </View>
@@ -212,8 +212,8 @@ const deviceWidth = Dimensions.get('window').width;
 
                <View style={{width:deviceWidth/1.15,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',borderRadius:15,}}>
                    <View style={{flexDirection:'row',justifyContent:'space-between',}}>
-                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Amount to Deposit</Text>
-                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>$0</Text>
+                      <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#666666'}}>Amount to Deposit</Text>
+                       <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>$0</Text>
                    </View>
 
               </View>

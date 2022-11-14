@@ -121,7 +121,7 @@ const Dashlive3 = (props) => {
            <View style={{marginTop:5,}}>
             <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
             <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.text1}</Text>
+            <Text style={{fontSize:16,width:'80%',fontFamily:'AvertaStd-Semibold',marginLeft:'5%'}}>{item.text1}</Text>
              <View>
                 {item?.productRating ?
                 <Rating
@@ -150,7 +150,7 @@ const Dashlive3 = (props) => {
             }
              </View>
              <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#ffe6ff',width:90,borderRadius:5,padding:6,marginHorizontal:'4%',marginBottom:'12%'}}>
-                      <Text style={{fontSize:12,color:'#E25424',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text> 
+                      <Text style={{fontSize:12,color:'#E25424',fontFamily:'AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text> 
                    </TouchableOpacity>
           </View>
         </View>  
@@ -171,7 +171,7 @@ const Dashlive3 = (props) => {
                </View>
             </TouchableOpacity>
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Add Products</Text>
+                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',}}>Add Products</Text>
                </View>
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
@@ -230,7 +230,7 @@ const Dashlive3 = (props) => {
               
              
                   <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'5%',marginHorizontal:'5%'}}>
-                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Edit Product</Text>      
+                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',}}>Edit Product</Text>      
                      <TouchableOpacity onPress={() => closepopup() } style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'4%',padding:8,}}>
                       <Image source={ImageIcons.closetoday}  style={{height:12,width:12,marginTop:5,alignSelf:'center'}} />
                     </TouchableOpacity> 
@@ -239,26 +239,26 @@ const Dashlive3 = (props) => {
 
                     <View style={{marginHorizontal:'3%',marginTop:'7%'}}>
                <TouchableOpacity>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Product Label</Text>
+                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',}}>Product Label</Text>
                  </TouchableOpacity>
                </View>
 
               <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
                 <TouchableOpacity style={{backgroundColor:'#e25424',width:75,borderRadius:10,padding:5,}}>
-                      <Text style={{fontSize:12,color:'#ffffff',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',padding:2}}>ON SALE</Text> 
+                      <Text style={{fontSize:12,color:'#ffffff',fontFamily:'AvertaStd-Semibold',textAlign:'center',padding:2}}>ON SALE</Text> 
                    </TouchableOpacity>
 
                 <TouchableOpacity style={{backgroundColor:'#e6f2ff',width:75,borderRadius:10,padding:5,marginLeft:10}}>
-                      <Text style={{fontSize:12,color:'#2f80ed',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',padding:2}}>NEW STOCK</Text> 
+                      <Text style={{fontSize:12,color:'#2f80ed',fontFamily:'AvertaStd-Semibold',textAlign:'center',padding:2}}>NEW STOCK</Text> 
                    </TouchableOpacity>
 
                     <TouchableOpacity style={{backgroundColor:'#ffe6ff',width:80,borderRadius:10,padding:5,marginLeft:10}}>
-                      <Text style={{fontSize:12,color:'#E3AE0E',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',padding:2}}>LOW SUPPLY</Text> 
+                      <Text style={{fontSize:12,color:'#E3AE0E',fontFamily:'AvertaStd-Semibold',textAlign:'center',padding:2}}>LOW SUPPLY</Text> 
                    </TouchableOpacity>
               </View>
 
               <TouchableOpacity style={{backgroundColor:'#e6ffe6',width:90,borderRadius:10,padding:5,marginHorizontal:'4%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:12,color:'#27AE60',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',padding:2}}>HIGHLY RATED</Text> 
+                 <Text style={{fontSize:12,color:'#27AE60',fontFamily:'AvertaStd-Semibold',textAlign:'center',padding:2}}>HIGHLY RATED</Text> 
               </TouchableOpacity>
 
 

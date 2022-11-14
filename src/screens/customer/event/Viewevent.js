@@ -265,7 +265,7 @@ const renderItem1 = ({ item ,index }) => {
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >
 
              <View style={{marginHorizontal:'3%',paddingTop:'10%'}}>
-             <Text style={{padding:10,fontSize:32,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>Pop-up Events</Text>
+             <Text style={{padding:10,fontSize:32,color:"#B80000",fontFamily:'AvertaStd-Semibold',fontWeight:"bold"}}>Pop-up Events</Text>
               <View >
                 <FlatList
                     data={DATA1}

@@ -180,7 +180,7 @@ const Golive = (props) => {
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
 
-          <View style={tw.style('items-center mt-[25%] mb-[25%]')}>
+          <View style={tw.style('items-center mt-[25%] mb-[20%]')}>
               <Logobase />
           </View>
 
@@ -197,17 +197,6 @@ const Golive = (props) => {
                   </View>
               </TouchableOpacity>
           </View>
-          {/* <View style={tw.style('mt-4 items-center')}>
-              <TouchableOpacity
-                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-full border border-slate-400 shadow-sm ')}
-                  activeOpacity = { .5}
-                  onPress={() => facebookSignIn()}>
-                  <View style={tw.style('flex flex-row justify-center items-center')}>
-                      <Image source={ImageIcons.facebook} style={tw.style('w-5 h-9')} />
-                      <Text style={tw.style('text-xl ml-3 mt-1 text-gray-800 tracking-wide', { fontFamily: "AvertaStd-Semibold" })}>Sign in with Facebook</Text>
-                  </View>
-              </TouchableOpacity>
-          </View> */}
 
         <View style={[styles.devider1, { marginTop: '5%' }]}>
             <View style={styles.devider2} />
@@ -221,8 +210,8 @@ const Golive = (props) => {
               onPress={() => props.navigation.navigate("RegistrationShop")}
             />
             </View>
-            <View style={tw.style('flex flex-row justify-center mt-3')}>
-                <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Don’t have an account yet?</Text>
+            <View style={tw.style('flex flex-row justify-center items-center mt-3')}>
+                <Text style={tw.style('text-lg text-gray-700 tracking-wide')}>Don’t have an account yet?</Text>
 
                 <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>

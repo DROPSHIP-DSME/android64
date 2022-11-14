@@ -639,11 +639,11 @@ buyertext:{
 },
 pricebrandtext:{
    color:'#E33232',fontSize:13,lineHeight:16,
-    fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+    fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
 },
 suntotaltext:{
    color:'#F41616',fontSize:14,lineHeight:18,textAlign:'center',
-    fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+    fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
 },
 brandcolortext:{
    color:'#919191',fontSize:10,lineHeight:13,
@@ -658,7 +658,7 @@ crt2:
     fontSize:20,marginLeft:'2%',fontWeight:'bold',fontFamily:'AvertaStd-Regular',fontStyle:'normal',
 },
 crt3:{
-    color:"#E22020",marginTop:'2%',marginLeft:'2%',fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',
+    color:"#E22020",marginTop:'2%',marginLeft:'2%',fontSize:15,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',
 },
 Viewcart:{
     flexDirection:'row' ,justifyContent:'space-between',marginTop:'3%',paddingHorizontal:'3%',
@@ -714,7 +714,7 @@ newcartttview2:{
    textAlign:'center',marginHorizontal:'5%',padding:'1%',
 },
 srchistry:{
-  fontSize:22,color:"#000000",fontFamily:'hinted-AvertaStd-Semibold',fontWeight:"400",marginTop:'4%'
+  fontSize:22,color:"#000000",fontFamily:'AvertaStd-Semibold',fontWeight:"400",marginTop:'4%'
 },
 greencartttview:{
     backgroundColor:'#ADFFCE',borderRadius:5,justifyContent:'center',
@@ -735,7 +735,7 @@ textshipcheck:{
 },
 greecolortext:{
     fontSize:13,color:'#000000',fontWeight:'600',padding:'1%',textAlign:'center',
-    fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',lineHeight:15,paddingHorizontal:'2%'
+    fontFamily:'AvertaStd-Semibold',fontStyle:'normal',lineHeight:15,paddingHorizontal:'2%'
 },
 adcartcolortext:{
     fontSize:12,color:'#FFFFFF',fontWeight:'normal',padding:'1%',textAlign:'center',
@@ -743,7 +743,7 @@ adcartcolortext:{
 },
 proceedtext:{
     fontSize:13,color:'#FFFFFF',fontWeight:'600',padding:'2%',textAlign:'center',
-    fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',lineHeight:15,paddingHorizontal:'2%'
+    fontFamily:'AvertaStd-Semibold',fontStyle:'normal',lineHeight:15,paddingHorizontal:'2%'
 },
 cartrate:{
     color:"#E22020",fontSize:12,fontWeight:'bold',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
@@ -756,10 +756,10 @@ pdnme:{
   fontSize:16,fontFamily:'AvertaStd-Regular',color:'#1a1a1a'
 },
 pdclr:{
-  fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'
+  fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'
 },
 prctxt:{
-  fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'
+  fontSize:20,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'
 },
 likeimg:{
   width:25,height:21,marginHorizontal:'4%'
@@ -798,7 +798,7 @@ cartimg:{
 },
 
 goback1:{
-    fontSize:20,fontWeight:'600',textAlign:'center',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontSize:20,fontWeight:'600',textAlign:'center',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 goback2:{
     height:deviceHeight/2.6,width:deviceWidth/1.26,borderRadius:5
@@ -809,7 +809,7 @@ inorder1:{
     flexDirection:'row',justifyContent:'space-between',margin:'4%',marginTop:'20%'
 },
 inorder2:
-{fontSize:15,marginLeft:'2%',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+{fontSize:15,marginLeft:'2%',fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 inorder3:{
     height:28,width:'28%',borderWidth:1,borderColor:"#B80000",borderRadius:25,
@@ -821,17 +821,17 @@ inorder5:{
  width:20, height:20,marginLeft:'10%'
 },
 inorder6:{
-    color:"#B80000",marginTop:'2%',marginRight:'8%',fontSize:12,fontWeight:'600',textAlign:'center',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    color:"#B80000",marginTop:'2%',marginRight:'8%',fontSize:12,fontWeight:'600',textAlign:'center',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 inorder7:{
     flexDirection:'row',justifyContent:'space-between',marginHorizontal:'8%',marginTop:'8%',
 },
 inorder8:{
-    fontSize:15,marginLeft:'10%',color:"#E22020",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',
+    fontSize:15,marginLeft:'10%',color:"#E22020",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',
 
 },
 inorder9:{
-    fontSize:15,marginLeft:'10%',color:"#828282",fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',
+    fontSize:15,marginLeft:'10%',color:"#828282",fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',
 
 },
 inorder10:{
@@ -849,23 +849,23 @@ inorder12:{
 },
 
 inorder13:{
-    fontSize:13,marginLeft:'2%',fontWeight:'bold',color:"#E22020",fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',
+    fontSize:13,marginLeft:'2%',fontWeight:'bold',color:"#E22020",fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',
 },
 
 livec1:{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'6%',marginTop:'15%'},
 
 livec2:{fontSize:20,paddingLeft:'4%',fontWeight:'bold'},
 
-livec3:{color:"#B80000",marginTop:'2%',marginLeft:'2%',fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
+livec3:{color:"#B80000",marginTop:'2%',marginLeft:'2%',fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
 
 livec4:{fontSize:12,paddingLeft:'6%',paddingTop:"2%",color:'#686868',fontFamily: "AvertaStd-Regular",fontStyle: "normal",fontWeight:'normal'},
 
-livec5:{textAlign:'center' ,color:"#FFFFFF",fontSize:10,fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
+livec5:{textAlign:'center' ,color:"#FFFFFF",fontSize:10,fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
 
 livec6:{textAlign:'center' ,fontSize:8,paddingTop:'3%',color:"#FFFFFF",fontFamily: "AvertaStd-Regular",fontStyle: "normal",fontWeight:'normal'},
 
-livec7:{textAlign:'center' , color:"#000000",fontSize:10,fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
-livec27:{textAlign:'center' , color:"#ffffff",fontSize:10,fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
+livec7:{textAlign:'center' , color:"#000000",fontSize:10,fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
+livec27:{textAlign:'center' , color:"#ffffff",fontSize:10,fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
 
 livec8:{textAlign:'center' ,fontSize:8,paddingTop:'3%',color:"#4A4B57",fontFamily: "AvertaStd-Regular",fontStyle: "normal",fontWeight:'normal'},
 
@@ -974,7 +974,7 @@ more14:{height:180,width:180,borderRadius:10,marginLeft:'5%',},
 
 newor1:{flexDirection:'row', marginLeft:'6%',marginTop:'15%'},
 
-newor2:{fontSize:16,marginLeft:'30%',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+newor2:{fontSize:16,marginLeft:'30%',fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
 
 
@@ -983,7 +983,7 @@ over1:{flexDirection:'row',justifyContent:'space-between',margin:'4%',marginTop:
 
 over2:{
     fontSize:15,marginLeft:'2%',fontWeight:'600',lineHeight:19,
-    fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',color:'#000000'
+    fontFamily:'AvertaStd-Semibold',fontStyle:'normal',color:'#000000'
 },
 
 over3:{height:28,width:'28%',borderWidth:1,borderColor:"#E22020",borderRadius:25,},
@@ -995,24 +995,24 @@ over4:{
 
 carttextshop:{
     color:"#E22020",lineHeight:15,
-    fontSize:12,fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontSize:12,fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 
-over5:{color:"#E22020",marginTop:'2%',marginRight:'8%',fontSize:12,fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+over5:{color:"#E22020",marginTop:'2%',marginRight:'8%',fontSize:12,fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
 over6:{fontSize:12,paddingTop:8,textAlign:'center',fontWeight:'normal',fontStyle:'normal',fontFamily:'AvertaStd-Regular'},
 
-over7:{fontSize:18,paddingTop:20, textAlign:'center',fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold'},
+over7:{fontSize:18,paddingTop:20, textAlign:'center',fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold'},
 
-over8:{fontSize:12,color:"#E22020",paddingTop:10,paddingLeft:10,fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+over8:{fontSize:12,color:"#E22020",paddingTop:10,paddingLeft:10,fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
 over9:{ width:16, height:16,borderRadius:15,marginLeft:10,marginTop:10,marginRight:5},
 
 over10:{flexDirection:'row',justifyContent:'space-between',margin:'4%',marginTop:'8%'},
 
-over11:{fontSize:15,marginLeft:'2%',fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold'},
+over11:{fontSize:15,marginLeft:'2%',fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold'},
 
-over12:{fontSize:15,marginLeft:'3%',fontWeight:'bold',color:"#E22020",fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+over12:{fontSize:15,marginLeft:'3%',fontWeight:'bold',color:"#E22020",fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
 over13:{fontSize:12,color:"#4F4F4F",fontWeight:'normal',fontStyle:'normal',fontFamily:'AvertaStd-Regular'},
 
@@ -1025,10 +1025,10 @@ over15:{flexDirection:'row',marginLeft:'2%',marginTop:"4%"},
 
 over16:{ width:30, height:30,marginLeft:'4%'},
 
-over17:{fontSize:12,color:"#4F4F4F",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+over17:{fontSize:12,color:"#4F4F4F",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
 
-over19:{fontSize:12,marginLeft:'18%',color:"#4F4F4F",fontFamily:'hinted-AvertaStd-Semibold',fontStyle: "normal",fontWeight:'600',},
+over19:{fontSize:12,marginLeft:'18%',color:"#4F4F4F",fontFamily:'AvertaStd-Semibold',fontStyle: "normal",fontWeight:'600',},
 
 over20:{ width:20, height:20,marginLeft:'22%',borderRadius:20},
 
@@ -1036,9 +1036,9 @@ over21:{borderBottomWidth:1,marginTop:"2%",height:0.5,borderColor:'#BDBDBD',marg
 
 over22:{flexDirection:'row',justifyContent:'space-between',margin:'4%',marginTop:'8%'},
 
-over23:{fontSize:15,marginLeft:'2%',fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
+over23:{fontSize:15,marginLeft:'2%',fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600'},
 
-over24:{fontSize:15,marginRight:'3%',color:"#E22020",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600'},
+over24:{fontSize:15,marginRight:'3%',color:"#E22020",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600'},
 
 
 
@@ -1048,9 +1048,9 @@ over27:{flexDirection:'row',marginLeft:'2%',marginTop:"4%"},
 
 
 
-over29:{fontSize:12,marginLeft:'0%',color:"#4F4F4F",fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+over29:{fontSize:12,marginLeft:'0%',color:"#4F4F4F",fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
-over30:{fontSize:12,color:"#4F4F4F",width:'36%',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+over30:{fontSize:12,color:"#4F4F4F",width:'36%',fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
  over31:{ width:20, height:20,marginLeft:'20%', borderRadius:20},
 
@@ -1061,7 +1061,7 @@ over30:{fontSize:12,color:"#4F4F4F",width:'36%',fontWeight:'600',fontFamily:'hin
 
 process1:{flexDirection:'row',justifyContent:'space-between',margin:'4%',marginTop:'20%'},
 
-process2:{fontSize:15,marginLeft:'2%',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+process2:{fontSize:15,marginLeft:'2%',fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
 process3:{height:28,width:'23%',borderWidth:1,borderColor:"#E22020",borderRadius:25,},
 
@@ -1069,31 +1069,31 @@ process4:{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3
 
 process5:{ width:20, height:20,marginLeft:'10%'},
 
-process6:{color:"#E22020",marginTop:'2%',marginRight:'8%',fontSize:12,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600'},
+process6:{color:"#E22020",marginTop:'2%',marginRight:'8%',fontSize:12,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600'},
 
 process7:{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'8%',marginTop:'8%'},
 
-process8:{fontSize:15,marginLeft:'15%',color:"#828282",fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',},
+process8:{fontSize:15,marginLeft:'15%',color:"#828282",fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',},
 
-process9:{fontSize:15,fontWeight:'bold',color:"#E22020",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',marginLeft:'2%'},
+process9:{fontSize:15,fontWeight:'bold',color:"#E22020",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',marginLeft:'2%'},
 
 process10:{borderBottomWidth:3,width:'110%' ,borderColor:'#E22020',marginTop:'15%'},
 
-process11:{fontSize:13,marginLeft:'2%',color:"#E22020",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+process11:{fontSize:13,marginLeft:'2%',color:"#E22020",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
-process12:{fontSize:13,marginLeft:'2%',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+process12:{fontSize:13,marginLeft:'2%',fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
 process13:{flexDirection:'row',marginLeft:'2%',marginTop:"6%"},
 
 
 
-process15:{fontSize:10,marginLeft:'6%',color:"#27AE60",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600'},
+process15:{fontSize:10,marginLeft:'6%',color:"#27AE60",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600'},
 
 process16:{fontSize:14,marginLeft:'5%',color:"#828282"},
 
-process17:{fontSize:10,marginLeft:'8%',color:"#4F4F4F",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+process17:{fontSize:10,marginLeft:'8%',color:"#4F4F4F",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
-process18:{fontSize:10,marginLeft:'8%',color:"#2F80ED",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+process18:{fontSize:10,marginLeft:'8%',color:"#2F80ED",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
 process19:{ width:20, height:20,marginLeft:'9%',borderRadius:20},
 
@@ -1105,11 +1105,11 @@ process26:{ width:20, height:20,marginLeft:'7%',borderRadius:20},
 
 
 
-process21:{fontSize:10,marginLeft:'8%',color:"#A78C01",fontFamily: "hinted-AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',},
+process21:{fontSize:10,marginLeft:'8%',color:"#A78C01",fontFamily: "AvertaStd-Semibold",fontStyle: "normal",fontWeight:'600',},
 
 process22:{fontSize:14,marginLeft:'6%',color:"#179935"},
 
-process23:{fontSize:10,marginLeft:'10%',color:"#E22020",fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
+process23:{fontSize:10,marginLeft:'10%',color:"#E22020",fontFamily:'AvertaStd-Semibold',fontStyle:'normal',fontWeight:'600',},
 
 
 
@@ -1117,15 +1117,15 @@ stor1:{flexDirection:'row',justifyContent:'space-between',margin:'4%'},
 
 stor2:{
     fontSize:20,fontWeight:'bold',fontStyle:'normal',marginHorizontal:'2%',
-    color:'#000000',lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'
+    color:'#000000',lineHeight:25,fontFamily:'AvertaStd-Semibold',textAlign:'center'
 },
 comingtext:{
     fontSize:20,fontWeight:'600',fontStyle:'normal',marginHorizontal:'3%',
-    color:'#000000',lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',
+    color:'#000000',lineHeight:25,fontFamily:'AvertaStd-Semibold',
 },
 exclusivetext:{
   fontSize:14,fontWeight:'bold',fontStyle:'normal',marginHorizontal:'3%',lineHeight:168,
-    color:'#000000',lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',
+    color:'#000000',lineHeight:25,fontFamily:'AvertaStd-Semibold',
     textAlign:'center',marginVertical:'3%'
 },
 
@@ -1140,7 +1140,7 @@ dirspcView:{
    flexDirection:'row',justifyContent:'space-between',
 },
 mybrdtxt:{
-  fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'
+  fontSize:20,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'
 },
 allsebtn:{
   backgroundColor:'#B80000',width:80,borderRadius:20,padding:8,
@@ -1151,21 +1151,21 @@ stor4:{color:"#B80000",marginTop:'2%'},
 
 storetext:{
     textAlign:'center',fontSize:20,fontWeight:'600',fontStyle:'normal',marginVertical:'8%',
-    color:'#000000',lineHeight:20,alignItems:'center',fontFamily:'hinted-AvertaStd-Semibold',
+    color:'#000000',lineHeight:20,alignItems:'center',fontFamily:'AvertaStd-Semibold',
 },
 storetextname:{
     textAlign:'center',fontSize:20,fontWeight:'600',fontStyle:'normal',marginVertical:'3%',
-    color:'#000000',lineHeight:20,alignItems:'center',fontFamily:'hinted-AvertaStd-Semibold',marginLeft:'10%'
+    color:'#000000',lineHeight:20,alignItems:'center',fontFamily:'AvertaStd-Semibold',marginLeft:'10%'
 },
 
 
 storetext5:{
     textAlign:'center',fontSize:20,fontWeight:'600',fontStyle:'normal',marginTop:'8%',
-    color:'#000000',lineHeight:20,alignItems:'center',fontFamily:'hinted-AvertaStd-Semibold',
+    color:'#000000',lineHeight:20,alignItems:'center',fontFamily:'AvertaStd-Semibold',
 },
 recodingproduct:{
   fontSize:20,fontWeight:'600',fontStyle:'normal',marginVertical:'3%',marginHorizontal:'5%',
-    color:'#000000',lineHeight:20,fontFamily:'hinted-AvertaStd-Semibold',marginTop:'7%'
+    color:'#000000',lineHeight:20,fontFamily:'AvertaStd-Semibold',marginTop:'7%'
 },
 
 StoreTouchability:{
@@ -1178,21 +1178,21 @@ StoreTouchability:{
 storeboldtext:{
     textAlign:'center' ,color:"#FFFFFF",fontWeight:'bold',
     fontSize:14,letterSpacing:0.5,color:'#FFFFFF',fontStyle:'normal',
-    fontFamily:'hinted-AvertaStd-Semibold',
+    fontFamily:'AvertaStd-Semibold',
 },
 JANUARYtext:{
-  fontSize:15,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:15,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
   color:'#223263',letterSpacing:0.5,textAlign:'right'
 },
 rettext:{
-  fontSize:15,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:15,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
   color:'#40BFFF',letterSpacing:0.5,textAlign:'right'
 },
 
 
 tops1:{flexDirection:'row', marginLeft:'6%',marginTop:'15%'},
 
-tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
+tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'},
 
 
   searchmainView:{
@@ -1224,7 +1224,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     },
      startbutton1:{
         fontSize:14,fontWeight:'bold',fontStyle:'normal',
-        fontFamily:'hinted-AvertaStd-Semibold',color:'#FFFFFF',textAlign:'center',
+        fontFamily:'AvertaStd-Semibold',color:'#FFFFFF',textAlign:'center',
     },
     addstoreView:{
        flexDirection:'row',justifyContent:'space-between',marginTop:'10%',marginHorizontal:'4%',
@@ -1247,7 +1247,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     },
     grouptext:{
        fontSize:22,fontWeight:'600',fontStyle:'normal',lineHeight:25.6,
-        fontFamily:'hinted-AvertaStd-Semibold',color:'#1A1A1A',textAlign:'center',
+        fontFamily:'AvertaStd-Semibold',color:'#1A1A1A',textAlign:'center',
     },
     numtext:{
          fontSize:20,fontWeight:'bold',fontStyle:'normal',lineHeight:25,marginLeft:5,
@@ -1255,23 +1255,23 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     },
     goodtext:{
         fontSize:40,fontWeight:'900',fontStyle:'normal',lineHeight:45.6,
-        fontFamily:'hinted-AvertaStd-Semibold',color:'#FFFFFF',textAlign:'center',
+        fontFamily:'AvertaStd-Semibold',color:'#FFFFFF',textAlign:'center',
     },
     groupView:{
         marginTop:'10%',marginHorizontal:'4%',alignItems:'center'
     },
     LIVESTREAM:{
-       fontSize:34,fontFamily:'hinted-AvertaStd-Semibold',
+       fontSize:34,fontFamily:'AvertaStd-Semibold',
        color:'#FFFFFF',marginHorizontal:'3%',
        fontWeight:'600',fontStyle:'normal',lineHeight:43
     },
     LIVESTREAMshop:{
-        fontSize:28,fontFamily:'hinted-AvertaStd-Semibold',
+        fontSize:28,fontFamily:'AvertaStd-Semibold',
        color:'#FFFFFF',marginHorizontal:'3%',
        fontWeight:'600',fontStyle:'normal',lineHeight:35,textAlign:'center'
     },
     LIVEpeopleshop:{
-        fontSize:24,fontFamily:'hinted-AvertaStd-Semibold',
+        fontSize:24,fontFamily:'AvertaStd-Semibold',
        color:'#000000',marginHorizontal:'3%',
        fontWeight:'600',fontStyle:'normal',lineHeight:29,textAlign:'center'
     },
@@ -1306,19 +1306,19 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     },
     Benrosetext:{
         fontSize:20,fontWeight:'600',color:'#282828', paddingLeft:'5%',
-        lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+        lineHeight:25,fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
     },
     baskettext:{
         fontSize:20,fontWeight:'600',marginLeft:'5%',color:'#FFFFFF',bottom:'9%',
-        lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',position:'absolute'
+        lineHeight:25,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',position:'absolute'
     },
     baskettext5:{
         fontSize:20,fontWeight:'600',marginLeft:'4%',color:'#FFFFFF',bottom:'10%',
-        lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',position:'absolute'
+        lineHeight:25,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',position:'absolute'
     },
     blurrtext:{
         fontSize:20,fontWeight:'600',color:'#FFFFFF',
-        lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+        lineHeight:25,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
     },
     imgtimer:{
         width:16,height:16,marginHorizontal:'3%'
@@ -1370,16 +1370,16 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     },
     livetextred:{
   fontSize:12,fontWeight:'600',fontStyle:'normal',marginHorizontal:'6%',
-  color:'#E22020',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:15,
+  color:'#E22020',fontFamily:'AvertaStd-Semibold',lineHeight:15,
 
 },
 
     seriestext:{
-       fontSize:15,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+       fontSize:15,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
        lineHeight:16,color:'#282828'
     },
      seriestexttoday:{
-       fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+       fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
        lineHeight:16,color:'#282828'
     },
 
@@ -1441,7 +1441,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
    // marginRight:8
     },
      totalincometodayWIDRO16:{
-    fontFamily:'hinted-AvertaStd-Semibold',
+    fontFamily:'AvertaStd-Semibold',
     fontStyle:'normal',
     fontWeight:'500',
     fontSize: 16,
@@ -1452,7 +1452,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
    // marginRight:8
     },
      totalincometodayWIDRO17:{
-    fontFamily:'hinted-AvertaStd-Semibold',
+    fontFamily:'AvertaStd-Semibold',
     fontStyle:'normal',
     fontWeight:'500',
     fontSize: 16,
@@ -1463,7 +1463,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
    // marginRight:8
     },
      totalincometodayWIDRO1:{
-    fontFamily:'hinted-AvertaStd-Semibold',
+    fontFamily:'AvertaStd-Semibold',
     fontStyle:'normal',
     fontWeight:'500',
     fontSize: 12,
@@ -1493,7 +1493,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     color: '#1a1a1a',
   },
      totalincometodaycompaign:{
-    fontFamily:'hinted-AvertaStd-Semibold',
+    fontFamily:'AvertaStd-Semibold',
     fontStyle:'normal',
     fontWeight:'600',
     fontSize: 18,
@@ -1504,7 +1504,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
    // marginRight:8
     },
      totalincometodaycompaign123:{
-    fontFamily:'hinted-AvertaStd-Semibold',
+    fontFamily:'AvertaStd-Semibold',
     fontStyle:'normal',
     fontWeight:'600',
     fontSize: 18,
@@ -1734,7 +1734,7 @@ brandlogotext:{
     fontStyle:'normal',fontFamily:'AvertaStd-Regular',lineHeight:18
 },
 orderproducttext:{
-   fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+   fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
    lineHeight:18,letterSpacing:0.5,color:'#223263',marginHorizontal:'3%'
 },
 brandimagetextview:{
@@ -1755,7 +1755,7 @@ botmdtlvw:{
   alignSelf:'center',marginTop:'7%',borderRadius:15,marginBottom:'25%'
 },
 odrstxt:{
-  fontSize:14,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:14,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',
 },
 proregultxt:{
   fontSize:16,fontFamily:'AvertaStd-Regular',color:'#666666'
@@ -1764,13 +1764,13 @@ shptxt:{
   fontSize:16,fontFamily:'AvertaStd-Regular',color:'#1a1a1a'
 },
 mtdtxt:{
-  fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'
+  fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#666666'
 },
 ustxt:{
-  fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'
+  fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'
 },
 ustxtwdth:{
-  fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',width:120
+  fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',width:120
 },
 inputproduct:{
      height:100,
@@ -1839,7 +1839,7 @@ modalbutton:{
 
 GOLIVETEXT:{
    fontSize:15,fontWeight:'600',fontStyle:'normal',lineHeight:19,
-   color:'#E22020',textAlign:'right',fontFamily:'hinted-AvertaStd-Semibold'
+   color:'#E22020',textAlign:'right',fontFamily:'AvertaStd-Semibold'
 },
 
 shoptextred:{
@@ -1948,11 +1948,11 @@ btnfllow:{backgroundColor:'#b80000',marginBottom:'20%',width:deviceWidth/1.1,
 borderRadius:30,padding:'3%',alignSelf:'center',marginTop:'8%'
 },
 droptxttt:{
-  fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:16,fontFamily:'AvertaStd-Semibold',
   color:'#1a1a1a'
 },
 dropcom:{
-  fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:16,fontFamily:'AvertaStd-Semibold',
   textAlign:'center',color:'#2F80ED',
 },
 beautyproductView:{
@@ -2083,11 +2083,11 @@ shoesimage:{
 },
 shoesTEXT:{
     fontSize:13,fontWeight:'bold',marginHorizontal:'1%',fontStyle:'normal',
-    color:'#223263',letterSpacing:0.5,fontFamily:'hinted-AvertaStd-Semibold',
+    color:'#223263',letterSpacing:0.5,fontFamily:'AvertaStd-Semibold',
 },
 shoesrateTEXT:{
   fontSize:11,fontWeight:'bold',marginHorizontal:'1%',color:'#E22020',marginTop:'5%',
-  letterSpacing:0.5,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+  letterSpacing:0.5,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
 },
 amazingtext:{
   fontSize:10,color:'#000000',fontFamily:'AvertaStd-Regular',alignItems:'center',
@@ -2146,12 +2146,12 @@ buyertext2:{
 },
 supporttext:{
    color:'#282828',fontWeight:'600',lineHeight:20,marginHorizontal:'4%',
-   fontSize:16,fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+   fontSize:16,fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
 
 },
 clothingbrandtext:{
    color:'#424347',fontWeight:'600',lineHeight:20,marginHorizontal:'4%',
-   fontSize:16,fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+   fontSize:16,fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
 
 },
 beautytext:{
@@ -2166,7 +2166,7 @@ beautycarttext:{
 },
 
 numbertext:{
-   fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+   fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
    color:'#282828',alignItems:'center',lineHeight:30
 },
 
@@ -2225,7 +2225,7 @@ categoryredtext:{
 },
 addredtext:{
    color:"#E22020",fontWeight:'600',fontStyle:'normal',marginHorizontal:'2%',
-    fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',lineHeight:20
+    fontSize:16,fontFamily:'AvertaStd-Semibold',lineHeight:20
 },
 categoryredboldtext:{
      color:"#E22020",fontSize:24,textAlign:'center',fontWeight:'bold',
@@ -2236,7 +2236,7 @@ searchproducttext:{
     marginHorizontal:'4%',color:'#223263',paddingTop:'2%'
 },
 productstext:{
-    fontSize:16,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+    fontSize:16,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
     marginHorizontal:'2%',color:'#686868',alignSelf:'center'
 },
 selecttstext:{
@@ -2249,10 +2249,10 @@ namebrandtext:{
 },
 PRICBLACKTEXT:{
     fontSize:13,color:'#000000',fontWeight:'600',
-    fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:16
+    fontStyle:'normal',fontFamily:'AvertaStd-Semibold',lineHeight:16
 },
 DeGaulletext:{
-    fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',fontWeight:'600',
+    fontStyle:'normal',fontFamily:'AvertaStd-Semibold',fontWeight:'600',
     lineHeight:16,fontSize:13,color:'#000000',marginHorizontal:'5%',marginTop:'4%'
 },
 DeGaullefullView:{
@@ -2260,15 +2260,15 @@ DeGaullefullView:{
   paddingVertical:'2%',marginBottom:'5%'
 },
 shorttest:{
-  fontSize:10,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:10,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
   lineHeight:13,color:'#000000',padding:'3%',paddingHorizontal:'6%',textAlign:'center'
 },
 shortwhitetest:{
-  fontSize:10,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:10,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
   lineHeight:13,color:'#FFFFFF',padding:'3%',paddingHorizontal:'6%',textAlign:'center'
 },
 shorttest1:{
-  fontSize:12,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:12,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
   lineHeight:15,color:'#ffffff',textAlign:'center',paddingHorizontal:20, paddingVertical:5
 },
 comingshort:{
@@ -2309,7 +2309,7 @@ storebuttontext:{
 },
 TEXT2:{
   fontSize:13,color:'#4F4F4F',marginHorizontal:'4%',marginVertical:'1%',
-  fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
 },
 CHANGETEXTTITLE:{
   fontSize:12,fontWeight:'normal',fontStyle:'normal',
@@ -2343,11 +2343,11 @@ boderlineview:{
   marginHorizontal:'4%',marginVertical:'2%'
 },
 addViewtext:{
-  fontSize:13,color:'#FFFFFF',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:13,color:'#FFFFFF',fontWeight:'600',fontFamily:'AvertaStd-Semibold',
   lineHeight:16,fontStyle:'normal',textAlign:'center',
 },
 addViewtext2:{
-  fontSize:13,color:'#E22020',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:13,color:'#E22020',fontWeight:'600',fontFamily:'AvertaStd-Semibold',
   lineHeight:16,fontStyle:'normal',textAlign:'center',
 },
 chattingtime:{
@@ -2419,10 +2419,10 @@ redeye:{
 },
 ordertext:{
     color:'#686868',marginHorizontal:'3%',fontSize:15,fontWeight:'600',fontStyle:'normal',
-    fontFamily:'hinted-AvertaStd-Semibold',textAlign:'right',lineHeight:19
+    fontFamily:'AvertaStd-Semibold',textAlign:'right',lineHeight:19
 },
 parktext:{
-    color:'#686868',fontFamily:'hinted-AvertaStd-Semibold',fontWeight:'600',
+    color:'#686868',fontFamily:'AvertaStd-Semibold',fontWeight:'600',
     fontSize:16,fontStyle:'normal',lineHeight:20,marginHorizontal:'4%'
 },
 labeltext:{
@@ -2430,11 +2430,11 @@ labeltext:{
     fontSize:15,fontStyle:'normal',lineHeight:19,alignSelf:'center'
 },
 labeltext1:{
-    color:'#000000',fontFamily:'hinted-AvertaStd-Semibold',fontWeight:'500',
+    color:'#000000',fontFamily:'AvertaStd-Semibold',fontWeight:'500',
     fontSize:18,fontStyle:'normal',lineHeight:19, textAlign:'right'
 },
 labeltext2:{
-    color:'#000000',fontFamily:'hinted-AvertaStd-Semibold',fontWeight:'500',
+    color:'#000000',fontFamily:'AvertaStd-Semibold',fontWeight:'500',
     fontSize:18,fontStyle:'normal',lineHeight:19,marginLeft:30
 },
 directionView:{
@@ -2486,30 +2486,30 @@ Viewlueleft:{
 },
 blueboxtext:{
    fontSize:7,color:'#FFFFFF',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',lineHeight:9,fontStyle:'normal'
+    fontFamily:'AvertaStd-Semibold',lineHeight:9,fontStyle:'normal'
 },
 yellowboxtext:{
    fontSize:10,color:'#000000',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',lineHeight:10,fontStyle:'normal'
+    fontFamily:'AvertaStd-Semibold',lineHeight:10,fontStyle:'normal'
 },
 yellowboxtextnew:{
    fontSize:10,color:'#FFFFFF',fontWeight:'600',padding:2,textAlign:'center',
-    fontFamily:'hinted-AvertaStd-Semibold',lineHeight:10,fontStyle:'normal'
+    fontFamily:'AvertaStd-Semibold',lineHeight:10,fontStyle:'normal'
 },
 yellowboxtextplus:{
    fontSize:26,color:'#FFFFFF',fontWeight:'600',padding:2,textAlign:'center',
-    fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 orangeboxtext:{
    fontSize:7,color:'#FFFFFF',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',lineHeight:9,fontStyle:'normal'
+    fontFamily:'AvertaStd-Semibold',lineHeight:9,fontStyle:'normal'
 },
 textshoop:{
    fontSize:22,color:'#000000',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',lineHeight:25,fontStyle:'normal',
+    fontFamily:'AvertaStd-Semibold',lineHeight:25,fontStyle:'normal',
 },
 dtlodrtxt:{
-  fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',
+  fontSize:18,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',
 },
 textshoop1:{
     marginBottom:10,marginTop:5
@@ -2529,7 +2529,7 @@ textshopcheck:{
 },
 beautyclaratext:{
     fontSize:9,color:'#000000',fontWeight:'600',textAlign:'center',
-    fontFamily:'hinted-AvertaStd-Semibold',lineHeight:11,fontStyle:'normal'
+    fontFamily:'AvertaStd-Semibold',lineHeight:11,fontStyle:'normal'
 },
 beautygreytext:{
    fontSize:14,color:'#000000',fontWeight:'normal',marginLeft:'5%',
@@ -2605,39 +2605,39 @@ TouchableloginTEXT:{
 },
 BUYnowtext:{
    fontSize:16,fontWeight:'600',fontStyle:'normal',textAlign:'center',
-   fontFamily:'hinted-AvertaStd-Semibold',lineHeight:20,color:'#FFFFFF'
+   fontFamily:'AvertaStd-Semibold',lineHeight:20,color:'#FFFFFF'
 },
 chaticontext:{
   fontSize:12,color:'#00B8B8',fontWeight:'bold',
   lineHeight:15,fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 modalcomingtext:{
-    fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',marginVertical:'4%',fontFamily:'hinted-AvertaStd-Semibold',color:'#000000',textAlign:'center',
+    fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',marginVertical:'4%',fontFamily:'AvertaStd-Semibold',color:'#000000',textAlign:'center',
 },
 modalcomingtext2:{
     fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',marginVertical:'1%',
-    fontFamily:'hinted-AvertaStd-Semibold',color:'#000000',textAlign:'center',
+    fontFamily:'AvertaStd-Semibold',color:'#000000',textAlign:'center',
 },
 customertext:{
     fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',color:'#000000',textAlign:'center',
+    fontFamily:'AvertaStd-Semibold',color:'#000000',textAlign:'center',
 },
 customerfoottext:{
     fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',paddingTop:'1%',
-    fontFamily:'hinted-AvertaStd-Semibold',color:'#000000',textAlign:'center',
+    fontFamily:'AvertaStd-Semibold',color:'#000000',textAlign:'center',
 },
 footerpadding:{
     fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',paddingTop:'1%',
-    fontFamily:'hinted-AvertaStd-Semibold',color:'#000000',textAlign:'center',
+    fontFamily:'AvertaStd-Semibold',color:'#000000',textAlign:'center',
 },
 
 customertextred:{
      fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',color:'#55ACEE',textAlign:'center',
+    fontFamily:'AvertaStd-Semibold',color:'#55ACEE',textAlign:'center',
 },
 customertextrednew:{
      fontSize:12,lineHeight:15,fontStyle:'normal',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',color:'#B80000',textAlign:'center',
+    fontFamily:'AvertaStd-Semibold',color:'#B80000',textAlign:'center',
 },
 customertextfooter:{
     fontSize:14,fontWeight:'normal',fontFamily:'AvertaStd-Regular',
@@ -2649,7 +2649,7 @@ customertextfooter2:{
 },
 
 popuptext:{
-    fontSize:32,fontWeight:'bold',fontFamily:'hinted-AvertaStd-Semibold',
+    fontSize:32,fontWeight:'bold',fontFamily:'AvertaStd-Semibold',
     color:'#B80000',fontStyle:'normal',
 },
 accounttext:{
@@ -2665,7 +2665,7 @@ salestext:{
    color:'#000000',lineHeight:15,
 },
 salestextonce:{
-  fontSize:16,fontStyle:'normal',fontWeight:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:16,fontStyle:'normal',fontWeight:'normal',fontFamily:'AvertaStd-Semibold',
    color:'#1a1a1a',height:30,padding:5,width:deviceWidth/1.1,borderRadius:25,lineHeight:15,marginHorizontal:2,
 },
 salestextbtn:{
@@ -2731,12 +2731,12 @@ odrmainview:{
 
 UNDERlinetext:{
   fontSize:12,fontWeight:'600',fontStyle:'normal',
-  color:'#E22020',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:15,
+  color:'#E22020',fontFamily:'AvertaStd-Semibold',lineHeight:15,
   textDecorationLine:'underline'
 },
 
 namestoretext:{
-  fontSize:14,fontWeight:'600',marginTop:'5%',fontFamily:'hinted-AvertaStd-Semibold',
+  fontSize:14,fontWeight:'600',marginTop:'5%',fontFamily:'AvertaStd-Semibold',
   color:'#000000',fontStyle:'normal',textAlign:'center'
 },
 
@@ -2768,11 +2768,11 @@ namestoretext:{
     },
     modaltouchablitytext2:{
        fontSize:15,fontWeight:'600',fontStyle:'normal',textAlign:'center',
-       fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19,color:'#FFFFFF'
+       fontFamily:'AvertaStd-Semibold',lineHeight:19,color:'#FFFFFF'
     },
     beautyproduct:{
          fontSize:15,fontWeight:'600',fontStyle:'normal',position:'absolute',bottom:'6%',left:'5%',
-       fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19,color:'#FFFFFF'
+       fontFamily:'AvertaStd-Semibold',lineHeight:19,color:'#FFFFFF'
     },
      uplivetext:{
  fontSize:10,fontWeight:'normal',fontStyle:'normal',color:'#FFFFFF',
@@ -2783,32 +2783,32 @@ namestoretext:{
       fontFamily:'AvertaStd-Regular',color:'#828282',letterSpacing:0.0075,textAlign:'center'
     },
     phonetext:{
-      fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
+      fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'AvertaStd-Semibold',
       color:'#828282',alignItems:'center',lineHeight:16,
     },
     boldhadertext:{
   color:'#000000',fontSize:15,marginLeft:'5%',fontWeight:'600',
-  fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19
+  fontStyle:'normal',fontFamily:'AvertaStd-Semibold',lineHeight:19
 },
 boldproduct:{
   color:'#000000',fontSize:15,fontWeight:'600',marginVertical:'4%',
-  fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19
+  fontStyle:'normal',fontFamily:'AvertaStd-Semibold',lineHeight:19
 },
 boldnewproduct:{
   color:'#000000',fontSize:15,fontWeight:'600',marginVertical:'1%',
-  fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19
+  fontStyle:'normal',fontFamily:'AvertaStd-Semibold',lineHeight:19
 },
 boldhadertext1:{
     color:'#000000',fontSize:12,marginLeft:'5%',fontWeight:'600',
-  fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:15,
+  fontStyle:'normal',fontFamily:'AvertaStd-Semibold',lineHeight:15,
 },
  textheadinginput:{
     color:'#000000',fontSize:16,fontWeight:'600',
-    fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold'
+    fontStyle:'normal',fontFamily:'AvertaStd-Semibold'
 },
  textheadinginput2:{
     color:'#000000',fontSize:16,fontWeight:'600',marginHorizontal:'5%',
-    fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold'
+    fontStyle:'normal',fontFamily:'AvertaStd-Semibold'
 },
  recodingbutton:{
     color:'#FFFFFF',fontSize:16,fontWeight:'600',marginHorizontal:'5%',
@@ -2829,11 +2829,11 @@ uppricetext:{
 },
 liketext:{
  fontSize:10,fontWeight:'600',fontStyle:'normal',color:'#FFFFFF',
- fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',
+ fontFamily:'AvertaStd-Semibold',textAlign:'center',
 },
 audiencetext:{
  fontSize:12,fontWeight:'600',fontStyle:'normal',color:'#AFFFE2',
- fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'
+ fontFamily:'AvertaStd-Semibold',textAlign:'center'
 },
 upfulltext:{
  fontSize:12,fontWeight:'normal',fontStyle:'normal',color:'#FFFFFF',
@@ -2841,46 +2841,46 @@ upfulltext:{
 },
 upfclothtext:{
  fontSize:12,fontWeight:'600',fontStyle:'normal',color:'#FFFFFF',
- fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',
+ fontFamily:'AvertaStd-Semibold',textAlign:'center',
 },
 buyblurtext:{
   fontSize:15,fontWeight:'600',fontStyle:'normal',color:'#FFFFFF',
- fontFamily:'hinted-AvertaStd-Semibold',
+ fontFamily:'AvertaStd-Semibold',
 },
 sharetext:{
     fontSize:12,fontWeight:'bold',fontStyle:'normal',color:'rgba(61, 90, 128, 0.5)',marginVertical:'5%',
- fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',lineHeight:15
+ fontFamily:'AvertaStd-Semibold',textAlign:'center',lineHeight:15
 },
 
 upcomingtext2:{
  fontSize:15,fontWeight:'600',fontStyle:'normal',color:'#FFFFFF',
- fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19,
+ fontFamily:'AvertaStd-Semibold',lineHeight:19,
 },
 fourtytext:{
  fontSize:18,fontWeight:'600',fontStyle:'normal',textAlign:'center',marginTop:'3%',
- color:'#000000',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:23
+ color:'#000000',fontFamily:'AvertaStd-Semibold',lineHeight:23
 },
 fourtytextne:{
  fontSize:13,fontWeight:'600',fontStyle:'normal',textAlign:'center',
- color:'#000000',fontFamily:'hinted-AvertaStd-Semibold',paddingHorizontal:'2%'
+ color:'#000000',fontFamily:'AvertaStd-Semibold',paddingHorizontal:'2%'
 },
 linketext:{
    fontSize:16,fontWeight:'600',fontStyle:'normal',marginTop:'3%',
- color:'#000000',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:20,
+ color:'#000000',fontFamily:'AvertaStd-Semibold',lineHeight:20,
 },
 invitetext:{
    fontSize:16,fontWeight:'600',fontStyle:'normal',
- color:'#000000',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:20,
+ color:'#000000',fontFamily:'AvertaStd-Semibold',lineHeight:20,
 },
 selectlinketext:{
   fontSize:16,fontWeight:'600',fontStyle:'normal',marginTop:'3%',
- color:'#686868',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:20,
+ color:'#686868',fontFamily:'AvertaStd-Semibold',lineHeight:20,
 },
 
 detailtext:{
    fontSize:15,color:'#888585',fontWeight:'600',
    fontStyle:'normal',lineHeight:19,
-   fontFamily:'hinted-AvertaStd-Semibold',marginHorizontal:'3%'
+   fontFamily:'AvertaStd-Semibold',marginHorizontal:'3%'
 },
 footerView:{
     width: '100%',
@@ -2909,7 +2909,7 @@ poppiker3:{
 },
 filterpop:{
    fontSize:16,color:'#4D4D4D',fontWeight:'600',
-    fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+    fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
 },
 filterpop1:{
    fontSize:12,color:'#4D4D4D',
@@ -2950,15 +2950,15 @@ clothpop1:{
 },
 redfre:{
     fontSize:16,color:'#B80000',paddingVertical:'1%',lineHeight:20,
-    fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+    fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
 },
 todaytxt3:{
     fontSize:20,color:'#1A1A1A',
-    fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+    fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
 },
 todaytxt3:{
     fontSize:16,color:'#1A1A1A',
-    fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+    fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
 },
 todaytxt2:{
     fontSize:16,color:'#000000',
@@ -2966,7 +2966,7 @@ todaytxt2:{
 },
 todaytxt1:{
     fontSize:16,color:'#1A1A1A',
-    fontWeight:'bold',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',
+    fontWeight:'bold',fontFamily:'AvertaStd-Semibold',fontStyle:'normal',
 },
 dartxt:{
     fontSize:14,color:'#666666',lineHeight:18,
@@ -2997,15 +2997,15 @@ edittext:{
 },
 paymenttext:{
     fontSize:17,color:'#000000',
-    fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 needtext:{
     fontSize:17,color:'#000000',paddingBottom:'3%',
-    fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 nametext:{
      fontSize:18,color:'#000000',fontWeight:'600',
-     fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+     fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 addresstext:{
      fontSize:15,color:'#000000',paddingVertical:'1%',
@@ -3036,11 +3036,11 @@ logouttext:{
 },
 feedsendtext:{
      fontSize:17,color:'#000000',marginVertical:'2%',
-    fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 noordertext:{
      fontSize:10,color:'#223263',textAlign:'center',
-    fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'
+    fontWeight:'600',fontFamily:'AvertaStd-Semibold',fontStyle:'normal'
 },
 proplusview:{
     backgroundColor:'#FFF7F7',width:80,height:80,justifyContent:'center', borderRadius:10

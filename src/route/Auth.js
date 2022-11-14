@@ -4,6 +4,7 @@ import { TouchableOpacity, Text ,Image,StyleSheet,View} from 'react-native';
 import { SearchIcon } from "react-native-heroicons/solid";
 import { BellIcon } from "react-native-heroicons/solid";
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
+import { ChevronLeftIcon } from "react-native-heroicons/solid";
 import { connect, useSelector } from 'react-redux';
 
 import {
@@ -1094,13 +1095,13 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
                     navigation?.goBack();
                 }
             }}
-            style={{ paddingLeft: '5%',marginRight:15 }}>
+            style={tw.style('mr-10')}>
                {isMenu ?
-                <View style={tw.style('w-10 h-10 top-3')}>
+                <View style={tw.style('w-7 h-7 top-4')}>
                     <Whitelogo />
                 </View>
                :
-                <Image source={ImageIcons.backlefticon} style={{width:45,height:45, tintColor:'#FFFFFF'}}/>
+                <ChevronLeftIcon color="White" fill="#ffffff" size={40} />
               }
             </TouchableOpacity>
         </View>
@@ -1111,22 +1112,22 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
 
 const RightMenuItem = ({navigation,cartCount,notificationCount}) => {
     return (
-        <View style={tw.style('flex flex-row justify-center items-center mr-4 px-2 h-4')}>
+        <View style={tw.style('flex flex-row justify-center items-center mr-4 px-2')}>
            <TouchableOpacity onPress={() => navigation.navigate("Search")} style={tw.style('mr-1 px-1')}>
-                <SearchIcon color="White" fill="#ffffff" size={24} />
+                <SearchIcon color="White" fill="#ffffff" size={20} />
             </TouchableOpacity>
 
            <TouchableOpacity onPress={() => navigation.navigate("Notification")} style={tw.style('mr-2 px-1')}>
-              <View style={tw.style('flex-row')}>
-              <BellIcon color="White" fill="#ffffff" size={24} />
-              <Text style={styles.numtext1}>{notificationCount}</Text>
+              <View style={tw.style('flex-row items-center')}>
+              <BellIcon color="White" fill="#ffffff" size={18} />
+              <Text style={tw.style('text-lg text-white font-bold pl-1')}>{notificationCount}</Text>
               </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
-              <View style={tw.style('flex-row')}>
-                  <ShoppingBagIcon color="red" fill="#ffffff" size={24} />
-                  <Text style={styles.numtext1}>{cartCount}</Text>
+              <View style={tw.style('flex-row items-center')}>
+                  <ShoppingBagIcon color="red" fill="#ffffff" size={18} />
+                  <Text style={tw.style('text-lg text-white font-bold pl-1')}>{cartCount}</Text>
               </View>
           </TouchableOpacity>
         </View>
@@ -1136,11 +1137,10 @@ const RightMenuItem = ({navigation,cartCount,notificationCount}) => {
 
 const RightMenuItemsell = ({navigation,brandImage}) => {
     return (
-        <View style={tw.style('flex flex-row justify-center items-center mr-4 px-2 h-10')}>
+        <View style={tw.style('flex flex-row justify-center items-center mr-4 px-2 h-12 w-2/3')}>
 
-
-           <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")} style={tw.style('mr-1 px-1')}>
-               <Image source={{uri:brandImage}} style={{width:40,height:40,borderRadius:20}}/>
+           <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")} style={tw.style('mr-1 px-1 w-[100%]')}>
+               <Image source={{uri:brandImage}} style={tw.style('w-8 h-8 rounded-full')}/>
           </TouchableOpacity>
 
           {/*<TouchableOpacity onPress={() => { navigation.navigate('Sellheader') }}>
@@ -1163,15 +1163,15 @@ const mapDispatchToProps = {
 
 const styles = StyleSheet.create({
     leftButton: {
-        width: 70,
-        height: 57,
-        marginLeft: 15,
+        width: 50,
+        height: 45,
+        marginLeft: 10,
         paddingHorizontal: 8,
         justifyContent: 'center'
     },
     leftLabel: {
         height: wp('6%'),
-        width: wp('25%'),
+        width: wp('30%'),
         paddingHorizontal: 8,
         marginRight: 20,
         justifyContent: 'center',
@@ -1196,8 +1196,8 @@ const styles = StyleSheet.create({
         flexDirection:'row'
     },
     leftIcon: {
-        width: 70,
-        height: 57
+        width: 50,
+        height: 40,
     },
     rightText: {
         fontSize: 12
@@ -1206,11 +1206,11 @@ const styles = StyleSheet.create({
        backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0
     },
     titleheaderstyle:{
-      color: Colors.WHITE, fontFamily: Fonts.RalewayExtraBold
+      color: Colors.WHITE, fontFamily:'AvertaStd-Semibold'
     },
     numtext1:{
          fontSize:20,fontWeight:'bold',fontStyle:'normal',lineHeight:25,marginLeft:5,
-        fontFamily:'hinted-AvertaStd-Bold',color:'#FFFFFF',textAlign:'center',
+        fontFamily:'AvertaStd-Semibold',color:'#FFFFFF',textAlign:'center',
     },
 });
 

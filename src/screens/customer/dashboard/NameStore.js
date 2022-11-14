@@ -414,7 +414,7 @@ const ref = React.useRef();
             <Text style={styles.txtsyz}>Size</Text>
             <View style={{ flexDirection: 'row' }}>
               <View style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 9, }}>
-                <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>{props?.getlistproductdetails?.data?.productSize}</Text>
+                <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>{props?.getlistproductdetails?.data?.productSize}</Text>
               </View>
 
             </View>
@@ -526,7 +526,7 @@ const ref = React.useRef();
                       </View>
                       {/*<View style={{ marginLeft: "25%" }}>
                         <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular' }}>Total:</Text>
-                        <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Bold' }}>${props?.getlistproductdetails?.data?.productPrice}</Text>
+                        <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>${props?.getlistproductdetails?.data?.productPrice}</Text>
                       </View>*/}
                     </View>
                   </View>

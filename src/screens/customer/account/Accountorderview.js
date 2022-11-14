@@ -270,7 +270,7 @@ const Accountorderview = (props) => {
                         <TouchableOpacity onPress={() => closepopup()} style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 8, alignSelf: 'flex-end' }}>
                           <Image source={ImageIcons.closetoday} style={{ height: 12, width: 12, marginTop: 5, alignSelf: 'center' }} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Semibold', color: '#1a1a1a', marginTop: '3%' }}>Select a shipping address:</Text>
+                        <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Semibold', color: '#1a1a1a', marginTop: '3%' }}>Select a shipping address:</Text>
                         <View style={{ borderWidth: 2, borderColor: '#b80000', padding: 4, borderRadius: 15, marginVertical: '5%', backgroundColor: '#ffffff' }}>
                           <View style={{ backgroundColor: '#d0e3fb', width: '45%', borderRadius: 10, padding: 8, marginHorizontal: '2%', marginVertical: '3%' }}>
                             <Text style={styles.totalincometodayWIDROprocess}>DEFAULT ADDRESS</Text>
@@ -284,7 +284,7 @@ const Accountorderview = (props) => {
                         </View>
 
                         <View style={{ padding: '4%', elevation: 0.5, marginTop: '5%', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#ffffff', borderRadius: 5 }}>
-                          <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Semibold", alignSelf: 'center' }}>Add a New Addresss</Text>
+                          <Text style={{ fontSize: 18, fontFamily: "AvertaStd-Semibold", alignSelf: 'center' }}>Add a New Addresss</Text>
                           <TouchableOpacity onPress={() => closepopup()} style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 8, }}>
                             <Image source={ImageIcons.addwhytoday} style={{ height: 15, width: 15, marginTop: 5, alignSelf: 'center' }} />
                           </TouchableOpacity>
@@ -329,7 +329,7 @@ const Accountorderview = (props) => {
           <View style={{ flexDirection: "row" }}>
             <View>
               <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '4%' }}>
-                <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Bold', }}>Color :</Text>
+                <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Semibold', }}>Color :</Text>
                 <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', marginLeft: 5 }}>White</Text>
               </View>
 
@@ -342,21 +342,21 @@ const Accountorderview = (props) => {
 
             <View style={{ flexDirection: 'row', width: 100 }}>
               <View style={{ marginHorizontal: '4%', marginVertical: '3%' }}>
-                <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Bold', }}>Size</Text>
+                <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Semibold', }}>Size</Text>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 9, }}>
-                    <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>XS</Text>
+                    <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>XS</Text>
                   </View>
                   <View style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 9, marginLeft: 8 }}>
-                    <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>S</Text>
+                    <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>S</Text>
                   </View>
                   <View style={{ height: 40, width: 40, backgroundColor: '#8B0000', borderRadius: 4, padding: 9, marginLeft: 8 }}>
-                    <Text style={{ textAlign: 'center', color: '#FFFFFF', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>L</Text>
+                    <Text style={{ textAlign: 'center', color: '#FFFFFF', fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>L</Text>
                   </View>
 
                 </View>
                 <View style={{ height: 40, width: 40, backgroundColor: '#999999', borderRadius: 4, padding: 9, marginTop: "2%" }}>
-                  <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>XL</Text>
+                  <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>XL</Text>
                 </View>
               </View>
             </View>

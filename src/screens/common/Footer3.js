@@ -101,7 +101,7 @@ const Footer3 = (props) => {
 
         return (
             <View>
-                <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+                <TouchableOpacity style={tw.style('px-2')} onPress={() => refRBSheet.current.open()}>
                     <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                         <Text>
                             <ShoppingBagIcon color="#ff0000" fill="gray" size={24} />
@@ -127,15 +127,15 @@ const Footer3 = (props) => {
 
                     <ScrollView>
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-3 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('shop'); }} style={tw.style(`flex-row items-center w-full`)}>
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-2 md:px-3 md:mx-6')}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('shop'); }} style={tw.style(`flex-row py-2 items-center w-full`)}>
                                 <ShoppingCartIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>Shop Products</Text>
                             </TouchableOpacity>
                         </View>
 
-                        <View style={tw.style('flex flex-row inline-block mx-7 my-3 md:px-3 md:mx-6')}>
-                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('upcoming'); }} style={tw.style(`flex-row items-center w-full`)}>
+                        <View style={tw.style('flex flex-row inline-block mx-7 my-2 md:px-3 md:mx-6')}>
+                            <TouchableOpacity onPress={() => {refRBSheet.current.close(); navigation.navigate('upcoming'); }} style={tw.style(`flex-row py-2 items-center w-full`)}>
                                 <VideoCameraIcon color="red" fill="#000000" size={24} />
                                 <Text style={tw.style('text-xl text-gray-700 ml-4')}>View Livestreams</Text>
                             </TouchableOpacity>
@@ -152,7 +152,7 @@ const Footer3 = (props) => {
 
         return (
             <View>
-                <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+                <TouchableOpacity style={tw.style('px-2')} onPress={() => refRBSheet.current.open()}>
                     <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                         <Text>
                             <DotsHorizontalIcon color="#ff0000" fill="gray" size={24} />
@@ -344,10 +344,10 @@ const Footer3 = (props) => {
     return (
     <View>
 
-        <View style={tw.style('max-w-fit  bg-white flex h-18 px-6 py-3 md:py-4 md:px-6 sm:mx-1 md:mx-2')}>
+        <View style={tw.style('max-w-fit bg-white flex h-18 px-6 py-4 md:py-4 md:px-6 sm:mx-1 md:mx-2')}>
             <View style={tw.style('flex-row justify-between')}>
 
-                <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('watchlist'); }}>
+                <TouchableOpacity style={tw.style('px-2')} onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate('watchlist'); }}>
                     {onSelection==1 ?
                     <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                         <Text>
@@ -370,7 +370,7 @@ const Footer3 = (props) => {
                     <Showshoplinks/>
 
 
-                    <TouchableOpacity onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Account")}} >
+                    <TouchableOpacity style={tw.style('px-2')} onPress={() => { setshowaccountpop(false); setshowpop(false); navigation.navigate("Account")}} >
                         {onSelection==3 ?
                         <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                             <Text>

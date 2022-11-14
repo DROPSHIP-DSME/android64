@@ -444,7 +444,7 @@ return (
             <View style={{ width: 250, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
 
 
-              <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Price</Text>
+              <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'AvertaStd-Semibold'}}>Adjust Price</Text>
               <View style={styles.pickerViewshorttodaymodal}>
                       <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
@@ -452,7 +452,7 @@ return (
 
                 <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'7%',alignSelf:'center'}}></View>
 
-                <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Quantity</Text>
+                <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'AvertaStd-Semibold'}}>Adjust Quantity</Text>
               <View style={styles.pickerViewshorttodaymodal}>
                       <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
@@ -460,7 +460,7 @@ return (
 
                 <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'7%',alignSelf:'center'}}></View>
 
-                <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Apply Discount</Text>
+                <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'AvertaStd-Semibold'}}>Apply Discount</Text>
               <View style={styles.pickerViewshorttodaymodal}>
                       <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 

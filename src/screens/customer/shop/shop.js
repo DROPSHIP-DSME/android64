@@ -140,16 +140,16 @@ const shop = (props) => {
             <View style={tw.style(tw`flex w-1/3 mb-6`)}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { productId: item._id }) }} style={tw.style('rounded-lg mt-5 mx-2')} >
                     <View style={{borderWidth:1,borderColor:'#e6e6e6',borderRadius:10}}>
-                        <Image source={{ uri: item.productImage }} style={tw.style('rounded-lg w-fit h-40')} />                        
+                        <Image source={{ uri: item.productImage }} style={tw.style('rounded-lg w-fit h-30')} />                        
                         <View style={tw.style('absolute right-3 top-3')}></View>
                     </View>
                     <View style={tw.style('top-2 px-1')}>
-                        <View style={tw.style(`flex-row justify-between items-center`)}>
+                        <View style={tw.style(`flex-row justify-between`)}>
                             <Text style={tw.style(`text-sm text-gray-600 w-[85%]`)}>{item.productName}</Text>
-                            <ShoppingBagIcon color="red" fill="#b80000" size={24} />
+                            <ShoppingBagIcon color="red" fill="#b80000" size={18} />
                         </View>
                         <View style={tw.style('flex-row')}>
-                            <Text style={tw.style(`text-lg text-gray-700`)}>${item.productPrice}</Text>
+                            <Text style={tw.style(`text-xl font-bold text-gray-700`)}>${item.productPrice}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -167,19 +167,16 @@ const shop = (props) => {
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
-                <View style={tw.style('mx-4 mt-9 mb-5')}>
+                
+
+                <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-5')}>
                     <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Shop</Text>
-                </View>
-
-                <View style={tw.style('flex flex-row mx-5 mt-0')}>
-
-                    <View style={{ width:'60%'}}>
+                    <View style={{ width:'40%'}}>
                         <Largesortorder text="Sort Order" options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
                     </View>
-                    <Sortfilter text="Filter" />
-
                 </View>
-                <View style={tw.style('mt-5 border-gray-300 mb-3 mx-5')}>
+
+                <View style={tw.style('mt-5 border-gray-300 mb-3')}>
                          <FlatList
                             data={categoryOption}
                             renderItem={renderItem1}

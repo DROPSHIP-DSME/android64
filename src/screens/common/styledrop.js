@@ -19,10 +19,10 @@ const styl = StyleSheet.create({
   backgroundColor:'#AFFFE2',borderRadius:50,position:'absolute',top:10,left:"55%",flexDirection:"row"
 },
 txt1:{
-  color:"#666666",fontSize:12,fontFamily:'hinted-AvertaStd-Bold'
+  color:"#666666",fontSize:12,fontFamily:'AvertaStd-Semibold'
 },
 txt2:{
-  color:"#1A1A1A",fontSize:12,fontFamily: 'hinted-AvertaStd-Bold'
+  color:"#1A1A1A",fontSize:12,fontFamily: 'AvertaStd-Semibold'
 },
 pickerViewshorttoday:{
   width:'70%'

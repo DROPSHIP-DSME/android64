@@ -44,7 +44,7 @@ const Help = ({onPress}) => {
                         </View>
                         <TouchableOpacity style={{ position: 'absolute', right: '43%', bottom: -50 }} onPress={() => sendnewmsg()}>
                             <View style={{ borderRadius: 10, marginRight: 10, padding: 10, backgroundColor: '#B80000' }}>
-                                <Text style={{ color: '#ffffff', fontFamily: 'hinted-AvertaStd-Semibold', paddingHorizontal: 10 }}>Send</Text>
+                                <Text style={{ color: '#ffffff', fontFamily: 'AvertaStd-Semibold', paddingHorizontal: 10 }}>Send</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

@@ -180,33 +180,33 @@ const RegistrationShop = (props) => {
         <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
         <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
             <TextInput
-                      style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
+                      style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
                       placeholder="Email address"
                       autoCompleteType='email'
-                      placeholderTextColor="#b3b3b3"
+                      placeholderTextColor="#999999"
                       onChangeText={onChangeText1}
                       value={email}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
         </View>
 
-        <View style={tw.style('mx-1 mt-2 mb-1 flex items-center rounded-lg')} >
+        <View style={tw.style('mx-1 mt-2 mb-1 flex items-center rounded-md')} >
                   <TextInput
-                      style={tw.style('w-11/12 sm:text-sm bg-zinc-200 rounded-lg text-gray-700 border-gray-300 pl-3')}
+                      style={tw.style('w-11/12 py-3 text-base sm:text-sm bg-zinc-200 rounded-lg text-gray-700 border-gray-300 pl-3')}
                       placeholder="Password"
-                      placeholderTextColor="#b3b3b3"
+                      placeholderTextColor="#999999"
                       onChangeText={onChangeText2}
                       value={password}
                       secureTextEntry={passwordsecure}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
 
-                  <View style={tw`absolute top-3 right-8`}>
+                  <View style={tw`absolute top-4 right-8`}>
                     <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
                         {passwordsecure==false ?
-                            <EyeIcon color="red" fill="black" size={24} />
+                            <EyeIcon color="red" fill="black" size={18} />
                         :
-                            <EyeOffIcon color="red" fill="black" size={24} />
+                            <EyeOffIcon color="red" fill="black" size={18} />
                         }
                     </TouchableOpacity>
                   </View>
@@ -216,6 +216,7 @@ const RegistrationShop = (props) => {
         <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
                   <CheckBox
                         value={toggleCheckBox}
+                        style={tw.style('w-8 h-8 ml-4 mr-2')}
                         onValueChange={(newValue) => {
                                 Rememberme(newValue)
                             }
@@ -235,7 +236,7 @@ const RegistrationShop = (props) => {
 
           <Loader isVisible={props?.loginLoader} />
 
-          <View style={tw.style('flex flex-row justify-center mt-6')}>
+          <View style={tw.style('flex flex-row justify-center mt-3')}>
               <Text style={tw.style('text-base text-gray-600 items-center tracking-wide')}>Forgot your password?</Text>
               <TouchableOpacity
                   onPress={() => props.navigation.navigate("ForgetPassword")}>
@@ -244,7 +245,7 @@ const RegistrationShop = (props) => {
           </View>
 
 
-          <View style={styles.twotextviewcreatetop}>
+          <View style={tw.style('flex flex-row justify-center mt-2')}>
               <Text style={tw.style('text-base text-gray-600 items-center tracking-wide')}>Don’t have an account yet?</Text>
               <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                   <Text style={tw.style('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>

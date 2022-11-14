@@ -140,7 +140,7 @@ const Accountbrandlist = (props) => {
            <View style={{marginTop:5,flexDirection:'row',marginHorizontal:3}}>
             <View>
             <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.productName}</Text>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.productPrice}</Text>
+            <Text style={{fontSize:16,width:'80%',fontFamily:'AvertaStd-Semibold',marginLeft:'5%'}}>{item.productPrice}</Text>
              <View style={{marginBottom:'12%'}}>
                 {item?.productRating ?
                 <Rating

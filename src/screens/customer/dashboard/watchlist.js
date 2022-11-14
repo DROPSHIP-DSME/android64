@@ -333,7 +333,7 @@ const watchlist = (props) => {
             <View style={tw.style('ml-2 mr-2 mt-3')}>
                 <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId, item.startNow, item.eventdate,item.userId?._id)}>
                     <View>
-                        <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-45 h-35 rounded-md')} />
+                        <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-35 rounded-lg')} />
                         <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
 
                         <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2 items-center')}>
@@ -365,8 +365,8 @@ const watchlist = (props) => {
         return (
             <View style={tw.style('flex ml-2 w-40 rounded-lg p-1')}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, userId: item._id, productQuantity: item.productQuantity })}>
-                    <View style={tw.style('border-2 border-gray-100 rounded-lg')}>
-                        <Image source={{ uri: item.productImage }} style={tw.style('w-[100%] h-45')} />
+                    <View style={tw.style('border-2 border-gray-100')}>
+                        <Image source={{ uri: item.productImage }} style={tw.style('w-[100%] h-35 rounded-lg')} />
                         <Text style={styles.beautyproduct}></Text>
                     </View>
 
@@ -414,7 +414,7 @@ const watchlist = (props) => {
             <View style={tw.style('ml-2 mr-2')}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName }) }}>
                     <View style={tw.style('p-0.5')}>
-                        <Image source={{ uri: item.shopImage }} style={tw.style('w-40 h-56 rounded-md')} onPress={() => { props.navigation.navigate("clothing") }} />
+                        <Image source={{ uri: item.shopImage }} style={tw.style('w-40 h-40 rounded-md')} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
                     <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
                         <View style={tw.style('pl-2')}>
@@ -517,7 +517,7 @@ const watchlist = (props) => {
     // Sliding Navigation formatting
     const renderItem9 = ({ item, index }) => {
         return(
-          <View style={tw.style('flex flex-row justify-items-center my-2 px-1 pt-1')}>
+          <View style={tw.style('flex flex-row justify-items-center px-1 pt-1')}>
                         <TouchableOpacity onPress={() => showalldata()}>
                         {Data ?
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
@@ -525,7 +525,7 @@ const watchlist = (props) => {
                             </View>
                         :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
-                                 <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>All</Text>
+                                 <Text style={tw.style('text-gray-600 mx-2 text-lg')}>All</Text>
                             </View>
                         }
                         </TouchableOpacity>
@@ -537,7 +537,7 @@ const watchlist = (props) => {
                             </View>
                         :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
-                                 <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Livestreams</Text>
+                                 <Text style={tw.style('text-gray-600 mx-2 text-lg')}>Livestreams</Text>
                             </View>
                         }
                         </TouchableOpacity>
@@ -549,7 +549,7 @@ const watchlist = (props) => {
                             </View>
                         :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
-                                 <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Products</Text>
+                                 <Text style={tw.style('text-gray-600 mx-2 text-lg')}>Products</Text>
                             </View>
                         }
                         </TouchableOpacity>
@@ -561,7 +561,7 @@ const watchlist = (props) => {
                             </View>
                         :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
-                                 <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Stores</Text>
+                                 <Text style={tw.style('text-gray-600 mx-2 text-lg')}>Stores</Text>
                             </View>
                         }
                         </TouchableOpacity>
@@ -654,7 +654,7 @@ const watchlist = (props) => {
                     </View>
 
                     {(livestream==true || Data==true) &&
-                        <View style={tw.style('ml-2 mt-1')}>
+                        <View style={tw.style('ml-2 mt-4')}>
                             <FlatList
                                 data={props?.getcurrenteventdata || []}
                                 renderItem={renderItem1}
@@ -668,7 +668,7 @@ const watchlist = (props) => {
 
 
                     {(product==true || Data==true) &&
-                        <View style={tw.style('ml-2 mt-8')}>
+                        <View style={tw.style('ml-2 mt-4')}>
                             <FlatList
                                 data={props?.getlistproduct || []}
                                 renderItem={renderItem}
@@ -678,7 +678,7 @@ const watchlist = (props) => {
                             />
                         </View>}
 
-                    <View style={tw.style('flex flex-1 bg-white overflow-hidden h-45 mt-6')}>
+                    <View style={tw.style('flex flex-1 bg-white overflow-hidden h-45 mt-4')}>
                         <ImageBackground source={image} resizeMode="cover" style={tw.style('flex flex-1 justify-center p-6')}>
                             <View style={tw.style('absolute bottom-10 left-3 h-16 w-10/12')}>
                                 <Text style={tw.style('text-lg text-white')}>Sneakers Store</Text>
@@ -694,7 +694,7 @@ const watchlist = (props) => {
 
 
                     {(store==true || Data==true) &&
-                        <View style={tw.style('ml-2 mt-8')}>
+                        <View style={tw.style('ml-2 mt-6')}>
                             <FlatList
                                 data={props?.Brandlistdata || []}
                                 renderItem={renderItem5}
@@ -706,7 +706,7 @@ const watchlist = (props) => {
 
                     {(shop==true || Data==true) &&
                         <TouchableOpacity>
-                            <View style={tw`ml-2 mt-8`}>
+                            <View style={tw`ml-2 mt-6`}>
                                 <FlatList
                                     data={props?.getlistshop || []}
                                     renderItem={renderItem2}
@@ -717,7 +717,7 @@ const watchlist = (props) => {
                             </View>
                         </TouchableOpacity>}
 
-                    <View style={tw.style('ml-2 mt-8')}>
+                    <View style={tw.style('ml-2 mt-6')}>
                         <FlatList
                             data={props?.getwatchlistproduct || []}
                             renderItem={renderItem3}

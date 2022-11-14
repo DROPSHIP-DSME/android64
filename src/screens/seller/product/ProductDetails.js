@@ -140,7 +140,7 @@ const ProductDetails = (props) => {
                </View>
 
             {/*<View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
-               <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Color :</Text>
+               <Text style={{fontSize:18,fontFamily:'AvertaStd-Semibold',}}>Color :</Text>
                 <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>{props?.getlistproductdetails?.data?.productColor}</Text>
              </View>
 
@@ -151,20 +151,20 @@ const ProductDetails = (props) => {
 
          <View style={{flexDirection:'row',marginBottom:'26%',marginTop:'5%'}}>
             <View style={{marginHorizontal:'4%',marginVertical:'3%'}}>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Size</Text>
+              <Text style={{fontSize:18,fontFamily:'AvertaStd-Semibold',}}>Size</Text>
              <View style={{flexDirection:'row'}}>
                 <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>{props?.getlistproductdetails?.data?.productSize}</Text>
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'AvertaStd-Semibold'}}>{props?.getlistproductdetails?.data?.productSize}</Text>
                 </View>
 
              </View>
             </View>
 
              <View style={{marginVertical:'3%',marginLeft:'6%'}}>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Quantity</Text>
+              <Text style={{fontSize:18,fontFamily:'AvertaStd-Semibold',}}>Quantity</Text>
 
                 <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>{props?.getlistproductdetails?.data?.productInventory}</Text>
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'AvertaStd-Semibold'}}>{props?.getlistproductdetails?.data?.productInventory}</Text>
                 </View>
             </View>
          </View>*/}

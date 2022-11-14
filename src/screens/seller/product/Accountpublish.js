@@ -131,7 +131,7 @@ const deviceWidth = Dimensions.get('window').width;
               </View> 
           
                <View style={{marginTop:'5%',}}>
-                <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Bold',textAlign:'center'}}>Your Store is Ready to Be Published!</Text>
+                <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',textAlign:'center'}}>Your Store is Ready to Be Published!</Text>
                </View>
                <Text style={styles.storecamtexttodayy12}>Congrats! You’re almost there. Preview your store before publishing to confirm the details or go live immediately. </Text>
 
@@ -139,9 +139,9 @@ const deviceWidth = Dimensions.get('window').width;
                 <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
                 <Image source={ImageIcons.colortodayshoe} style={{width:85,height:85,borderRadius:30,alignSelf:'center'}}/>
                 </TouchableOpacity>
-                  <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>Sneakers Store</Text>
+                  <Text style={{fontSize:20,fontFamily:'AvertaStd-Semibold',textAlign:'center'}}>Sneakers Store</Text>
 
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
                  
                <View style={{alignSelf:'center'}}>
                <Text style={styles.storecamtexttodayy12}>Congrats! You’re almost there. Preview your store before publishing to confirm the details or go live immediately. </Text>

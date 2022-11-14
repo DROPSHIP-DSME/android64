@@ -32,7 +32,7 @@ export default (ChildItem = ({
         />
       }
         <Text style={{fontSize:20,fontWeight:'600',marginLeft:'4%',color:'#FFFFFF',bottom:'20%',
-        lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',position:'absolute'}}>{item.desc}</Text>
+        lineHeight:25,fontFamily:'AvertaStd-Semibold',fontStyle:'normal',position:'absolute'}}>{item.desc}</Text>
         
     </View>
   );

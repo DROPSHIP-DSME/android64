@@ -110,15 +110,15 @@ const deviceWidth = Dimensions.get('window').width;
 
 
               <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'7%',borderRadius:15,}}>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Buyer Details</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>Buyer Details</Text>
                 
                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Name</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Mary Davis</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#666666'}}>Name</Text>
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>Mary Davis</Text>
                </View>
                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Order No</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>GSHM8U00S0004KH</Text>
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>GSHM8U00S0004KH</Text>
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Order Status</Text>
@@ -128,7 +128,7 @@ const deviceWidth = Dimensions.get('window').width;
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Date</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>13 - 05 - 2022</Text>
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>13 - 05 - 2022</Text>
                </View>
                  
               </View>
