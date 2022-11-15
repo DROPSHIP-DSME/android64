@@ -74,6 +74,7 @@ import Dashchats         from './seller/chat/Dashchats';
 
 import payment           from './stripe/payment';
 import ordercheckout     from './stripe/ordercheckout';
+import Shippingdetails     from './shipping/Shippingdetails';
 import createselleraccount     from './stripe/createselleraccount';
 import Verificationsteps       from './seller/Verification/Verificationsteps.js';
 
@@ -150,5 +151,6 @@ export {
     payment,
     createselleraccount,
     Verificationsteps,
-    Profile
+    Profile,
+    Shippingdetails
 }

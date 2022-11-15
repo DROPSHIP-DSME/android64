@@ -167,8 +167,28 @@ const Accountorderview = (props) => {
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
 
 
-        <View style={tw`flex flex-row justify-between mx-4 mt-[10%] mb-2`}>
+        <View style={tw`flex flex-row justify-between mx-4 mt-[5%] mb-4`}>
           <Text style={tw`text-2xl text-gray-900`}>View Order</Text>
+        </View>
+
+        <View style={tw`flex flex-row relative mx-4 mt-7 mb-2 shadow-sm`}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Dashproduct")} style={tw.style('w-2/4')}>
+              <View
+                type="button"
+                style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+              >
+                  <Text style={tw`text-base font-medium text-white`}>Products</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => props.navigation.navigate("Overview")} style={tw.style('w-2/4')}>
+              <View
+                type="button"
+                style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+              >
+                  <Text style={tw`text-base font-medium text-gray-700`}>Sales Overview</Text>
+              </View>
+            </TouchableOpacity>
         </View>
 
 

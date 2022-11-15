@@ -84,6 +84,7 @@ import {
   createselleraccount,
   Verificationsteps,
   Profile,
+  Shippingdetails,
 } from '../container';
 
 import {
@@ -567,6 +568,20 @@ const Auth = (props) => {
                     })}
       />
 
+      <Stack.Screen
+        name="Shippingdetails"
+        component={Shippingdetails}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} notificationCount={notificationCount} />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
+      />
+
 
 
 
@@ -1015,7 +1030,7 @@ const Auth = (props) => {
                         headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
                         headerStyle: { backgroundColor: Colors.WHITE, elevation: 0, shadowOpacity: 0 },
                     })}
-        options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.BLACK}}
+        // options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.BLACK}}
       />
 
       <Stack.Screen

@@ -217,6 +217,7 @@ const Golive = (props) => {
                     <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
+
         </View>
         </KeyboardAvoidingView>
     )
