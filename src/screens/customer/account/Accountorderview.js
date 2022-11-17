@@ -100,7 +100,7 @@ const Accountorderview = (props) => {
     }
     
 
-  const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '5%', borderRadius: 10 };
+  const containerStyle = { backgroundColor: 'white', padding: '3%', borderRadius: 10 };
   const renderItem6 = ({ item }) => {
     return (
       <View>
@@ -124,33 +124,38 @@ const Accountorderview = (props) => {
   };
   const renderItem = ({ item, index }) => {
     return (
-      <View style={tw`flex flex-row`}>
-        <View style={tw`flex-row justify-center items-center`}>
-          <Image source={{ uri: item?.productId?.productImage }} style={tw`w-30 h-30 rounded-lg`} />
-          <View style={tw`ml-3 mr-7`}>
+      <View style={tw.style('bg-white overflow-hidden shadow border-2 border-gray-200 rounded-md')}>
+        <View style={tw.style('py-2')}>
+            <View style={tw`flex`}>
+              <View style={tw`flex-row items-center ml-3`}>
+                <Image source={{ uri: item?.productId?.productImage }} style={tw`w-28 h-28 rounded-lg`} />
+                <View style={tw`ml-4`}>
 
-              <View style={tw`flex flex-row`}>
-                <Text style={tw`text-base text-gray-900`}>Name:</Text>
-                <Text style={tw`text-base text-gray-700`}>{item?.productId?.productName}</Text>
+                    <View style={tw`flex-row`}>
+                      <Text style={tw`text-base font-bold text-gray-900`}>Name: </Text>
+                      <Text style={tw`text-base text-gray-700`}>{item?.productId?.productName}</Text>
+                    </View>
+
+                    <View style={tw`flex-row`}>
+                      <Text style={tw`text-base font-bold text-gray-900`}>Price: </Text>
+                      <Text style={tw`text-base text-gray-700`}>{item.productPrice}</Text>
+                    </View>
+
+
+                    <View style={tw`flex-row`}>
+                      <Text style={tw`text-base font-bold text-gray-900`}>Size: </Text>
+                      <Text style={tw`text-base text-gray-700`}>{item.productSize}</Text>
+                    </View>
+
+                    <View style={tw`flex-row`}>
+                      <Text style={tw`text-base font-bold text-gray-900`}>Quantity: </Text>
+                      <Text style={tw`text-base text-gray-700`}>{item.productQuantity}</Text>
+                    </View>
+
+                </View>
               </View>
+            </View>
 
-              <View style={tw`flex flex-row`}>
-                <Text style={tw`text-base text-gray-900`}>Price:</Text>
-                <Text style={tw`text-base text-gray-700`}>{item.productPrice}</Text>
-              </View>
-
-
-              <View style={tw`flex flex-row`}>
-                <Text style={tw`text-base text-gray-900`}>Size:</Text>
-                <Text style={tw`text-base text-gray-700`}>{item.productSize}</Text>
-              </View>
-
-              <View style={tw`flex flex-row`}>
-                <Text style={tw`text-base text-gray-900`}>Quantity:</Text>
-                <Text style={tw`text-base text-gray-700`}>{item.productQuantity}</Text>
-              </View>
-
-          </View>
         </View>
       </View>
     );
@@ -168,25 +173,25 @@ const Accountorderview = (props) => {
 
 
         <View style={tw`flex flex-row justify-between mx-4 mt-[5%] mb-4`}>
-          <Text style={tw`text-2xl text-gray-900`}>View Order</Text>
+          <Text style={tw`text-2xl font-bold text-gray-900`}>View Order</Text>
         </View>
 
-        <View style={tw`flex flex-row relative mx-4 mt-7 mb-2 shadow-sm`}>
-            <TouchableOpacity onPress={() => props.navigation.navigate("Dashproduct")} style={tw.style('w-2/4')}>
+        <View style={tw`flex flex-row relative mx-4 mt-1 mb-2 shadow-sm`}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Accountorderview")} style={tw.style('w-2/4')}>
               <View
                 type="button"
-                style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-gray-200 bg-gray-300 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
               >
-                  <Text style={tw`text-base font-medium text-white`}>Products</Text>
+                  <Text style={tw`text-base font-medium text-gray-700`}>Details</Text>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => props.navigation.navigate("Overview")} style={tw.style('w-2/4')}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Shippingdetails")} style={tw.style('w-2/4')}>
               <View
                 type="button"
-                style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-red-200 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
               >
-                  <Text style={tw`text-base font-medium text-gray-700`}>Sales Overview</Text>
+                  <Text style={tw`text-base font-bold text-white`}>Shipping</Text>
               </View>
             </TouchableOpacity>
         </View>
@@ -194,19 +199,24 @@ const Accountorderview = (props) => {
 
         <View style={tw`mx-4 mt-4 mb-2`}>
           <View>
-            <TouchableOpacity style={tw`my-2 w-1/4 items-center px-3 py-1 rounded-full bg-blue-100 mb-3`}>
-              <Text style={tw`text-xs font-medium text-blue-900`} >{props?.getorderlist?.data?.orderStatus}</Text>
-            </TouchableOpacity>
             <View style={tw`flex flex-row items-center`}>
               <Text style={tw`text-base font-medium text-gray-900`}>Order No: </Text>
-              <Text style={tw`text-sm font-medium text-blue-700`}>{props?.getorderlist?.data?.orderNumber}</Text>
+              <Text style={tw`text-base font-medium text-blue-700`}>{props?.getorderlist?.data?.orderNumber}</Text>
             </View>
             <View style={{ alignItems: "center", marginTop: "1%", flexDirection: 'row', }}>
-              <Text style={tw`text-base font-medium text-gray-900`}>Date: </Text>
-              <Text style={tw`text-base font-medium text-gray-900`}>{Moment(props?.getinconeorderlist?.createdAt).format('MMM DD YYYY')}</Text>
+              <Text style={tw`text-base font-medium text-gray-800`}>Date: </Text>
+              <Text style={tw`text-base text-gray-600`}>{Moment(props?.getinconeorderlist?.createdAt).format('MMM DD YYYY')}</Text>
             </View>
+            <View style={tw.style(tw`flex flex-row my-3`)}>
+                <TouchableOpacity style={tw`px-4 py-2 rounded-full bg-blue-100`}>
+                  <Text style={tw`text-xs font-medium text-blue-900`} >{props?.getorderlist?.data?.orderStatus}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={tw`ml-3 px-4 py-2 rounded-full bg-red-700`}>
+                  <Text style={tw`text-xs font-medium text-white`} >Cancel Order</Text>
+                </TouchableOpacity>
+            </View>
+            
           </View>
-
         </View>
 
         {/*<View style={{ flexDirection: 'row', marginTop: '5%', marginHorizontal: '4%' }}>
@@ -215,70 +225,113 @@ const Accountorderview = (props) => {
           </View>
         </View>*/}
 
-        <View style={tw`mx-4 my-6`}>
+        <View style={tw`mx-4 my-2`}>
           <FlatList
             data={props?.getorderlist?.ItemList || []}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             showsHorizontalScrollIndicator={false}
-            horizontal={true}
+            horizontal={false}
           />
         </View>
 
-        <View style={tw`mt-4 mb-1 mx-4`}>
-          <Text style={tw`text-2xl text-blue-900`}>Order Summary</Text>
-        </View>
+        {/* Order Details */}
+        <View style={tw.style('bg-white overflow-hidden border-2 border-gray-200 shadow rounded-lg mx-4 mt-3')}>
+          <View style={tw.style('px-3 py-1')}>
+            <View style={tw`mt-4 mb-1`}>
+                <Text style={tw`text-xl text-gray-900`}>Order Summary</Text>
+              </View>
 
-        <View style={tw`flex flex-row justify-between mx-5 items-center`}>
-          <Text style={tw`text-base text-gray-900`}>Subtotal</Text>
-          <Text style={tw`text-base text-blue-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
-        </View>
-        <View style={tw`flex flex-row justify-between mx-5 items-center`}>
-          <Text style={tw`text-base text-gray-900`}>Taxes</Text>
-          <Text style={tw`text-base text-blue-900`}>US$0</Text>
-        </View>
-        <View style={tw`flex flex-row justify-between mx-5 items-center`}>
-          <Text style={tw`text-base text-gray-900`}>Shipping</Text>
-          <Text style={tw`text-base text-blue-900`}>US$0</Text>
-        </View>
+              <View style={tw`flex flex-row justify-between items-center`}>
+                <Text style={tw`text-base text-gray-900`}>Subtotal</Text>
+                <Text style={tw`text-base text-blue-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
+              </View>
+              <View style={tw`flex flex-row justify-between items-center`}>
+                <Text style={tw`text-base text-gray-900`}>Taxes</Text>
+                <Text style={tw`text-base text-blue-900`}>US$0</Text>
+              </View>
+              <View style={tw`flex flex-row justify-between items-center`}>
+                <Text style={tw`text-base text-gray-900`}>Shipping</Text>
+                <Text style={tw`text-base text-blue-900`}>US$0</Text>
+              </View>
 
 
-        <View style={tw`border-b-2 border-gray-900 my-3 mx-4`}></View>
-        <View style={tw`mb-10 mx-5 mt-5`}>
-          <View style={tw`flex flex-row justify-between`}>
-            <Text style={tw`text-lg text-gray-900`}>Grand Total:</Text>
-            <Text style={tw`text-2xl text-gray-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
+              <View style={tw`border-b-2 border-gray-400 my-3`}></View>
+              <View style={tw`mb-2 mt-1`}>
+                <View style={tw`flex flex-row justify-between`}>
+                  <Text style={tw`text-lg font-bold text-gray-900`}>Grand Total:</Text>
+                  <Text style={tw`text-2xl font-bold text-gray-800`}>${props?.getorderlist?.data?.orderAmount}</Text>
+                </View>
+              </View>
+
           </View>
         </View>
 
-        <View style={tw`mt-10 mx-3`}>
-          <Text style={tw`text-2xl text-blue-900`}>Order Details</Text>
-        </View>
+        <View style={tw.style('bg-white overflow-hidden border-2 border-gray-200 shadow rounded-lg mx-4 mt-5')}>
+          <View style={tw.style('px-3 py-1')}>
+              <View style={tw`mt-3`}>
+                <Text style={tw`text-xl text-gray-900`}>Personal Details</Text>
+              </View>
 
-        <View style={tw`flex flex-row justify-between mx-4`}>
-            <View style={tw`mt-5`}>
-              <Text style={tw`text-xl text-black`}>Personal Details</Text>
-              <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.firstName} {props?.getorderlist?.data?.lastName}{"\n"}{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode} {"\n"}{props?.getorderlist?.data?.country},{"\n"}
-                {"\n"}{props?.getorderlist?.data?.email}{props?.getorderlist?.data?.phoneNumber}</Text>
-            </View>
+              <View style={tw`flex`}>
+                  <View style={tw`flex-row justify-between items-center mt-2`}>
+                    <Text style={tw`text-base text-gray-800`}>Name: </Text>
+                    <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.firstName} {props?.getorderlist?.data?.lastName}</Text>
+                  </View>
 
-            <View style={tw`mt-5`}>
+                  <View style={tw`flex-row justify-between`}>
+                    <Text style={tw`text-lg text-gray-800`}>Address: </Text>
+                    <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode} {"\n"}{props?.getorderlist?.data?.country}</Text>
+                  </View>
+
+                  <View style={tw`flex-row justify-between`}>
+                    <Text style={tw`text-lg text-gray-800`}>Email: </Text>
+                    <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.email}{props?.getorderlist?.data?.phoneNumber}</Text>
+                  </View>
+
+                  <View style={tw`flex-row justify-between`}>
+                    <Text style={tw`text-lg text-gray-800`}>Phone: </Text>
+                    <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.phoneNumber}</Text>
+                  </View>
+
+                  
+              </View>
+          </View>
+        </View> 
+
+        <View style={tw.style('bg-white overflow-hidden border-2 border-gray-200 shadow rounded-lg mx-4 mt-5')}>
+          <View style={tw.style('px-3 py-1 pb-4')}>
+            <View style={tw`mt-3`}>
               <Text style={tw`text-xl text-black`}>Shipping Information</Text>
-              <Text style={tw`text-base text-gray-900 leading-1.2`}>Standard Shipping {"\n"}{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode}{"\n"}{props?.getorderlist?.data?.country}{"\n"}
-                </Text>
             </View>
-        </View>
-        <View style={tw`flex flex-row justify-between mx-4`}>
-          <View style={tw`mt-5`}>
-            <Text style={tw`text-xl text-black`}>Billing Information</Text>
-            <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode}{"\n"}{props?.getorderlist?.data?.country}{"\n"}
-              </Text>
+            
+            <View style={tw`flex`}>
+              <View style={tw`flex-row justify-between items-center mt-1`}>
+                <Text style={tw`text-base font-bold text-gray-900`}>Shipping Method: </Text>
+                <Text style={tw`text-base text-gray-700 leading-1.2`}>Standard Shipping</Text>
+              </View>
+              <View style={tw`flex-row justify-between items-centern mt-1`}>
+                <Text style={tw`text-base font-bold text-black`}>Address: </Text>
+                <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode}{"\n"}{props?.getorderlist?.data?.country}</Text>
+              </View>
+            </View>
           </View>
-          <View style={tw`mt-5`}>
-            <Text style={tw`text-xl text-black`}>Payment</Text>
-            <Text style={tw`text-base text-gray-900 leading-1.2`}>Pay by credit/debit card</Text>
-          </View>
         </View>
+
+        <View style={tw.style('bg-white overflow-hidden border-2 border-gray-200 shadow rounded-lg mx-4 mt-5')}>
+          <View style={tw.style('px-3 py-1 pb-4')}>
+            <View style={tw`mt-3`}>
+              <Text style={tw`text-xl text-black`}>Payment Details</Text>
+            </View>
+            <View style={tw`flex`}>
+              <View style={tw`flex-row justify-between items-center mt-1`}>
+                <Text style={tw`text-base font-bold text-gray-900`}>Payment Method</Text>
+                <Text style={tw`text-base text-gray-700 leading-1.2`}>Pay by credit/debit card</Text>
+              </View>
+            </View>
+          </View>
+        </View> 
+
         <View>
           {openpopup &&
             <Provider>

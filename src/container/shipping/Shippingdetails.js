@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { Shippingdetails } from '../../../screens/shipping';
-import { getAllshop,getincomingtlist } from '../../../redux/actions/Auth'
+import { Shippingdetails } from '../../screens/shipping';
+import { getAllshop,getincomingtlist } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({

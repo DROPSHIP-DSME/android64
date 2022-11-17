@@ -43,6 +43,7 @@
     "agora-access-token": "^2.0.4",
     "axios": "^0.21.1",
     "buffer": "^6.0.3",
+    "delivery-tracker": "^2.7.3",
     "formik": "^2.2.6",
     "i": "^0.3.7",
     "iap": "^1.1.1",
