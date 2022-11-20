@@ -163,7 +163,7 @@ const Footer3 = (props) => {
 
                 <RBSheet
                     ref={refRBSheet}
-                    height={750}
+                    height={650}
                     closeOnDragDown={true}
                     closeOnPressMask={true}
                     customStyles={{
