@@ -68,6 +68,7 @@ import {
   BRANDS_LIST_DATA,
   ALLEVENT_LIST_DATA,
   CURRENTEVENT_LIST_DATA,
+  UPCOMINGEVENT_LIST_DATA,
   GET_BRAND_DETAILS,
   GET_BRAND_PRODUCT,
   GET_CHANNEL_COUNT,
@@ -161,6 +162,7 @@ const initialState = {
   searchlistdata: null,
   getalleventdata: null,
   getcurrenteventdata:null,
+  getupcomingeventdata:null,
   getliveeventlist: null,
   getlivecommentlist: null,
   gettopsellproduct: null,
@@ -600,6 +602,12 @@ const Auth = (state = initialState, action) => {
         ...state,
         getcurrenteventdata: action.payload,
       };
+    case UPCOMINGEVENT_LIST_DATA:
+      return {
+        ...state,
+        getupcomingeventdata: action.payload,
+      };
+      
     case GET_BRAND_DETAILS:
       return {
         ...state,

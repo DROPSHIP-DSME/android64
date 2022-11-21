@@ -16,7 +16,7 @@ const mapStateToProps = (state) => ({
     getgraphData: state.auth.getgraphData,
     Brandlistdata: state.auth.Brandlistdata,
     menucount: state.auth.menucount,
-});
+}); 
 
 const mapDispatchToProps = {
     getAllcategory,

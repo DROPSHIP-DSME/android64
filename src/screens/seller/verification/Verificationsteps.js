@@ -72,7 +72,7 @@ const Verificationsteps = (props) => {
     const [returnUrl, setreturnUrl] = useState("https://dropship.shopping");
 
     // URL process
-    const [data, setData] = useState([]);
+    const [data, setData] = useState('');
     // console.log(JSON.stringify(data));
     // const supportedURL = data;
 
@@ -214,9 +214,10 @@ const Verificationsteps = (props) => {
         .then((responseJson) => {
             //alert(responseJson.data.url)
             console.log(responseJson);
-            setData(responseJson.data.url);
+            
            // setstep3(false)
             if(responseJson?.data?.url){
+                setData(responseJson.data.url);
                 setstep3(false);
                 // setshowotherAlert(true)
                 // setshowalertmsg('stripe account created successfully')
@@ -481,13 +482,21 @@ const Verificationsteps = (props) => {
                         </View>
                         <View style={tw.style('bg-white overflow-hidden shadow rounded-xl my-5')}>
                           <View style={tw.style('px-6 py-5 items-center')}>
-                            <Image
-                              style={tw.style(`mt-4 h-28 w-28 rounded-full border-2 border-gray-400`)}
-                              source={''}
-                            />
-                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>User Name</Text>
-                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>@UserName</Text>
-                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
+
+                            { billImgPath !== "" ?
+                                <Image
+                                  style={tw.style(`mt-4 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                                  source={{ uri: billImgPath.uri }}
+                                />
+                            :
+                                <Image
+                                  style={tw.style(`mt-4 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                                  source={''}
+                                />
+                            }
+                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{Brand}</Text>
+                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@{Brand}</Text>
+                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
                           {/* <View style={tw.style(`mx-20 mb-10`)}>
                             <Smallbutton
@@ -501,7 +510,9 @@ const Verificationsteps = (props) => {
                         </View>
 
                         <View style={tw.style(`mb-10`)}>
-                            <OpenURLButton url={data}>Setup Payouts</OpenURLButton>
+                           {data!='' &&
+                             <OpenURLButton url={data}>Setup Payouts</OpenURLButton>
+                           }
                         </View>
                        
                     </View>
