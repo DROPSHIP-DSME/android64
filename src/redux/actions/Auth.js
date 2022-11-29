@@ -91,6 +91,7 @@ import {
   LIVESTREAM_RECAP,
   SET_RATING_REVIEW,
   GET_ALL_RATING,
+  SET_TRACKING_HISTORY
 } from '../actions/ActionTypes';
 import { Alert } from 'react-native';
 import { Api, Utilise } from '../../common';
@@ -98,6 +99,7 @@ import { setStoreAutofilInfo } from './Vendor';
 import NetInfo from "@react-native-community/netinfo";
 import { StackActions } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage'; 
+import axios from 'axios';
 
 //Set Network Connection
 export const setNetworkConnection = (networkState) => {
@@ -2347,6 +2349,148 @@ export const deleteUseraccount = (id) => {
             } catch (error) {
                 dispatch({ type: DELETE_USER, payload: [] });
             }
+        }
+    }
+}
+
+//create shipping order in shippo platform 
+export const createshippingorder = (orderNumber) => {
+  return async (dispatch, getState) => {
+      //var data = new FormData();
+      let to_address = {
+        "city": "San Francisco",
+        "company": "Shippo",
+        "country": "US",
+        "email": "shippotle@goshippo.com",
+        "name": "Mr Hippo",
+        "phone": "15553419393",
+        "state": "CA",
+        "street1": "215 Clayton St.",
+        "zip": "94117"
+      }
+
+      let line_items = [
+        {
+          "quantity": 1,
+          "sku": "HM-123",
+          "title": "Hippo Magazines",
+          "total_price": "12.10",
+          "currency": "USD",
+          "weight": "0.40",
+          "weight_unit": "lb"
+        }
+      ]
+
+      let request = {
+          "order_number":orderNumber,
+          "to_address":to_address,
+          "line_items":line_items,
+          "placed_at":"2016-09-23T01:28:12Z",
+          "order_status":"PAID",
+          "shipping_cost":"12.83",
+          "shipping_cost_currency":"USD",
+          "shipping_method":"USPS First Class Package",
+          "subtotal_price":"12.10",
+          "total_price":"24.93",
+          "total_tax":"0.00",
+          "currency": "USD",
+          "weight": "0.40",
+          "weight_unit": "lb"
+      }
+
+      var config = {
+          method: "POST",
+          url: `https://api.goshippo.com/orders`,
+          headers: {
+            Authorization: `ShippoToken shippo_test_62c4673f96e34d148766d235930a9af53b2bc12a`,
+            contentType:'application/json'
+          },
+          data: request,
+      };
+      console.log('config',request)
+      const Response = await axios(config);
+      console.log('createshippingorder',Response.data)
+
+    }
+}
+
+//create shipping order label using order ID in shippo platform 
+export const createshippinglabel = (orderNumber) => {
+    return async (dispatch, getState) => {
+      //var data = new FormData();
+      let address_from = {
+        "name": "Mr. Hippo",
+        "street1": "215 Clayton St.",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94117",
+        "country": "US",
+        "phone": "+1 555 341 9393",
+        "email": "support@goshippo.com"
+      }
+
+      let parcels = [
+        {
+          "length": "1",
+          "width": "1",
+          "height": "1",
+          "distance_unit": "in",
+          "weight": ".75",
+          "mass_unit": "lb"
+        }
+      ]
+
+      let shipment = {
+        "address_from": address_from,
+        "address_to": "d644062de392491394f4a271fc27452a",
+        "parcels": parcels
+      }
+
+      let request = {
+        "order":"e211705076504e18a4be1e151a85cc41",
+        "shipment":shipment,
+        "carrier_account":"42444dae8c0a49a0945772a347b0b87e",
+        "servicelevel_token":"usps_first",
+      }
+
+      var config = {
+          method: "POST",
+          url: `https://api.goshippo.com/transactions`,
+          headers: {
+            Authorization: `ShippoToken shippo_test_62c4673f96e34d148766d235930a9af53b2bc12a`,
+            contentType:'application/json'
+          },
+          data: request,
+      };
+      console.log('config',request)
+      const Response = await axios(config);
+      console.log('createshippingorder',Response.data)
+    }
+}
+
+//track shipping order using tracking number from shippo platform 
+export const trackshippinglabel = (orderNumber) => {
+    return async (dispatch, getState) => {
+
+        let request = {
+          "carrier":"shippo",
+          "tracking_number":"SHIPPO_TRANSIT",
+        }
+
+        var config = {
+            method: "POST",
+            url: `https://api.goshippo.com/tracks`,
+            headers: {
+              Authorization: `ShippoToken shippo_test_62c4673f96e34d148766d235930a9af53b2bc12a`,
+              contentType:'application/json'
+            },
+            data: request,
+        };
+        console.log('config',request)
+        const Response = await axios(config);
+        console.log('trackshippinglabel',Response)
+        if (response?.status) {
+          dispatch({ type: SET_TRACKING_HISTORY, payload: response.data });
         }
     }
 }

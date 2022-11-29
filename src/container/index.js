@@ -49,6 +49,8 @@ import deletaccount      from './customer/setting/deletaccount';
 
 import Dashsale          from './seller/analytic/Dashsale';
 import Dashorder         from './seller/order/Dashorder';
+import Trackorder        from './seller/order/Trackorder';
+
 import Dashdetail        from './seller/order/Dashdetail';
 import Accountpublish    from './seller/product/Accountpublish';
 import ProductDetails    from './seller/product/ProductDetails';
@@ -114,6 +116,7 @@ export {
     Dashreturn,
     Dashchats,
     Dashorder,
+    Trackorder,
     Accountbrandlist,
     upcoming,
     Overview,

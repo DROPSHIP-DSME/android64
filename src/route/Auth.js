@@ -44,6 +44,7 @@ import {
   Dashsubscribe2,
   Dashchats,
   Dashorder,
+  Trackorder,
   Dashreturn,
   Goliveshop,
   Footer2,
@@ -631,6 +632,21 @@ const Auth = (props) => {
                     })}
       />
 
+      <Stack.Screen
+        name="Trackorder"
+        component={Trackorder}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerRight: () => '',
+                        headerTitle: "Trackorder",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
+      />
+
+      
 
        <Stack.Screen
         name="Accountfollow"
