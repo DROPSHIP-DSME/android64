@@ -349,7 +349,7 @@ const Account = (props) => {
 
                       <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
         {/* This link need to go to brand page that show the brand profile for changing */}
-                      <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrand")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                      <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrandlist")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                           <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Store Details</Text>
                           </View>

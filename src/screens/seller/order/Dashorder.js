@@ -155,6 +155,7 @@ const options = [
     return (
 
       <View style={tw.style('bg-white overflow-hidden shadow rounded-md mb-4 border-2 border-gray-100')}>
+        <TouchableOpacity onPress={()=> props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
         <View style={tw.style('px-2 py-5')}>
             <View style={tw`flex flex-row justify-between items-center`}>
                 <View>
@@ -170,14 +171,13 @@ const options = [
                   <Text style={tw`text-sm text-gray-900`} >Order Number:</Text>
                 </View>
                 <View style={tw`flex-end right-2`}>
-                    <TouchableOpacity onPress={()=> props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
                       <ArrowCircleDownIcon color="red" fill="black" size={32} />
-                    </TouchableOpacity>
                 </View>
 
             </View>
             <Text style={tw`text-sm text-blue-800`} > {item.orderNumber}</Text>
         </View>
+        </TouchableOpacity>
       </View>
 
     )
@@ -218,7 +218,7 @@ const options = [
 
           <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
-          <View style={tw.style('mt-6 p-3')} >
+          <View style={tw.style('mt-6 py-3')} >
 
             <FlatList
               data={orderlisting || []}

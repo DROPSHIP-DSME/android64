@@ -1400,7 +1400,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'AvertaStd-Semib
 
     },
     totalincometodaylive:{
-    fontFamily: 'hintedavertastdbold',
+    fontFamily: 'AvertaStd-Bold',
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 20,
@@ -1410,7 +1410,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'AvertaStd-Semib
     marginVertical:'3%'
     },
     totalincometodaysale:{
-    fontFamily: 'hintedavertastdbold',
+    fontFamily: 'AvertaStd-Bold',
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 20,
@@ -1419,7 +1419,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'AvertaStd-Semib
     //marginVertical:'3%'
     },
     totalincometodayWIDRO:{
-    fontFamily:'hintedavertastdbold',
+    fontFamily:'AvertaStd-Bold',
     fontStyle:'normal',
     fontWeight:'600',
     fontSize: 12,
@@ -1430,7 +1430,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'AvertaStd-Semib
    // marginRight:8
     },
      totalincometodayWIDROprocess:{
-    fontFamily:'hintedavertastdbold',
+    fontFamily:'AvertaStd-Bold',
     fontStyle:'normal',
     fontWeight:'600',
     fontSize: 12,

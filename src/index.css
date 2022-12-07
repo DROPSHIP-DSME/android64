@@ -4,17 +4,17 @@
 
 @layer base {
   html {
-    font-family: hintedavertatdregular, hintedavertastdbold;
+    font-family: AvertaStd-Regular, AvertaStd-Bold;
   },
   @font-face {
-     font-family: 'hintedavertatdregular';
-     src: url('./res/assets/fonts/AvertaStd/hintedavertatdregular.ttf') format('truetype');
+     font-family: 'AvertaStd-Regular';
+     src: url('./res/assets/fonts/AvertaStd/AvertaStd-Regular.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
   },
   @font-face {
-     font-family: 'hintedavertastdbold';
-     src: url('./res/assets/fonts/AvertaStd/hintedavertastdbold.ttf') format('truetype');
+     font-family: 'AvertaStd-Bold';
+     src: url('./res/assets/fonts/AvertaStd/AvertaStd-Bold.ttf') format('truetype');
      font-weight: bold;
      font-style: normal;
   }

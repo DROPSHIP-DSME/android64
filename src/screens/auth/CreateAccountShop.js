@@ -185,7 +185,7 @@ const CreateAccountShop = (props) => {
 
                 <View style={tw.style('mt-5')}>
                     <TextInput
-                     style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                     style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Email address"
                      onChangeText={onChangeText1}
                      value={email}
@@ -196,7 +196,7 @@ const CreateAccountShop = (props) => {
 
                 <View style={tw.style('mt-5')}>
                     <TextInput
-                     style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
+                     style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Username"
                      onChangeText={onChangeText6}
                      value={username}
@@ -207,7 +207,7 @@ const CreateAccountShop = (props) => {
 
                 <View style={tw.style('mt-5')}>
                     <TextInput
-                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#b3b3b3"
                       onChangeText={onChangeText2}
                       value={password}
@@ -228,7 +228,7 @@ const CreateAccountShop = (props) => {
 
                 <View style={tw.style('mt-5')}>
                      <TextInput
-                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#b3b3b3"
                       onChangeText={onChangeText3}
                       value={confirmPassword}

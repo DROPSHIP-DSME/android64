@@ -117,7 +117,7 @@ const Trackorder = (props) => {
         </View>
 
         <View style={tw.style('my-2 mx-4')}>
-          <Text style={tw.style('text-2xl text-gray-600 mb-3',{fontFamily:'hintedavertastdsemibold'})}>Track Orders</Text>
+          <Text style={tw.style('text-2xl text-gray-600 mb-3',{fontFamily:'AvertaStd-Semibold'})}>Track Orders</Text>
 
 
           <View style={tw.style('mt-6 p-3')} >

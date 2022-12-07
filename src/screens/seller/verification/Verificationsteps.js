@@ -494,9 +494,9 @@ const Verificationsteps = (props) => {
                                   source={''}
                                 />
                             }
-                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>{Brand}</Text>
-                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>@{Brand}</Text>
-                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"hintedavertastdsemibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
+                            <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>{Brand}</Text>
+                            <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>@{Brand}</Text>
+                            <Text style={tw.style('mt-6 text-base text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>Selling clothes and shoes for toddlers! Check out our socials too.</Text>
                           </View>
                           {/* <View style={tw.style(`mx-20 mb-10`)}>
                             <Smallbutton
