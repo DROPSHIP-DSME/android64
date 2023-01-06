@@ -133,15 +133,17 @@ const Accountbrandlist = (props) => {
 
     const renderItem = ({ item ,index }) => {
         return(
-        <View>
-           <TouchableOpacity style={{padding:2,marginHorizontal:7}} onPress={()=>props.navigation.navigate("ProductDetails",{productId:item._id, })}>
-              <Image source={{uri: item.productImage}} style={{height:162,width:deviceWidth/2.5,borderRadius:10}} />
-           </TouchableOpacity>
-           <View style={{marginTop:5,flexDirection:'row',marginHorizontal:3}}>
-            <View>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.productName}</Text>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'AvertaStd-Semibold',marginLeft:'5%'}}>{item.productPrice}</Text>
-             <View style={{marginBottom:'12%'}}>
+            <View style={tw`mr-[1%]`}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails", { productId: item._id, })} style={tw`p-2`}>
+              <Image source={{ uri: item.productImage }} style={tw`w-33 h-30 rounded-lg`} />
+            </TouchableOpacity>
+    
+            <View style={tw`mt-1`}>
+              <Text style={tw`text-base w-10/12 ml-3`}>{item.productName}</Text>
+    
+                <Text style={tw.style('text-2xl w-10/12 ml-3')}>${item.productPrice}</Text>
+            {/* prod rating hidden till future updates */}
+             {/* <View style={{marginBottom:'12%'}}>
                 {item?.productRating ?
                 <Rating
                 type='custom'
@@ -165,18 +167,10 @@ const Accountbrandlist = (props) => {
                 style={{ paddingVertical: 5,width:100,}}
                 />
             }
-             </View>
+             </View> */}
 
-             </View>
-              <View style={{marginLeft:4}}>
-                 <View style={{padding:2,marginHorizontal:7}}>
-                  <Image source={ImageIcons.outlock} style={{height:30,width:30}} />
-               </View>
-               <View style={{padding:2,marginHorizontal:7}}>
-                  <Image source={ImageIcons.outheart} style={{height:30,width:30}} />
-               </View>
-              </View>
-          </View>
+            </View>
+              
         </View>
   );
 }
@@ -216,10 +210,10 @@ const Accountbrandlist = (props) => {
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
 
-               <View style={tw`mt-7 rounded-lg mx-3`}>
+               <View style={tw`mt-7 mx-3`}>
                   <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
-                   <View style={tw`bg-gray-400 items-center`}>
-                      <Image source={{uri:props?.getBranddetails?.brandImage}} style={tw`h-52 w-full rounded-lg `}/>
+                   <View style={tw`bg-gray-100 items-center`}>
+                      <Image source={{uri:props?.getBranddetails?.brandImage}} style={tw`h-42 w-42 rounded-full `}/>
                     </View>
                   </TouchableOpacity>
 
@@ -253,8 +247,6 @@ const Accountbrandlist = (props) => {
               <View style={tw`flex flex-row mx-3`}>
 
                    <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                  <Sortfilter text="filter"/>
               </View>
 
 
@@ -262,18 +254,18 @@ const Accountbrandlist = (props) => {
 
                  <View style={{marginTop:'8%',}}>
 
-                    <View style={{marginLeft:'5%',marginBottom:'15%'}}>
+                    <View style={tw.style('mx-2 mb-15')}>
                     <FlatList
                         data={props?.getlistbranddetails || []}
                         renderItem={renderItem}
                         key={item => item.id}
                         showsHorizontalScrollIndicator={false}
-                        numColumns={2}
+                        numColumns={3}
                         />
                     </View>
                </View>
-                <View>
-         </View>
+            <View>
+        </View>
 
 
 

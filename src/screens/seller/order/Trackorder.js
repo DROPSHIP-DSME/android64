@@ -36,7 +36,7 @@ import Orderstable from '../../../components/tables/Orderstable';
 import { ArrowCircleDownIcon } from "react-native-heroicons/solid";
 
 
-const Dashorder = (props) => {
+const Trackorder = (props) => {
 
   const deviceHeight = Dimensions.get('window').height;
   const deviceWidth = Dimensions.get('window').width;
@@ -55,40 +55,17 @@ const Dashorder = (props) => {
   const brandId = props?.route?.params?.brandId;
 
   useEffect(() => {
-    if(props?.getinconeorderlist?.length>0){
-      setorderlisting(props?.getinconeorderlist);
-    }else{
-      sethitcount(hitcount+1)
-      if(hitcount<5){
-        props.getincomingtlist(props?.loginuserid);
-      }
-    }
-    // props.getselldeshboard(props?.loginuserid);
-    // props.gettopsell(props?.loginuserid, 3);
-    // props.liveeventdetail(props?.loginuserid);
-  }, [props?.getinconeorderlist])
-
-  useEffect(() => {
-    getBrandUserId();
+     props.trackshippinglabel();
+    
   }, [])
 
-  useFocusEffect(() => {
-    getBrandUserId();
-  })
-
+  
 
   const handleScroll = (pageYOffset) => {
     if (pageYOffset > 0) {
       setshowclassName('#B80000');
     } else {
       setshowclassName('#B80000');
-    }
-  }
-
-  const getBrandUserId = async () => {
-    if (userId != "" && userId != undefined) {
-      await AsyncStorage.setItem('UserId', userId);
-      await AsyncStorage.setItem('userLogin', "1");
     }
   }
 
@@ -101,89 +78,15 @@ const Dashorder = (props) => {
   const [hitcount, sethitcount] = useState(0);
   const [orderlisting, setorderlisting] = useState([]);
 
-const options = [
-      {
-        label: 'All',
-        value: 'all'
-      },
-      {
-        label: 'Accepted',
-        value: 'accepted'
-      },
-      {
-        label: 'Prcoessing',
-        value: 'Prcoessing'
-      },
-      {
-        label: 'Shipped',
-        value: 'Shipped'
-      },
-      {
-        label: 'Delivered',
-        value: 'Delivered'
-      },
-      {
-        label: 'Cancelled',
-        value: 'Cancelled'
-      }
-    ]
+
   const openpopup = () => {
     setVisible(true)
 
   }
 
-  const updateorderStatus = (itemValue) => {
-        setSelectedValue(itemValue)
-        //alert(itemValue)
-        if(itemValue=='all'){
-            setorderlisting(props?.getinconeorderlist);
-        }else{
-          let filteredData = props?.getinconeorderlist.filter(function (item) {
-              return item.status.toLowerCase()==itemValue.toLowerCase();
-          });
-            setorderlisting(filteredData);
-        }
+  
 
-    }
-
-  const closepopup = () => {
-    setVisible(false)
-  }
-
-
-  const Data = ({ item }) => {
-    return (
-
-      <View style={tw.style('bg-white overflow-hidden shadow rounded-md mb-4 border-2 border-gray-100')}>
-        <TouchableOpacity onPress={()=> props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
-        <View style={tw.style('px-2 py-5')}>
-            <View style={tw`flex flex-row justify-between items-center`}>
-                <View>
-                  <Text style={tw`text-lg text-gray-800`} >{item?.productId?.productName}</Text>
-                  <Text style={tw`text-base text-gray-700`} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
-                </View>
-                <View style={tw`items-center px-3 py-0.5 rounded-full bg-blue-100`}>
-                  <Text style={tw`text-sm font-medium text-blue-800`} >{item.status}</Text>
-                </View>
-            </View>
-            <View style={tw`flex flex-row justify-between items-center`}>
-                <View style={tw`mt-2`}>
-                  <Text style={tw`text-sm text-gray-900`} >Order Number:</Text>
-                </View>
-                <View style={tw`flex-end right-2`}>
-                      <ArrowCircleDownIcon color="red" fill="black" size={32} />
-                </View>
-
-            </View>
-            <Text style={tw`text-sm text-blue-800`} > {item.orderNumber}</Text>
-        </View>
-        </TouchableOpacity>
-      </View>
-
-    )
-  }
-
-
+  
 
   return (
     <View style={tw.style('flex-1 bg-white')}>
@@ -214,21 +117,15 @@ const options = [
         </View>
 
         <View style={tw.style('my-2 mx-4')}>
-          <Text style={tw.style('text-2xl text-gray-600 mb-3',{fontFamily:'AvertaStd-Semibold'})}>Orders ({props?.getinconeorderlist?.length})</Text>
+          <Text style={tw.style('text-2xl text-gray-600 mb-3',{fontFamily:'AvertaStd-Semibold'})}>Track Orders</Text>
 
-          <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
-          <View style={tw.style('mt-6 py-3')} >
+          <View style={tw.style('mt-6 p-3')} >
 
-            <FlatList
-              data={orderlisting || []}
-              renderItem={Data}
-            />
-
+            
           </View>
-         </View>
 
-         <Orderstable />
+         </View>
 
       </ScrollView>
       <Footer3 onSelelection="3" />
@@ -237,4 +134,4 @@ const options = [
   )
 }
 
-export default Dashorder
+export default Trackorder

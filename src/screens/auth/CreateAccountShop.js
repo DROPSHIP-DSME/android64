@@ -175,24 +175,79 @@ const CreateAccountShop = (props) => {
                 <View style={tw.style('items-center mb-[10%]')}>
                     <Logobase />
                 </View>
-                <View style={tw.style('mx-5 mb-3')}>
-                    <Text style={tw.style('text-3xl text-gray-700', { fontFamily: 'AvertaStd-Semibold' })}>Sign Up</Text>
+
+            </TouchableOpacity>
+            <View style={tw.style('items-center mb-[10%]')}>
+                <Logobase />
+            </View>
+        <View style={tw.style('mx-5 mb-3')}>
+            <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Sign Up</Text>
+        </View>
+
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
+            <View>
+
+                <View style={tw.style('mt-5')}>
+                    <TextInput
+                     style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                     placeholder="Email address"
+                     onChangeText={onChangeText1}
+                     value={email}
+                     onSubmitEditing={() => handleRegistrationSubmit()}
+                     placeholderTextColor="#b3b3b3"
+                    />
                 </View>
 
-                <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+                <View style={tw.style('mt-5')}>
+                    <TextInput
+                     style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
+                     placeholder="Username"
+                     onChangeText={onChangeText6}
+                     value={username}
+                     onSubmitEditing={() => handleRegistrationSubmit()}
+                     placeholderTextColor="#b3b3b3"
+                    />
+                </View>
 
-                <View>
+                <View style={tw.style('mt-5')}>
+                    <TextInput
+                      style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                      placeholderTextColor="#b3b3b3"
+                      onChangeText={onChangeText2}
+                      value={password}
+                      placeholder="Password"
+                      secureTextEntry={passwordsecure}
+                      onSubmitEditing={() => handleRegistrationSubmit()}
+                    />
+                    <View style={tw`absolute top-3 right-8`}>
+                       <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
+                        {passwordsecure==false ?
+                            <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
+                        }
+                        </TouchableOpacity>
+                  </View>
+                </View>
 
-                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
-                        <TextInput
-                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
-                            placeholder="Email address"
-                            autoCompleteType='email'
-                            placeholderTextColor="#999999"
-                            onChangeText={onChangeText1}
-                            value={email}
-                            onSubmitEditing={() => handleRegistrationSubmit()}
-                        />
+                <View style={tw.style('mt-5')}>
+                     <TextInput
+                      style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                      placeholderTextColor="#b3b3b3"
+                      onChangeText={onChangeText3}
+                      value={confirmPassword}
+                      placeholder="Confirm Password"
+                      secureTextEntry={confirmsecure}
+                    />
+                    <View style={tw`absolute top-3 right-8`}>
+                      <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>
+                        {confirmsecure==false ?
+                            <EyeIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeOffIcon color="red" fill="black" size={24} />
+                        }
+                      </TouchableOpacity>
                     </View>
 
                     {/* <View style={tw.style('mt-5')}>

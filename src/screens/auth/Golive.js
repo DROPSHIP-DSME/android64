@@ -180,7 +180,7 @@ const Golive = (props) => {
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
 
-          <View style={tw.style('items-center mt-[25%] mb-[20%]')}>
+          <View style={tw.style('items-center mt-[20%] mb-[25%]')}>
               <Logobase />
           </View>
 

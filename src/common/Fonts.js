@@ -4,7 +4,7 @@ const RalewaySemiBold = "hintedavertastdasemiBold";  // similar GothamMedium
 const RalewayLight = "hintedavertastdlight";
 const RalewayThin = "hintedavertastdthin";
 const SfproSemibold = "AvertaStd-Semibold";
-const HomepageBaukastenBold = "hintedavertastdbold"; // Number
+const HomepageBaukastenBold = "AvertaStd-Bold"; // Number
 
 export default Fonts = {
     RalewayExtraBold,

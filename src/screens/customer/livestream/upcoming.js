@@ -291,7 +291,7 @@ const upcoming = (props) => {
 
                 <View>
                     <View style={tw.style('mt-6 mx-4')}>
-                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}>Livestreams</Text>
+                        <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStd-Semibold'})}>Livestreams</Text>
                     </View>
                     <View style={{justifyContent:'space-between', flexDirection:'row',margin:20}}>
                         {livestreamtype=='past'?
@@ -340,7 +340,7 @@ const upcoming = (props) => {
             :
                 <TouchableOpacity onPress={() => { setshowlist(true);  }}>
                     <View style={tw.style('mt-6 mx-4')}>
-                         <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'hintedavertastdsemibold'})}> back</Text>
+                         <Text style={tw.style('text-2xl text-gray-800', {fontFamily:'AvertaStd-Semibold'})}> back</Text>
                     </View>
                 </TouchableOpacity>
             }

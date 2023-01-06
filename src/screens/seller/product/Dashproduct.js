@@ -155,10 +155,10 @@ const Dashproduct = (props) => {
           <Image source={{ uri: item.productImage }} style={tw`w-33 h-30`} />
         </TouchableOpacity>
 
-        <View style={tw`mt-2`}>
-          <Text style={tw`text-sm w-10/12 ml-3`}>{item.productName}</Text>
+        <View style={tw`mt-1`}>
+          <Text style={tw`text-base w-10/12 ml-3`}>{item.productName}</Text>
 
-          <Text style={tw`text-large w-10/12 ml-3`}>${item.productPrice}</Text>
+          <Text style={tw.style('text-2xl w-10/12 ml-3')}>${item.productPrice}</Text>
           {/* Joel want to remove we will leave incase we need to bring back */}
           {/* <View>
             {item?.productRating ?
@@ -248,7 +248,7 @@ const Dashproduct = (props) => {
 
         <Loader isVisible={loginLoader} />
 
-        <View style={tw.style('flex flex-row justify-between mx-4')}>
+        <View style={tw.style('flex flex-row justify-between items-center mx-4 mb-3')}>
 
           <TouchableOpacity>
             <Text style={tw.style('text-2xl text-gray-600',{fontFamily:'AvertaStd-Semibold'})}>Products ({props?.getlistproduct?.length})</Text>
@@ -260,13 +260,7 @@ const Dashproduct = (props) => {
         </View>
 
         <View style={tw.style('flex flex-row mx-4 items-center')}>
-
           <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-
-          <Sortfilter text="Filter"
-          />
-
         </View>
 
         {/*

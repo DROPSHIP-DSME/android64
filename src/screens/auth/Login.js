@@ -177,29 +177,29 @@ const Login = (props) => {
     return (
       <View>
         {index == '0' ?
-          <View style={tw.style('justify-center'),{ width, height}}>
+          <View style={tw.style('justify-center',{ width, height})}>
             <Video source={item.image}  // Can be a URL or a local file.
               paused={false}
               repeat={true}
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+            <View style={tw.style('items-center mt-[1%] mb-[10%]')}>
                 <Logobase />
             </View>
-            <View style={tw.style('items-center mt-[30%] mx-5')}>
+            <View style={tw.style('items-center mt-[5%] mx-5 mb-[40%]')}>
               <Text style={tw.style('px-2 text-4xl text-white text-center', { fontFamily: "AvertaStd-Semibold" })}> {item.text}</Text>
             </View>
           </View>
           :
           <View style={tw.style('h-10/11 bg-white')}>
             <View style={tw.style('flex flex-1 bg-white justify-center items-center')}>
-              <View style={tw.style('flex-row h-90')}>
-                <Image source={item.image} style={tw.style('')} />
+              <View style={tw.style('flex-row h-90 items-center')}>
+                <Image source={item.image} style={tw.style('mt-[20%]')} />
               </View>
               <View style={tw.style('h-30')}></View>
-              <View style={tw.style('flex-row mt-10 mx-4')}>
-                <Text style={tw.style('px-4 text-3xl text-black text-center', { fontFamily: "AvertaStd-Semibold" })}>{item.text}</Text>
+              <View style={tw.style('flex-row mt-6 mx-4')}>
+                <Text style={tw.style('px-4 text-2xl text-black text-center', { fontFamily: "AvertaStd-Semibold" })}>{item.text}</Text>
               </View>
             </View>
           </View>
@@ -259,7 +259,7 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+            <View style={tw.style('items-center mt-[10%] mb-[10%]')}>
                 <Logobase />
             </View>
             <View style={tw.style('mt-[15%] items-center mx-4')}>
