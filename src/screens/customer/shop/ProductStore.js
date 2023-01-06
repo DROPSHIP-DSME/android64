@@ -90,7 +90,7 @@ const ProductStore = (props) => {
     }
 
    
-    const containerStyle = { backgroundColor: 'white', padding: '5%', marginHorizontal: '5%', alignItems: 'center' };
+    const containerStyle = { backgroundColor: '#FFFFFF', padding: '5%', marginHorizontal: '5%', alignItems: 'center' };
 
 
     const DATA = [
@@ -153,7 +153,7 @@ const ProductStore = (props) => {
                     <View >
                         <Image source={{ uri: item.productImage }} style={styles.jeansimgshop} />
                         <View style={tw.style('absolute right-3 top-3')}>
-                            <VideoCameraIcon color="red" fill="white" size={36} />
+                            <VideoCameraIcon color="red" fill="#FFFFFF" size={36} />
                         </View>
                         <View style={tw.style('mx-2')}>
                             <Text style={styles.boldproduct}>{item.productName}</Text>

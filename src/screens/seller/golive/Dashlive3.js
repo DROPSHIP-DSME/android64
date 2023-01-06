@@ -181,14 +181,14 @@ const Dashlive3 = (props) => {
                 </View>
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'6%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text> 
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',textAlign:'center'}}>FILTERS</Text> 
                 </View>
               </View>
 
               <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
                <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:5}]}>
                   <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',color:'#4d4d4d',marginLeft:2}}>Select All</Text> 
+                   <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',textAlign:'center',color:'#4d4d4d',marginLeft:2}}>Select All</Text> 
                 </View>
                 <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
                   <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />

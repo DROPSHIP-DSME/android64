@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 10,
-    backgroundColor: 'white'
+    backgroundColor: '#FFFFFF'
   },
   leftIcon: {
     width: wp('5%'),

@@ -186,7 +186,7 @@ const Golive = (props) => {
 
             <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
-          <View style={tw.style('items-center mt-12')}>
+          {/*<View style={tw.style('items-center mt-12')}>
               <TouchableOpacity
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-full border border-slate-400 shadow-sm')}
                   activeOpacity = { .5}
@@ -202,7 +202,7 @@ const Golive = (props) => {
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />
-        </View>
+        </View>*/}
 
             <View style={tw`mx-5`}>
             <Largebutton

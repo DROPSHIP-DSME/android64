@@ -40,14 +40,14 @@ export const FloatingButton = ({ customStyle, text, ...others }) => {
 export const LocationInputButton = ({ customStyle, id, title, rightIcon, iconTintColor, textStyle, theme, onOpenLocationSearch, disabled, ...others }) => {
     return (
         <View style={styles.inputRoot} key={id}>
-            <Text style={[styles.title, { color: theme === "white" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
+            <Text style={[styles.title, { color: theme === "#FFFFFF" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
             <TouchableOpacity
                 onPress={onOpenLocationSearch}
                 disabled={disabled || false}
-                style={[styles.inputContainer, { backgroundColor: theme === "white" ? Colors.WHITE : Colors.LIGHT_BLACK, borderColor: Colors.GREY, borderWidth: 1 }]}>
+                style={[styles.inputContainer, { backgroundColor: theme === "#FFFFFF" ? Colors.WHITE : Colors.LIGHT_BLACK, borderColor: Colors.GREY, borderWidth: 1 }]}>
                 {/* <Text style={{ paddingHorizontal: 5 }}>{value || ""}</Text> */}
                 <TextInput
-                    style={[styles.input, { color: theme === "white" ? disabled ? Colors.GREY : Colors.BLACK : Colors.WHITE }]}
+                    style={[styles.input, { color: theme === "#FFFFFF" ? disabled ? Colors.GREY : Colors.BLACK : Colors.WHITE }]}
                     {...others}
                     editable={false}
                 />

@@ -112,7 +112,7 @@ const deletaccount = (props) => {
     //setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);
   }
 
-  const containerStyle = { backgroundColor: 'white', padding: 15, marginHorizontal: '5%', borderRadius: 10 };
+  const containerStyle = { backgroundColor: '#FFFFFF', padding: 15, marginHorizontal: '5%', borderRadius: 10 };
 
   
   const renderItem6 = ({ item }) => {
@@ -245,7 +245,7 @@ const deletaccount = (props) => {
         </View>
 
         <View style={tw`mx-5 mt-10`}>
-          <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>To confirm this, type ‘DELETE’ below.</Text>
+          <Text style={{ fontSize: 14, fontFamily: "AvertaStd-Regular-Regular", color: "#1A1A1A" }}>To confirm this, type ‘DELETE’ below.</Text>
         </View>
 
         <View style={tw.style('mx-4')}>
@@ -275,7 +275,7 @@ const deletaccount = (props) => {
                   <Image source={ImageIcons.righticon} style={{ height: 80, width: 80 }} />
                 </View>
                 <View style={{ marginTop: "3%", alignItems: "center", marginBottom: "10%" }}>
-                  <Text style={{ fontFamily: "hinted-AvertaStd-Regular", fontSize: 18, color: "#1A1A1A" }}>Password changed successfully.
+                  <Text style={{ fontFamily: "AvertaStd-Regular-Regular", fontSize: 18, color: "#1A1A1A" }}>Password changed successfully.
                   </Text>
                 </View>
 

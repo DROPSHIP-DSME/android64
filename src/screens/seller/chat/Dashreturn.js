@@ -117,17 +117,17 @@ const deviceWidth = Dimensions.get('window').width;
                    <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>Mary Davis</Text>
                </View>
                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Order No</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',color:'#666666'}}>Order No</Text>
                    <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>GSHM8U00S0004KH</Text>
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Order Status</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',color:'#666666'}}>Order Status</Text>
                    <View style={[styles.pickerViewshorttodayagainsmall,{padding:4}]}>
-                         <Text style={{fontSize:12,color: '#E25424',fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>PENDING</Text> 
+                         <Text style={{fontSize:12,color: '#E25424',fontFamily:'AvertaStd-Regular-Regular',textAlign:'center'}}>PENDING</Text> 
                         </View>
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Date</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',color:'#666666'}}>Date</Text>
                    <Text style={{fontSize:16,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a'}}>13 - 05 - 2022</Text>
                </View>
                  
@@ -138,23 +138,23 @@ const deviceWidth = Dimensions.get('window').width;
                 
                 <View>
                 <View style={{backgroundColor:'#AFFFE2',padding:8,width:'98%',borderRadius:10,alignSelf:'flex-end'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',}}>Hey! Just wanted to ask when my order will be processed?</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',color:'#1a1a1a',}}>Hey! Just wanted to ask when my order will be processed?</Text>
                 </View>
-                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',marginHorizontal:'3%',marginTop:2}}>Today, 12:30PM</Text>
+                 <Text style={{fontSize:14,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',marginHorizontal:'3%',marginTop:2}}>Today, 12:30PM</Text>
                 </View>
 
                  <View style={{marginVertical:'8%'}}>
                   <View style={{backgroundColor:'#B80000',padding:8,width:'98%',borderRadius:10,alignSelf:'flex-end',}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#FFFFFF',}}>Hello! Thanks for your enquiry. Orders are processed in 3 business days.</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',color:'#FFFFFF',}}>Hello! Thanks for your enquiry. Orders are processed in 3 business days.</Text>
                   </View>
-                   <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',marginTop:2,alignSelf:'flex-end',right:4}}>Today, 12:30PM</Text>
+                   <Text style={{fontSize:14,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',marginTop:2,alignSelf:'flex-end',right:4}}>Today, 12:30PM</Text>
                  </View>
 
                  <View style={{marginHorizontal:'3%'}}>
                   <View style={{backgroundColor:'#AFFFE2',padding:15,width:'45%',borderRadius:10,}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',}}>Okay thanks!</Text>
+                  <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',color:'#1a1a1a',}}>Okay thanks!</Text>
                   </View>
-                   <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',marginTop:2,}}>Today, 12:30PM</Text>
+                   <Text style={{fontSize:14,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',marginTop:2,}}>Today, 12:30PM</Text>
                  </View>
 
                 <View style={{flexDirection:'row',marginVertical:'10%',justifyContent:'space-between'}}>

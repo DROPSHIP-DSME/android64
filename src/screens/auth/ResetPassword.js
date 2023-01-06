@@ -92,7 +92,7 @@ const ResetPassword = (props) => {
                 <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-26.7')}  />
             </View>
          <View style={tw.style('mb-7 mt-10 items-center')}>
-             <CheckCircleIcon color="white" fill="green" size={70}/>
+             <CheckCircleIcon color="#FFFFFF" fill="green" size={70}/>
          </View>
          <View style={{ justifyContent:'center',width:'100%', alignItems:'center'}}>
              <Text style={tw.style('text-2xl text-gray-700 mt-4 font-bold')}>Password Reset</Text>

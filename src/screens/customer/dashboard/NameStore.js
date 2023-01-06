@@ -195,7 +195,7 @@ const ref = React.useRef();
     }
   }
 
-  const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '8%', borderRadius: 10, alignSelf: 'center', justifyContent: 'center' };
+  const containerStyle = { backgroundColor: '#FFFFFF', padding: '3%', marginHorizontal: '8%', borderRadius: 10, alignSelf: 'center', justifyContent: 'center' };
 
 
   const DATA = [
@@ -274,7 +274,7 @@ const ref = React.useRef();
             </View>
             <View style={tw.style('mr-2')}>
               <View style={tw`bg-red-700 items-center p-1 rounded-md`}>
-                <ShoppingBagIcon color="red" fill="white" size={18} />
+                <ShoppingBagIcon color="red" fill="#FFFFFF" size={18} />
               </View>
               <View style={tw`bg-gray-200 items-center p-1 rounded-md mt-1`}>
                 {( props?.getfavproduct && props?.getfavproduct.indexOf(item._id) > -1) ?
@@ -399,7 +399,7 @@ const ref = React.useRef();
 
         {/*<View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '4%' }}>
           <Text style={styles.txtsyz}>Color :</Text>
-          <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', marginLeft: 5 }}>{props?.getlistproductdetails?.data?.productColor}</Text>
+          <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Regular-Regular', marginLeft: 5 }}>{props?.getlistproductdetails?.data?.productColor}</Text>
         </View>
 
         <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginVertical: '2%' }}>
@@ -503,7 +503,7 @@ const ref = React.useRef();
 
                     <View style={tw.style('flex flex-row')}>
                       {/*<View>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', marginVertical: '1%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Color:</Text>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', marginVertical: '1%', fontFamily: 'AvertaStd-Regular-Regular', color: '#1A1A1A' }}>Color:</Text>
                       </View>
                       <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: '#b3b3b3', marginLeft: "1%" }}></View>*/}
                       <Text style={tw.style('text-base font-bold text-[#1A1A1A]')}>Size : S</Text>
@@ -520,12 +520,12 @@ const ref = React.useRef();
                           val={incCount}
                           styleBtn={{ width: 30.6, height: 26, backgroundColor: '#F3F3F3' }}
                           styleTextInput={{ width: 38.25, height: 26, backgroundColor: '#F3F3F3' }}
-                          labelStyle={{ fontSize: 13, marginTop: 0, color: '#223263', fontFamily: 'hinted-AvertaStd-Regular' }}
+                          labelStyle={{ fontSize: 13, marginTop: 0, color: '#223263', fontFamily: 'AvertaStd-Regular-Regular' }}
                           handleClick={(val) => setIncrement(val,1)}
                         />
                       </View>
                       {/*<View style={{ marginLeft: "25%" }}>
-                        <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular' }}>Total:</Text>
+                        <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'AvertaStd-Regular-Regular' }}>Total:</Text>
                         <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'AvertaStd-Semibold' }}>${props?.getlistproductdetails?.data?.productPrice}</Text>
                       </View>*/}
                     </View>
@@ -555,7 +555,7 @@ const ref = React.useRef();
 
           <View>
 
-            <Text style={{ fontSize: 20, fontFamily: "hinted-AvertaStd-Regular", color: "#666666", paddingLeft: "16%" }}>Your shopping bag is empty.</Text>
+            <Text style={{ fontSize: 20, fontFamily: "AvertaStd-Regular-Regular", color: "#666666", paddingLeft: "16%" }}>Your shopping bag is empty.</Text>
 
           </View>
           <TouchableOpacity onPress={() => { setVisiblebag(false); }} style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginTop: "10%", height: 38, marginHorizontal: "3%" }} >

@@ -178,7 +178,7 @@ const Accountorderhist = (props) => {
                     </View>
                     <View style={[styles.pickerViewshorttodayagain, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>
                         <Image source={ImageIcons.filtertoday} style={{ height: 11, width: 11, marginTop: 5 }} />
-                        <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', textAlign: 'center' }}>FILTERS</Text>
+                        <Text style={{ fontSize: 16, fontFamily: 'AvertaStd-Regular-Regular', textAlign: 'center' }}>FILTERS</Text>
                     </View>
                 </View> */}
 

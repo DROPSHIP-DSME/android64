@@ -116,7 +116,7 @@ const watchlist = (props) => {
         setVisible(false)
     }
 
-    const containerStyle = { position: 'absolute', top: '10%', width: '100%', backgroundColor: 'white', padding: '1%', marginHorizontal: '1%', alignItems: 'center' };
+    const containerStyle = { position: 'absolute', top: '10%', width: '100%', backgroundColor: '#FFFFFF', padding: '1%', marginHorizontal: '1%', alignItems: 'center' };
 
     // Vendor request submission
 

@@ -329,7 +329,7 @@ const Blurbackground = (props) => {
                     </View>
                     <View style={tw.style('ml-2 right-1',{zIndex:100})}>
                         <TouchableOpacity onPress={() => endStream()}>
-                            {/* <PhoneOutgoingIcon color="green" fill="white" size={32} /> */}
+                            {/* <PhoneOutgoingIcon color="green" fill="#FFFFFF" size={32} /> */}
                             <Image
                                     style={tw.style(`mt-2 w-8 h-8`)}
                                     source={ImageIcons.exittoday}
@@ -478,20 +478,20 @@ const Blurbackground = (props) => {
                     { isbroadcaster == true &&
                         <TouchableOpacity onPress={() => opensettings() } >
                             <View style={tw`mb-4`}>
-                                 <DotsVerticalIcon color="red" fill="white" size={28} />
+                                 <DotsVerticalIcon color="red" fill="#FFFFFF" size={28} />
                             </View>
                         </TouchableOpacity>
                     }
                     <TouchableOpacity onPress={() => openshare() } >
                         <View style={tw`mb-4`}>
-                            <ShareIcon color="red" fill="white" size={28} />
+                            <ShareIcon color="red" fill="#FFFFFF" size={28} />
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={calllike}>
                         <View style={{marginVertical:15,marginRight:15}}>
                             {likePress==false ?
-                                <HeartIcon color="red" fill="white" size={28} />
+                                <HeartIcon color="red" fill="#FFFFFF" size={28} />
                             :
                                 <HeartIcon color="red" fill="red" size={28} />
                             }
@@ -502,9 +502,9 @@ const Blurbackground = (props) => {
                     <TouchableOpacity onPress={muteaudio}>
                         <View style={{flexDirection:'row',marginHorizontal:'2%',marginVertical:6}}>
                            {mute==false ?
-                            <VolumeUpIcon color="white" fill="white" size={28} />
+                            <VolumeUpIcon color="#FFFFFF" fill="#FFFFFF" size={28} />
                             :
-                            <VolumeOffIcon color="white" fill="gray" size={28} />
+                            <VolumeOffIcon color="#FFFFFF" fill="gray" size={28} />
                            }
                         </View>
                     </TouchableOpacity>
@@ -538,7 +538,7 @@ const Blurbackground = (props) => {
                         <ClockIcon color="green" fill="green" size={20} />
                       </TouchableOpacity>
                       <TouchableOpacity style={tw`mx-[2%]`}>
-                        <VideoCameraIcon color="red" fill="white" size={20} />
+                        <VideoCameraIcon color="red" fill="#FFFFFF" size={20} />
                       </TouchableOpacity>
                     </View>
                 }
@@ -563,7 +563,7 @@ const Blurbackground = (props) => {
                 <Provider>
                     <Portal>
                         <Modal visible={showsidebar} onDismiss={hidesidebar}
-                        contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:0 }}>
+                        contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: '#FFFFFF', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:0 }}>
                             <View>
                                 <Text style={{fontFamily:'AvertaStd-Semibold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
                                 <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',paddingHorizontal:0}}>

@@ -79,15 +79,15 @@ const CategorySearch = (props) => {
     return (
         <>
             <View style={{ paddingHorizontal: 16, marginTop: 10 }}>
-                <Text style={[styles.title, { color: theme === "white" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
+                <Text style={[styles.title, { color: theme === "#FFFFFF" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
             </View>
             <View style={styles.searchAutocompleteContainer}>
                 <View style={styles.categoryTextField}>
                     <View style={[styles.inputContainer,
                     {
-                        backgroundColor: theme === "white" ? Colors.WHITE : Colors.LIGHT_BLACK,
+                        backgroundColor: theme === "#FFFFFF" ? Colors.WHITE : Colors.LIGHT_BLACK,
                         borderColor: Colors.GREY,
-                        borderWidth: theme === "white" ? 1 : 0,
+                        borderWidth: theme === "#FFFFFF" ? 1 : 0,
                     }]}>
                         <TextInput
                             value={searchQuery}
@@ -96,7 +96,7 @@ const CategorySearch = (props) => {
                             placeholder={placeholder}
                             onSubmitEditing={() => setFilteredCategories([])}
                             onBlur={()=>setScrollingState(true)}
-                            style={[styles.input, { color: theme === "white" ? disable ? Colors.GREY : Colors.BLACK : Colors.WHITE }]}
+                            style={[styles.input, { color: theme === "#FFFFFF" ? disable ? Colors.GREY : Colors.BLACK : Colors.WHITE }]}
                         />
                         {isLoading && <ActivityIndicator size="small" color={Colors.BLUE} style={{ position: 'relative', right: 10 }} />}
                     </View>

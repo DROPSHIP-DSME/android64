@@ -45,7 +45,6 @@ import {
   Dashsubscribe2,
   Dashchats,
   Dashorder,
-  Trackorder,
   Dashreturn,
   Goliveshop,
   Footer2,
@@ -648,21 +647,6 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="Trackorder"
-        component={Trackorder}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => '',
-                        headerTitle: "Trackorder",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
-
-      
 
        <Stack.Screen
         name="Accountfollow"
@@ -1132,7 +1116,7 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
                     <Whitelogo />
                 </View>
                :
-                <ChevronLeftIcon color="White" fill="#ffffff" size={40} />
+                <ChevronLeftIcon color="#FFFFFF" fill="#ffffff" size={40} />
               }
             </TouchableOpacity>
         </View>
@@ -1145,12 +1129,12 @@ const RightMenuItem = ({navigation,cartCount,notificationCount}) => {
     return (
         <View style={tw.style('flex flex-row justify-center items-center mr-4 px-2')}>
            <TouchableOpacity onPress={() => navigation.navigate("Search")} style={tw.style('mr-1 px-1')}>
-                <SearchIcon color="White" fill="#ffffff" size={20} />
+                <SearchIcon color="#FFFFFF" fill="#ffffff" size={20} />
             </TouchableOpacity>
 
            <TouchableOpacity onPress={() => navigation.navigate("Notification")} style={tw.style('mr-2 px-1')}>
               <View style={tw.style('flex-row items-center')}>
-              <BellIcon color="White" fill="#ffffff" size={18} />
+              <BellIcon color="#FFFFFF" fill="#ffffff" size={18} />
               <Text style={tw.style('text-lg text-white font-bold pl-1')}>{notificationCount}</Text>
               </View>
           </TouchableOpacity>

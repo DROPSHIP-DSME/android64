@@ -154,8 +154,8 @@ const deviceWidth = Dimensions.get('window').width;
               </View>
 
                <View style={tw.style('mt-5 mx-6 pl-3')}>
-                <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>*Fee: 15.00 USD</Text>
-                <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>Withdrawals of $1,000.00 and under are subject to a minimum fee of 15.00 USD</Text>
+                <Text style={{fontSize:14,fontFamily:'AvertaStd-Regular-Regular',color:'#000000'}}>*Fee: 15.00 USD</Text>
+                <Text style={{fontSize:14,fontFamily:'AvertaStd-Regular-Regular',color:'#000000'}}>Withdrawals of $1,000.00 and under are subject to a minimum fee of 15.00 USD</Text>
                </View>
 
                <View style={tw.style('items-center')}>
@@ -219,7 +219,7 @@ const deviceWidth = Dimensions.get('window').width;
               </View>
 
                <View style={{marginHorizontal:'4%',marginTop:'2%',}}>
-                <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000',textAlign:'center'}}>Amount to deposit may be subject to fees charged by banks or third-party providers. By clicking Withdraw, you confirm the withdrawal details above.</Text>
+                <Text style={{fontSize:14,fontFamily:'AvertaStd-Regular-Regular',color:'#000000',textAlign:'center'}}>Amount to deposit may be subject to fees charged by banks or third-party providers. By clicking Withdraw, you confirm the withdrawal details above.</Text>
                </View>
 
               <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:280,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'6%'}}>

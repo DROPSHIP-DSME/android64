@@ -1,6 +1,6 @@
  import { connect } from 'react-redux';
 import { Dashdetail } from '../../../screens/seller/order';
-import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail,getorderdetail,updateorderdetail,createshippingorder,createshippinglabel } from '../../../redux/actions/Auth'
+import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail,getorderdetail,updateorderdetail } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -21,9 +21,8 @@ const mapDispatchToProps = {
    liveeventdetail,
    getorderdetail,
    updateorderdetail,
-   createshippingorder,
-   createshippinglabel
    // signup
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashdetail);

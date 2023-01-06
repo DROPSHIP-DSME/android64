@@ -116,7 +116,7 @@ const editpassword = (props) => {
         setVisible(false)
     }
 
-    const containerStyle = { backgroundColor: 'white', padding: 15, marginHorizontal: '5%', height:'100%', borderRadius: 10 };
+    const containerStyle = { backgroundColor: '#FFFFFF', padding: 15, marginHorizontal: '5%', height:'100%', borderRadius: 10 };
 
     return (
         <KeyboardAvoidingView

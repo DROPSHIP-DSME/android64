@@ -22,8 +22,6 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Sortorder from '../../../components/pickers/Sortorder';
-import Medbutton from '../../../components/dropshipbutton/Medbutton';
-
 import tw from 'twrnc'
 
 
@@ -119,71 +117,12 @@ const Dashdetail = (props) => {
     }, [])
 
     const updateorderStatus = (itemValue) => {
-        if(itemValue=='Cancelled'){
-            setSelectedValue(itemValue)
-            props.updateorderdetail(orderNumber,itemValue);
-            setTimeout(function(){ 
-                props.getorderdetail(orderNumber);
-                props.getincomingtlist(props?.loginuserid);
-            },1000);
-        }else if(itemValue=='Delivered'){
-            if(props?.getorderlist?.data?.orderStatus=='Cancelled'){
-                alert('This order is already Cancelled, can not Delivered')
-            }else if(props?.getorderlist?.data?.orderStatus=='Delivered'){
-                alert('This order is already Delivered')
-            }else {
-                setSelectedValue(itemValue)
-                props.updateorderdetail(orderNumber,itemValue);
-                setTimeout(function(){ 
-                    props.getorderdetail(orderNumber);
-                    props.getincomingtlist(props?.loginuserid);
-                },1000);
-            }
-        }else if(itemValue=='Shipped'){
-            if(props?.getorderlist?.data?.orderStatus=='Cancelled'){
-                alert('This order is already Cancelled, can not Shipped')
-            }else if(props?.getorderlist?.data?.orderStatus=='Delivered'){
-                alert('This order is already Delivered, can not be Shipped again')
-            }else if(props?.getorderlist?.data?.orderStatus=='Shipped'){
-                alert('This order is already Shipped')
-            }else {
-                setSelectedValue(itemValue)
-                props.updateorderdetail(orderNumber,itemValue);
-                setTimeout(function(){ 
-                    props.getorderdetail(orderNumber);
-                    props.getincomingtlist(props?.loginuserid);
-                },1000);
-                //call shipping API create ship order label
-                props.createshippinglabel(orderNumber);
-            }
-        }else if(itemValue=='Prcoessing'){
-            if(props?.getorderlist?.data?.orderStatus=='Cancelled'){
-                alert('This order is already Cancelled, can not Prcoessed again')
-            }else if(props?.getorderlist?.data?.orderStatus=='Delivered'){
-                alert('This order is already Delivered, can not be Prcoessed again')
-            }else if(props?.getorderlist?.data?.orderStatus=='Shipped'){
-                alert('This order is already Shipped, can not be Prcoessed again')
-            }else {
-                setSelectedValue(itemValue)
-                props.updateorderdetail(orderNumber,itemValue);
-                setTimeout(function(){ 
-                    props.getorderdetail(orderNumber);
-                    props.getincomingtlist(props?.loginuserid);
-                },1000);
-                //call shipping API create ship order
-                props.createshippingorder(orderNumber);
-            }
-        }
-
-        //if(props?.getorderlist?.data?.orderStatus=='Prcoessing')
-        //call shipping API
-        if(itemValue=='Prcoessing'){
-
-        }
-        if(itemValue=='Shipped'){
-
-        }
-
+        setSelectedValue(itemValue)
+        props.updateorderdetail(orderNumber,itemValue);
+        setTimeout(function(){ 
+            props.getorderdetail(orderNumber);
+            props.getincomingtlist(props?.loginuserid);
+        },1000);
     }
 
 
@@ -307,11 +246,6 @@ const Dashdetail = (props) => {
 
 
             </ScrollView>
-            <View style={{ width:deviceWidth-10, marginBottom:10, justifyContent:'center', alignItems:'center'}}>
-                <Medbutton
-                text="Track Order"
-                onPress={() => props.navigation.navigate("Trackorder")} />
-            </View>
             <Footer3 onSelelection="2"  />
         </View>
     )

@@ -100,7 +100,7 @@ const Accountorderview = (props) => {
     }
     
 
-  const containerStyle = { backgroundColor: 'white', padding: '3%', borderRadius: 10 };
+  const containerStyle = { backgroundColor: '#FFFFFF', padding: '3%', borderRadius: 10 };
   const renderItem6 = ({ item }) => {
     return (
       <View>
@@ -348,11 +348,11 @@ const Accountorderview = (props) => {
                           <View style={{ backgroundColor: '#d0e3fb', width: '45%', borderRadius: 10, padding: 8, marginHorizontal: '2%', marginVertical: '3%' }}>
                             <Text style={styles.totalincometodayWIDROprocess}>DEFAULT ADDRESS</Text>
                           </View>
-                          <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", marginHorizontal: '2%' }}>Standard Shipping {"\n"}{props?.getorderlist?.data?.zipCode}, {"\n"}{props?.getorderlist?.data?.city},{props?.getorderlist?.data?.country}{"\n"}
+                          <Text style={{ fontSize: 18, fontFamily: "AvertaStd-Regular-Regular", color: "#1A1A1A", marginHorizontal: '2%' }}>Standard Shipping {"\n"}{props?.getorderlist?.data?.zipCode}, {"\n"}{props?.getorderlist?.data?.city},{props?.getorderlist?.data?.country}{"\n"}
                             {props?.getorderlist?.data?.streetAdress}</Text>
                         </View>
                         <View style={{ padding: 4, marginVertical: '5%', elevation: 0.5, backgroundColor: '#ffffff', borderRadius: 5 }}>
-                          <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", marginHorizontal: '2%', marginTop: '2%' }}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
+                          <Text style={{ fontSize: 18, fontFamily: "AvertaStd-Regular-Regular", color: "#1A1A1A", marginHorizontal: '2%', marginTop: '2%' }}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
                             USA{"\n"}</Text>
                         </View>
 
@@ -392,18 +392,18 @@ const Accountorderview = (props) => {
           </View>
 
           <View style={{ marginLeft: "2%" }}>
-            <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '2%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Ribbed Knit Bardot Crossover Top</Text>
+            <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '2%', fontFamily: 'AvertaStd-Regular-Regular', color: '#1A1A1A' }}>Ribbed Knit Bardot Crossover Top</Text>
           </View>
 
           <View style={{ marginLeft: "2%" }}>
-            <Text style={{ fontSize: 20, fontStyle: 'normal', fontWeight: "bold", marginVertical: '2%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>$0</Text>
+            <Text style={{ fontSize: 20, fontStyle: 'normal', fontWeight: "bold", marginVertical: '2%', fontFamily: 'AvertaStd-Regular-Regular', color: '#1A1A1A' }}>$0</Text>
           </View>
 
           <View style={{ flexDirection: "row" }}>
             <View>
               <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '4%' }}>
                 <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Semibold', }}>Color :</Text>
-                <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', marginLeft: 5 }}>White</Text>
+                <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Regular-Regular', marginLeft: 5 }}>White</Text>
               </View>
 
               <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginVertical: '2%' }}>

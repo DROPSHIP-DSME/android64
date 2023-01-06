@@ -37,20 +37,20 @@ class DropdownField extends Component {
         return (
             <View style={styles.root} key={id}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Text style={[styles.title, { color: theme === "white" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
+                    <Text style={[styles.title, { color: theme === "#FFFFFF" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
                 </View>
                 <TouchableOpacity
                     onPress={this.showMenu}
                     style={[styles.inputContainer,
                     {
-                        backgroundColor: theme === "white" ? Colors.WHITE : Colors.LIGHT_BLACK,
+                        backgroundColor: theme === "#FFFFFF" ? Colors.WHITE : Colors.LIGHT_BLACK,
                         borderColor: Colors.GREY,
-                        borderWidth: theme === "white" ? 1 : 0,
+                        borderWidth: theme === "#FFFFFF" ? 1 : 0,
                         height: inputHeight || 50
                     }]}>
                     <Menu
                         ref={(ref) => this._menu = ref}
-                        button={<Text style={{ color: theme === "white" ? Colors.BLACK : Colors.WHITE }}>{selectedValue}</Text>}
+                        button={<Text style={{ color: theme === "#FFFFFF" ? Colors.BLACK : Colors.WHITE }}>{selectedValue}</Text>}
                     >
                         {data && data?.map((item, index) => {
                             return (
@@ -61,7 +61,7 @@ class DropdownField extends Component {
                     <View style={styles.iconContainer}>
                         <Image
                             source={ImageIcons.downArrow}
-                            style={[styles.icon, { tintColor: theme === "white" ? Colors.GREY : Colors.WHITE }]}
+                            style={[styles.icon, { tintColor: theme === "#FFFFFF" ? Colors.GREY : Colors.WHITE }]}
                         />
                     </View>
                 </TouchableOpacity>

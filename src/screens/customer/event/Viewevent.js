@@ -135,7 +135,7 @@ const Viewevent = (props) => {
         }
     } 
 
-       const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
+       const containerStyle = {backgroundColor: '#FFFFFF', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
       const joinbroadcast = (itemid,startnow,eventtime)=>{
             if (startnow == true){
                 let request1 = {
@@ -287,7 +287,7 @@ const renderItem1 = ({ item ,index }) => {
                         //val={parseInt(item.productQuantity)}
                         styleBtn={{width:30.6,height:26,backgroundColor:'#F3F3F3'}}
                         styleTextInput={{width:38.25,height:26,backgroundColor:'#F3F3F3'}}
-                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
+                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'AvertaStd-Regular-Regular'}}
                         //handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>   
@@ -299,7 +299,7 @@ const renderItem1 = ({ item ,index }) => {
 
             <View style={{marginTop:"8%"}}><Text style={styles.clothpop}>About the Event</Text></View>
             <View style={{marginBottom:"8%",marginHorizontal:2}}>
-            <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie ullamcorper porta id nulla pulvinar 
+            <Text style={{fontSize:18,fontFamily:"AvertaStd-Regular-Regular"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie ullamcorper porta id nulla pulvinar 
             pharetra feugiat a consectetur. Tortor, vulputate vitae,
              molestie cras sit ornare enim. Sed dolor, justo, quam elit pulvinar feugiat quam. {'\n'}
             Egestas adipiscing sit orci, varius in id. Integer lacus consectetur cursus netus cursus faucibus. Placerat pretium malesuada pulvinar sed ornare 
@@ -309,7 +309,7 @@ const renderItem1 = ({ item ,index }) => {
 
             <View style={{marginTop:"8%"}}><Text style={styles.clothpop}>Sign Up to Participate</Text></View>
             <View style={{marginHorizontal:2}}>
-            <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular"}}>Are you a store owner looking to participate in this event? Fill 
+            <Text style={{fontSize:18,fontFamily:"AvertaStd-Regular-Regular"}}>Are you a store owner looking to participate in this event? Fill 
             in your details below or select the brand you’d like to participate with. 
             </Text>
             </View>

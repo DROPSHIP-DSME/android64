@@ -285,7 +285,7 @@ return (
 
 
                   <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
-                    <Text style={{fontSize:18,color:'#000000',fontFamily:'hinted-AvertaStd-Regular'}}>Select Date</Text>
+                    <Text style={{fontSize:18,color:'#000000',fontFamily:'AvertaStd-Regular-Regular'}}>Select Date</Text>
                     <Image source={ImageIcons.caltoday} style={{width:15,height:15,marginTop:2}}/>
                   </View>
 

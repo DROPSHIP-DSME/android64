@@ -85,11 +85,12 @@ const Verification = (props) => {
              <View>
                 <Text style={tw.style('text-base text-gray-600 mx-5 mb-3')}>To authorise your account, we will send a code to the mobile number entered below. Please enter your mobile number.</Text>
             </View>
-            <View style={tw.style('flex mt-2 my-4')}>
+            
+            <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
                 <TextInput
-                style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
                 placeholder="Mobile Number"
-                placeholderTextColor="#b3b3b3"
+                placeholderTextColor="#999999"
                 onChangeText={onChangeText1}
                 value={phonenumber}
                 onSubmitEditing={() => handleRegistrationSubmit()}

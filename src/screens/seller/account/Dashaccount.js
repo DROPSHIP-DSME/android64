@@ -189,7 +189,7 @@ const Dashaccount = (props) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={tw`mt-2 mx-4`}>
-          <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>Stripe account details for withdrawals.</Text>
+          <Text style={{ fontSize: 18, fontFamily: 'AvertaStd-Regular-Regular', color: '#1a1a1a' }}>Stripe account details for withdrawals.</Text>
         </TouchableOpacity>
 
 
@@ -320,8 +320,8 @@ const Dashaccount = (props) => {
                       </View>
 
                       <View style={{ marginHorizontal: '4%', marginTop: '2%', marginBottom: '8%' }}>
-                        <Text style={{ fontSize: 14, fontFamily: 'hinted-AvertaStd-Regular', color: '#000000' }}>*A transaction may take longer than described above if requested outside of business hours. If you experience a delay of more than 5 days, contact us.</Text>
-                        <Text style={{ fontSize: 14, fontFamily: 'hinted-AvertaStd-Regular', color: '#000000' }}>**Total amount may be subject to fees charged by banks or third-party providers.</Text>
+                        <Text style={{ fontSize: 14, fontFamily: 'AvertaStd-Regular-Regular', color: '#000000' }}>*A transaction may take longer than described above if requested outside of business hours. If you experience a delay of more than 5 days, contact us.</Text>
+                        <Text style={{ fontSize: 14, fontFamily: 'AvertaStd-Regular-Regular', color: '#000000' }}>**Total amount may be subject to fees charged by banks or third-party providers.</Text>
                       </View>
 
 

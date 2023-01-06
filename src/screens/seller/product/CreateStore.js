@@ -114,7 +114,7 @@ const CreateStore = (props) => {
                         </TouchableOpacity>
                     :
                         <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
-                            <CameraIcon color="white" fill="white" size={70} />
+                            <CameraIcon color="#FFFFFF" fill="#FFFFFF" size={70} />
                          </TouchableOpacity>
                    }
                   </View>

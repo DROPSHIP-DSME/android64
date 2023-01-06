@@ -151,6 +151,26 @@ const Cart = (props) => {
         )
     }
 
+    const checkOutPayment1 = async () => {
+      Alert.alert(
+        'Dropship',
+        'You need to login for checkeout',
+        [
+          
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel',
+          },
+          {
+            text: 'OK', 
+            onPress: () => props.navigation.navigate('Golive')
+          },
+        ],
+        {cancelable: false},
+      );
+    }
+
     const checkOutPayment = async () => {
       setloginLoader(true);
       try {
@@ -325,8 +345,11 @@ const Cart = (props) => {
                     <Text style={tw`text-base font-bold`}>Total Amount: </Text>
                     <Text style={tw`text-base font-bold`}>${props?.totalcartprice}</Text>
                 </View>
-
-                <Button variant="primary" title="Stripe Checkout" onPress={checkOutPayment} />
+                {props.loginCredentials?.email=='guest@gmail.com' ?
+                  <Button variant="primary" title="Stripe Checkout" onPress={checkOutPayment1} />
+                :
+                  <Button variant="primary" title="Stripe Checkout" onPress={checkOutPayment} />
+                }
               </View>
 
           :

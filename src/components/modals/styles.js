@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     loader: {
         width: 120,
         height: 120,
-        backgroundColor: 'white',
+        backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5

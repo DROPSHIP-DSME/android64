@@ -125,9 +125,9 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
      <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"12%"}}>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>MY STORES /</Text>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}> MANAGE BRANDS /</Text>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> CREATE A BRAND</Text>
+              <Text style={{fontSize:15,fontFamily:"AvertaStd-Regular-Regular",color:"#999999"}}>MY STORES /</Text>
+              <Text style={{fontSize:15,fontFamily:"AvertaStd-Regular-Regular",color:"#999999"}}> MANAGE BRANDS /</Text>
+              <Text style={{fontSize:15,fontFamily:"AvertaStd-Regular-Regular",color:"#1A1A1A"}}> CREATE A BRAND</Text>
               </View> 
           
                <View style={{marginTop:'5%',}}>

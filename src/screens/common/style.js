@@ -158,7 +158,7 @@ flltxt:{
     width: '65%',
   },
   flagModal: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     borderRadius: 16,
     // height: 160,

@@ -399,7 +399,7 @@ const Account = (props) => {
                   <View style={tw.style('px-2 py-1')}>
                     <View style={tw.style('flex flex-row rounded-md bg-white items-center')}>
                         <View style={tw.style('mx-4 my-4')}>
-                            <LogoutIcon color="gray" fill="white" size={24} />
+                            <LogoutIcon color="gray" fill="#FFFFFF" size={24} />
                         </View>
 
                         <View style={tw.style('my-4')}>

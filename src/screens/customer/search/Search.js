@@ -98,7 +98,7 @@ const Search = (props) => {
         }
     }
 
-       const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
+       const containerStyle = {backgroundColor: '#FFFFFF', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
        const joinbroadcast = (itemid,startnow,eventtime)=>{
             if (startnow == true){
                 let request1 = {

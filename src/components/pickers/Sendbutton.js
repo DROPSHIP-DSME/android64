@@ -10,7 +10,7 @@ const Sendbutton = ({onPress}) => {
         <TouchableOpacity onPress={onPress}>
           <View style={tw.style('flex flex-row w-auto px-1')}>
             <View style={tw.style('my-1')}>
-              <PaperAirplaneIcon color="White" fill="#fff" size={28} />
+              <PaperAirplaneIcon color="#FFFFFF" fill="#fff" size={28} />
             </View>
           </View>
         </TouchableOpacity>

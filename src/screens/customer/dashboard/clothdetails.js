@@ -45,7 +45,7 @@ const clothdetails = (props) => {
             const closepopup = () => {
           setVisible(false)
         }
-       const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
+       const containerStyle = {backgroundColor: '#FFFFFF', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
 
 
 

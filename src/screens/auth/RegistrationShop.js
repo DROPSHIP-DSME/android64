@@ -103,6 +103,16 @@ const RegistrationShop = (props) => {
 
 
     // Registration request submission
+    
+    const handleguestSubmit = () => {
+        let request = {
+            "email": 'guest@gmail.com',
+            "userName": 'Guest',
+            "type":"guest"
+        }
+        props.signInwithsocial(request, props.navigation);
+    }
+
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
         if (email == "") {
@@ -201,7 +211,7 @@ const RegistrationShop = (props) => {
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
 
-                  <View style={tw`absolute top-4 right-8`}>
+                  <View style={tw`absolute top-4 right-12`}>
                     <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
                         {passwordsecure==false ?
                             <EyeIcon color="red" fill="black" size={18} />
@@ -216,7 +226,7 @@ const RegistrationShop = (props) => {
         <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
                   <CheckBox
                         value={toggleCheckBox}
-                        style={tw.style('w-8 h-8 ml-4 mr-2')}
+                        style={tw.style('w-8 h-8 ml-8 mr-2')}
                         onValueChange={(newValue) => {
                                 Rememberme(newValue)
                             }
@@ -251,6 +261,11 @@ const RegistrationShop = (props) => {
                   <Text style={tw.style('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
               </TouchableOpacity>
           </View>
+
+          <View style={tw`mx-5 my-30`}>
+            <Largebutton text="Guest" onPress={() => handleguestSubmit()} />
+          </View>
+
 
       </View>
 

@@ -377,7 +377,7 @@ const renderItem6 = ({ item }) => {
             <View style={tw`flex flex-row mx-2 mt-7`}>
                 <TouchableOpacity onPress={()=>selectPhoto1()} style={tw.style('h-36 bg-gray-600 border-3 rounded-lg justify-center', {width:deviceWidth/2.2})}>
                   <View style={tw`items-center`}>
-                      <CameraIcon color="red" fill="white" size={28} />
+                      <CameraIcon color="red" fill="#FFFFFF" size={28} />
                       <View>
                         <Text style={tw`text-center w-32 text-gray-200`}>Add a image of your product, one image can be selected at a time</Text>
                       </View>

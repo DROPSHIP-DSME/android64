@@ -119,7 +119,7 @@ const shop = (props) => {
                         <Image source={{ uri: item.shopImage }} style={tw.style('rounded-lg w-fit h-40')} onPress={() => { props.navigation.navigate("clothing") }} />
                         {/* TODO: Add Variable if product has a livestream gooing show video camera */}
                         <View style={tw.style('absolute right-3 top-3')}>
-                            <VideoCameraIcon color="red" fill="white" size={36} />
+                            <VideoCameraIcon color="red" fill="#FFFFFF" size={36} />
                         </View>
                     </View>
                     <View style={tw.style('flex flex-row mt-2 justify-between')}>

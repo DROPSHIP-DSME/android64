@@ -19,8 +19,8 @@ const InputField2 = ({
         style={{
           ...styles.inputContainer2,
           backgroundColor: Theme == 'black' ? Colors.WHITE : Colors.lightblack,
-          borderColor: Theme == 'white' ? Colors.gray : undefined,
-          borderWidth: Theme == 'white' ? 1 : 0
+          borderColor: Theme == '#FFFFFF' ? Colors.gray : undefined,
+          borderWidth: Theme == '#FFFFFF' ? 1 : 0
         }}>
         <TextInput
           ref={myref}

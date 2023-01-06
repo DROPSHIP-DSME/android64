@@ -91,7 +91,7 @@ const ProductDetails = (props) => {
                 <View style={tw`justify-center items-center`}>
                   <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full bg-gray-200 h-64 rounded-lb', { width: deviceWidth / 1.1 })} />
                   <View style={tw.style('absolute m-[40%]')}>
-                    <PlayIcon color="white" fill="black" size={96} />
+                    <PlayIcon color="#FFFFFF" fill="black" size={96} />
                   </View>
                 </View>
                 }
@@ -141,7 +141,7 @@ const ProductDetails = (props) => {
 
             {/*<View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
                <Text style={{fontSize:18,fontFamily:'AvertaStd-Semibold',}}>Color :</Text>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>{props?.getlistproductdetails?.data?.productColor}</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',marginLeft:5}}>{props?.getlistproductdetails?.data?.productColor}</Text>
              </View>
 
              <View style={{flexDirection:'row',marginHorizontal:'4%',marginVertical:'2%'}}>

@@ -86,7 +86,6 @@ import {
   SEARCH_LIST_ITMES,
   ALLSEARCH_LIST_DATA,
   LIVESTREAM_RECAP,
-  SET_TRACKING_HISTORY
 } from '../actions/ActionTypes';
 
 // Redux states
@@ -179,7 +178,7 @@ const initialState = {
   seteditprofileuser: null,
   setdeleteuser: null,
   livestreamrecaplist: null,
-  getordertrackingDetail:null
+
 };
 
 const Auth = (state = initialState, action) => {
@@ -190,13 +189,6 @@ const Auth = (state = initialState, action) => {
         ...state,
         setdeleteuser: action.payload,
       };
-
-    case SET_TRACKING_HISTORY:
-      return {
-        ...state,
-        getordertrackingDetail: action.payload,
-    };
-    
     case POST_EDIT_USER:
       return {
         ...state,

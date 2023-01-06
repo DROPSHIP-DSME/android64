@@ -9,19 +9,19 @@ import styles from './styles';
 //     return (
 //         <View style={styles.root} key={id}>
 //             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-//                 <Text style={[styles.title, { color: theme === "white" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
+//                 <Text style={[styles.title, { color: theme === "#FFFFFF" ? Colors.BLACK : Colors.WHITE }, textStyle]}>{title}</Text>
 //             </View>
 //             <View style={[styles.inputContainer,
 //             {
-//                 backgroundColor: theme === "white" ? Colors.WHITE : Colors.LIGHT_BLACK,
+//                 backgroundColor: theme === "#FFFFFF" ? Colors.WHITE : Colors.LIGHT_BLACK,
 //                 borderColor: Colors.GREY,
-//                 borderWidth: theme === "white" ? 1 : 0,
+//                 borderWidth: theme === "#FFFFFF" ? 1 : 0,
 //                 height: inputHeight || 50
 //             }]}>
 //                 <Picker
 //                     mode="dropdown"
-//                     dropdownIconColor={theme === "white" ? Colors.WHITE : Colors.LIGHT_BLACK}
-//                     style={[styles.input, { color: theme === "white" ? disable ? Colors.GREY : Colors.BLACK : Colors.WHITE }]} enabled={!disable || true}
+//                     dropdownIconColor={theme === "#FFFFFF" ? Colors.WHITE : Colors.LIGHT_BLACK}
+//                     style={[styles.input, { color: theme === "#FFFFFF" ? disable ? Colors.GREY : Colors.BLACK : Colors.WHITE }]} enabled={!disable || true}
 //                     {...others}>
 //                     {data && data?.map((item, index) => {
 //                         return (
@@ -32,7 +32,7 @@ import styles from './styles';
 //                 <View style={styles.iconContainer}>
 //                     <Image
 //                         source={ImageIcons.downArrow}
-//                         style={[styles.icon,{tintColor: theme === "white"?Colors.BLACK:Colors.WHITE }]}
+//                         style={[styles.icon,{tintColor: theme === "#FFFFFF"?Colors.BLACK:Colors.WHITE }]}
 //                     />
 //                 </View>
 //             </View>

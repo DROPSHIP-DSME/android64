@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { RegistrationShop } from '../../screens/auth';
-import {shoplogin,updatestripedata} from '../../redux/actions/Auth'
+import {shoplogin,updatestripedata,signInwithsocial} from '../../redux/actions/Auth'
 
 
 
@@ -13,7 +13,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     shoplogin,
-    updatestripedata
+    updatestripedata,
+    signInwithsocial
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegistrationShop);

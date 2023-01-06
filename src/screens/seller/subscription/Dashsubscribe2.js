@@ -93,16 +93,16 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
           
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'5%'}}>
+               {/*<View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'5%'}}>
                  <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',}}>Subscriptions</Text>
-               </View>
+               </View>*/}
 
             <View style={{flexDirection:'row',justifyContent:'space-around',marginHorizontal:5,marginTop:'5%'}}>
               <View style={{width:'46%',padding:'5%',backgroundColor:'#ffffff',borderRadius:15}}>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',textAlign:'center'}}>Current</Text>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',textAlign:'center'}}>Subscription</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',textAlign:'center'}}>Current</Text>
+                {/*<Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',textAlign:'center'}}>Subscription</Text>*/}
                 <Text style={{fontSize:22,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',textAlign:'center',marginTop:'2%'}}>Pro Tier</Text>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',textAlign:'center'}}>$0/month</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',color:'#1a1a1a',textAlign:'center'}}>$0/month</Text>
                 <View style={{backgroundColor:'#b80000',width:100,borderRadius:25,padding:8,alignSelf:'center',marginTop:'6%'}}>
                       <Text style={styles.totalincometodayPLAN}>UPGRADE</Text> 
                    </View>
@@ -110,8 +110,8 @@ const deviceWidth = Dimensions.get('window').width;
               </View>
 
               <View style={{width:'46%',padding:'5%',backgroundColor:'#ffffff',borderRadius:15}}>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',textAlign:'center'}}>SMS</Text>
-                               <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',textAlign:'center'}}>Bundle</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',textAlign:'center'}}>SMS</Text>
+                               <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',color:'#666666',textAlign:'center'}}>Bundle</Text>
 
                <Text style={{fontSize:20,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',textAlign:'center',marginTop:'2%'}}>0/0</Text>
                 <Text style={{fontSize:22,fontFamily:'AvertaStd-Semibold',color:'#1a1a1a',textAlign:'center',marginTop:'2%'}}>SMS left</Text>
@@ -126,12 +126,12 @@ const deviceWidth = Dimensions.get('window').width;
              <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',marginHorizontal:'4%',marginTop:'7%'}}>Recent SMS Campaigns</Text>
 
              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'7%',borderRadius:15,}}>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>25 - 01 - 2022</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular',color:'#666666'}}>25 - 01 - 2022</Text>
                 <View style={{backgroundColor:'#d0e3fb',width:120,borderRadius:10,padding:8,marginTop:'2%'}}>
                       <Text style={[styles.totalincometodayPLAN,{color:'#2f80ed'}]}>NEW PRODUCT</Text> 
                    </View>
                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'AvertaStd-Semibold',marginTop:'2%'}}>New Product Launch!</Text>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Dropship gives you the option of increase the value of your livestreaming exprience through additional marketing features. Select the plan that best suits your goals.</Text>
+                <Text style={{fontSize:18,fontFamily:'AvertaStd-Regular-Regular'}}>Dropship gives you the option of increase the value of your livestreaming exprience through additional marketing features. Select the plan that best suits your goals.</Text>
                  <View style={{backgroundColor:'#e6e6e6',width:120,borderRadius:10,padding:8,marginTop:'2%'}}>
                       <Text style={[styles.totalincometodayPLAN,{color:'#000000'}]}>0 SMS SENT</Text> 
                    </View>

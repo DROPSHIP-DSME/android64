@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Text,TextInput,Image,TouchableOpacity, View, ImageBackground, ScrollView,  Alert, KeyboardAvoidingView, Platform, Keyboard, Linking } from 'react-native';
+import { Text, TextInput, Image, TouchableOpacity, View, ImageBackground, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard, Linking } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import messaging from '@react-native-firebase/messaging';
 import CheckBox from '@react-native-community/checkbox';
@@ -19,7 +19,7 @@ import PasswordInputText from '../../components/react-native-hide-show-password-
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import AwesomeAlert from '../../components/modals/AlertModal';
-import { EyeIcon,EyeOffIcon } from "react-native-heroicons/solid";
+import { EyeIcon, EyeOffIcon } from "react-native-heroicons/solid";
 import Logobase from '../../components/baseassests/Logobase';
 
 
@@ -61,9 +61,9 @@ const CreateAccountShop = (props) => {
     }, [])
 
     const getBrandUserId = async () => {
-         var getUserId = await AsyncStorage.getItem('UserId');
-         setUserID(getUserId);
-         //alert(getUserId)
+        var getUserId = await AsyncStorage.getItem('UserId');
+        setUserID(getUserId);
+        //alert(getUserId)
     }
 
     // Request FCM Permission & get device token
@@ -74,7 +74,7 @@ const CreateAccountShop = (props) => {
             authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
         if (enabled) {
-            
+
             const _deviceToken = await messaging().getToken();
             setDeviceToken(_deviceToken)
         }
@@ -89,16 +89,16 @@ const CreateAccountShop = (props) => {
         if (email == "") {
             setshowotherAlert(true)
             setshowalertmsg('Email is required')
-        }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
             setshowotherAlert(true)
             setshowalertmsg('Invalid Email')
-        }else if (username == "" ) {
+        } else if (username == "") {
             setshowotherAlert(true)
             setshowalertmsg('Username is required')
-        }else if (password == "" ) {
+        } else if (password == "") {
             setshowotherAlert(true)
             setshowalertmsg('Password is required')
-        }else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
+        } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
             setshowotherAlert(true)
             setshowalertmsg('The password should have at least 8 characters with 1 upper case, 1 lower case, 1 number, and 1 special character(*,%,!,@,&,$,?)')
         } else if (confirmPassword == "") {
@@ -107,7 +107,7 @@ const CreateAccountShop = (props) => {
         } else if (confirmPassword != password) {
             setshowotherAlert(true)
             setshowalertmsg('Password does not match.')
-        }else if(toggleCheckBox==false){
+        } else if (toggleCheckBox == false) {
             setshowotherAlert(true)
             setshowalertmsg('Please accept the Terms & Conditions')
         } else {
@@ -121,38 +121,38 @@ const CreateAccountShop = (props) => {
                 "password": password,
                 "role": "user",
                 "deviceToken": deviceToken,
-                "otheruserid":UserID,
-                "type":"shop"
+                "otheruserid": UserID,
+                "type": "shop"
 
             }
             props.shopsignup(request, props.navigation,);
 
             //create customer strip id
-            const response = fetch(`http://161.35.123.125/api/stripe/customer` , {
+            const response = fetch(`http://161.35.123.125/api/stripe/customer`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 'email':email }),
-             })
-            .then(response => response.json())
-            .then((responseJson) => {
-                console.log('stripe_id',responseJson?.data?.id)
-                let request = {
-                    "userId": email,
-                    "stripe_id": responseJson?.data?.id,
-                }
-                props.updatestripedata(request, props.navigation, 'user', 'shop')
-            }).catch((error) => {
-                console.log('error',error)
+                body: JSON.stringify({ 'email': email }),
             })
+                .then(response => response.json())
+                .then((responseJson) => {
+                    console.log('stripe_id', responseJson?.data?.id)
+                    let request = {
+                        "userId": email,
+                        "stripe_id": responseJson?.data?.id,
+                    }
+                    props.updatestripedata(request, props.navigation, 'user', 'shop')
+                }).catch((error) => {
+                    console.log('error', error)
+                })
 
         }
     }
 
     const Rememberme = async (email) => {
-        await AsyncStorage.setItem('rememberemail',email);
+        await AsyncStorage.setItem('rememberemail', email);
     }
 
     const openPrivacyPolicy = () => {
@@ -166,131 +166,145 @@ const CreateAccountShop = (props) => {
     return (
         <KeyboardAwareScrollView
             style={styles.registrationRootscroll}>
-        <View style={{flex:1,backgroundColor:'#ffffff'}}>
-            <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
-                <View style={styles.leftlogView}>
-                    <Image source={ImageIcons.left} style={styles.droparrow}  />
+            <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+                <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
+                    <View style={styles.leftlogView}>
+                        <Image source={ImageIcons.left} style={styles.droparrow} />
+                    </View>
+                </TouchableOpacity>
+                <View style={tw.style('items-center mb-[10%]')}>
+                    <Logobase />
                 </View>
-            </TouchableOpacity>
-            <View style={tw.style('items-center mb-[10%]')}>
-                <Logobase />
-            </View>
-        <View style={tw.style('mx-5 mb-3')}>
-            <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Sign Up</Text>
-        </View>
-
-            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
-
-            <View>
-
-                <View style={tw.style('mt-5')}>
-                    <TextInput
-                     style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
-                     placeholder="Email address"
-                     onChangeText={onChangeText1}
-                     value={email}
-                     onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#b3b3b3"
-                    />
+                <View style={tw.style('mx-5 mb-3')}>
+                    <Text style={tw.style('text-3xl text-gray-700', { fontFamily: 'AvertaStd-Semibold' })}>Sign Up</Text>
                 </View>
 
-                <View style={tw.style('mt-5')}>
-                    <TextInput
-                     style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
-                     placeholder="Username"
-                     onChangeText={onChangeText6}
-                     value={username}
-                     onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#b3b3b3"
-                    />
-                </View>
+                <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
-                <View style={tw.style('mt-5')}>
-                    <TextInput
-                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
-                      placeholderTextColor="#b3b3b3"
-                      onChangeText={onChangeText2}
-                      value={password}
-                      placeholder="Password"
-                      secureTextEntry={passwordsecure}
-                      onSubmitEditing={() => handleRegistrationSubmit()}
-                    />
-                    <View style={tw`absolute top-3 right-8`}>
-                       <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
-                        {passwordsecure==false ?
-                            <EyeIcon color="red" fill="black" size={24} />
-                        :
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        }
+                <View>
+
+                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
+                        <TextInput
+                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
+                            placeholder="Email address"
+                            autoCompleteType='email'
+                            placeholderTextColor="#999999"
+                            onChangeText={onChangeText1}
+                            value={email}
+                            onSubmitEditing={() => handleRegistrationSubmit()}
+                        />
+                    </View>
+
+                    {/* <View style={tw.style('mt-5')}>
+                        <TextInput
+                            style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
+                            placeholder="Email address"
+                            onChangeText={onChangeText1}
+                            value={email}
+                            onSubmitEditing={() => handleRegistrationSubmit()}
+                            placeholderTextColor="#b3b3b3"
+                        />
+                    </View> */}
+
+                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
+                        <TextInput
+                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
+                            placeholder="Username"
+                            onChangeText={onChangeText6}
+                            value={username}
+                            onSubmitEditing={() => handleRegistrationSubmit()}
+                            placeholderTextColor="#999999"
+                        />
+                    </View>
+
+                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
+                        <TextInput
+                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
+                            placeholderTextColor="#999999"
+                            onChangeText={onChangeText2}
+                            value={password}
+                            placeholder="Password"
+                            secureTextEntry={passwordsecure}
+                            onSubmitEditing={() => handleRegistrationSubmit()}
+                        />
+                        <View style={tw`absolute top-3 right-12`}>
+                            <TouchableOpacity onPress={() => setpasswordsecure(s => !s)}>
+                                {passwordsecure == false ?
+                                    <EyeIcon color="red" fill="black" size={24} />
+                                    :
+                                    <EyeOffIcon color="red" fill="black" size={24} />
+                                }
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
+                        <TextInput
+                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
+                            placeholderTextColor="#999999"
+                            onChangeText={onChangeText3}
+                            value={confirmPassword}
+                            placeholder="Confirm Password"
+                            secureTextEntry={confirmsecure}
+                        />
+                        <View style={tw`absolute top-3 right-12`}>
+                            <TouchableOpacity onPress={() => setconfirmsecure(s => !s)}>
+                                {confirmsecure == false ?
+                                    <EyeIcon color="red" fill="black" size={24} />
+                                    :
+                                    <EyeOffIcon color="red" fill="black" size={24} />
+                                }
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                    <View style={tw.style('flex mt-5 mx-2 my-4')}>
+
+                        <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
+                            <CheckBox
+                                value={toggleCheckBox}
+                                onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                                tintColors={'#9E663C'}
+                                onCheckColor={'#6F763F'}
+                                onFillColor={'#4DABEC'}
+                                onTintColor={'#F4DCF8'}
+                            />
+                            
+                                <Text style={tw.style('text-sm text-gray-700 mt-2 ml-2 tracking-wide')}> I agree to the </Text>
+                                <TouchableOpacity onPress={() => openTerms()}>
+                                    <Text style={tw.style('text-sm mt-2 text-red-700')}> Terms & Conditions</Text>
+                                </TouchableOpacity>
+                                <Text style={tw.style('text-sm mt-2 text-gray-700 tracking-wide')}> and have read the </Text>
+                                <TouchableOpacity onPress={() => openPrivacyPolicy()}>
+                                    <Text style={tw.style('text-sm mt-2 text-red-700')}> Privacy Policy</Text>
+                                </TouchableOpacity>
+                            
+                        </View>
+
+                        <View style={tw.style('flex flex-row justify-center w-9/12')}>
+                            
+                        </View>
+
+                    </View>
+
+                    <View style={tw`mx-5`}>
+                        <Largebutton
+                            text="Create an account"
+                            onPress={() => handleRegistrationSubmit()}
+                        />
+                    </View>
+
+                    <View style={tw.style('flex flex-row justify-center mt-3')}>
+                        <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Already have an account yet?</Text>
+
+                        <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("RegistrationShop")}>
+                            <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign in here.</Text>
                         </TouchableOpacity>
-                  </View>
-                </View>
-
-                <View style={tw.style('mt-5')}>
-                     <TextInput
-                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
-                      placeholderTextColor="#b3b3b3"
-                      onChangeText={onChangeText3}
-                      value={confirmPassword}
-                      placeholder="Confirm Password"
-                      secureTextEntry={confirmsecure}
-                    />
-                    <View style={tw`absolute top-3 right-8`}>
-                      <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>
-                        {confirmsecure==false ?
-                            <EyeIcon color="red" fill="black" size={24} />
-                        :
-                            <EyeOffIcon color="red" fill="black" size={24} />
-                        }
-                      </TouchableOpacity>
                     </View>
                 </View>
 
-                <View style={tw.style('flex mt-5 mx-2 my-4')}>
-
-                  <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
-                      <CheckBox
-                          value={toggleCheckBox}
-                          onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                          tintColors={'#9E663C'}
-                          onCheckColor={'#6F763F'}
-                          onFillColor={'#4DABEC'}
-                          onTintColor={'#F4DCF8'}
-                       />
-                      <Text style={tw.style('text-sm text-gray-700 tracking-wide')}> I agree to the </Text>
-                      <TouchableOpacity onPress={() => openTerms()}>
-                          <Text style={tw.style('text-sm text-red-700')}> Terms & Conditions</Text>
-                      </TouchableOpacity>
-                      <Text style={tw.style('text-sm text-gray-700 tracking-wide')}> and have</Text>
-                  </View>
-
-                  <View style={tw.style('flex flex-row justify-center w-9/12')}>
-                      <Text style={tw.style('text-sm text-gray-700 tracking-wide')}>read the </Text>
-                      <TouchableOpacity onPress={() => openPrivacyPolicy()}>
-                          <Text style={tw.style('text-sm text-red-700')}> Privacy Policy</Text>
-                      </TouchableOpacity>
-                  </View>
-
-                </View>
-
-                <View style={tw`mx-5`}>
-                <Largebutton
-                  text="Create an account"
-                  onPress={() => handleRegistrationSubmit()}
-                />
-                </View>
-
-                <View style={tw.style('flex flex-row justify-center mt-3')}>
-                    <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Already have an account yet?</Text>
-
-                    <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("RegistrationShop")}>
-                        <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign in here.</Text>
-                    </TouchableOpacity>
-                </View>
             </View>
-
-        </View>
-       </KeyboardAwareScrollView>
+        </KeyboardAwareScrollView>
     )
 }
 
