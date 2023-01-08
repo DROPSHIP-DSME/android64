@@ -206,6 +206,29 @@ export const signInwithsocial = (loginCredentials,navigation,type, usertype) => 
   };
 };
 
+//demo login
+export const demologin = (loginCredentials, getUserId ,navigation ) => {
+  return async (dispatch, getState) => {
+    let isInternetConnected = await getState().auth?.isInternetConnected;
+    if (isInternetConnected) {
+      try {
+        let response = await Utilise.apiCalling('POST', Api.signInwithsocial, loginCredentials);
+        dispatch({ type: SET_PHONESIGNUP_LOADER, payload: false });
+          
+          dispatch({ type: SET_LOGIN_CREDENTIAL, payload: response?.data });
+          global.authToken = response?.data?.token || null;
+          await AsyncStorage.setItem('UserId',getUserId);
+          await AsyncStorage.setItem('userLogin',"1");
+          dispatch({ type: LOGIN_USER_ID, payload: getUserId });
+          dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
+          setTimeout(function(){ navigation.navigate("demowatchlist",{ userId:getUserId }); },1);
+
+      } catch (error) {
+        dispatch(changeLoginCredentials(null));
+      }
+    }
+  };
+};
 
 export const shoplogin = (loginCredentials,navigation,type, usertype) => {
   return async (dispatch, getState) => {

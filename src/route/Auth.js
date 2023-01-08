@@ -60,12 +60,15 @@ import {
   CreateStore,
   SearchProduct,
   NameStore,
+  NameStoredemo,
   ProductDetails,
   Cart,
+  Cartdemo,
   Overview,
   Verification,
   Log,
   watchlist,
+  demowatchlist,
   clothing,
   clothdetails,
   upcoming,
@@ -389,6 +392,20 @@ const Auth = (props) => {
                     })}
       />
 
+      
+      <Stack.Screen
+        name="demowatchlist"
+        component={demowatchlist}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenudemoItem navigation={navigation} isMenu={true}  />,
+                        headerRight: () => <RightMenudemoItem navigation={navigation} cartCount={cartCount} notificationCount={notificationCount} />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle1,
+                    })}
+      />
       <Stack.Screen
         name="watchlist"
         component={watchlist}
@@ -434,6 +451,21 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
+
+      <Stack.Screen
+        name="NameStoredemo"
+        component={NameStoredemo}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenudemoItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenudemoItem navigation={navigation} cartCount={cartCount} notificationCount={notificationCount} />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
+      />
+
       <Stack.Screen
         name="ProductStore"
         component={ProductStore}
@@ -561,6 +593,20 @@ const Auth = (props) => {
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} notificationCount={notificationCount} />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
+      />
+
+      <Stack.Screen
+        name="Cartdemo"
+        component={Cartdemo}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenudemoItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenudemoItem navigation={navigation} cartCount={cartCount} notificationCount={notificationCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -1100,6 +1146,46 @@ const Auth = (props) => {
   );
 };
 
+
+const LeftMenudemoItem = ({ navigation, isMenu }) => {
+    return (
+       <View style={isMenu ? styles.leftLabel: styles.leftLabelfalse}>
+           <TouchableOpacity onPress={() => {
+                if (isMenu) {
+                    navigation?.goBack()
+                } else {
+                    navigation?.goBack();
+                }
+            }}
+            style={tw.style('mr-10')}>
+               {isMenu ?
+                <View style={tw.style('w-7 h-7 top-4')}>
+                    <Whitelogo />
+                </View>
+               :
+                <ChevronLeftIcon color="#FFFFFF" fill="#ffffff" size={40} />
+              }
+            </TouchableOpacity>
+        </View>
+    )
+}
+
+
+
+const RightMenudemoItem = ({navigation,cartCount,notificationCount}) => {
+    return (
+        <View style={tw.style('flex flex-row justify-center items-center mr-4 px-2')}>
+          <TouchableOpacity onPress={() => { navigation.navigate('Cartdemo') }}>
+              <View style={tw.style('flex-row items-center')}>
+                  <ShoppingBagIcon color="red" fill="#ffffff" size={18} />
+                  <Text style={tw.style('text-lg text-white font-bold pl-1')}>{cartCount}</Text>
+              </View>
+          </TouchableOpacity>
+        </View>
+    )
+}
+
+
 const LeftMenuItem = ({ navigation, isMenu }) => {
     return (
        <View style={isMenu ? styles.leftLabel: styles.leftLabelfalse}>
@@ -1219,6 +1305,9 @@ const styles = StyleSheet.create({
     },
     headerbackgroundstyle:{
        backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0
+    },
+    headerbackgroundstyle1:{
+       backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0,
     },
     titleheaderstyle:{
       color: Colors.WHITE, fontFamily:'AvertaStd-Semibold'

@@ -164,31 +164,26 @@ const CreateAccountShop = (props) => {
     }
 
     return (
-        <KeyboardAwareScrollView
-            style={styles.registrationRootscroll}>
+        <KeyboardAwareScrollView style={styles.registrationRootscroll}>
+            
             <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
                     <View style={styles.leftlogView}>
                         <Image source={ImageIcons.left} style={styles.droparrow} />
                     </View>
                 </TouchableOpacity>
+
                 <View style={tw.style('items-center mb-[10%]')}>
                     <Logobase />
                 </View>
 
-            </TouchableOpacity>
-            <View style={tw.style('items-center mb-[10%]')}>
-                <Logobase />
-            </View>
-        <View style={tw.style('mx-5 mb-3')}>
-            <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Sign Up</Text>
-        </View>
+                <View style={tw.style('mx-5 mb-3')}>
+                    <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Sign Up</Text>
+                </View>
 
-            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+                <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
-            <View>
-
-                <View style={tw.style('mt-5')}>
+                 <View style={tw.style('mt-5')}>
                     <TextInput
                      style={tw.style('mx-5 pl-3 py-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Email address"
@@ -228,7 +223,7 @@ const CreateAccountShop = (props) => {
                             <EyeOffIcon color="red" fill="black" size={24} />
                         }
                         </TouchableOpacity>
-                  </View>
+                    </View>
                 </View>
 
                 <View style={tw.style('mt-5')}>
@@ -249,71 +244,9 @@ const CreateAccountShop = (props) => {
                         }
                       </TouchableOpacity>
                     </View>
-
-                    {/* <View style={tw.style('mt-5')}>
-                        <TextInput
-                            style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
-                            placeholder="Email address"
-                            onChangeText={onChangeText1}
-                            value={email}
-                            onSubmitEditing={() => handleRegistrationSubmit()}
-                            placeholderTextColor="#b3b3b3"
-                        />
-                    </View> */}
-
-                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
-                        <TextInput
-                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
-                            placeholder="Username"
-                            onChangeText={onChangeText6}
-                            value={username}
-                            onSubmitEditing={() => handleRegistrationSubmit()}
-                            placeholderTextColor="#999999"
-                        />
-                    </View>
-
-                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
-                        <TextInput
-                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
-                            placeholderTextColor="#999999"
-                            onChangeText={onChangeText2}
-                            value={password}
-                            placeholder="Password"
-                            secureTextEntry={passwordsecure}
-                            onSubmitEditing={() => handleRegistrationSubmit()}
-                        />
-                        <View style={tw`absolute top-3 right-12`}>
-                            <TouchableOpacity onPress={() => setpasswordsecure(s => !s)}>
-                                {passwordsecure == false ?
-                                    <EyeIcon color="red" fill="black" size={24} />
-                                    :
-                                    <EyeOffIcon color="red" fill="black" size={24} />
-                                }
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
-                        <TextInput
-                            style={tw.style('w-11/12 py-3 rounded-lg text-base sm:text-sm bg-zinc-200 text-gray-700 border-gray-300 pl-3')}
-                            placeholderTextColor="#999999"
-                            onChangeText={onChangeText3}
-                            value={confirmPassword}
-                            placeholder="Confirm Password"
-                            secureTextEntry={confirmsecure}
-                        />
-                        <View style={tw`absolute top-3 right-12`}>
-                            <TouchableOpacity onPress={() => setconfirmsecure(s => !s)}>
-                                {confirmsecure == false ?
-                                    <EyeIcon color="red" fill="black" size={24} />
-                                    :
-                                    <EyeOffIcon color="red" fill="black" size={24} />
-                                }
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    <View style={tw.style('flex mt-5 mx-2 my-4')}>
+                </View>
+                
+                     <View style={tw.style('flex mt-5 mx-2 my-4')}>
 
                         <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
                             <CheckBox
@@ -329,18 +262,22 @@ const CreateAccountShop = (props) => {
                                 <TouchableOpacity onPress={() => openTerms()}>
                                     <Text style={tw.style('text-sm mt-2 text-red-700')}> Terms & Conditions</Text>
                                 </TouchableOpacity>
-                                <Text style={tw.style('text-sm mt-2 text-gray-700 tracking-wide')}> and have read the </Text>
+                                
+                            
+                        </View>
+                        <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
+                        <Text style={tw.style('text-sm mt-2 text-gray-700 tracking-wide')}> and have read the </Text>
                                 <TouchableOpacity onPress={() => openPrivacyPolicy()}>
                                     <Text style={tw.style('text-sm mt-2 text-red-700')}> Privacy Policy</Text>
                                 </TouchableOpacity>
-                            
                         </View>
-
                         <View style={tw.style('flex flex-row justify-center w-9/12')}>
                             
                         </View>
 
                     </View>
+
+
 
                     <View style={tw`mx-5`}>
                         <Largebutton
@@ -356,7 +293,6 @@ const CreateAccountShop = (props) => {
                             <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign in here.</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
 
             </View>
         </KeyboardAwareScrollView>

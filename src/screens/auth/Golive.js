@@ -11,6 +11,8 @@ import * as Yup from 'yup';
 import styles from '../../screens/common/styles';
 import { Colors, CommonStrings } from '../../common';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Largepurplebutton from '../../components/dropshipbutton/Largepurplebutton';
+
 import ImageIcons from '../../common/ImageIcons';
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
@@ -21,7 +23,7 @@ import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { v4 as uuid } from "uuid";
 import tw from 'twrnc';
-import {
+import { 
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
@@ -171,6 +173,17 @@ const Golive = (props) => {
     //     // );
     // }
 
+    const handleguestSubmit = () => {
+        let request = {
+            "email": 'guest@gmail.com',
+            "userName": 'Guest',
+            "type":"guest"
+        }
+        var randomNumber = Math.floor(Math.random() * 10000000) + 1;
+        var getUserId = randomNumber.toString();
+        props.demologin(request,getUserId, props.navigation);
+    }
+
 
 
     return (
@@ -186,7 +199,7 @@ const Golive = (props) => {
 
             <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
-          {/*<View style={tw.style('items-center mt-12')}>
+          <View style={tw.style('items-center mt-12')}>
               <TouchableOpacity
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-full border border-slate-400 shadow-sm')}
                   activeOpacity = { .5}
@@ -198,23 +211,29 @@ const Golive = (props) => {
               </TouchableOpacity>
           </View>
 
-        <View style={[styles.devider1, { marginTop: '5%' }]}>
+        <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />
-        </View>*/}
+        </View>
 
-            <View style={tw`mx-5`}>
+         <View style={tw`mx-5 mt-5`}>
+            <Largepurplebutton
+              text="Guest Login"
+              onPress={() => handleguestSubmit()}
+            />
+            </View>
+            <View style={tw`mx-5 mt-5`}>
             <Largebutton
               text="Sign in with Email"
               onPress={() => props.navigation.navigate("RegistrationShop")}
             />
             </View>
-            <View style={tw.style('flex flex-row justify-center items-center mt-3')}>
+            <View style={tw.style('flex flex-row justify-center items-center mt-6')}>
                 <Text style={tw.style('text-lg text-gray-700 tracking-wide')}>Don’t have an account yet?</Text>
 
                 <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
+                    <Text style={tw.style('text-base text-[#94BDF3] items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
 

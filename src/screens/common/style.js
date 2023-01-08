@@ -30,6 +30,15 @@ const styles = StyleSheet.create({
     // height: 25,
     paddingLeft:2
   },
+  leftLabel: {
+        height: wp('6%'),
+        width: wp('30%'),
+        paddingHorizontal: 8,
+        marginRight: 20,
+        justifyContent: 'center',
+        flexDirection:'row',
+        marginTop:0
+    },
   text: {
     color: Colors.white,
     fontSize: 14,

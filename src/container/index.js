@@ -31,10 +31,14 @@ import Accountorderview  from './customer/account/Accountorderview';
 import Accountdata       from './customer/account/Accountdata';
 import StoreOwner        from './customer/cart/StoreOwner';
 import Cart              from './customer/cart/Cart';
+import Cartdemo              from './customer/cart/Cartdemo';
 import watchlist         from './customer/dashboard/watchlist';
+import demowatchlist         from './customer/dashboard/demowatchlist';
 import clothing          from './customer/dashboard/clothing';
 import clothdetails      from './customer/dashboard/clothdetails';
 import NameStore         from './customer/dashboard/NameStore';
+import NameStoredemo         from './customer/dashboard/NameStoredemo';
+
 import upcoming          from './customer/livestream/upcoming';
 import Blurbackground    from './customer/livestream/Blurbackground';
 import shop              from './customer/shop/shop';
@@ -95,6 +99,7 @@ export {
     Accountproduct,
     Viewevent,
     Cart,
+    Cartdemo,
     Dashproduct,
     Dashlive,
     Dashlive2,
@@ -133,12 +138,14 @@ export {
     CreateStore,
     SearchProduct,
     NameStore,
+    NameStoredemo,
     ProductDetails,
     Verification,
     Footer2,
     Footer3,
     SalesAnalytic,
     watchlist,
+    demowatchlist,
     clothing,
     clothdetails,
     shop,

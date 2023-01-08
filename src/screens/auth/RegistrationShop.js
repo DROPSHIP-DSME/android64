@@ -261,12 +261,6 @@ const RegistrationShop = (props) => {
                   <Text style={tw.style('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
               </TouchableOpacity>
           </View>
-
-          <View style={tw`mx-5 my-30`}>
-            <Largebutton text="Guest" onPress={() => handleguestSubmit()} />
-          </View>
-
-
       </View>
 
 

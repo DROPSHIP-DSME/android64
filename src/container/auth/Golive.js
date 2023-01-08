@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Golive } from '../../screens/auth';
-import { signup,shopsignupphone,countrylist,signInwithsocial,updatestripedata } from '../../redux/actions/Auth'
+import { signup,shopsignupphone,countrylist,signInwithsocial,demologin,updatestripedata } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -15,6 +15,7 @@ const mapDispatchToProps = {
     shopsignupphone,
     countrylist,
     signInwithsocial,
+    demologin,
     updatestripedata
 };
 
