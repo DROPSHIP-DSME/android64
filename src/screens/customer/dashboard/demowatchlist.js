@@ -297,9 +297,9 @@ const demowatchlist = (props) => {
         //alert(userId+'-'+props?.loginuserid)
         setTimeout(function () {
             if(userId==props?.loginuserid){
-                props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: true });
+                props.navigation.navigate("Blurbackgrounddemo", { isback: false, channel: itemid, isbroadcaster: true });
             }else {
-                props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
+                props.navigation.navigate("Blurbackgrounddemo", { isback: false, channel: itemid, isbroadcaster: false });
             }
         }, 1000);
         // } else {

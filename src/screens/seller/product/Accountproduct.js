@@ -56,7 +56,7 @@ const Accountproduct = (props) => {
     const { Dimensions } = Reactdim;
     const deviceHeight = Dimensions.get('window').height;
     const deviceWidth = Dimensions.get('window').width;
-
+    //alert(brandId)
     // Local states
     const [billImgPath, setBillImgPath] = useState("");
     const [retakeFlag, setRetakeFlag] = useState(false);
@@ -278,7 +278,7 @@ const Accountproduct = (props) => {
                 formData3.append("uploadId", props?.loginuserid);
                 props.uploadpic(formData3, props.navigation, "user");
             }
-
+            //alert('sdf')
             setTimeout(function(){
                 const formData = new FormData();
                 formData.append("productName", Name);

@@ -41,6 +41,8 @@ import NameStoredemo         from './customer/dashboard/NameStoredemo';
 
 import upcoming          from './customer/livestream/upcoming';
 import Blurbackground    from './customer/livestream/Blurbackground';
+import Blurbackgrounddemo   from './customer/livestream/Blurbackgrounddemo';
+
 import shop              from './customer/shop/shop';
 import ProductStore      from './customer/shop/ProductStore';
 import Search            from './customer/search/Search';
@@ -150,6 +152,7 @@ export {
     clothdetails,
     shop,
     Blurbackground,
+    Blurbackgrounddemo,
     Search,
     Popevent,
     Notification,

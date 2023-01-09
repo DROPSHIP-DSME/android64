@@ -74,6 +74,7 @@ import {
   upcoming,
   shop,
   Blurbackground,
+  Blurbackgrounddemo,
   Search,
   shippinginfo,
   Popevent,
@@ -381,6 +382,20 @@ const Auth = (props) => {
       <Stack.Screen
         name="Blurbackground"
         component={Blurbackground}
+        options={({ navigation }) => ({
+                        headerShown: false,
+                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
+                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: " ",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
+                        headerStyle: { backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0 },
+                    })}
+      />
+
+      <Stack.Screen
+        name="Blurbackgrounddemo"
+        component={Blurbackgrounddemo}
         options={({ navigation }) => ({
                         headerShown: false,
                         headerLeft: () => <LeftMenuItem navigation={navigation}  />,

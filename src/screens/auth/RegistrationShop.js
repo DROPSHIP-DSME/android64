@@ -63,6 +63,7 @@ const RegistrationShop = (props) => {
     const [showalertmsg, setshowalertmsg] = React.useState('');
 
 
+
     useEffect(() => {
         GoogleSignin.configure({
             webClientId: '512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
@@ -79,6 +80,10 @@ const RegistrationShop = (props) => {
     const getrememberMe = async () => {
         var getpassword = await AsyncStorage.getItem('rememberpassword');
         var getemail = await AsyncStorage.getItem('rememberemail');
+
+        var getUserId = await AsyncStorage.getItem('UserId');
+        setUserID(getUserId);
+        
         onChangeText1(getemail);
         onChangeText2(getpassword);
         if(getemail!=null){
@@ -130,14 +135,11 @@ const RegistrationShop = (props) => {
                 "email": email,
                 "password": password,
                 "deviceToken": deviceToken,
-                "otheruserid": '',
+                "otheruserid": UserID,
                 "type": "shop"
             }
             if(email!="" && password!=""){
                 props.shoplogin(request, props.navigation, 'user', 'shop')
-
-                
-                
 
             }
         }

@@ -253,10 +253,17 @@ const Dashproduct = (props) => {
           <TouchableOpacity>
             <Text style={tw.style('text-2xl text-gray-600',{fontFamily:'AvertaStd-Semibold'})}>Products ({props?.getlistproduct?.length})</Text>
           </TouchableOpacity>
+            {(props?.brandName?._id!="") ?
             <Smallbutton
               text="Add Product"
               onPress={() => props.navigation.navigate("Accountproduct", { brandId: props?.brandName._id })}
             />
+            :
+            <Smallbutton
+              text="Create Store"
+              onPress={() => props.navigation.navigate("Verificationsteps")}
+            />
+          }
         </View>
 
         <View style={tw.style('flex flex-row mx-4 items-center')}>
