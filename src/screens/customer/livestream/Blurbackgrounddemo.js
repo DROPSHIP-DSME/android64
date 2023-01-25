@@ -664,7 +664,7 @@ const Blurbackgrounddemo = (props) => {
                         </View>
                     </ScrollView>
                     <View  style={tw`flex flex-row justify-center my-5`} >
-                        <TouchableOpacity style={tw`px-6 py-2 border border-transparent rounded-full shadow-sm bg-green-300 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500`} onPress={() =>props.navigation.navigate("Cart")}>
+                        <TouchableOpacity style={tw`px-6 py-2 border border-transparent rounded-full shadow-sm bg-green-300 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500`} onPress={() =>props.navigation.navigate("Cartdemo")}>
                             <Text style={tw`items-center text-base font-medium  text-black`}>View Cart</Text>
                         </TouchableOpacity>
                     </View>
