@@ -81,8 +81,6 @@ const CreateAccountShop = (props) => {
     }
 
 
-
-
     // Registration request submission
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
