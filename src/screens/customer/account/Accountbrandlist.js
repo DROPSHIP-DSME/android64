@@ -110,11 +110,14 @@ const Accountbrandlist = (props) => {
         }
     }
 
+
+
     // Local states
 
     const [text1, onChangeText3] = React.useState("");
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("");
+    const [followcountval, setfollowcount] = useState(0);
     const [showclassName, setshowclassName] = useState("#B80000");
     const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
     const openpopup = () => {
@@ -123,6 +126,15 @@ const Accountbrandlist = (props) => {
 
     const closepopup = () => {
         setVisible(false)
+    }
+
+    const followcount = () => {
+        if(followcountval==1){
+            setfollowcount(0);
+        }else {
+            setfollowcount(1);
+        }
+        
     }
 
     const updateorderStatus = (itemValue) => {
@@ -211,7 +223,7 @@ const Accountbrandlist = (props) => {
 
 
                <View style={tw`mt-7 mx-3`}>
-                  <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
+                  <TouchableOpacity>
                    <View style={tw`bg-gray-100 items-center`}>
                       <Image source={{uri:props?.getBranddetails?.brandImage}} style={tw`h-42 w-42 rounded-full `}/>
                     </View>
@@ -229,18 +241,22 @@ const Accountbrandlist = (props) => {
                       <Text style={tw`text-base text-center text-gray-500`}>Livestreams</Text>
                     </View>
                     <View>
-                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>0</Text>
+                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>{props?.getlistbranddetails?.length}</Text>
                       <Text style={tw`text-base text-center text-gray-500`}>Products</Text>
                     </View>
                     <View>
-                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>0</Text>
+                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>{followcountval}</Text>
                       <Text style={tw`text-base text-center text-gray-500`}>Followers</Text>
                     </View>
 
                  </View>
 
-                  <View style={tw`mt-6 mb-10 mx-2`}>
-                      <Medbutton text="Follow" />
+                    <View style={tw`mt-6 mb-10 mx-2`}>
+                       {followcountval==0 ?
+                            <Medbutton text="Follow" onPress={followcount} />
+                        :
+                            <Medbutton text="Unfollow" onPress={followcount} />
+                       }
                    </View>
               </View>
 
