@@ -10,6 +10,9 @@ import ForgetPassword    from './auth/ForgetPassword';
 import Codeconfirm       from './auth/Codeconfirm';
 import CreateAccountShop from './auth/CreateAccountShop';
 import Verification      from './auth/Verification';
+import Privacy      from './auth/Privacy';
+import Terms      from './auth/Terms';
+
 
 import Sellheader        from './common/Sellheader';
 import Footer2           from './common/Footer2';
@@ -162,5 +165,7 @@ export {
     createselleraccount,
     Verificationsteps,
     Profile,
-    Shippingdetails
+    Shippingdetails,
+    Terms,
+    Privacy
 }

@@ -173,7 +173,7 @@ const watchlist = (props) => {
         props.getAllproduct(1);
         props.getcurrentevent(1);
         props.getwatchlistproduct(props?.loginuserid);
-        props.getAllshop(props?.loginuserid, 1);
+        props.getAllshop(1);
         
         props.getbrandName(props?.loginuserid);
         props.cartdata(props?.loginuserid);
@@ -231,7 +231,7 @@ const watchlist = (props) => {
         props.getAllproduct(1);
         props.getcurrentevent(1);
         props.Brandslist(props?.loginuserid);
-        props.getAllshop(1);
+        //props.getAllshop(1);
     }
     const Showlivestrem = () => {
         setlivestream(true);
@@ -258,6 +258,7 @@ const watchlist = (props) => {
         setstore(true);
         setshop(false);
         props.Brandslist(props?.loginuserid);
+        //props.getAllshop(1);
     }
     const Showshops = () => {
         setlivestream(false);
@@ -265,7 +266,7 @@ const watchlist = (props) => {
         setData(false);
         setstore(false);
         setshop(true);
-        props.getAllshop(1);
+        //props.getAllshop(1);
 
     }
    
@@ -412,52 +413,13 @@ const watchlist = (props) => {
     const renderItem2 = ({ item, index }) => {
         return (
             <View style={tw.style('ml-2 mr-2')}>
-                <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName }) }}>
+                <TouchableOpacity onPress={() => { props.navigation.navigate("Accountbrandlist", { brandId: item._id }) }}>
                     <View style={tw.style('p-0.5')}>
-                        <Image source={{ uri: item.shopImage }} style={tw.style('w-40 h-40 rounded-md')} onPress={() => { props.navigation.navigate("clothing") }} />
+                        <Image source={{ uri: item.brandImage }} style={tw.style('w-40 h-40 rounded-md')} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
                     <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
                         <View style={tw.style('pl-2')}>
-                            <Text style={tw.style('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
-                            <Text style={tw.style('text-[#1A1A1A] text-base font-bold')}>$0</Text>
-                            {item?.productRating ?
-              <View style={tw.style('flex flex-row mt-[5px] items-center')}>
-                
-                <Rating
-                  type='custom'
-                  imageSize={15}
-                  ratingCount={5}
-                  readonly
-                  ratingColor='#EB5757'
-                  tintColor='#FFE7E7'
-                  value={item?.productRating}
-                  startingValue={item?.productRating}
-                  style={tw.style('ml-[2%]')}
-                />
-                <Text style={tw.style('ml-3 text-sm text-black font-normal')}>{item?.productRating}</Text>
-              </View>
-              :
-              <View style={tw.style('flex flex-row mt-[5px] items-center')}>
-                
-                <Rating
-                  type='custom'
-                  imageSize={15}
-                  ratingCount={5}
-                  readonly
-                  ratingColor='#EB5757'
-                  tintColor='#FFE7E7'
-                  value={0}
-                  startingValue={0}
-                  style={tw.style('ml-[2%]')}
-                />
-                <Text style={tw.style('ml-3 text-sm text-black font-normal')}></Text>
-              </View>
-            }
-            
-                        </View>
-                        <View style={tw.style('mr-2')}>
-                            <Image source={ImageIcons.Iconlock} style={tw.style('w-[30px] h-[30px]')} />
-                            <Image source={ImageIcons.iconheart} style={tw.style('w-[30px] h-[30px] mt-[5px]')} />
+                            <Text style={tw.style('text-[#1A1A1A] text-xs font-normal')}>{item.brandName}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -696,26 +658,15 @@ const watchlist = (props) => {
                     {(store==true || Data==true) &&
                         <View style={tw.style('ml-2 mt-6')}>
                             <FlatList
-                                data={props?.Brandlistdata || []}
-                                renderItem={renderItem5}
+                                data={props?.getlistshop || []}
+                                renderItem={renderItem2}
                                 keyExtractor={item => item.id}
                                 showsHorizontalScrollIndicator={false}
                                 horizontal={true}
                             />
                         </View>}
 
-                    {(shop==true || Data==true) &&
-                        <TouchableOpacity>
-                            <View style={tw`ml-2 mt-6`}>
-                                <FlatList
-                                    data={props?.getlistshop || []}
-                                    renderItem={renderItem2}
-                                    keyExtractor={item => item.id}
-                                    showsHorizontalScrollIndicator={false}
-                                    horizontal={true}
-                                />
-                            </View>
-                        </TouchableOpacity>}
+                   
 
                     <View style={tw.style('ml-2 mt-6')}>
                         <FlatList

@@ -11,6 +11,8 @@ import {
   Registration,
   RegistrationShop,
   Login,
+  Privacy,
+  Terms,
   OTPVerification,
   Dashwith,
   Dashaccount,
@@ -170,6 +172,18 @@ const Auth = (props) => {
       />
 
       <Stack.Screen
+        name="Privacy"
+        component={Privacy}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
+      />
+
+      <Stack.Screen
+        name="Terms"
+        component={Terms}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
+      />
+
+      <Stack.Screen
         name="payment"
         component={payment}
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
@@ -209,7 +223,7 @@ const Auth = (props) => {
         component={shop}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}notificationCount={notificationCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",

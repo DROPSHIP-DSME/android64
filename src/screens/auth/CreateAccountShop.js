@@ -154,11 +154,13 @@ const CreateAccountShop = (props) => {
     }
 
     const openPrivacyPolicy = () => {
-        Linking.openURL('https://dropship.shopping/privacy-policy/');
+        props.navigation.navigate('Privacy');
+        //Linking.openURL('https://dropship.shopping/privacy-policy/');
     }
 
     const openTerms = () => {
-        Linking.openURL('https://dropship.shopping/');
+        props.navigation.navigate('Terms');
+        //Linking.openURL('https://dropship.shopping/');
     }
 
     return (

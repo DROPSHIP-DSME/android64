@@ -87,7 +87,7 @@ const Dashlive = (props) => {
     useEffect(() => {
       if(props?.loginCredentials?.isSeller==false){
         Rememberme(props?.loginCredentials?.email);
-        props.navigation.navigate("Verificationsteps");
+        props.navigation.navigate("Codeconfirm");
       }
     }, [])
 

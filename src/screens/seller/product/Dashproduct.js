@@ -151,7 +151,7 @@ const Dashproduct = (props) => {
   const renderItem2 = ({ item, index }) => {
     return (
       <View style={tw`mr-[1%]`}>
-        <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails", { productId: item._id, })} style={tw`p-2`}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("NameStore", { productId: item._id, })} style={tw`p-2`}>
           <Image source={{ uri: item.productImage }} style={tw`w-33 h-30`} />
         </TouchableOpacity>
 
@@ -261,7 +261,7 @@ const Dashproduct = (props) => {
             :
             <Smallbutton
               text="Create Store"
-              onPress={() => props.navigation.navigate("Verificationsteps")}
+              onPress={() => props.navigation.navigate("Codeconfirm")}
             />
           }
         </View>

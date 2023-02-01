@@ -48,6 +48,7 @@ const shop = (props) => {
          //props.getbrandName(props?.loginuserid);
          if(props.getlistcategory && props.getlistcategory.length>0){
             var getmaparr = [];
+            getmaparr.push({label: 'All', value: 'All'})
             getmaparr.push({label: 'Most popular', value: 'Most popular'})
             getmaparr.push({label: 'Live Now', value: 'Live Now'})
             props.getlistcategory.map(function(category, i){
@@ -121,10 +122,10 @@ const shop = (props) => {
 
     const renderItem1 = ({ item, index }) => {
         return(
-            <View style={tw.style('flex flex-row ml-4')}>
+            <View style={tw.style('flex flex-row mr-4 mb-3')}>
                   <TouchableOpacity onPress={() => { filterbycategory(item.value,index) }}>
                       {index == selectedIndex ?
-                          <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-full shadow-sm bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
+                          <View style={tw.style('inline-flex items-center px-3 py-2 border border-transparent rounded-2 shadow-sm bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}>
                               <Text style={tw.style('text-xs text-white mx-2')}>{item.label}</Text>
                           </View>
                           :
@@ -144,10 +145,6 @@ const shop = (props) => {
                         <View style={tw.style('absolute right-3 top-3')}></View>
                     </View>
                     <View style={tw.style('top-2 px-1')}>
-                        <View style={tw.style(`flex-row justify-between`)}>
-                            <Text style={tw.style(`text-sm text-gray-600 w-[85%]`)}>{item.productName}</Text>
-                            <ShoppingBagIcon color="red" fill="#b80000" size={18} />
-                        </View>
                         <View style={tw.style('flex-row')}>
                             <Text style={tw.style(`text-xl font-bold text-gray-700`)}>${item.productPrice}</Text>
                         </View>
@@ -171,12 +168,10 @@ const shop = (props) => {
 
                 <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-5')}>
                     <Text style={tw.style('text-3xl text-gray-700',{fontFamily:'AvertaStd-Semibold'})}>Shop</Text>
-                    <View style={{ width:'40%'}}>
-                        <Largesortorder text="Sort Order" options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
-                    </View>
+                    
                 </View>
 
-                <View style={tw.style('mt-5 border-gray-300 mb-3')}>
+                <View style={tw.style('mt-5 border-gray-300 mb-3',{borderColor:'#c3c3c3', borderBottomWidth:3, marginHorizontal:20})}>
                          <FlatList
                             data={categoryOption}
                             renderItem={renderItem1}
@@ -184,6 +179,16 @@ const shop = (props) => {
                             horizontal={true}
                         />
                     </View>
+                <View style={{ flexDirection:'row'}}>
+                    <View style={{ width:'40%', marginLeft:20}}>
+                        <Largesortorder text="Sort" options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
+                        
+                    </View>
+                    <TouchableOpacity style={[styles.poppiker3,{flexDirection:'row'}]}>
+                        <Image source={ImageIcons.filter} style={styles.fiterimg}/>
+                        <Text style={styles.filterpop}>FILTERS</Text>
+                    </TouchableOpacity>
+                </View>
 
                 <View style={tw.style('mx-2')}>
                     {props?.getlistproduct?.length>0 ?

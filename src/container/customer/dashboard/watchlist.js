@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
     getchatsupportlist1: state.auth.getchatsupportlist1,
     getgraphData: state.auth.getgraphData,
     Brandlistdata: state.auth.Brandlistdata,
+    getlistshop:state.auth.getlistshop,
     menucount: state.auth.menucount,
 }); 
 

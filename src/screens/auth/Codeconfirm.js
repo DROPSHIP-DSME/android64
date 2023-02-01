@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Text,TextInput,Image,TouchableOpacity, View, ImageBackground, ScrollView,  Alert, KeyboardAvoidingView, Platform, Keyboard, Linking } from 'react-native';
+
+import { Text,TextInput,Image,TouchableOpacity, View,Dimensions, ImageBackground, ScrollView,  Alert, KeyboardAvoidingView, Platform, Keyboard, Linking } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import messaging from '@react-native-firebase/messaging';
 import CheckBox from '@react-native-community/checkbox';
@@ -20,6 +21,7 @@ import tw from 'twrnc';
 import Medbutton from '../../components/dropshipbutton/Medbutton';
 import Logobase from '../../components/baseassests/Logobase';
 import { CheckIcon } from "react-native-heroicons/solid";
+const deviceHeight = Dimensions.get('window').height;
 
 const Codeconfirm = (props) => {
 
@@ -60,40 +62,42 @@ const Codeconfirm = (props) => {
 
     return (
         <KeyboardAwareScrollView
-            style={styles.registrationRootscroll}>
-        <View style={tw.style('flex flex-1 bg-white')}>
-            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
-                <Logobase />
-            </View>
+            style={[styles.registrationRootscroll,{backgroundColor:'#C02B27',}]}>
+        <View style={tw.style('flex',{ backgroundColor:'#C02B27'})}>
+            
 
-            <View style={tw.style('flex flex-row mb-5 mt-10 justify-center')}>
-                <View style={tw.style('w-18 h-18 rounded-full bg-green-600 items-center justify-center')}>
-                  <CheckIcon color="green" fill="#ffffff" size={48} />
-                </View>
-            </View>
-
-            <View style={tw.style('mx-5 justify-center items-center')}>
-                <Text style={tw.style('text-2xl text-gray-700 mb-8', {fontFamily: 'AvertaStd-Semibold'})}>Code Confirmed</Text>
+            <View style={tw.style('mx-5 mt-20 justify-center items-center')}>
+                <Text style={tw.style('text-3xl text-center text-white mb-8', {fontFamily: 'AvertaStd-Semibold'})}>Start selling live with Dropship!</Text>
             </View>
             <View style={tw.style('mx-5 justify-center items-center')}>
-                <Text style={tw.style('text-lg text-gray-600 text-center')}>Your account has been created. Confirm your account via email to get access to all features.</Text>
+                <Text style={tw.style('text-sm text-white opacity-80 text-center')}>Create your won store and start selling and livestreaming your products with us. A quick and easy process.</Text>
             </View>
 
-            <View style={tw`mx-5 my-6`}>
-              <Medbutton
-                text="Start Shopping"
-                onPress={() => {props.navigation.navigate("watchlist");}} />
+            <View style={tw.style('mx-0 mt-10')}>
+               <Image source={ImageIcons.signupcover}  style={{ width:'98%', height:300}}/>
             </View>
 
             <View
-              style={tw.style('mx-5 items-center px-4 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+              style={tw.style('mx-5 mt-14 items-center px-4 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
             >
-            <TouchableOpacity style={tw.style('w-10/11 items-center')}
+                <TouchableOpacity style={tw.style('w-10/11 items-center')}
                 onPress={() => {props.navigation.navigate("Verificationsteps");}}> 
-                <Text style={tw.style('text-lg text-white')}>Create Store</Text>
+                <Text style={tw.style('text-lg text-white')}>Create Your Store</Text>
               </TouchableOpacity>
+
+                
             </View>
-            <Loader isVisible={props?.loginLoader} />
+            <View
+              style={tw.style('mx-5 items-center px-4 py-3 border border-transparent text-sm font-medium text-white')}
+            >
+               
+                <TouchableOpacity style={tw.style('w-10/11 items-center')}
+                onPress={() => {props.navigation.navigate("watchlist");}}> 
+                <Text style={tw.style('text-sm text-white')}>Return Home</Text>
+              </TouchableOpacity>
+
+            </View>
+           
         </View>
        </KeyboardAwareScrollView>
     )

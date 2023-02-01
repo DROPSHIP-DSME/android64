@@ -9,6 +9,9 @@ import ResetPassword from './ResetPassword';
 import Codeconfirm from './Codeconfirm';
 import CreateAccountShop from './CreateAccountShop';
 import Verification from './Verification';
+import Privacy from './Privacy';
+import Terms from './Terms';
+
  
 export {
     Login,
@@ -21,5 +24,7 @@ export {
     Codeconfirm,
     RegistrationShop,
     CreateAccountShop,
-    Goliveshop
+    Goliveshop,
+    Privacy,
+    Terms
 }

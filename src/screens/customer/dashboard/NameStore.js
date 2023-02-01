@@ -368,8 +368,8 @@ const ref = React.useRef();
                 }
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:props?.getlistproductdetails?.getbrands?._id})} style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#4AFFBD] rounded-full')}>
-                <Text style={tw.style('text-center text-gray-700 text-xs font-bold')}>OPEN STORE</Text>
+              <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:props?.getlistproductdetails?.getbrands?._id})} style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#000000] rounded-full')}>
+                <Text style={tw.style('text-center text-white text-xs font-bold')}>OPEN STORE</Text>
               </TouchableOpacity>
             </View>
             <View style={{flexDirection:'row',marginTop:"5%"}}>

@@ -2279,7 +2279,7 @@ export const getorderdetail = (orderNumber) => {
 }
 
 //allshop
-export const getAllshop = (userId,usertype) => {
+export const getAllshop = (userId) => {
     let request = {
       userId:userId
     }
@@ -2287,10 +2287,8 @@ export const getAllshop = (userId,usertype) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
-              if(usertype !=1){
-                 dispatch({ type: GET_ALL_SHOP, payload: [] });
-              }
               let response = await Utilise.apiCalling('POST', `${Api.Brandslist}`,  request);
+              console.log('shopdata.data',response.data)
               if (response?.status) {
                   dispatch({ type: GET_ALL_SHOP, payload: response.data });
               }
