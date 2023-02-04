@@ -84,8 +84,6 @@ const Codeconfirm = (props) => {
                 onPress={() => {props.navigation.navigate("Verificationsteps");}}> 
                 <Text style={tw.style('text-lg text-white')}>Create Your Store</Text>
               </TouchableOpacity>
-
-                
             </View>
             <View
               style={tw.style('mx-5 items-center px-4 py-3 border border-transparent text-sm font-medium text-white')}
@@ -95,7 +93,6 @@ const Codeconfirm = (props) => {
                 onPress={() => {props.navigation.navigate("watchlist");}}> 
                 <Text style={tw.style('text-sm text-white')}>Return Home</Text>
               </TouchableOpacity>
-
             </View>
            
         </View>

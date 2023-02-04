@@ -212,7 +212,6 @@ const Accountbrandlist = (props) => {
             );
     }
 
-
     return (
          <View style={{flex:1}}>
 
@@ -228,9 +227,6 @@ const Accountbrandlist = (props) => {
                       <Image source={{uri:props?.getBranddetails?.brandImage}} style={tw`h-42 w-42 rounded-full `}/>
                     </View>
                   </TouchableOpacity>
-
-                 
-
                   <Text style={tw`text-3xl text-center text-red-700 font-bold mt-3`}>{props?.getBranddetails?.brandName}</Text>
 
                   <Text style={tw`text-lg text-center text-gray-600 mt-1`}>{props?.getBranddetails?.aboutBrand}</Text>
@@ -259,17 +255,10 @@ const Accountbrandlist = (props) => {
                        }
                    </View>
               </View>
-
               <View style={tw`flex flex-row mx-3`}>
-
                    <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
               </View>
-
-
-
-
                  <View style={{marginTop:'8%',}}>
-
                     <View style={tw.style('mx-2 mb-15')}>
                     <FlatList
                         data={props?.getlistbranddetails || []}
@@ -282,13 +271,7 @@ const Accountbrandlist = (props) => {
                </View>
             <View>
         </View>
-
-
-
                </ScrollView>
-
-               
-
             <Footer3 onSelection="5"  />
         </View>
     )

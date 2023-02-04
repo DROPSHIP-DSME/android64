@@ -147,7 +147,6 @@ const Dashproduct = (props) => {
     },
 
   ];
-
   const renderItem2 = ({ item, index }) => {
     return (
       <View style={tw`mr-[1%]`}>

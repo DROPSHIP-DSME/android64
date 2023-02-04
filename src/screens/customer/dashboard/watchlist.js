@@ -666,8 +666,6 @@ const watchlist = (props) => {
                             />
                         </View>}
 
-                   
-
                     <View style={tw.style('ml-2 mt-6')}>
                         <FlatList
                             data={props?.getwatchlistproduct || []}
