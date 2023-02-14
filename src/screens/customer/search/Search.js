@@ -136,33 +136,20 @@ const data=[{text:"Socks"},{text:"Shirts"},{text:"Red Dress"},{text:"Sunglasses"
 
 
 const renderItem = ({ item ,index }) => {
+    console.log('renderitem',item)
    return(
     <View>
         <TouchableOpacity style={{marginHorizontal:5}} onPress={()=>props.navigation.navigate("NameStore",{productId:item._id,userId:item._id, productQuantity:item.productQuantity})}>
             <Image source={{uri: item.productImage}} style={styles.imgbasket} />
-            <Text style={styles.beautyproduct}>{item.productName}</Text>
-            <Text style={styles.uplivetext}>{item.productName}</Text>
-
-            <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
-                <Text style={styles.shorttest1}>Live</Text>
-            </View>
-            <View style={styl.comingshort1}>
-                <View style={{left:7,top:2}}>
-                    <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
-                </View>
-                <Text style={styles.shorttest}>0K</Text>
-            </View>
-
         </TouchableOpacity>
       <View style={styl.rowdrop}>
         <View>
-        <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+        <Image source={{uri: item.productImage}} style={{width:35,height:35,borderRadius:20}}/>
         </View>
         <View style={{paddingTop:10,paddingLeft:10}}>
         <Text style={styl.txt1}>{item.productName}</Text>
         </View>
         </View>
-        <Text style={[styl.txt2,{paddingLeft:45}]}>{item.productDescription}</Text>
     </View>
   );
 }

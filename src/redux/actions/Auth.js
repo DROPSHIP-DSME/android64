@@ -1293,6 +1293,8 @@ export const getsearchlist = (userId) => {
           if (isInternetConnected) {
               try {
                   let response = await Utilise.apiCalling('POST', `${Api.searchlistdata}`,  request);
+                  //alert('sd')
+                  //console.log('searchlistdata',response);
                   if (response?.status) {
                       dispatch({ type: ALLSEARCH_LIST_DATA, payload: response.data });
                   }
@@ -1362,7 +1364,7 @@ export const searchitems = (search,userId) => {
             try {
                  dispatch({ type: SEARCH_LIST_ITMES, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.searchlistitmes}`,  request);
-               
+                console.log('response',response)
                 if (response?.status) {
                     dispatch({ type: SEARCH_LIST_ITMES, payload: response.data });
                 } else {

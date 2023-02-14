@@ -194,7 +194,6 @@ const ref = React.useRef();
       setfav(s => !s);
       props.managefavorite(productId,props?.loginuserid)
       // setshowotherAlert(true)
-      // setshowalertmsg('Favorites updated successfully!')
   }
 
   const addtofollow = () => {

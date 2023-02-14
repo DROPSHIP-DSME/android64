@@ -94,11 +94,13 @@ const screen3=require(`${assetsRootPath}screen3.png`);
 const stack=require(`${assetsRootPath}stack.png`);
 const tickmark = require(`${assetsRootPath}tickmark.png`);
 const signupcover = require(`${assetsRootPath}signupcover.png`);
+const newicon = require(`${assetsRootPath}newicon.jpeg`);
 
 
 const ImageIcons = {
   righticon,
   logoredagain,
+  newicon,
   tickmark,
   signupcover,
   plusicon,

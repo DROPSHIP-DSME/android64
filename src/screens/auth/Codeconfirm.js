@@ -73,8 +73,8 @@ const Codeconfirm = (props) => {
                 <Text style={tw.style('text-sm text-white opacity-80 text-center')}>Create your won store and start selling and livestreaming your products with us. A quick and easy process.</Text>
             </View>
 
-            <View style={tw.style('mx-0 mt-10')}>
-               <Image source={ImageIcons.signupcover}  style={{ width:'98%', height:300}}/>
+            <View style={tw.style('mx-auto w-11/12 mt-10')}>
+               <Image source={ImageIcons.newicon}  style={tw.style(' w-full rounded-lg')}/>
             </View>
 
             <View

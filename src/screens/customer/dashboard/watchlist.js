@@ -128,10 +128,6 @@ const watchlist = (props) => {
     ]
 
     const images = [
-        /*{
-         image:'https://smartops.co.in/images/brandvideo.mp4',
-         desc: 'Silent Waters in the mountains in midst of Himilayas',
-        },*/
         {
             image: 'https://drp-s3-1.s3.us-east-2.amazonaws.com/GlowBruleeVideo.mp4',
             desc: 'Glow Brulee',
@@ -193,28 +189,7 @@ const watchlist = (props) => {
         if (Platform.OS === 'android') requestMultiplePermisisons();
     }, [props?.loginuserid])       
 
-    // const showalldata = (index) => {
-
-    //     if (index == 0) {
-    //         alert('0')
-    //         props.getAllproduct(1);
-    //         props.getcurrentevent(1);
-    //         props.getwatchlistproduct(props?.loginuserid);
-
-    //     } else if (index == 1) {
-    //         alert('1')
-    //         props.getcurrentevent(1);
-    //     } else if (index == 2) {
-    //         alert('2')
-    //         props.getAllproduct(1);
-    //     } else if (index == 3) {
-    //         alert('3')
-    //         props.getwatchlistproduct(props?.loginuserid);
-    //     } else if (index == 4) {
-    //         alert('list')
-    //         props.getcurrentevent(1);
-    //     }
-    // };
+   
     const [isPress, setIsPess] = React.useState(false);
     const [Data, setData] = React.useState(true);
     const [livestream, setlivestream] = React.useState(false);
@@ -385,31 +360,7 @@ const watchlist = (props) => {
         );
     }
 
-    // const renderItem2 = ({ item, index }) => {
-    //     return (
-    //         <View style={{ marginHorizontal: 3 }}>
-    //             <Image source={{ uri: item.productId.productImage }} style={styles.imgbasket} />
-    //             <Text style={[styles.beautyproduct, { position: 'absolute', top: 210, zIndex: 2001 }]}>{item.productId.productName}</Text>
-    //             <View style={{ flexDirection: 'row', position: 'absolute', top: 5, left: '5%' }}>
-    //                 <View style={{ borderRadius: 50, position: 'absolute', top: 5, left: 5, backgroundColor: '#E22020' }}>
-    //                     <Text style={styles.shorttest1}>Live</Text>
-    //                 </View>
-    //                 <View style={styl.comingshort1}>
-
-    //                 </View>
-    //             </View>
-    //             <View style={styl.rowdrop}>
-    //                 <View>
-    //                     <Image source={ImageIcons.profileimage} style={{ width: 35, height: 35 }} />
-    //                 </View>
-    //                 <View style={{ paddingTop: 10, paddingLeft: 10 }}>
-    //                     <Text style={styl.txt1}>MARTHA STEWART</Text>
-    //                 </View>
-    //             </View>
-    //             <Text style={styl.txt2}></Text>
-    //         </View>
-    //     );
-    // }
+   
     const renderItem2 = ({ item, index }) => {
         return (
             <View style={tw.style('ml-2 mr-2')}>
@@ -427,28 +378,6 @@ const watchlist = (props) => {
         );
     }
 
-    const renderItem6 = ({ item }) => {
-        return (
-            <View>
-                {item.userId.userName == 'Admin' ?
-                    <View>
-                        <View style={styles.chatrightView}>
-                            <Text style={styles.hellotext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                    </View>
-                    :
-                    <View>
-                        <View style={styles.chatlongView}>
-                            <Text style={styles.chattingtext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                    </View>
-
-                }
-            </View>
-        );
-    }
 
     const renderItem3 = ({ item, index }) => {
         return (
