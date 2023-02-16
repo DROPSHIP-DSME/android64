@@ -23,6 +23,8 @@ import Sortorder from '../../../components/pickers/Sortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
 import Loader from '../../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
+import ImageIcons from '../../../common/ImageIcons'
+import Logobase from '../../../components/baseassests/Logobase';
 
 
 const Verificationsteps = (props) => {
@@ -306,6 +308,16 @@ const Verificationsteps = (props) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.registrationRoot}>
 
+         <TouchableOpacity onPress={() => props.navigation.goBack()}>
+                    <View style={styles.leftlogView}>
+                        <Image source={ImageIcons.left} style={styles.droparrow} />
+                    </View>
+                </TouchableOpacity>
+
+                <View style={tw.style('items-center mb-[1%]')}>
+                    <Logobase />
+                </View>
+
 
       <StripeProvider
           publishableKey="pk_test_51KAP7TI5xiyquKWN1EzKcfFoxzcW8zdytVN86qfEPgAVH7JdOWdbN9Q7EamxAnfPWhfEeBbrmZP1LGtt4xAJpKh200yilHKVPa"
@@ -328,12 +340,18 @@ const Verificationsteps = (props) => {
                   previousBtnTextStyle={buttonTextStyle}
                   errors={step1}
                  >
-                  <View style={tw.style('items-center mt-5')}>
+                  <View style={tw.style('items-center mt-0')}>
                   <ScrollView>
-                      <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
-                        <View style={tw.style('mb-2')}>
-                          <Text style={tw.style('text-3xl text-gray-700', {fontFamily:"AvertaStd-Semibold"})}>Create your Brand</Text>
+                    <View>
+                       <View style={tw.style('mb-2')}>
+                          <Text style={tw.style('text-2xl text-gray-700 font-bold', {fontFamily:"AvertaStd-Semibold"})}>Enterprise Details</Text>
                         </View>
+                         <View style={tw.style('mb-2')}>
+                          <Text style={tw.style('text-sm text-gray-700', {fontFamily:"AvertaStd-Semibold"})}>Please provide more information on your brand, and we will get back to you shortly with next steps.</Text>
+                        </View>
+                    </View>
+                      <View style={tw.style('text-gray-700 text-xl items-center mb-6')}>
+                       
 
 
                         { billImgPath !== "" ?

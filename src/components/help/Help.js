@@ -4,6 +4,7 @@ import tw from 'twrnc';
 import ImageIcons from '../../common/ImageIcons'
 import styles from '../../screens/common/styles';
 
+import { QuestionMarkCircleIcon } from "react-native-heroicons/solid";
 
 const Help = ({onPress}) => {
 
@@ -51,9 +52,9 @@ const Help = ({onPress}) => {
                 </View>
             }
 
-          <View style={{ position: 'absolute', zIndex: 2001, right: 25, bottom: 35 }}>
+          <View style={{ position: 'absolute', backgroundColor:'#B80000', padding:10, borderRadius:30, zIndex: 2001, right: 25, bottom: 35 }}>
               <TouchableOpacity onPress={() => sethelppopup(true)}>
-                  <Image source={ImageIcons.exporthelp} style={{ width: 50, height: 50 }} />
+                    <QuestionMarkCircleIcon color="red" fill="#ffffff" size={30} />
               </TouchableOpacity>
           </View>
       </View>

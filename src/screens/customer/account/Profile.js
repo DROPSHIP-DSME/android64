@@ -29,6 +29,7 @@ import moment from 'moment';
 import Help from '../../../components/help/Help';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import CustomAwesomeAlert from '../../../components/modals/AlertModal';
+import ImagePicker from 'react-native-image-crop-picker';
 
 const Profile = (props) => {
 
@@ -43,6 +44,7 @@ const Profile = (props) => {
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
+        const [billImgPath, setBillImgPath] = useState("");
 
     useEffect(() => {
         //alert(props?.loginuserid)
@@ -104,7 +106,35 @@ const Profile = (props) => {
         }
     }
 
-    
+    const selectPhoto = async () => {
+         ImagePicker.openPicker({
+            width: 400,
+            cropping: true,
+            mediaType: 'photo',
+            compressImageQuality: 0.5,
+            height: 400,
+        }).then(image => {
+            if (image?.path) {
+                let fileName = image?.path?.split('/').pop();
+                let mimeType = image?.path?.split('.').pop();
+                let file = {
+                    'uri': image?.path,
+                    'type': `image/${mimeType}`,
+                    'name': fileName
+                }
+               // setFieldValue("couponImage", file);
+                setBillImgPath(file);
+                const formData = new FormData();
+                formData.append("userId", props?.loginuserid);
+                formData.append("profileImage", billImgPath);
+                props.updateprofile(formData, '', '');
+
+            }
+        }).catch((error) => {
+
+        });
+    }
+
     const renderItem6 = ({ item }) => {
         return (
             <View>
@@ -138,15 +168,27 @@ const Profile = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
                 <View style={tw.style('px-6 py-5 items-center')}>
-                    {props?.Brandlistdata && props?.Brandlistdata[0]?.brandImage!="" ?
-                    <Image
-                        style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
-                        source={{uri: props?.Brandlistdata[0]?.brandImage}}
-                    />
-                    :
-                    <View style={tw.style(`mt-8 h-28 w-28 items-center rounded-full border-2 border-gray-400`)}>
-                       <Text style={{fontSize:60,width:50, height:80,marginTop:5,textAlign:'center'}}>{props?.getprofileuserlist?.userName}</Text>
-                    </View>
+                   
+                     { billImgPath !== "" ?
+                        <TouchableOpacity onPress={() => selectPhoto()}>
+                            <Image
+                                style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                                source={{uri: billImgPath.uri }}
+                            />
+                        </TouchableOpacity>
+                     :
+                        <TouchableOpacity onPress={() => selectPhoto()}>
+                            {props?.getprofileuserlist && props?.getprofileuserlist?.profileImage!="" ?
+                                <Image
+                                    style={tw.style(`mt-8 h-28 w-28 rounded-full border-2 border-gray-400`)}
+                                    source={{uri: props?.getprofileuserlist?.profileImage}}
+                                />
+                            :
+                                <View style={tw.style(`mt-8 h-28 w-28 items-center rounded-full border-2 border-gray-400`)}>
+                                   <Text style={{fontSize:60,width:50, height:80,marginTop:5,textAlign:'center'}}>{props?.getprofileuserlist?.userName}</Text>
+                                </View>
+                            }
+                        </TouchableOpacity>
                     }
                     <Text style={tw.style('mt-4 text-xl text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>{props?.getprofileuserlist?.userName}</Text>
                     <Text style={tw.style('text-base text-gray-900 text-center', {fontFamily:"AvertaStd-Semibold"})}>{props?.getprofileuserlist?.email}</Text>

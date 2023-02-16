@@ -11,7 +11,7 @@ import {
     getusercard,
     getsupportlist,
     branddetails,
-    Brandslist } from '../../../redux/actions/Auth'
+    Brandslist,updateprofile } from '../../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -44,7 +44,8 @@ const mapDispatchToProps = {
     Brandslist,
     deleteUseraccount,
     getselldeshboard,
-    getmenucounts
+    getmenucounts,
+    updateprofile
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
