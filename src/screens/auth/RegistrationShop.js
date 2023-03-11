@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
     Text, TextInput, Image, View, TouchableOpacity,
     ImageBackground, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard, Linking
-} from 'react-native';
+} from 'react-native';  
 
 import LinearGradient from 'react-native-linear-gradient';
 import messaging from '@react-native-firebase/messaging';
@@ -28,7 +28,7 @@ import { EyeIcon, EyeOffIcon } from "react-native-heroicons/solid";
 import AwesomeAlert from '../../components/modals/AlertModal';
 import Logobase from '../../components/baseassests/Logobase';
 
-
+   
 const RegistrationShop = (props) => {
 
     const {
