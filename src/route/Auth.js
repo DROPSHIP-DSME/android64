@@ -114,6 +114,7 @@ const Auth = (props) => {
     const [notificationCount, setnotificationCount] = useState(0);
 
     let { brandName } = useSelector(state => state.auth);
+    
     const [brandImage, setbrandImage] = useState('');
 
   useEffect(() => {
