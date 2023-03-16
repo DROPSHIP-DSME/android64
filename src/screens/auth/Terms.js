@@ -362,72 +362,7 @@ const Terms = (props) => {
 
 
     // Registration request submission
-    const handleRegistrationSubmit = () => {
-        Keyboard.dismiss();
-        if (email == "") {
-            setshowotherAlert(true)
-            setshowalertmsg('Email is required')
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-            setshowotherAlert(true)
-            setshowalertmsg('Invalid Email')
-        } else if (username == "") {
-            setshowotherAlert(true)
-            setshowalertmsg('Username is required')
-        } else if (password == "") {
-            setshowotherAlert(true)
-            setshowalertmsg('Password is required')
-        } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
-            setshowotherAlert(true)
-            setshowalertmsg('The password should have at least 8 characters with 1 upper case, 1 lower case, 1 number, and 1 special character(*,%,!,@,&,$,?)')
-        } else if (confirmPassword == "") {
-            setshowotherAlert(true)
-            setshowalertmsg('Confirm Password is required')
-        } else if (confirmPassword != password) {
-            setshowotherAlert(true)
-            setshowalertmsg('Password does not match.')
-        } else if (toggleCheckBox == false) {
-            setshowotherAlert(true)
-            setshowalertmsg('Please accept the Terms & Conditions')
-        } else {
-            Rememberme(email);
-            //props.navigation.navigate("Overview")
-            let request = {
-                "email": email,
-                "userName": username,
-                "phone": phone,
-                "countryCode": '+1',
-                "password": password,
-                "role": "user",
-                "deviceToken": deviceToken,
-                "otheruserid": UserID,
-                "type": "shop"
-
-            }
-            props.shopsignup(request, props.navigation,);
-
-            //create customer strip id
-            const response = fetch(`http://161.35.123.125/api/stripe/customer`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ 'email': email }),
-            })
-                .then(response => response.json())
-                .then((responseJson) => {
-                    console.log('stripe_id', responseJson?.data?.id)
-                    let request = {
-                        "userId": email,
-                        "stripe_id": responseJson?.data?.id,
-                    }
-                    props.updatestripedata(request, props.navigation, 'user', 'shop')
-                }).catch((error) => {
-                    console.log('error', error)
-                })
-
-        }
-    }
+    
 
     const Rememberme = async (email) => {
         await AsyncStorage.setItem('rememberemail', email);

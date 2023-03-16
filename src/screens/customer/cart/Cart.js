@@ -184,8 +184,9 @@ const Cart = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
+                    'x-api-key':'SsxmmujQBeISgQdHrOlv1LHa1RuRjSmyY2etMSDi8OG8anTfmyjqcAI6wvihbjn4DWm9wlSJyxULrVeuTcCsVWaHyzbHzElvm0Se26pEkuIy0wCSIYnsJQ9A3i0ettB4'
                 },
-                body: JSON.stringify({ 'receiptEmail':props.loginCredentials?.email, 'amount':finalAmount, 'stripeCustomerId':props.loginCredentials?.stripe_id }),
+                body: JSON.stringify({ 'receiptEmail':props.loginCredentials?.email, 'amount':finalAmount, 'stripeCustomerId':'cus_NCU6GcR3lpxLtk' }),
              })
             .then(response => response.json())
             .then((responseJson) => {

@@ -29,7 +29,6 @@ import Medbutton from '../../../components/dropshipbutton/Medbutton';
 import Comingsoon from '../../../components/baseassests/Comingsoon';
 
 
-const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 import {
   LineChart,
@@ -146,13 +145,7 @@ const Dashsale = (props) => {
           />
         </View>
 
-        <View style={tw.style('flex flex-row mx-4')}>
-          <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-          <Sortfilter
-            text="Sortfilter"
-          />
-        </View>
+        
 
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-5')}>
           <View style={tw.style('py-6 items-center')}>
@@ -186,7 +179,6 @@ const Dashsale = (props) => {
           <View style={tw.style('py-8 px-3')}>
             <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Selling Product</Text>
-              <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
               <Text style={tw`text-base text-gray-800`}>S/N</Text>
@@ -209,7 +201,6 @@ const Dashsale = (props) => {
           <View style={tw.style('py-8 px-3')}>
             <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Categories</Text>
-              <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
               <Text style={tw`text-base text-gray-800`}>S/N</Text>

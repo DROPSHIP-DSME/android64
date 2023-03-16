@@ -265,11 +265,11 @@ const Dashproduct = (props) => {
           }
         </View>
 
-        <View style={tw.style('flex flex-row mx-4 items-center')}>
+        {/* <View style={tw.style('flex flex-row mx-4 items-center')}>
           <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
         </View>
 
-        {/*
+       
                     <View style={tw.style('flex flex-row m-4 ')}>
                         <Selectall text="Select All" />
                         <Editbutton navigation={props.navigation} page='Dashproduct' />

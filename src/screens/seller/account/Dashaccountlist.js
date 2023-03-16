@@ -23,7 +23,6 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Sortorder from '../../../components/pickers/Sortorder';
-const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 import {
   LineChart,
@@ -173,10 +172,7 @@ const deviceWidth = Dimensions.get('window').width;
             </TouchableOpacity>
             
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-                <View style={styles.pickerViewshorttodayagainsale}>
-                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                </View>
+                
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
                    <Text style={{fontSize:16,fontFamily:'AvertaStd-Regular-Regular',textAlign:'center'}}>FILTERS</Text> 

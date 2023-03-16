@@ -22,7 +22,6 @@ import tw from 'twrnc';
 import Sortorder from '../../../components/pickers/Sortorder';
 import Help from '../../../components/help/Help';
 
-const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 const Accountorderhist = (props) => {
 
@@ -171,17 +170,7 @@ const Accountorderhist = (props) => {
                     <Text style={tw`text-2xl text-gray-700 font-bold`}>Purchase History</Text>
                 </View>
 
-                {/* <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '5%' }}>
-                    <View style={styles.pickerViewshorttodayagain}>
-                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                    </View>
-                    <View style={[styles.pickerViewshorttodayagain, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>
-                        <Image source={ImageIcons.filtertoday} style={{ height: 11, width: 11, marginTop: 5 }} />
-                        <Text style={{ fontSize: 16, fontFamily: 'AvertaStd-Regular-Regular', textAlign: 'center' }}>FILTERS</Text>
-                    </View>
-                </View> */}
-
+                
                 <View>
                     <View style={tw.style('px-3')}>
                       <View style={tw``}>

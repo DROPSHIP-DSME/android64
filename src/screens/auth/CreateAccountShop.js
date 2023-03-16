@@ -131,6 +131,7 @@ const CreateAccountShop = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
+                    'x-api-key':'SsxmmujQBeISgQdHrOlv1LHa1RuRjSmyY2etMSDi8OG8anTfmyjqcAI6wvihbjn4DWm9wlSJyxULrVeuTcCsVWaHyzbHzElvm0Se26pEkuIy0wCSIYnsJQ9A3i0ettB4'
                 },
                 body: JSON.stringify({ 'email': email }),
             })

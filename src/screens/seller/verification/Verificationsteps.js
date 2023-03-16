@@ -209,6 +209,7 @@ const Verificationsteps = (props) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'x-api-key':'SsxmmujQBeISgQdHrOlv1LHa1RuRjSmyY2etMSDi8OG8anTfmyjqcAI6wvihbjn4DWm9wlSJyxULrVeuTcCsVWaHyzbHzElvm0Se26pEkuIy0wCSIYnsJQ9A3i0ettB4'
             },
             body: JSON.stringify({ firstName, lastName, line1, line2, city, email, zipCode, phone, refreshUrl, returnUrl }),
          })
@@ -528,9 +529,9 @@ const Verificationsteps = (props) => {
                         </View>
 
                         <View style={tw.style(`mb-10`)}>
-                           {data!='' &&
+                           
                              <OpenURLButton url={data}>Setup Payouts</OpenURLButton>
-                           }
+                           
                         </View>
                        
                     </View>

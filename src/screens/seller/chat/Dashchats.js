@@ -26,7 +26,6 @@ import Selectall from '../../../components/pickers/Selectall';
 import Editbutton from '../../../components/pickers/Editbutton';
 import Deletebutton from '../../../components/pickers/Deletebutton';
 
-const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 import Modal from 'react-native-modal';
 import tw from 'twrnc';
@@ -157,12 +156,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
                   <View style={tw.style('flex flex-row mx-4')}>
-                    {/* <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} /> */}
-
-                    {/* <Sortfilter
-                      text="Filter"
-                    /> */}
-
+                    
                   </View>
 
                   <View style={tw.style('flex flex-row m-4 ')}>

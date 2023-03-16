@@ -119,7 +119,6 @@ const Accountbrandlist = (props) => {
     const [selectedValue, setSelectedValue] = useState("");
     const [followcountval, setfollowcount] = useState(0);
     const [showclassName, setshowclassName] = useState("#B80000");
-    const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
     const openpopup = () => {
         setVisible(true)
     }
@@ -255,9 +254,7 @@ const Accountbrandlist = (props) => {
                        }
                    </View>
               </View>
-              <View style={tw`flex flex-row mx-3`}>
-                   <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
-              </View>
+              
                  <View style={{marginTop:'8%',}}>
                     <View style={tw.style('mx-2 mb-15')}>
                     <FlatList
